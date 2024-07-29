@@ -1860,7 +1860,7 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFjRKN5kitty18static_tr
   br i1 %exitcond24.not.i.i.i.i, label %_ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %.preheader.i.i.i.i, !llvm.loop !32
 
 _ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %18
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
+  %21 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %15)
   %22 = trunc nuw nsw i64 %21 to i32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   ret i32 %22
@@ -1935,7 +1935,7 @@ define linkonce_odr noundef i32 @_ZNSt17_Function_handlerIFjRKN5kitty18static_tr
   br i1 %exitcond24.not.i.i.i.i, label %_ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE0_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %.preheader.i.i.i.i, !llvm.loop !34
 
 _ZSt10__invoke_rIjRZN3acd21ac_decomposition_impl18find_decompositionERjjEUlRKN5kitty18static_truth_tableILj10EEEE0_JS7_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %18
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
+  %21 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %15)
   %22 = trunc nuw nsw i64 %21 to i32
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %3)
   ret i32 %22

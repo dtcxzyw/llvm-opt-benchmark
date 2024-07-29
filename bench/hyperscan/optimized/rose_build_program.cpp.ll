@@ -21323,9 +21323,9 @@ if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpmask_u8.i) #27
   %reach.i = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load <4 x i64>, ptr %reach.i, align 8
-  %3 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %2), !range !202
+  %3 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %2), !range !202
   %4 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %3)
-  %5 = tail call i64 @llvm.ctpop.i64(i64 %4), !range !202
+  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4), !range !202
   %tobool.not.i.i = icmp ult i64 %5, 2
   br i1 %tobool.not.i.i, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i, label %if.end.i19
 
@@ -21361,9 +21361,9 @@ if.end.i19:                                       ; preds = %_ZN3ue2L14checkReac
   store <2 x i64> %9, ptr %ref.tmp.i, align 16, !alias.scope !496
   %10 = shufflevector <4 x i64> %8, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   store <2 x i64> %10, ptr %__begin0.0.ptr.2.i.i.i.i, align 16, !alias.scope !496
-  %11 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %8), !range !202
+  %11 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %8), !range !202
   %12 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %11)
-  %13 = call i64 @llvm.ctpop.i64(i64 %12), !range !202
+  %13 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12), !range !202
   %tobool.not.i14.i = icmp ult i64 %13, 2
   br i1 %tobool.not.i14.i, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i
 
@@ -21675,9 +21675,9 @@ for.body.i:                                       ; preds = %for.body.i.preheade
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpmask_u8.i71) #27
   %reach.i76 = getelementptr inbounds i8, ptr %__begin2.sroa.0.093.i, i64 8
   %53 = load <4 x i64>, ptr %reach.i76, align 8
-  %54 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %53), !range !202
+  %54 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %53), !range !202
   %55 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %54)
-  %56 = call i64 @llvm.ctpop.i64(i64 %55), !range !202
+  %56 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %55), !range !202
   %tobool.not.i.i71 = icmp ult i64 %56, 2
   br i1 %tobool.not.i.i71, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i98, label %if.end.i72
 
@@ -21712,9 +21712,9 @@ if.end.i72:                                       ; preds = %_ZN3ue2L14checkReac
   store <2 x i64> %60, ptr %ref.tmp.i70, align 16, !alias.scope !505
   %61 = shufflevector <4 x i64> %59, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   store <2 x i64> %61, ptr %__begin0.0.ptr.2.i.i.i.i74, align 16, !alias.scope !505
-  %62 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %59), !range !202
+  %62 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %59), !range !202
   %63 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %62)
-  %64 = call i64 @llvm.ctpop.i64(i64 %63), !range !202
+  %64 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %63), !range !202
   %tobool.not.i14.i76 = icmp ult i64 %64, 2
   br i1 %tobool.not.i14.i76, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i79, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i77
 
@@ -21923,9 +21923,9 @@ for.body.i108:                                    ; preds = %for.body.i108.prehe
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpmask_u8.i97) #27
   %reach.i109 = getelementptr inbounds i8, ptr %__begin1.sroa.0.092.i, i64 8
   %86 = load <4 x i64>, ptr %reach.i109, align 8
-  %87 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %86), !range !202
+  %87 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %86), !range !202
   %88 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %87)
-  %89 = call i64 @llvm.ctpop.i64(i64 %88), !range !202
+  %89 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %88), !range !202
   %tobool.not.i.i161 = icmp ult i64 %89, 2
   br i1 %tobool.not.i.i161, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i188, label %if.end.i162
 
@@ -21960,9 +21960,9 @@ if.end.i162:                                      ; preds = %_ZN3ue2L14checkReac
   store <2 x i64> %93, ptr %ref.tmp.i160, align 16, !alias.scope !511
   %94 = shufflevector <4 x i64> %92, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   store <2 x i64> %94, ptr %__begin0.0.ptr.2.i.i.i.i164, align 16, !alias.scope !511
-  %95 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %92), !range !202
+  %95 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %92), !range !202
   %96 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %95)
-  %97 = call i64 @llvm.ctpop.i64(i64 %96), !range !202
+  %97 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %96), !range !202
   %tobool.not.i14.i166 = icmp ult i64 %97, 2
   br i1 %tobool.not.i14.i166, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i169, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i167
 
@@ -22188,9 +22188,9 @@ for.body.i152:                                    ; preds = %for.body.i152.prehe
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %cmpmask_u8.i142) #27
   %reach.i153 = getelementptr inbounds i8, ptr %__begin1.sroa.0.095.i, i64 8
   %125 = load <4 x i64>, ptr %reach.i153, align 8
-  %126 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %125), !range !202
+  %126 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %125), !range !202
   %127 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %126)
-  %128 = call i64 @llvm.ctpop.i64(i64 %127), !range !202
+  %128 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %127), !range !202
   %tobool.not.i.i251 = icmp ult i64 %128, 2
   br i1 %tobool.not.i.i251, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit.i278, label %if.end.i252
 
@@ -22225,9 +22225,9 @@ if.end.i252:                                      ; preds = %_ZN3ue2L14checkReac
   store <2 x i64> %132, ptr %ref.tmp.i250, align 16, !alias.scope !517
   %133 = shufflevector <4 x i64> %131, <4 x i64> poison, <2 x i32> <i32 2, i32 3>
   store <2 x i64> %133, ptr %__begin0.0.ptr.2.i.i.i.i254, align 16, !alias.scope !517
-  %134 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %131), !range !202
+  %134 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %131), !range !202
   %135 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %134)
-  %136 = call i64 @llvm.ctpop.i64(i64 %135), !range !202
+  %136 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %135), !range !202
   %tobool.not.i14.i256 = icmp ult i64 %136, 2
   br i1 %tobool.not.i14.i256, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.i259, label %_ZN3ue2L14checkReachMaskERKNS_9CharReachERhS3_.exit34.thread.i257
 
@@ -23495,7 +23495,7 @@ call8.i.noexc:                                    ; preds = %_ZNSt3mapIttSt4less
   %reach.i = getelementptr inbounds i8, ptr %__begin1.i.sroa.0.0519, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %cr.i, ptr noundef nonnull align 8 dereferenceable(32) %reach.i, i64 32, i1 false)
   %8 = load <4 x i64>, ptr %cr.i, align 16
-  %9 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %8), !range !202
+  %9 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %8), !range !202
   %10 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %9)
   %cmp.i = icmp ugt i64 %10, 128
   br i1 %cmp.i, label %.noexc, label %if.else.i

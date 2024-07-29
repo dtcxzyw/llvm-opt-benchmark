@@ -8211,7 +8211,7 @@ sw.bb.i.i.i:                                      ; preds = %call2.i.noexc.i.i
   %arrayidx.i.i99.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 32
   %arrayidx.i.i100.i.i.i = getelementptr inbounds i8, ptr %agg.tmp.sroa.0.0.copyload.i.i, i64 40
   %41 = load <4 x i64>, ptr %props.i.i.i.i, align 8
-  %42 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %41), !range !16
+  %42 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %41), !range !16
   %43 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %42)
   %conv.i = trunc i64 %43 to i32
   switch i32 %conv.i, label %if.else11.i [
@@ -8264,7 +8264,7 @@ if.else11.i:                                      ; preds = %sw.bb.i.i.i
 call13.i.noexc:                                   ; preds = %if.else11.i
   %conv14.i = zext i32 %call13.i46 to i64
   %50 = load i64, ptr %props.i.i.i.i, align 8
-  %51 = call i64 @llvm.ctpop.i64(i64 %50), !range !16
+  %51 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50), !range !16
   %cmp5.not.i.i.i = icmp ugt i64 %51, %conv14.i
   br i1 %cmp5.not.i.i.i, label %for.cond6.preheader.i.i.i, label %for.inc13.i.i.i
 
@@ -8327,21 +8327,21 @@ for.body8.i.i.i:                                  ; preds = %for.body8.i.i.prol.
 
 for.inc13.i.i.i:                                  ; preds = %call13.i.noexc
   %56 = load i64, ptr %arrayidx.i.i98.i.i.i, align 8
-  %57 = call i64 @llvm.ctpop.i64(i64 %56), !range !16
+  %57 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %56), !range !16
   %add.1.i.i.i = add nuw nsw i64 %57, %51
   %cmp5.not.1.i.i.i = icmp ugt i64 %add.1.i.i.i, %conv14.i
   br i1 %cmp5.not.1.i.i.i, label %for.cond6.preheader.i.i.i, label %for.inc13.1.i.i.i
 
 for.inc13.1.i.i.i:                                ; preds = %for.inc13.i.i.i
   %58 = load i64, ptr %arrayidx.i.i99.i.i.i, align 8
-  %59 = call i64 @llvm.ctpop.i64(i64 %58), !range !16
+  %59 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %58), !range !16
   %add.2.i.i.i = add nuw nsw i64 %59, %add.1.i.i.i
   %cmp5.not.2.i.i.i = icmp ugt i64 %add.2.i.i.i, %conv14.i
   br i1 %cmp5.not.2.i.i.i, label %for.cond6.preheader.i.i.i, label %for.inc13.2.i.i.i
 
 for.inc13.2.i.i.i:                                ; preds = %for.inc13.1.i.i.i
   %60 = load i64, ptr %arrayidx.i.i100.i.i.i, align 8
-  %61 = call i64 @llvm.ctpop.i64(i64 %60), !range !16
+  %61 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %60), !range !16
   %add.3.i.i.i = add nuw nsw i64 %61, %add.2.i.i.i
   %cmp5.not.3.i.i.i = icmp ugt i64 %add.3.i.i.i, %conv14.i
   br i1 %cmp5.not.3.i.i.i, label %for.cond6.preheader.i.i.i, label %invoke.cont13.i.i
@@ -8364,7 +8364,7 @@ sw.bb4.i.i.i:                                     ; preds = %call2.i.noexc.i.i
   %ref.tmp.i.i.i.i.sroa.0.16.vec.expand = shufflevector <2 x i64> %65, <2 x i64> poison, <4 x i32> <i32 poison, i32 poison, i32 0, i32 1>
   %ref.tmp.i.i.i.i.sroa.0.16.vecblend = shufflevector <4 x i64> %ref.tmp.i.i.i.i.sroa.0.0.vecblend, <4 x i64> %ref.tmp.i.i.i.i.sroa.0.16.vec.expand, <4 x i32> <i32 0, i32 1, i32 6, i32 7>
   %this.val33 = load ptr, ptr %cProps.i, align 8
-  %66 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %ref.tmp.i.i.i.i.sroa.0.16.vecblend), !range !16
+  %66 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %ref.tmp.i.i.i.i.sroa.0.16.vecblend), !range !16
   %67 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %66)
   %conv.i50 = trunc i64 %67 to i32
   switch i32 %conv.i50, label %if.else11.i67 [
@@ -8417,7 +8417,7 @@ if.else11.i67:                                    ; preds = %sw.bb4.i.i.i
 call13.i.noexc126:                                ; preds = %if.else11.i67
   %conv14.i69 = zext i32 %call13.i127 to i64
   %ref.tmp.i.i.i.i.sroa.0.0.vec.extract202 = extractelement <2 x i64> %64, i64 0
-  %74 = call i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.0.vec.extract202), !range !16
+  %74 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.0.vec.extract202), !range !16
   %cmp5.not.i.i.i70 = icmp ugt i64 %74, %conv14.i69
   br i1 %cmp5.not.i.i.i70, label %for.cond6.preheader.i.i.i80, label %for.inc13.i.i.i71
 
@@ -8480,21 +8480,21 @@ for.body8.i.i.i103:                               ; preds = %for.body8.i.i.prol.
 
 for.inc13.i.i.i71:                                ; preds = %call13.i.noexc126
   %ref.tmp.i.i.i.i.sroa.0.8.vec.extract = extractelement <2 x i64> %64, i64 1
-  %79 = call i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.8.vec.extract), !range !16
+  %79 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.8.vec.extract), !range !16
   %add.1.i.i.i72 = add nuw nsw i64 %79, %74
   %cmp5.not.1.i.i.i73 = icmp ugt i64 %add.1.i.i.i72, %conv14.i69
   br i1 %cmp5.not.1.i.i.i73, label %for.cond6.preheader.i.i.i80, label %for.inc13.1.i.i.i74
 
 for.inc13.1.i.i.i74:                              ; preds = %for.inc13.i.i.i71
   %ref.tmp.i.i.i.i.sroa.0.16.vec.extract205 = extractelement <2 x i64> %65, i64 0
-  %80 = call i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.16.vec.extract205), !range !16
+  %80 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.16.vec.extract205), !range !16
   %add.2.i.i.i75 = add nuw nsw i64 %80, %add.1.i.i.i72
   %cmp5.not.2.i.i.i76 = icmp ugt i64 %add.2.i.i.i75, %conv14.i69
   br i1 %cmp5.not.2.i.i.i76, label %for.cond6.preheader.i.i.i80, label %for.inc13.2.i.i.i77
 
 for.inc13.2.i.i.i77:                              ; preds = %for.inc13.1.i.i.i74
   %ref.tmp.i.i.i.i.sroa.0.24.vec.extract = extractelement <2 x i64> %65, i64 1
-  %81 = call i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.24.vec.extract), !range !16
+  %81 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %ref.tmp.i.i.i.i.sroa.0.24.vec.extract), !range !16
   %add.3.i.i.i78 = add nuw nsw i64 %add.2.i.i.i75, %81
   %cmp5.not.3.i.i.i79 = icmp ugt i64 %add.3.i.i.i78, %conv14.i69
   br i1 %cmp5.not.3.i.i.i79, label %for.cond6.preheader.i.i.i80, label %invoke.cont13.i.i

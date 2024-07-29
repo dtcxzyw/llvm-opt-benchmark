@@ -4669,7 +4669,7 @@ return:                                           ; preds = %mi_malloc.exit.thre
 define hidden noalias ptr @mi_new_aligned(i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not.i.i = icmp eq i64 %1, 1
   %sub.i.i.i.i.i.i = add nuw nsw i64 %size, 7
   %div1.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 3
@@ -4773,7 +4773,7 @@ define hidden noalias ptr @mi_malloc_aligned(i64 noundef %size, i64 noundef %ali
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not.i = icmp eq i64 %2, 1
   br i1 %or.cond.not.i, label %if.end.i, label %mi_heap_malloc_aligned.exit
 
@@ -4824,7 +4824,7 @@ mi_heap_malloc_aligned.exit:                      ; preds = %entry, %if.then.i.i
 define hidden noalias ptr @mi_new_aligned_nothrow(i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not.i.i = icmp eq i64 %1, 1
   %sub.i.i.i.i.i.i = add nuw nsw i64 %size, 7
   %div1.i.i.i.i.i.i = lshr i64 %sub.i.i.i.i.i.i, 3
@@ -5023,7 +5023,7 @@ entry:
   br i1 %cmp, label %return, label %lor.rhs
 
 lor.rhs:                                          ; preds = %entry
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp.i = icmp ugt i64 %0, 1
   %cmp3 = icmp slt i64 %size, 0
   %or.cond = or i1 %cmp3, %cmp.i
@@ -5353,7 +5353,7 @@ return:                                           ; preds = %mi_usable_size.exit
 ; Function Attrs: nounwind uwtable
 define hidden noalias ptr @mi_heap_malloc_aligned(ptr noundef %heap, i64 noundef %size, i64 noundef %alignment) local_unnamed_addr #0 {
 entry:
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not = icmp eq i64 %0, 1
   br i1 %or.cond.not, label %if.end, label %return
 
@@ -6401,11 +6401,15 @@ entry:
   %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp.i = icmp ult i64 %0, 2
   %or.cond14 = select i1 %or.cond8.not16, i1 %cmp.i, i1 false
-  br i1 %or.cond14, label %if.end.i.i, label %return
+  br i1 %or.cond14, label %if.end6, label %return
 
-if.end.i.i:                                       ; preds = %entry
+if.end6:                                          ; preds = %entry
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %2 = load ptr, ptr %1, align 8
+  %or.cond.not.i.i = icmp eq i64 %0, 1
+  br i1 %or.cond.not.i.i, label %if.end.i.i, label %mi_malloc_aligned.exit
+
+if.end.i.i:                                       ; preds = %if.end6
   %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
   %cmp.i10.i.i = icmp ult i64 %3, 2
   %cmp5.not.i.i = icmp uge i64 %size, %alignment
@@ -6443,8 +6447,8 @@ if.else.i.i:                                      ; preds = %if.end.i.i
   %call.i.i.i = tail call fastcc noalias ptr @mi_heap_malloc_zero_aligned_at(ptr noundef %2, i64 noundef %size, i64 noundef %alignment, i64 noundef 0, i1 noundef zeroext false)
   br label %mi_malloc_aligned.exit
 
-mi_malloc_aligned.exit:                           ; preds = %if.then.i.i.i.i.i, %if.else.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ]
+mi_malloc_aligned.exit:                           ; preds = %if.end6, %if.then.i.i.i.i.i, %if.else.i.i
+  %retval.0.i.i = phi ptr [ %call.i.i.i, %if.else.i.i ], [ null, %if.end6 ], [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ]
   %cmp8 = icmp eq ptr %retval.0.i.i, null
   %cmp9 = icmp ne i64 %size, 0
   %or.cond = and i1 %cmp9, %cmp8
@@ -6465,7 +6469,7 @@ define hidden noalias ptr @mi_memalign(i64 noundef %alignment, i64 noundef %size
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not.i.i = icmp eq i64 %2, 1
   br i1 %or.cond.not.i.i, label %if.end.i.i, label %mi_malloc_aligned.exit
 
@@ -6518,7 +6522,7 @@ entry:
   %0 = load i64, ptr @mi_os_mem_config.0, align 8
   %1 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %2 = load ptr, ptr %1, align 8
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %0)
   %or.cond.not.i.i.i = icmp eq i64 %3, 1
   br i1 %or.cond.not.i.i.i, label %if.end.i.i.i, label %mi_memalign.exit
 
@@ -6643,7 +6647,7 @@ define hidden noalias ptr @mi_aligned_alloc(i64 noundef %alignment, i64 noundef 
 entry:
   %0 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %1 = load ptr, ptr %0, align 8
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %or.cond.not.i.i = icmp eq i64 %2, 1
   br i1 %or.cond.not.i.i, label %if.end.i.i, label %mi_malloc_aligned.exit
 
@@ -22889,7 +22893,7 @@ _mi_segment_page_start.exit.i:                    ; preds = %if.else.i.i.i, %if.
 if.then7.i:                                       ; preds = %_mi_segment_page_start.exit.i
   %6 = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.i.i = add i64 %spec.store.select, -1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %spec.store.select)
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %spec.store.select)
   %cmp.i.i = icmp ult i64 %7, 2
   %add.i.i = add i64 %sub.i.i, %6
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -23002,7 +23006,7 @@ land.lhs.true.i:                                  ; preds = %_mi_segment_page_st
 if.then7.i51:                                     ; preds = %land.lhs.true.i
   %15 = ptrtoint ptr %add.ptr.i.i.i45 to i64
   %sub.i.i52 = add nsw i64 %page_alignment, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %page_alignment)
+  %16 = tail call range(i64 1, 26) i64 @llvm.ctpop.i64(i64 %page_alignment)
   %cmp.i.i53 = icmp ult i64 %16, 2
   %add.i.i54 = add i64 %sub.i.i52, %15
   br i1 %cmp.i.i53, label %if.then.i.i63, label %if.else.i.i55

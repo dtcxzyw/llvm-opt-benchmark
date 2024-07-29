@@ -1873,7 +1873,7 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp6.i.not = icmp ult i64 %2, 2
   br i1 %cmp6.i.not, label %if.else.i144.i, label %do.end4
 
@@ -2021,7 +2021,7 @@ if.end.i146:                                      ; preds = %land.lhs.true8.i, %
 
 lor.rhs.i150:                                     ; preds = %if.end.i146
   %sub.i153 = add i64 %alignment, -1
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp6.i155.not = icmp ult i64 %12, 2
   br i1 %cmp6.i155.not, label %land.lhs.true.i.i343, label %if.then
 
@@ -2286,7 +2286,7 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp6.i.not = icmp ult i64 %2, 2
   br i1 %cmp6.i.not, label %if.else.i144.i, label %if.then121.i
 
@@ -2439,7 +2439,7 @@ if.end.i146:                                      ; preds = %land.lhs.true8.i, %
 
 lor.rhs.i150:                                     ; preds = %if.end.i146
   %sub.i153 = add i64 %alignment, -1
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp6.i155.not = icmp ult i64 %12, 2
   br i1 %cmp6.i155.not, label %land.lhs.true.i.i343, label %if.then121.i361
 
@@ -3938,7 +3938,7 @@ if.end.i61:                                       ; preds = %entry, %tsd_fetch_i
 
 lor.rhs.i:                                        ; preds = %if.end.i61
   %sub.i = add i64 %alignment, -1
-  %2 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %2 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp6.i.not = icmp ult i64 %2, 2
   br i1 %cmp6.i.not, label %if.else.i144.i, label %do.end4
 
@@ -4080,7 +4080,7 @@ if.end.i146:                                      ; preds = %land.lhs.true8.i, %
 
 lor.rhs.i150:                                     ; preds = %if.end.i146
   %sub.i153 = add i64 %alignment, -1
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %cmp6.i155.not = icmp ult i64 %12, 2
   br i1 %cmp6.i155.not, label %land.lhs.true.i.i343, label %if.then
 
