@@ -17240,7 +17240,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt3__112__hash_tableIcNS_4hashIcEE
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %3
-  %9 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
+  %9 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %7)
   %.not.i = icmp ult i64 %9, 2
   br i1 %.not.i, label %10, label %13
 
@@ -17355,7 +17355,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit53:  ; preds = %34, %36
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %57
-  %61 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %7)
+  %61 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %7)
   %.not.i54 = icmp ugt i64 %61, 1
   %62 = zext i1 %.not.i54 to i64
   br label %63
@@ -17395,7 +17395,7 @@ _ZNSt3__116__constrain_hashB8ne190000Emm.exit53:  ; preds = %34, %36
 
 78:                                               ; preds = %76
   %79 = icmp ugt i64 %74, 2
-  %80 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %74)
+  %80 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %74)
   %.not.i.i.i = icmp ult i64 %80, 2
   %or.cond.i.i = select i1 %79, i1 %.not.i.i.i, i1 false
   %81 = load i64, ptr %48, align 8
@@ -17574,7 +17574,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeIcPvEEEENS_25__b
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
   %.not.i47 = icmp ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
@@ -17766,7 +17766,7 @@ _ZNKSt3__113__string_hashIcNS_9allocatorIcEEEclB8ne190000ERKNS_12basic_stringIcN
   br i1 %.not, label %.critedge, label %23
 
 23:                                               ; preds = %_ZNKSt3__113__string_hashIcNS_9allocatorIcEEEclB8ne190000ERKNS_12basic_stringIcNS_11char_traitsIcEES2_EE.exit
-  %24 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
+  %24 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %22)
   %.not.i = icmp ult i64 %24, 2
   br i1 %.not.i, label %25, label %28
 
@@ -17984,7 +17984,7 @@ _ZNSt3__112__hash_tableINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEE
   br i1 %113, label %114, label %117
 
 114:                                              ; preds = %111
-  %115 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
+  %115 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %22)
   %.not.i55 = icmp ugt i64 %115, 1
   %116 = zext i1 %.not.i55 to i64
   br label %117
@@ -18020,7 +18020,7 @@ _ZNSt3__112__hash_tableINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEE
 
 132:                                              ; preds = %130
   %133 = icmp ugt i64 %128, 2
-  %134 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %128)
+  %134 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %128)
   %.not.i.i.i57 = icmp ult i64 %134, 2
   %or.cond.i.i = select i1 %133, i1 %.not.i.i.i57, i1 false
   %135 = load i64, ptr %102, align 8
@@ -18571,7 +18571,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_12basic_stri
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
   %.not.i47 = icmp ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 
@@ -20937,7 +20937,7 @@ define linkonce_odr hidden void @_ZNSt3__113unordered_setIcNS_4hashIcEENS_8equal
 
 17:                                               ; preds = %15
   %18 = icmp ugt i64 %13, 2
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
   %.not.i.i.i = icmp ult i64 %19, 2
   %or.cond.i.i = select i1 %18, i1 %.not.i.i.i, i1 false
   %20 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21047,7 +21047,7 @@ define linkonce_odr hidden void @_ZNSt3__113unordered_setINS_12basic_stringIcNS_
 
 17:                                               ; preds = %15
   %18 = icmp ugt i64 %13, 2
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
   %.not.i.i.i = icmp ult i64 %19, 2
   %or.cond.i.i = select i1 %18, i1 %.not.i.i.i, i1 false
   %20 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21522,7 +21522,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4args7Matcher5MatchERKNS_1
   br i1 %.not.i.i.i, label %_ZNK4args7Matcher5MatchEc.exit, label %11
 
 11:                                               ; preds = %5
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
   %.not.i.i.i.i = icmp ult i64 %12, 2
   br i1 %.not.i.i.i.i, label %13, label %16
 
@@ -21683,7 +21683,7 @@ _ZNKSt3__113__string_hashIcNS_9allocatorIcEEEclB8ne190000ERKNS_12basic_stringIcN
   br i1 %.not, label %.critedge, label %21
 
 21:                                               ; preds = %_ZNKSt3__113__string_hashIcNS_9allocatorIcEEEclB8ne190000ERKNS_12basic_stringIcNS_11char_traitsIcEES2_EE.exit
-  %22 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %22 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %20)
   %.not.i = icmp ult i64 %22, 2
   br i1 %.not.i, label %23, label %26
 

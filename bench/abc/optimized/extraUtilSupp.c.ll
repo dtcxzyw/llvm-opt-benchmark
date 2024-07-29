@@ -59,7 +59,7 @@ define noalias noundef ptr @Abc_SuppGen(i32 noundef %0, i32 noundef %1) local_un
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %9 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %8)
   %10 = icmp eq i32 %9, %0
   br i1 %10, label %11, label %39
 
@@ -658,7 +658,7 @@ define noalias noundef ptr @Abc_SuppGenPairs2(i32 noundef %0, i32 noundef %1) lo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %9 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %8)
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph

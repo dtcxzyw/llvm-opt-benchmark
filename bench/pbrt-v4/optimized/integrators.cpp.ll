@@ -41285,7 +41285,7 @@ _ZNSt8functionIFvN4pbrt6Point2IiEEEED2Ev.exit:    ; preds = %invoke.cont227, %if
 
 lor.lhs.false:                                    ; preds = %_ZNSt8functionIFvN4pbrt6Point2IiEEEED2Ev.exit
   %cmp232 = icmp slt i32 %185, 64
-  %186 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %add229)
+  %186 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %add229)
   %187 = icmp eq i32 %186, 1
   %or.cond661 = select i1 %cmp232, i1 %187, i1 false
   %188 = and i32 %add229, 63
@@ -45775,7 +45775,7 @@ lpad202.loopexit.split-lp:                        ; preds = %if.end316, %invoke.
 if.else:                                          ; preds = %land.lhs.true, %if.then198
   %86 = load i8, ptr %isSobol, align 1
   %tobool211 = trunc i8 %86 to i1
-  %87 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %add200)
+  %87 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %add200)
   %88 = icmp ne i32 %87, 1
   %or.cond291.not = select i1 %tobool211, i1 %88, i1 false
   br i1 %or.cond291.not, label %if.end240, label %if.else216

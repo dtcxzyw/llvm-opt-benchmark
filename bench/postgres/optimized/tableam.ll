@@ -524,7 +524,7 @@ define dso_local void @table_block_parallelscan_startblock_init(ptr noundef %0, 
   %6 = icmp ugt i32 %5, 4095
   %7 = lshr i32 %5, 11
   %spec.select = select i1 %6, i32 %7, i32 1
-  %8 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %spec.select)
+  %8 = tail call range(i32 0, 22) i32 @llvm.ctpop.i32(i32 %spec.select)
   %9 = icmp ult i32 %8, 2
   %10 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %spec.select, i1 true)
   %11 = xor i32 %10, 31

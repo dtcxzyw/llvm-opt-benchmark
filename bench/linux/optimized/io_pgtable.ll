@@ -630,7 +630,7 @@ default.unreachable:                              ; preds = %265
 define internal i64 @iommu_v1_unmap_pages(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, ptr nocapture readnone %4) #2 align 16 {
   %6 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %2) #12, !srcloc !14
   %7 = shl i64 %3, %6
-  %8 = tail call i64 @llvm.ctpop.i64(i64 %2), !range !34
+  %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2), !range !34
   %9 = icmp eq i64 %8, 1
   br i1 %9, label %10, label %14, !prof !13
 

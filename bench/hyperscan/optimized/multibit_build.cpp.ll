@@ -1062,7 +1062,7 @@ invoke.cont54.i:                                  ; preds = %invoke.cont54.i, %i
   store i32 %add.i, ptr %val46.i, align 8
   %add.ptr.i160.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %.pre126, i64 %indvars.iv.i
   %93 = load i64, ptr %add.ptr.i160.i, align 8
-  %94 = call i64 @llvm.ctpop.i64(i64 %93), !range !13
+  %94 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %93), !range !13
   %conv.i.i = trunc nuw nsw i64 %94 to i32
   %add56.i = add i32 %population.0216.i, %conv.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1108,7 +1108,7 @@ invoke.cont82.i:                                  ; preds = %for.cond.cleanup34.
   store i32 %population66.0227.i, ptr %val78.i, align 8
   %add.ptr.i170.i = getelementptr inbounds %struct.mmbit_sparse_iter, ptr %89, i64 %i67.0228.i
   %99 = load i64, ptr %add.ptr.i170.i, align 8
-  %100 = call i64 @llvm.ctpop.i64(i64 %99), !range !13
+  %100 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %99), !range !13
   %conv.i142.i = trunc nuw nsw i64 %100 to i32
   %add84.i = add i32 %population66.0227.i, %conv.i142.i
   %inc86.i = add nuw i64 %i67.0228.i, 1

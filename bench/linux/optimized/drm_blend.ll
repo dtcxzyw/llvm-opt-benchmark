@@ -90,7 +90,7 @@ define dso_local noundef range(i32 -12, 1) i32 @drm_plane_create_rotation_proper
 
 7:                                                ; preds = %6, %3
   %8 = and i32 %1, 15
-  %9 = tail call i32 @llvm.ctpop.i32(i32 %8), !range !9
+  %9 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %8), !range !9
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %12, label %11, !prof !10
 

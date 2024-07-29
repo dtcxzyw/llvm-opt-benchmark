@@ -618,7 +618,7 @@ define internal i32 @flow_limit_table_len_sysctl(ptr noundef %0, i32 noundef %1,
 
 13:                                               ; preds = %5
   %14 = load i32, ptr %7, align 4
-  %15 = tail call i32 @llvm.ctpop.i32(i32 %14), !range !17
+  %15 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !17
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %18, label %17
 

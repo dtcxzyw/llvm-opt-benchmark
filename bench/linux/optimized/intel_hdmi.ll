@@ -1203,7 +1203,7 @@ define dso_local zeroext i1 @intel_hdmi_compute_has_hdmi_sink(ptr nocapture noun
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call i32 @llvm.ctpop.i32(i32 %23), !range !42
+  %26 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %23), !range !42
   %27 = icmp ult i32 %26, 2
   br label %28
 

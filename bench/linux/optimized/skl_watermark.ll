@@ -247,7 +247,7 @@ define dso_local void @intel_sagv_pre_plane_update(ptr noundef %0) local_unnamed
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %47, i64 105
   %54 = load i8, ptr %53, align 1
-  %55 = tail call i8 @llvm.ctpop.i8(i8 %54), !range !15
+  %55 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %54), !range !15
   %56 = icmp ult i8 %55, 2
   br i1 %56, label %57, label %61
 
@@ -350,7 +350,7 @@ define dso_local void @intel_sagv_post_plane_update(ptr noundef %0) local_unname
 52:                                               ; preds = %49
   %53 = getelementptr inbounds i8, ptr %47, i64 105
   %54 = load i8, ptr %53, align 1
-  %55 = tail call i8 @llvm.ctpop.i8(i8 %54), !range !15
+  %55 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %54), !range !15
   %56 = icmp ult i8 %55, 2
   br i1 %56, label %57, label %103
 
@@ -447,7 +447,7 @@ define dso_local zeroext i1 @intel_can_enable_sagv(ptr nocapture noundef readonl
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %1, i64 105
   %8 = load i8, ptr %7, align 1
-  %9 = tail call i8 @llvm.ctpop.i8(i8 %8), !range !15
+  %9 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %8), !range !15
   %10 = icmp ult i8 %9, 2
   br i1 %10, label %11, label %15
 
@@ -5410,7 +5410,7 @@ mbus_ddb_offset.exit:                             ; preds = %629, %662, %665
 
 1564:                                             ; preds = %1560
   %1565 = load i8, ptr %1554, align 1
-  %1566 = call i8 @llvm.ctpop.i8(i8 %1565), !range !15
+  %1566 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1565), !range !15
   %1567 = icmp ult i8 %1566, 2
   br i1 %1567, label %.thread165, label %.thread165.thread
 
@@ -5425,13 +5425,13 @@ mbus_ddb_offset.exit:                             ; preds = %629, %662, %665
   %1573 = load i8, ptr %1572, align 8
   %1574 = icmp eq i8 %1573, 0
   %1575 = load i8, ptr %1551, align 1
-  %1576 = call i8 @llvm.ctpop.i8(i8 %1575), !range !15
+  %1576 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1575), !range !15
   %1577 = icmp ult i8 %1576, 2
   br i1 %1577, label %1584, label %._crit_edge
 
 .thread165.thread:                                ; preds = %1564
   %1578 = load i8, ptr %1551, align 1
-  %1579 = call i8 @llvm.ctpop.i8(i8 %1578), !range !15
+  %1579 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %1578), !range !15
   %1580 = icmp ult i8 %1579, 2
   br i1 %1580, label %.thread165.thread._crit_edge, label %._crit_edge.thread
 

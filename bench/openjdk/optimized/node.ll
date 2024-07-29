@@ -263,7 +263,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %37,
 
 39:                                               ; preds = %17
   %40 = add i32 %13, 1
-  %41 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %40)
+  %41 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %40)
   %or.cond.i.i.i.i = icmp eq i32 %41, 1
   %42 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %40, i1 true)
   %43 = sub nuw nsw i32 32, %42
@@ -358,7 +358,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %38,
 
 40:                                               ; preds = %18
   %41 = add i32 %14, 1
-  %42 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
+  %42 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %41)
   %or.cond.i.i.i.i = icmp eq i32 %42, 1
   %43 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
   %44 = sub nuw nsw i32 32, %43
@@ -444,7 +444,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i13: ; preds = %8
 
 90:                                               ; preds = %68
   %91 = add i32 %64, 1
-  %92 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %91)
+  %92 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %91)
   %or.cond.i.i.i.i10 = icmp eq i32 %92, 1
   %93 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %91, i1 true)
   %94 = sub nuw nsw i32 32, %93
@@ -539,7 +539,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %39,
 
 41:                                               ; preds = %19
   %42 = add i32 %15, 1
-  %43 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %42)
+  %43 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %42)
   %or.cond.i.i.i.i = icmp eq i32 %43, 1
   %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %42, i1 true)
   %45 = sub nuw nsw i32 32, %44
@@ -625,7 +625,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i18: ; preds = %8
 
 91:                                               ; preds = %69
   %92 = add i32 %65, 1
-  %93 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %92)
+  %93 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %92)
   %or.cond.i.i.i.i15 = icmp eq i32 %93, 1
   %94 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %92, i1 true)
   %95 = sub nuw nsw i32 32, %94
@@ -711,7 +711,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i25: ; preds = %1
 
 141:                                              ; preds = %119
   %142 = add i32 %115, 1
-  %143 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %142)
+  %143 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %142)
   %or.cond.i.i.i.i22 = icmp eq i32 %143, 1
   %144 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %142, i1 true)
   %145 = sub nuw nsw i32 32, %144
@@ -806,7 +806,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %40,
 
 42:                                               ; preds = %20
   %43 = add i32 %16, 1
-  %44 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %43)
+  %44 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %43)
   %or.cond.i.i.i.i = icmp eq i32 %44, 1
   %45 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %43, i1 true)
   %46 = sub nuw nsw i32 32, %45
@@ -892,7 +892,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i23: ; preds = %9
 
 92:                                               ; preds = %70
   %93 = add i32 %66, 1
-  %94 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %93)
+  %94 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %93)
   %or.cond.i.i.i.i20 = icmp eq i32 %94, 1
   %95 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %93, i1 true)
   %96 = sub nuw nsw i32 32, %95
@@ -978,7 +978,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i30: ; preds = %1
 
 142:                                              ; preds = %120
   %143 = add i32 %116, 1
-  %144 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %143)
+  %144 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %143)
   %or.cond.i.i.i.i27 = icmp eq i32 %144, 1
   %145 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %143, i1 true)
   %146 = sub nuw nsw i32 32, %145
@@ -1064,7 +1064,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i37: ; preds = %1
 
 192:                                              ; preds = %170
   %193 = add i32 %166, 1
-  %194 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %193)
+  %194 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %193)
   %or.cond.i.i.i.i34 = icmp eq i32 %194, 1
   %195 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %193, i1 true)
   %196 = sub nuw nsw i32 32, %195
@@ -1159,7 +1159,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %41,
 
 43:                                               ; preds = %21
   %44 = add i32 %17, 1
-  %45 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %44)
+  %45 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %44)
   %or.cond.i.i.i.i = icmp eq i32 %45, 1
   %46 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %44, i1 true)
   %47 = sub nuw nsw i32 32, %46
@@ -1245,7 +1245,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i28: ; preds = %9
 
 93:                                               ; preds = %71
   %94 = add i32 %67, 1
-  %95 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %94)
+  %95 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %94)
   %or.cond.i.i.i.i25 = icmp eq i32 %95, 1
   %96 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %94, i1 true)
   %97 = sub nuw nsw i32 32, %96
@@ -1331,7 +1331,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i35: ; preds = %1
 
 143:                                              ; preds = %121
   %144 = add i32 %117, 1
-  %145 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %144)
+  %145 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %144)
   %or.cond.i.i.i.i32 = icmp eq i32 %145, 1
   %146 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %144, i1 true)
   %147 = sub nuw nsw i32 32, %146
@@ -1417,7 +1417,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i42: ; preds = %1
 
 193:                                              ; preds = %171
   %194 = add i32 %167, 1
-  %195 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %194)
+  %195 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %194)
   %or.cond.i.i.i.i39 = icmp eq i32 %195, 1
   %196 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %194, i1 true)
   %197 = sub nuw nsw i32 32, %196
@@ -1503,7 +1503,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i49: ; preds = %2
 
 243:                                              ; preds = %221
   %244 = add i32 %217, 1
-  %245 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %244)
+  %245 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %244)
   %or.cond.i.i.i.i46 = icmp eq i32 %245, 1
   %246 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %244, i1 true)
   %247 = sub nuw nsw i32 32, %246
@@ -1598,7 +1598,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %42,
 
 44:                                               ; preds = %22
   %45 = add i32 %18, 1
-  %46 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45)
+  %46 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %45)
   %or.cond.i.i.i.i = icmp eq i32 %46, 1
   %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %45, i1 true)
   %48 = sub nuw nsw i32 32, %47
@@ -1684,7 +1684,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i33: ; preds = %9
 
 94:                                               ; preds = %72
   %95 = add i32 %68, 1
-  %96 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %95)
+  %96 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %95)
   %or.cond.i.i.i.i30 = icmp eq i32 %96, 1
   %97 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %95, i1 true)
   %98 = sub nuw nsw i32 32, %97
@@ -1770,7 +1770,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i40: ; preds = %1
 
 144:                                              ; preds = %122
   %145 = add i32 %118, 1
-  %146 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %145)
+  %146 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %145)
   %or.cond.i.i.i.i37 = icmp eq i32 %146, 1
   %147 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %145, i1 true)
   %148 = sub nuw nsw i32 32, %147
@@ -1856,7 +1856,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i47: ; preds = %1
 
 194:                                              ; preds = %172
   %195 = add i32 %168, 1
-  %196 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %195)
+  %196 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %195)
   %or.cond.i.i.i.i44 = icmp eq i32 %196, 1
   %197 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %195, i1 true)
   %198 = sub nuw nsw i32 32, %197
@@ -1942,7 +1942,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i54: ; preds = %2
 
 244:                                              ; preds = %222
   %245 = add i32 %218, 1
-  %246 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %245)
+  %246 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %245)
   %or.cond.i.i.i.i51 = icmp eq i32 %246, 1
   %247 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %245, i1 true)
   %248 = sub nuw nsw i32 32, %247
@@ -2028,7 +2028,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i61: ; preds = %2
 
 294:                                              ; preds = %272
   %295 = add i32 %268, 1
-  %296 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %295)
+  %296 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %295)
   %or.cond.i.i.i.i58 = icmp eq i32 %296, 1
   %297 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %295, i1 true)
   %298 = sub nuw nsw i32 32, %297
@@ -2123,7 +2123,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %43,
 
 45:                                               ; preds = %23
   %46 = add i32 %19, 1
-  %47 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %46)
+  %47 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %46)
   %or.cond.i.i.i.i = icmp eq i32 %47, 1
   %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
   %49 = sub nuw nsw i32 32, %48
@@ -2209,7 +2209,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i38: ; preds = %9
 
 95:                                               ; preds = %73
   %96 = add i32 %69, 1
-  %97 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %96)
+  %97 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %96)
   %or.cond.i.i.i.i35 = icmp eq i32 %97, 1
   %98 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %96, i1 true)
   %99 = sub nuw nsw i32 32, %98
@@ -2295,7 +2295,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i45: ; preds = %1
 
 145:                                              ; preds = %123
   %146 = add i32 %119, 1
-  %147 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %146)
+  %147 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %146)
   %or.cond.i.i.i.i42 = icmp eq i32 %147, 1
   %148 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %146, i1 true)
   %149 = sub nuw nsw i32 32, %148
@@ -2381,7 +2381,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i52: ; preds = %1
 
 195:                                              ; preds = %173
   %196 = add i32 %169, 1
-  %197 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %196)
+  %197 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %196)
   %or.cond.i.i.i.i49 = icmp eq i32 %197, 1
   %198 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %196, i1 true)
   %199 = sub nuw nsw i32 32, %198
@@ -2467,7 +2467,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i59: ; preds = %2
 
 245:                                              ; preds = %223
   %246 = add i32 %219, 1
-  %247 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %246)
+  %247 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %246)
   %or.cond.i.i.i.i56 = icmp eq i32 %247, 1
   %248 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %246, i1 true)
   %249 = sub nuw nsw i32 32, %248
@@ -2553,7 +2553,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i66: ; preds = %2
 
 295:                                              ; preds = %273
   %296 = add i32 %269, 1
-  %297 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %296)
+  %297 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %296)
   %or.cond.i.i.i.i63 = icmp eq i32 %297, 1
   %298 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %296, i1 true)
   %299 = sub nuw nsw i32 32, %298
@@ -2639,7 +2639,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i73: ; preds = %3
 
 345:                                              ; preds = %323
   %346 = add i32 %319, 1
-  %347 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %346)
+  %347 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %346)
   %or.cond.i.i.i.i70 = icmp eq i32 %347, 1
   %348 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %346, i1 true)
   %349 = sub nuw nsw i32 32, %348
@@ -2816,7 +2816,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %84,
 
 86:                                               ; preds = %65
   %87 = add i32 %61, 1
-  %88 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %87)
+  %88 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %87)
   %or.cond.i.i.i.i = icmp eq i32 %88, 1
   %89 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %87, i1 true)
   %90 = sub nuw nsw i32 32, %89
@@ -3749,7 +3749,7 @@ _ZNK9VectorSet4testEj.exit:                       ; preds = %2
 
 32:                                               ; preds = %24
   %33 = add nuw i32 %25, 1
-  %34 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %33)
+  %34 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %33)
   %or.cond.i.i.i.i = icmp eq i32 %34, 1
   %35 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %33, i1 true)
   %36 = sub nuw nsw i32 32, %35
@@ -3907,7 +3907,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %56,
 
 58:                                               ; preds = %36
   %59 = add i32 %32, 1
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
+  %60 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %59)
   %or.cond.i.i.i.i = icmp eq i32 %60, 1
   %61 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %62 = sub nuw nsw i32 32, %61
@@ -3985,7 +3985,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %22, %24
 
 27:                                               ; preds = %2
   %28 = add i32 %1, 1
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
+  %29 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %28)
   %or.cond.i.i = icmp eq i32 %29, 1
   %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %31 = sub nuw nsw i32 32, %30
@@ -4059,7 +4059,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit: ; preds = %22, %24
 
 27:                                               ; preds = %2
   %28 = add i32 %1, 1
-  %29 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28)
+  %29 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %28)
   %or.cond.i.i = icmp eq i32 %29, 1
   %30 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %28, i1 true)
   %31 = sub nuw nsw i32 32, %30
@@ -4198,7 +4198,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %42, %
   %46 = phi ptr [ %10, %.thread ], [ %.pre, %._crit_edge16 ]
   %47 = phi ptr [ %21, %.thread ], [ %30, %._crit_edge16 ]
   %48 = add i32 %6, 2
-  %49 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %48)
+  %49 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %48)
   %or.cond.i.i.i = icmp eq i32 %49, 1
   %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %51 = sub nuw nsw i32 32, %50
@@ -4330,7 +4330,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %113
 
 115:                                              ; preds = %93
   %116 = add i32 %89, 1
-  %117 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %116)
+  %117 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %116)
   %or.cond.i.i.i.i = icmp eq i32 %117, 1
   %118 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %116, i1 true)
   %119 = sub nuw nsw i32 32, %118
@@ -4434,7 +4434,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %41, %
 44:                                               ; preds = %21
   %45 = add nuw i32 %2, 1
   %46 = add i32 %45, %12
-  %47 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %46)
+  %47 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %46)
   %or.cond.i.i.i = icmp eq i32 %47, 1
   %48 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %46, i1 true)
   %49 = sub nuw nsw i32 32, %48
@@ -4598,7 +4598,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %131
 
 133:                                              ; preds = %112
   %134 = add i32 %109, 1
-  %135 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %134)
+  %135 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %134)
   %or.cond.i.i.i.i = icmp eq i32 %135, 1
   %136 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %134, i1 true)
   %137 = sub nuw nsw i32 32, %136
@@ -4956,7 +4956,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %56,
 
 58:                                               ; preds = %36
   %59 = add i32 %32, 1
-  %60 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %59)
+  %60 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %59)
   %or.cond.i.i.i.i = icmp eq i32 %60, 1
   %61 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
   %62 = sub nuw nsw i32 32, %61
@@ -5334,7 +5334,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %110
 
 112:                                              ; preds = %90
   %113 = add i32 %86, 1
-  %114 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %113)
+  %114 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %113)
   %or.cond.i.i.i.i = icmp eq i32 %114, 1
   %115 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %113, i1 true)
   %116 = sub nuw nsw i32 32, %115
@@ -5990,7 +5990,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i: ; preds = %42, %
   %46 = phi ptr [ %10, %.thread ], [ %.pre, %._crit_edge19 ]
   %47 = phi ptr [ %21, %.thread ], [ %30, %._crit_edge19 ]
   %48 = add i32 %6, 2
-  %49 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %48)
+  %49 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %48)
   %or.cond.i.i.i = icmp eq i32 %49, 1
   %50 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %48, i1 true)
   %51 = sub nuw nsw i32 32, %50
@@ -6098,7 +6098,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i: ; preds = %109
 
 111:                                              ; preds = %89
   %112 = add i32 %85, 1
-  %113 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %112)
+  %113 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %112)
   %or.cond.i.i.i.i = icmp eq i32 %113, 1
   %114 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %112, i1 true)
   %115 = sub nuw nsw i32 32, %114
@@ -6701,7 +6701,7 @@ _ZN9Node_List6removeEj.exit:                      ; preds = %112, %_ZN4Copy23con
   br i1 %.not.i.i, label %_ZN9Node_List4pushEP4Node.exit, label %150
 
 150:                                              ; preds = %._crit_edge
-  %151 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %148)
+  %151 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %148)
   %or.cond.i.i.i.i.i = icmp eq i32 %151, 1
   %152 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %148, i1 true)
   %153 = sub nuw nsw i32 32, %152
@@ -6900,7 +6900,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %64, %55
   br i1 %.not.i.i94.i, label %_ZN9Node_List4pushEP4Node.exit97.i, label %84
 
 84:                                               ; preds = %83
-  %85 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.sroa.47.0203.i)
+  %85 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.sroa.47.0203.i)
   %or.cond.i.i.i.i.i95.i = icmp eq i32 %85, 1
   %86 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %.sroa.47.0203.i, i1 true)
   %87 = sub nuw nsw i32 32, %86
@@ -7029,7 +7029,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i.i: ; preds = 
 
 156:                                              ; preds = %135
   %157 = add i32 %132, 1
-  %158 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %157)
+  %158 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %157)
   %or.cond.i.i.i.i.i100.i = icmp eq i32 %158, 1
   %159 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %157, i1 true)
   %160 = sub nuw nsw i32 32, %159
@@ -7060,7 +7060,7 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj
   br i1 %.not.i.i102.i, label %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i, label %173
 
 173:                                              ; preds = %_ZN4Node7set_reqEjPS_.exit.i
-  %174 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %172)
+  %174 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %172)
   %or.cond.i.i.i.i.i103.i = icmp eq i32 %174, 1
   %175 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %172, i1 true)
   %176 = sub nuw nsw i32 32, %175
@@ -7109,7 +7109,7 @@ _ZN4Node7set_reqEjPS_.exit.i:                     ; preds = %_ZN4Node8out_growEj
   br i1 %.not.i.i106.i, label %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i, label %199
 
 199:                                              ; preds = %197
-  %200 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %198)
+  %200 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %198)
   %or.cond.i.i.i.i.i107.i = icmp eq i32 %200, 1
   %201 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %198, i1 true)
   %202 = sub nuw nsw i32 32, %201
@@ -7227,7 +7227,7 @@ _ZN5Arena7AmallocEmN17AllocFailStrategy13AllocFailEnumE.exit.i.i.i119.i: ; preds
 
 267:                                              ; preds = %246
   %268 = add i32 %243, 1
-  %269 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %268)
+  %269 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %268)
   %or.cond.i.i.i.i.i116.i = icmp eq i32 %269, 1
   %270 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %268, i1 true)
   %271 = sub nuw nsw i32 32, %270
@@ -7291,7 +7291,7 @@ _ZN4Node7set_reqEjPS_.exit121.i:                  ; preds = %284, %283, %_ZN4Nod
   br i1 %.not.i.i122.i, label %_ZN16Unique_Node_List4pushEP4Node.exit.sink.split.i, label %298
 
 298:                                              ; preds = %296
-  %299 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %297)
+  %299 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %297)
   %or.cond.i.i.i.i.i123.i = icmp eq i32 %299, 1
   %300 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %297, i1 true)
   %301 = sub nuw nsw i32 32, %300
@@ -7348,7 +7348,7 @@ _ZN9VectorSet8test_setEj.exit.i.i:                ; preds = %319, %312
   br i1 %.not.i.i.i.i, label %_ZN9Node_List4pushEP4Node.exit.i.i, label %335
 
 335:                                              ; preds = %329
-  %336 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %332)
+  %336 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %332)
   %or.cond.i.i.i.i.i.i.i = icmp eq i32 %336, 1
   %337 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %332, i1 true)
   %338 = sub nuw nsw i32 32, %337
@@ -7472,7 +7472,7 @@ _ZN11PhaseValues8set_typeEPK4NodePK4Type.exit.i:  ; preds = %370, %361
   br i1 %.not.i.i129.i, label %_ZN9Node_List4pushEP4Node.exit132.i, label %396
 
 396:                                              ; preds = %394
-  %397 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %395)
+  %397 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %395)
   %or.cond.i.i.i.i.i130.i = icmp eq i32 %397, 1
   %398 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %395, i1 true)
   %399 = sub nuw nsw i32 32, %398
@@ -7950,7 +7950,7 @@ define hidden void @_ZN10Node_Array4growEj(ptr nocapture noundef nonnull align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = add i32 %1, 1
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %5)
+  %6 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %5)
   %or.cond.i.i = icmp eq i32 %6, 1
   %7 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %5, i1 true)
   %8 = sub nuw nsw i32 32, %7
@@ -7990,7 +7990,7 @@ define hidden void @_ZN10Node_Array6insertEjP4Node(ptr nocapture noundef nonnull
 
 12:                                               ; preds = %3
   %13 = add i32 %7, 1
-  %14 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %13)
+  %14 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %13)
   %or.cond.i.i.i = icmp eq i32 %14, 1
   %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %13, i1 true)
   %16 = sub nuw nsw i32 32, %15
@@ -8571,7 +8571,7 @@ _ZN9VectorSet6removeEj.exit:                      ; preds = %_ZNK9VectorSet4test
 
 44:                                               ; preds = %_ZN9VectorSet6removeEj.exit
   %45 = add nuw i32 %.011, 1
-  %46 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45)
+  %46 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %45)
   %or.cond.i.i.i.i = icmp eq i32 %46, 1
   %47 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %45, i1 true)
   %48 = sub nuw nsw i32 32, %47

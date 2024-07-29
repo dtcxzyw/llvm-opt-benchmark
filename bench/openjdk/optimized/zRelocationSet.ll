@@ -953,7 +953,7 @@ define linkonce_odr hidden noundef ptr @_ZN11ZForwarding5allocEP20ZForwardingAll
   %4 = getelementptr inbounds i8, ptr %1, i64 44
   %5 = load volatile i32, ptr %4, align 4
   %6 = shl i32 %5, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %7 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %6)
   %or.cond.i.i = icmp eq i32 %7, 1
   %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %9 = sub nuw nsw i32 32, %8

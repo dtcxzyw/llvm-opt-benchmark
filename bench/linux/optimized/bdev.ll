@@ -322,7 +322,7 @@ declare dso_local i32 @invalidate_inode_pages2_range(ptr noundef, i64 noundef, i
 define dso_local noundef range(i32 -22, 1) i32 @set_blocksize(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = add i32 %1, -512
   %4 = icmp ult i32 %3, 3585
-  %5 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !17
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !17
   %6 = icmp eq i32 %5, 1
   %7 = select i1 %4, i1 %6, i1 false
   br i1 %7, label %8, label %60

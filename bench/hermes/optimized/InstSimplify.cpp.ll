@@ -230,7 +230,7 @@ if.then28.i.i:                                    ; preds = %sw.bb.i.i
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.end30.i.i:                                     ; preds = %sw.bb.i.i
-  %25 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %leftTy.sroa.0.0.extract.trunc.i.i)
+  %25 = call range(i16 1, 7) i16 @llvm.ctpop.i16(i16 %leftTy.sroa.0.0.extract.trunc.i.i)
   %cmp.i39.i.i = icmp eq i16 %25, 1
   %or.cond112.i.i = select i1 %17, i1 %cmp.i39.i.i, i1 false
   %cmp.i40.i.i = icmp eq i16 %rightTy.sroa.0.0.extract.trunc.i.i, %leftTy.sroa.0.0.extract.trunc.i.i
@@ -253,7 +253,7 @@ if.then39.i.i:                                    ; preds = %sw.bb37.i.i
   br label %_ZN12_GLOBAL__N_113simplifyBinOpEPN6hermes18BinaryOperatorInstE.exit.i
 
 if.end41.i.i:                                     ; preds = %sw.bb37.i.i
-  %27 = call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %leftTy.sroa.0.0.extract.trunc.i.i)
+  %27 = call range(i16 1, 7) i16 @llvm.ctpop.i16(i16 %leftTy.sroa.0.0.extract.trunc.i.i)
   %cmp.i44.i.i = icmp eq i16 %27, 1
   %or.cond113.i.i = select i1 %17, i1 %cmp.i44.i.i, i1 false
   %cmp.i46.i.i = icmp eq i16 %rightTy.sroa.0.0.extract.trunc.i.i, %leftTy.sroa.0.0.extract.trunc.i.i

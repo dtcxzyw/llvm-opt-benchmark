@@ -19265,7 +19265,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19323,7 +19323,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19381,7 +19381,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19439,7 +19439,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19497,7 +19497,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19555,7 +19555,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19613,7 +19613,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19671,7 +19671,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19729,7 +19729,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19787,7 +19787,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19845,7 +19845,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19903,7 +19903,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -19961,7 +19961,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -20019,7 +20019,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -20077,7 +20077,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 
@@ -20135,7 +20135,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 10:                                               ; preds = %3
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %13, label %27
 

@@ -299,7 +299,7 @@ invoke.cont:
   store i64 %sizeLimit, ptr %sizeLimit_, align 8, !tbaa !43
   %maxAlign_ = getelementptr inbounds i8, ptr %this, i64 88
   store i64 %maxAlign, ptr %maxAlign_, align 8, !tbaa !42
-  %0 = tail call i64 @llvm.ctpop.i64(i64 %maxAlign), !range !44
+  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %maxAlign), !range !44
   %tobool.not = icmp ugt i64 %0, 1
   %cmp = icmp ugt i64 %maxAlign, 16
   %or.cond = or i1 %cmp, %tobool.not

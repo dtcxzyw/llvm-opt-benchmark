@@ -59,7 +59,7 @@ define dso_local noundef ptr @dma_pool_create(ptr noundef %0, ptr noundef %1, i6
   br i1 %8, label %12, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i64 @llvm.ctpop.i64(i64 %3), !range !5
+  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %3), !range !5
   %11 = icmp ult i64 %10, 2
   br i1 %11, label %12, label %61
 
@@ -81,7 +81,7 @@ define dso_local noundef ptr @dma_pool_create(ptr noundef %0, ptr noundef %1, i6
 
 24:                                               ; preds = %16
   %25 = icmp ule i64 %21, %4
-  %26 = tail call i64 @llvm.ctpop.i64(i64 %4), !range !5
+  %26 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %4), !range !5
   %27 = icmp ult i64 %26, 2
   %28 = select i1 %25, i1 %27, i1 false
   br i1 %28, label %29, label %61

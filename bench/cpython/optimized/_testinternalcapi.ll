@@ -1355,7 +1355,7 @@ entry:
   br i1 %cmp.not.i, label %do.body1, label %check_popcount.exit.thread
 
 check_popcount.exit.thread:                       ; preds = %entry
-  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %u.i.0.u.i.0.u.i.0.u.0.u.0.u.0..i)
+  %0 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %u.i.0.u.i.0.u.i.0.u.0.u.0.u.0..i)
   %1 = load ptr, ptr @PyExc_AssertionError, align 8
   %call1.i = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %1, ptr noundef nonnull @.str.62, i64 noundef 0, i32 noundef %0, i32 noundef 0) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %u.i)

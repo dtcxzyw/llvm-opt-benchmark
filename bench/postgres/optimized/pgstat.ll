@@ -1481,7 +1481,7 @@ define internal fastcc noundef ptr @pgstat_snapshot_insert(ptr nocapture noundef
   %44 = shl i64 %38, 1
   %45 = load ptr, ptr %31, align 8
   %46 = tail call i64 @llvm.umax.i64(i64 %44, i64 2)
-  %47 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %46)
+  %47 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %46)
   %48 = icmp ult i64 %47, 2
   %49 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %46, i1 true)
   %50 = sub nuw nsw i64 64, %49
@@ -1503,7 +1503,7 @@ pgstat_snapshot_compute_size.exit.i.i:            ; preds = %43
   %57 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i, i64 noundef %52, i32 noundef 5) #17
   store ptr %57, ptr %31, align 8
   %58 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i, i64 2)
-  %59 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %58)
+  %59 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %58)
   %60 = icmp ult i64 %59, 2
   %61 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %58, i1 true)
   %62 = sub nuw nsw i64 64, %61

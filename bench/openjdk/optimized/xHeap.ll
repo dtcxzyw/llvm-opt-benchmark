@@ -369,7 +369,7 @@ define hidden noundef zeroext i1 @_ZNK5XHeap5is_inEm(ptr nocapture noundef nonnu
   %3 = load i64, ptr @XAddressOffsetMask, align 8
   %4 = xor i64 %3, -1
   %5 = and i64 %4, %1
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
+  %6 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %5)
   %or.cond.i = icmp eq i64 %6, 1
   br i1 %or.cond.i, label %_ZN8XAddress5is_inEm.exit, label %_ZNK5XPage5is_inEm.exit
 

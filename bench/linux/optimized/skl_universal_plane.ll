@@ -240,7 +240,7 @@ define dso_local noundef range(i32 -22, 1) i32 @skl_calc_main_surface_offset(ptr
   tail call void @intel_add_fb_offsets(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0) #11
   %21 = tail call i32 @intel_plane_compute_aligned_offset(ptr noundef %1, ptr noundef %2, ptr noundef %0, i32 noundef 0) #11
   store i32 %21, ptr %3, align 4
-  %22 = tail call i32 @llvm.ctpop.i32(i32 %14), !range !6
+  %22 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %14), !range !6
   %23 = icmp ugt i32 %22, 1
   br i1 %23, label %24, label %36, !prof !7
 

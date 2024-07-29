@@ -34,7 +34,7 @@ define dso_local ptr @tuplehash_create(ptr noundef %0, i32 noundef %1, ptr nound
   %10 = select i1 %9, double 0x41F0000000000000, double %8
   %11 = fptoui double %10 to i64
   %12 = tail call i64 @llvm.umax.i64(i64 %11, i64 2)
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
+  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %12)
   %14 = icmp ult i64 %13, 2
   %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %16 = sub nuw nsw i64 64, %15
@@ -56,7 +56,7 @@ tuplehash_compute_size.exit:                      ; preds = %3
   %24 = getelementptr inbounds i8, ptr %4, i64 24
   store ptr %23, ptr %24, align 8
   %25 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
+  %26 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %25)
   %27 = icmp ult i64 %26, 2
   %28 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %25, i1 true)
   %29 = sub nuw nsw i64 64, %28
@@ -123,7 +123,7 @@ define dso_local void @tuplehash_grow(ptr nocapture noundef %0, i64 noundef %1) 
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @llvm.umax.i64(i64 %1, i64 2)
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = icmp ult i64 %7, 2
   %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %10 = sub nuw nsw i64 64, %9
@@ -146,7 +146,7 @@ tuplehash_compute_size.exit:                      ; preds = %2
   %18 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val, i64 noundef %12, i32 noundef 5) #14
   store ptr %18, ptr %4, align 8
   %19 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %20 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %19)
   %21 = icmp ult i64 %20, 2
   %22 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %19, i1 true)
   %23 = sub nuw nsw i64 64, %22

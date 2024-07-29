@@ -1059,9 +1059,9 @@ if.end260.i:                                      ; preds = %if.end238.i
   %div253.i = udiv i64 4294967296, %conv252.i
   %chunk_ratio.i = getelementptr inbounds i8, ptr %0, i64 424
   store i64 %div253.i, ptr %chunk_ratio.i, align 8
-  %72 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %div87.i)
+  %72 = call range(i32 0, 21) i32 @llvm.ctpop.i32(i32 %div87.i)
   %tobool265.not.i = icmp ult i32 %72, 2
-  %73 = call range(i64 0, 56) i64 @llvm.ctpop.i64(i64 %div253.i)
+  %73 = call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %div253.i)
   %tobool272.not.i = icmp ult i64 %73, 2
   %or.cond93.i = select i1 %tobool265.not.i, i1 %tobool272.not.i, i1 false
   br i1 %or.cond93.i, label %if.end274.i, label %vhdx_parse_metadata.exit.thread
@@ -1069,7 +1069,7 @@ if.end260.i:                                      ; preds = %if.end238.i
 if.end274.i:                                      ; preds = %if.end260.i
   %block_size277.i = getelementptr inbounds i8, ptr %0, i64 388
   store i32 %69, ptr %block_size277.i, align 4
-  %74 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %69)
+  %74 = call range(i32 0, 30) i32 @llvm.ctpop.i32(i32 %69)
   %tobool282.not.i = icmp ult i32 %74, 2
   br i1 %tobool282.not.i, label %if.end28, label %vhdx_parse_metadata.exit.thread
 
@@ -1367,7 +1367,7 @@ if.then59:                                        ; preds = %if.end50
   br label %return
 
 if.end60:                                         ; preds = %if.end50
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv51)
+  %12 = tail call range(i64 1, 13) i64 @llvm.ctpop.i64(i64 %conv51)
   %tobool1.not.i = icmp ult i64 %12, 2
   br i1 %tobool1.not.i, label %if.end63, label %if.then62
 

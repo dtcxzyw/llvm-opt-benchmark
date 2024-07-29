@@ -13733,7 +13733,7 @@ MaskPadding.exit:                                 ; preds = %for.body.i, %entry
   %and.i = call i32 @llvm.smax.i32(i32 %sub2.i, i32 0)
   %and8.i = call i32 @llvm.smax.i32(i32 %sub6.i, i32 0)
   %sub9.i = add nsw i32 %conv, -1
-  %12 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %conv)
+  %12 = call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %conv)
   %cmp.i = icmp ult i32 %12, 2
   br i1 %cmp.i, label %if.then.i, label %if.else.i
 

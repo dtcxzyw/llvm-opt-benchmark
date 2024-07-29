@@ -4530,7 +4530,7 @@ define noundef ptr @_ZN5ZXing6QRCode7Version24DecodeVersionInformationEii(i32 no
   %19 = getelementptr inbounds i8, ptr %3, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !8
   %21 = xor i32 %20, %11
-  %22 = tail call noundef i32 @llvm.ctpop.i32(i32 %21), !range !31
+  %22 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %21), !range !31
   %23 = icmp slt i32 %22, %16
   %24 = select i1 %23, i32 %12, i32 %17
   %25 = tail call i32 @llvm.smin.i32(i32 %22, i32 %16)

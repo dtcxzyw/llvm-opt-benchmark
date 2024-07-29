@@ -12355,7 +12355,7 @@ define dso_local noundef ptr @accumArrayResultArr(ptr noundef %0, i64 noundef %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %65, ptr align 4 %24, i64 %23, i1 false)
   %66 = add i32 %44, 1
   %67 = tail call i32 @llvm.smax.i32(i32 %66, i32 1024)
-  %68 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %67)
+  %68 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %67)
   %69 = icmp ult i32 %68, 2
   %70 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %67, i1 true)
   %71 = xor i32 %70, 31
@@ -12471,7 +12471,7 @@ define dso_local noundef ptr @accumArrayResultArr(ptr noundef %0, i64 noundef %1
   %129 = add i32 %33, 1
   %130 = add i32 %129, %128
   %131 = tail call i32 @llvm.smax.i32(i32 %130, i32 256)
-  %132 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %131)
+  %132 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %131)
   %133 = icmp ult i32 %132, 2
   %134 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %131, i1 true)
   %135 = xor i32 %134, 31

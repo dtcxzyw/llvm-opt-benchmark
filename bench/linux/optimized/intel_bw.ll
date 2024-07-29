@@ -91,7 +91,7 @@ define dso_local range(i32 -2147483648, 1) i32 @icl_pcode_restrict_qgv_points(pt
   br i1 %30, label %35, label %31
 
 31:                                               ; preds = %17
-  %32 = tail call i64 @llvm.ctpop.i64(i64 %29), !range !5
+  %32 = tail call range(i64 1, 9) i64 @llvm.ctpop.i64(i64 %29), !range !5
   %33 = icmp ugt i64 %32, 1
   %34 = select i1 %33, i32 2, i32 1
   br label %35

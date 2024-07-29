@@ -220,7 +220,7 @@ define dso_local void @_ZN9Stockfish9Bitboards4initEv() local_unnamed_addr #3 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %indvars.iv)
+  %3 = tail call noundef range(i64 0, 17) i64 @llvm.ctpop.i64(i64 %indvars.iv)
   %4 = trunc nuw nsw i64 %3 to i8
   %5 = getelementptr inbounds [65536 x i8], ptr @_ZN9Stockfish8PopCnt16E, i64 0, i64 %indvars.iv
   store i8 %4, ptr %5, align 1

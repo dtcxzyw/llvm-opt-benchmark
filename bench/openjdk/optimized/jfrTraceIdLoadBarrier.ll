@@ -66,7 +66,7 @@ define hidden noundef zeroext i1 @_ZN21JfrTraceIdLoadBarrier10initializeEv() loc
   %10 = shl i32 %6, 4
   %11 = zext i32 %10 to i64
   %12 = shl nuw nsw i64 %11, 1
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
+  %13 = tail call range(i64 1, 29) i64 @llvm.ctpop.i64(i64 %12)
   %or.cond.i.i = icmp eq i64 %13, 1
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %15 = sub nuw nsw i64 64, %14

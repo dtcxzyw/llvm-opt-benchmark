@@ -466,7 +466,7 @@ define i64 @H5FD__onion_revision_record_decode(ptr noundef %0, ptr nocapture nou
 
 70:                                               ; preds = %55
   %71 = add i32 %63, -1
-  %72 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %63)
+  %72 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %63)
   %73 = icmp ult i32 %72, 2
   br i1 %73, label %.preheader, label %74
 

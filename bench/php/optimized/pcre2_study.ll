@@ -75,7 +75,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   br i1 %.not88.us.us, label %58, label %30
 
 30:                                               ; preds = %.split.us.split.us
-  %31 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %29)
+  %31 = call range(i8 1, 9) i8 @llvm.ctpop.i8(i8 %29)
   %.not89.us.us = icmp ult i8 %31, 2
   br i1 %.not89.us.us, label %32, label %.loopexit
 
@@ -156,7 +156,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   br i1 %.not88.us, label %93, label %63
 
 63:                                               ; preds = %.split.us.split
-  %64 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %62)
+  %64 = call range(i8 1, 9) i8 @llvm.ctpop.i8(i8 %62)
   %.not89.us = icmp ult i8 %64, 2
   br i1 %.not89.us, label %65, label %.loopexit
 
@@ -241,7 +241,7 @@ define hidden range(i32 0, 4) i32 @_pcre2_study_8(ptr noundef %0) local_unnamed_
   br i1 %.not88, label %148, label %98
 
 98:                                               ; preds = %.split
-  %99 = call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %97)
+  %99 = call range(i8 1, 9) i8 @llvm.ctpop.i8(i8 %97)
   %.not89 = icmp ult i8 %99, 2
   br i1 %.not89, label %100, label %.loopexit
 

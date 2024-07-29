@@ -3025,7 +3025,7 @@ for.cond.cleanup48:                               ; preds = %for.body49
   %15 = load i32, ptr %arrayidx3.3.i, align 4, !tbaa !48
   %and.3.i = and i32 %15, 331998852
   %xor.3.i = or disjoint i32 %and.3.i, %and.i
-  %16 = call i32 @llvm.ctpop.i32(i32 %xor.3.i), !range !134
+  %16 = call range(i32 0, 16) i32 @llvm.ctpop.i32(i32 %xor.3.i), !range !134
   %17 = and i32 %16, 1
   %tobool.not.i = icmp eq i32 %17, 0
   br i1 %tobool.not.i, label %if.then15.i, label %_ZN9__gnu_cxx33simd_fast_mersenne_twister_engineIjLm19937ELm122ELm18ELm1ELm11ELm1ELj3758096367ELj3724462975ELj3220897791ELj3221225462ELj1ELj0ELj0ELj331998852EE23_M_period_certificationEv.exit

@@ -2231,7 +2231,7 @@ entry:
   %conv3 = trunc nuw nsw i64 %0 to i8
   store i8 %conv3, ptr %lg_page_size, align 1
   %slow_flags = getelementptr inbounds i8, ptr %full, i64 22
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %size)
   %or.cond = icmp eq i64 %1, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %slow_flags, i8 0, i64 6, i1 false)
   br i1 %or.cond, label %if.end, label %if.else
@@ -2266,7 +2266,7 @@ entry:
   %conv3.i = trunc nuw nsw i64 %0 to i8
   store i8 %conv3.i, ptr %lg_page_size.i, align 1
   %slow_flags.i = getelementptr inbounds i8, ptr %full.i, i64 22
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %size)
   %or.cond.i = icmp eq i64 %1, 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %slow_flags.i, i8 0, i64 6, i1 false)
   br i1 %or.cond.i, label %tlb_set_page_with_attrs.exit, label %if.else.i

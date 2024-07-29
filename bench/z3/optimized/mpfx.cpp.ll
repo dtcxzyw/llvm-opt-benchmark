@@ -5709,7 +5709,7 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp.not, label %while.body, label %if.then4, !llvm.loop !32
 
 if.then4:                                         ; preds = %while.body
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %6)
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %if.end9, label %return
 
@@ -5802,7 +5802,7 @@ while.body.i:                                     ; preds = %while.body.i.prehea
   br i1 %cmp.not.i, label %while.body.i, label %if.then4.i, !llvm.loop !32
 
 if.then4.i:                                       ; preds = %while.body.i
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %6)
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %if.end9.i, label %_ZNK12mpfx_manager15is_power_of_twoERK4mpfxRj.exit
 

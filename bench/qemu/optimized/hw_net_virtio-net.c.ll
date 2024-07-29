@@ -1378,7 +1378,7 @@ if.end9:                                          ; preds = %iov_to_buf.exit.if.
   store i16 %spec.select, ptr %indirections_len, align 8
   %conv24 = zext i16 %spec.select to i64
   %tobool.not.i = icmp ne i16 %spec.select, 0
-  %7 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv24)
+  %7 = call range(i64 1, 17) i64 @llvm.ctpop.i64(i64 %conv24)
   %tobool1.not.i = icmp ult i64 %7, 2
   %or.cond = select i1 %tobool.not.i, i1 %tobool1.not.i, i1 false
   br i1 %or.cond, label %if.end30, label %if.then26
@@ -2641,7 +2641,7 @@ if.end.i142:                                      ; preds = %lor.lhs.false68
 virtio_net_max_tx_queue_size.exit:                ; preds = %lor.lhs.false68, %if.end.i142
   %retval.0.i143 = phi i32 [ 256, %lor.lhs.false68 ], [ %..i, %if.end.i142 ]
   %cmp73 = icmp uge i32 %retval.0.i143, %conv65
-  %17 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %12)
+  %17 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %12)
   %tobool1.not.i146 = icmp ult i16 %17, 2
   %or.cond162 = select i1 %cmp73, i1 %tobool1.not.i146, i1 false
   br i1 %or.cond162, label %if.end85, label %if.then80

@@ -506,7 +506,7 @@ pgstat_need_entry_refs_gc.exit.thread:            ; preds = %pgstat_gc_entry_ref
   %121 = shl i64 %115, 1
   %122 = load ptr, ptr %108, align 8
   %123 = tail call i64 @llvm.umax.i64(i64 %121, i64 2)
-  %124 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %123)
+  %124 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %123)
   %125 = icmp ult i64 %124, 2
   %126 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %123, i1 true)
   %127 = sub nuw nsw i64 64, %126
@@ -528,7 +528,7 @@ pgstat_entry_ref_hash_compute_size.exit.i.i.i.i:  ; preds = %120
   %134 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val55.i.i.i.i, i64 noundef %129, i32 noundef 5) #14
   store ptr %134, ptr %108, align 8
   %135 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i.i, i64 2)
-  %136 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %135)
+  %136 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %135)
   %137 = icmp ult i64 %136, 2
   %138 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %135, i1 true)
   %139 = sub nuw nsw i64 64, %138

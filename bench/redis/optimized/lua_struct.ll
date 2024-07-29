@@ -1069,7 +1069,7 @@ if.end.i:                                         ; preds = %if.then7.i, %lor.lh
 getnum.exit:                                      ; preds = %if.end.i, %sw.bb4
   %retval.0.i = phi i32 [ 8, %sw.bb4 ], [ %sub11.i, %if.end.i ]
   %cmp = icmp sgt i32 %retval.0.i, 0
-  %13 = tail call i32 @llvm.ctpop.i32(i32 %retval.0.i), !range !37
+  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %retval.0.i), !range !37
   %cmp5 = icmp ult i32 %13, 2
   %or.cond = select i1 %cmp, i1 %cmp5, i1 false
   br i1 %or.cond, label %if.end, label %if.then

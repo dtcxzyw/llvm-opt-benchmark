@@ -9687,7 +9687,7 @@ if.end:                                           ; preds = %entry
   %5 = or i64 %or.i.i, %4
   %6 = xor i64 %5, -1
   %and5.i.i = and i64 %notmask1.i.i, %6
-  %7 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and5.i.i)
+  %7 = tail call noundef range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and5.i.i)
   %rep_ = getelementptr inbounds i8, ptr %this, i64 8
   %8 = load ptr, ptr %rep_, align 8
   %whole_key_filtering = getelementptr inbounds i8, ptr %8, i64 513
@@ -9712,7 +9712,7 @@ if.then2:                                         ; preds = %if.end
   %16 = or i64 %or.i.i31, %15
   %17 = xor i64 %16, -1
   %and5.i.i32 = and i64 %notmask1.i.i28, %17
-  %18 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and5.i.i32)
+  %18 = tail call noundef range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and5.i.i32)
   %tobool5.not = icmp eq i64 %and5.i.i32, 0
   br i1 %tobool5.not, label %if.end42, label %if.then6
 
@@ -10105,7 +10105,7 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit96: ; preds = %if.then95, %if.th
   %94 = or i64 %or.i.i103, %93
   %95 = xor i64 %94, -1
   %and5.i.i104 = and i64 %notmask1.i.i100, %95
-  %96 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and5.i.i104)
+  %96 = tail call noundef range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and5.i.i104)
   %tobool103.not = icmp eq i64 %and5.i.i104, 0
   br i1 %tobool103.not, label %if.end150, label %if.then104
 

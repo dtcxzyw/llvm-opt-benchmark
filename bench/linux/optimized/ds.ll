@@ -2798,7 +2798,7 @@ define internal void @intel_pmu_drain_pebs_nhm(ptr noundef %0, ptr noundef %1) #
 
 78:                                               ; preds = %53
   %79 = icmp eq i64 %60, 0
-  %80 = call i64 @llvm.ctpop.i64(i64 %57), !range !75
+  %80 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %57), !range !75
   %81 = icmp eq i64 %80, 1
   %82 = select i1 %79, i1 %81, i1 false
   br i1 %82, label %83, label %84

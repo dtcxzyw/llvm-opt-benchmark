@@ -51,7 +51,7 @@ define internal i32 @crypto_cbc_create(ptr noundef %0, ptr noundef %1) #2 align 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds i8, ptr %3, i64 108
   %10 = load i32, ptr %9, align 4
-  %11 = tail call i32 @llvm.ctpop.i32(i32 %10), !range !5
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10), !range !5
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %22
 

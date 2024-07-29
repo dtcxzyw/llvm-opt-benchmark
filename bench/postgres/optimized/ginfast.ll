@@ -1192,7 +1192,7 @@ define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture nou
 
 23:                                               ; preds = %20
   %24 = call i32 @llvm.umax.i32(i32 %10, i32 16)
-  %25 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %24)
+  %25 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %24)
   %26 = icmp ult i32 %25, 2
   %27 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %24, i1 true)
   %28 = xor i32 %27, 31
@@ -1212,7 +1212,7 @@ define dso_local void @ginHeapTupleFastCollect(ptr noundef %0, ptr nocapture nou
   br i1 %37, label %38, label %47
 
 38:                                               ; preds = %34
-  %39 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %15)
+  %39 = call range(i32 1, 28) i32 @llvm.ctpop.i32(i32 %15)
   %40 = icmp ult i32 %39, 2
   %41 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %15, i1 true)
   %42 = xor i32 %41, 31

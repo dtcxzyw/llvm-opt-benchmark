@@ -11383,7 +11383,7 @@ index_delete_sort.exit:                           ; preds = %._crit_edge.i
 
 97:                                               ; preds = %.lr.ph78.i
   %98 = zext nneg i16 %95 to i32
-  %99 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %98)
+  %99 = tail call range(i32 1, 16) i32 @llvm.ctpop.i32(i32 %98)
   %100 = icmp ult i32 %99, 2
   %101 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %98, i1 true)
   %102 = xor i32 %101, 31

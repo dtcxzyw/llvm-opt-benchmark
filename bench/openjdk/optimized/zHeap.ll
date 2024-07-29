@@ -1069,7 +1069,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
   %30 = zext i32 %28 to i64
   %31 = shl i64 %29, %30
   %32 = and i64 %31, %2
-  %33 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %32)
+  %33 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %32)
   %or.cond43.i = icmp eq i64 %33, 1
   br i1 %or.cond43.i, label %34, label %.thread
 
@@ -1081,14 +1081,14 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
 
 37:                                               ; preds = %34, %14
   %38 = and i64 %2, 61440
-  %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %39 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %38)
   %or.cond45.i = icmp eq i64 %39, 1
   br i1 %or.cond45.i, label %40, label %.thread
 
 40:                                               ; preds = %37
   %41 = and i64 %2, 768
   %42 = and i64 %2, 48
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
+  %43 = tail call range(i64 1, 3) i64 @llvm.ctpop.i64(i64 %41)
   %or.cond47.i = icmp eq i64 %43, 1
   br i1 %or.cond47.i, label %44, label %.thread
 
@@ -1098,7 +1098,7 @@ define hidden noundef zeroext i1 @_ZNK5ZHeap14print_locationEP12outputStreamm(pt
   br i1 %.not.i38.i, label %.thread, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %44
-  %46 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %45)
+  %46 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %45)
   %47 = icmp ugt i64 %46, 1
   %48 = icmp eq i64 %42, 0
   %or.cond.i = or i1 %48, %47

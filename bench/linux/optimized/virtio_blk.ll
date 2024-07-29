@@ -456,7 +456,7 @@ virtblk_update_cache_mode.exit:                   ; preds = %133, %138
   %180 = zext i32 %179 to i64
   %181 = add nsw i64 %180, -512
   %182 = icmp ult i64 %181, 3585
-  %183 = call i64 @llvm.ctpop.i64(i64 %180), !range !9
+  %183 = call range(i64 0, 14) i64 @llvm.ctpop.i64(i64 %180), !range !9
   %184 = icmp ult i64 %183, 2
   %or.cond = select i1 %182, i1 %184, i1 false
   br i1 %or.cond, label %187, label %185

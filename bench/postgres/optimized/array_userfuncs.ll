@@ -1810,7 +1810,7 @@ define dso_local i64 @array_agg_array_combine(ptr noundef %0) local_unnamed_addr
 147:                                              ; preds = %139
   %148 = add i32 %143, 1
   %149 = call i32 @llvm.smax.i32(i32 %148, i32 256)
-  %150 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %149)
+  %150 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %149)
   %151 = icmp ult i32 %150, 2
   %152 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %149, i1 true)
   %153 = xor i32 %152, 31

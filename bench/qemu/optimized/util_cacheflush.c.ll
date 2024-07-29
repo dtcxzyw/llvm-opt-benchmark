@@ -28,7 +28,7 @@ entry:
   %spec.select7 = select i1 %tobool4.not.i, i32 64, i32 %dsize.0
   %isize.1 = select i1 %tobool.not.i, i32 %spec.select7, i32 %spec.select
   %dsize.1 = select i1 %tobool.not.i, i32 %spec.select7, i32 %spec.select6
-  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %isize.1)
+  %0 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %isize.1)
   %cmp = icmp ult i32 %0, 2
   br i1 %cmp, label %if.end, label %if.else
 
@@ -37,7 +37,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %dsize.1)
+  %1 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %dsize.1)
   %cmp3 = icmp ult i32 %1, 2
   br i1 %cmp3, label %if.end6, label %if.else5
 

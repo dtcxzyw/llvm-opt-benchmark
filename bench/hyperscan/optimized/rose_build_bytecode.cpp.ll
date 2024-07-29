@@ -8811,7 +8811,7 @@ invoke.cont26.i971:                               ; preds = %for.inc.i.i.i.i.i.1
   %arrayidx.i.i99.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0131.i, i64 120
   %arrayidx.i.i100.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0131.i, i64 128
   %799 = load <4 x i64>, ptr %countingMiracleReach.i, align 8
-  %800 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %799), !range !133
+  %800 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %799), !range !133
   %801 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %800)
   %cmp.i972 = icmp eq i64 %801, 1
   br i1 %cmp.i972, label %if.then28.i, label %if.else.i

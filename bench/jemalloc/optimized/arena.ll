@@ -2323,7 +2323,7 @@ while.end22.thread.i:                             ; preds = %while.end.i
 
 while.body18.preheader.i:                         ; preds = %while.end.i
   %sub.i = sub i32 %cond, %i.030.i
-  %35 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %g.1.lcssa.i)
+  %35 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %g.1.lcssa.i)
   %cast.i.i = trunc nuw nsw i64 %35 to i32
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %sub.i, i32 %cast.i.i)
   %pop.0.i = zext nneg i32 %spec.select.i to i64
@@ -2776,7 +2776,7 @@ while.end22.thread.i:                             ; preds = %while.end.i
 
 while.body18.preheader.i:                         ; preds = %while.end.i
   %sub.i = sub i32 %conv16, %i.030.i
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %g.1.lcssa.i)
+  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %g.1.lcssa.i)
   %cast.i.i = trunc nuw nsw i64 %13 to i32
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %sub.i, i32 %cast.i.i)
   %pop.0.i = zext nneg i32 %spec.select.i to i64

@@ -1394,7 +1394,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   br i1 %38, label %39, label %51
 
 39:                                               ; preds = %28
-  %40 = call i32 @llvm.ctpop.i32(i32 %35), !range !30
+  %40 = call range(i32 0, 22) i32 @llvm.ctpop.i32(i32 %35), !range !30
   %41 = icmp ugt i32 %40, 1
   br i1 %41, label %.preheader24, label %53
 
@@ -1445,7 +1445,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   br i1 %70, label %71, label %83
 
 71:                                               ; preds = %60
-  %72 = call i32 @llvm.ctpop.i32(i32 %67), !range !30
+  %72 = call range(i32 0, 22) i32 @llvm.ctpop.i32(i32 %67), !range !30
   %73 = icmp ugt i32 %72, 1
   br i1 %73, label %.preheader23, label %85
 
@@ -1496,7 +1496,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   br i1 %101, label %102, label %114
 
 102:                                              ; preds = %93
-  %103 = call i32 @llvm.ctpop.i32(i32 %98), !range !30
+  %103 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %98), !range !30
   %104 = icmp ugt i32 %103, 1
   br i1 %104, label %.preheader22, label %116
 
@@ -1546,7 +1546,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   br i1 %131, label %132, label %144
 
 132:                                              ; preds = %123
-  %133 = call i32 @llvm.ctpop.i32(i32 %128), !range !30
+  %133 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %128), !range !30
   %134 = icmp ugt i32 %133, 1
   br i1 %134, label %.preheader21, label %146
 
@@ -1583,7 +1583,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %152 = icmp ult i64 %151, 1024
   %153 = call i64 @llvm.umin.i64(i64 %151, i64 1048576)
   %154 = select i1 %152, i64 4096, i64 %153
-  %155 = call i64 @llvm.ctpop.i64(i64 %154), !range !32
+  %155 = call range(i64 0, 22) i64 @llvm.ctpop.i64(i64 %154), !range !32
   %156 = icmp ugt i64 %155, 1
   br i1 %156, label %.preheader20, label %168
 
@@ -1660,7 +1660,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   store i32 %194, ptr %195, align 4
   %196 = getelementptr inbounds i8, ptr %4, i64 28
   %197 = load i32, ptr %196, align 4
-  %198 = call i32 @llvm.ctpop.i32(i32 %197), !range !33
+  %198 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %197), !range !33
   %199 = icmp ugt i32 %198, 1
   br i1 %199, label %.preheader19, label %211
 
@@ -1692,7 +1692,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @nfs_probe_fsinfo(ptr nound
   %216 = icmp ult i32 %215, 1024
   %217 = call i32 @llvm.umin.i32(i32 %215, i32 1048576)
   %218 = select i1 %216, i32 4096, i32 %217
-  %219 = call i32 @llvm.ctpop.i32(i32 %218), !range !30
+  %219 = call range(i32 0, 22) i32 @llvm.ctpop.i32(i32 %218), !range !30
   %220 = icmp ugt i32 %219, 1
   br i1 %220, label %.preheader, label %230
 
@@ -2399,7 +2399,7 @@ define dso_local ptr @nfs_create_server(ptr nocapture noundef readonly %0) #0 al
   br i1 %137, label %138, label %150
 
 138:                                              ; preds = %129
-  %139 = call i32 @llvm.ctpop.i32(i32 %134), !range !30
+  %139 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %134), !range !30
   %140 = icmp ugt i32 %139, 1
   br i1 %140, label %.preheader24, label %152
 
@@ -2448,7 +2448,7 @@ define dso_local ptr @nfs_create_server(ptr nocapture noundef readonly %0) #0 al
   br i1 %167, label %168, label %180
 
 168:                                              ; preds = %159
-  %169 = call i32 @llvm.ctpop.i32(i32 %164), !range !30
+  %169 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %164), !range !30
   %170 = icmp ugt i32 %169, 1
   br i1 %170, label %.preheader, label %182
 

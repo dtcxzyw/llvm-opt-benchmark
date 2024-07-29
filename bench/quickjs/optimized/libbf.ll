@@ -8944,7 +8944,7 @@ bf_set_inf.exit:                                  ; preds = %strcasestart.exit28
   br i1 %.not246, label %94, label %105
 
 94:                                               ; preds = %.thread501.thread
-  %95 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %93)
+  %95 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %93)
   %.not247 = icmp ult i32 %95, 2
   br i1 %.not247, label %98, label %96
 

@@ -552,7 +552,7 @@ if.else:                                          ; preds = %if.then11
   br i1 %cmp22.not, label %return, label %if.then24
 
 if.then24:                                        ; preds = %if.else
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
   %cmp28 = icmp ult i64 %7, 2
   br i1 %cmp28, label %if.then30, label %if.else32
 

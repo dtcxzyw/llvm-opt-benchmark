@@ -4439,7 +4439,7 @@ define internal noundef range(i32 0, 2) i32 @_colors_update(ptr noundef %0) #1 {
   %107 = icmp ne i32 %106, 0
   %108 = zext i1 %107 to i32
   %109 = bitcast <4 x i1> %89 to i4
-  %110 = tail call i4 @llvm.ctpop.i4(i4 %109), !range !137
+  %110 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %109), !range !137
   %111 = zext nneg i4 %110 to i32
   %112 = add nuw nsw i32 %111, %108
   %113 = and i32 %20, 131072
@@ -4534,7 +4534,7 @@ define internal noundef range(i32 0, 2) i32 @_colors_update(ptr noundef %0) #1 {
   %187 = icmp ne i32 %186, 0
   %188 = zext i1 %187 to i32
   %189 = bitcast <4 x i1> %174 to i4
-  %190 = tail call i4 @llvm.ctpop.i4(i4 %189), !range !137
+  %190 = tail call range(i4 0, 5) i4 @llvm.ctpop.i4(i4 %189), !range !137
   %191 = zext nneg i4 %190 to i32
   %192 = add nuw nsw i32 %191, %188
   %193 = and i32 %20, 131072

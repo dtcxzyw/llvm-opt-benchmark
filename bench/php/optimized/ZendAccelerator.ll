@@ -5872,7 +5872,7 @@ define internal range(i32 -1, 1) i32 @accel_post_startup() #0 {
 
 18:                                               ; preds = %15
   %19 = tail call i64 @zend_get_page_size() #24
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %20 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %19)
   %or.cond64 = icmp eq i64 %20, 1
   br i1 %or.cond64, label %22, label %21
 

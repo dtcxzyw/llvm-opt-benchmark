@@ -541,7 +541,7 @@ define hidden i64 @rb_malloc_grow_capa(i64 noundef %0, i64 noundef %1) local_unn
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %0, i64 4)
   %3 = shl i64 %1, 1
   %4 = mul i64 %3, %spec.store.select
-  %5 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
+  %5 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %4)
   %.not = icmp eq i64 %5, 1
   br i1 %.not, label %12, label %6
 

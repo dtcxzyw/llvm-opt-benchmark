@@ -2753,7 +2753,7 @@ define dso_local i32 @drm_atomic_set_property(ptr noundef %0, ptr noundef %1, pt
 
 616:                                              ; preds = %612
   %617 = and i64 %4, 15
-  %618 = call i64 @llvm.ctpop.i64(i64 %617), !range !30
+  %618 = call range(i64 0, 5) i64 @llvm.ctpop.i64(i64 %617), !range !30
   %619 = icmp eq i64 %618, 1
   br i1 %619, label %630, label %620
 

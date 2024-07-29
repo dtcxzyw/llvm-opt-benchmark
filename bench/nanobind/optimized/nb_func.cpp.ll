@@ -6630,7 +6630,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIPvS4_ELb1EEESaIS6_EE
   br label %37
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %13
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
   %16 = icmp ult i64 %15, 2
   br i1 %16, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %17
 

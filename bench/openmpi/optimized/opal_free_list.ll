@@ -390,7 +390,7 @@ opal_obj_run_destructors.exit28:                  ; preds = %.lr.ph.i25, %opal_o
 ; Function Attrs: nounwind uwtable
 define i32 @opal_free_list_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) local_unnamed_addr #0 {
   %15 = icmp ugt i64 %2, 1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %2)
+  %16 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %2)
   %.not = icmp ult i64 %16, 2
   %or.cond = select i1 %15, i1 %.not, i1 false
   br i1 %or.cond, label %17, label %54
@@ -401,7 +401,7 @@ define i32 @opal_free_list_init(ptr noundef %0, i64 noundef %1, i64 noundef %2, 
 
 18:                                               ; preds = %17
   %19 = icmp ugt i64 %5, 1
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
+  %20 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %5)
   %.not51 = icmp ult i64 %20, 2
   %or.cond55 = select i1 %19, i1 %.not51, i1 false
   br i1 %or.cond55, label %21, label %54

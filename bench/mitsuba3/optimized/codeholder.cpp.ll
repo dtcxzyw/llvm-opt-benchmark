@@ -918,7 +918,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1010CodeHolder10newSectionEPPNS0
 12:                                               ; preds = %10, %7
   %13 = phi i64 [ %11, %10 ], [ %3, %7 ]
   %14 = tail call i32 @llvm.umax.i32(i32 %5, i32 1)
-  %15 = tail call i32 @llvm.ctpop.i32(i32 %14), !range !93
+  %15 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %14), !range !93
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %17, label %97, !prof !53
 

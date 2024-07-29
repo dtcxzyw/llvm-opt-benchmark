@@ -12130,7 +12130,7 @@ _ZN4mold3elf14GnuHashSectionINS0_7SPARC64EE20get_exported_symbolsERNS0_7ContextI
 if.then6:                                         ; preds = %_ZN4mold3elf14GnuHashSectionINS0_7SPARC64EE20get_exported_symbolsERNS0_7ContextIS2_EE.exit
   %mul = mul nsw i64 %sub.i.i, 12
   %div5 = lshr i64 %mul, 6
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %div5)
+  %11 = tail call range(i64 0, 59) i64 @llvm.ctpop.i64(i64 %div5)
   %cmp.i.i7 = icmp eq i64 %11, 1
   %12 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %div5, i1 false)
   %sub.i = sub nuw nsw i64 64, %12

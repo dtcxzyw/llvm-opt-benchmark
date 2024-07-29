@@ -127,7 +127,7 @@ _ZN9VectorSet4initEP5Arena.exit:                  ; preds = %10, %12
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN9VectorSet4growEj(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = add i32 %1, 1
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %3)
+  %4 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %3)
   %or.cond.i.i = icmp eq i32 %4, 1
   %5 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %6 = sub nuw nsw i32 32, %5
@@ -182,7 +182,7 @@ define hidden void @_ZN9VectorSet6insertEj(ptr nocapture noundef nonnull align 8
 
 5:                                                ; preds = %2
   %6 = add nuw nsw i32 %3, 1
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %6)
+  %7 = tail call range(i32 1, 29) i32 @llvm.ctpop.i32(i32 %6)
   %or.cond.i.i.i = icmp eq i32 %7, 1
   %8 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %6, i1 true)
   %9 = sub nuw nsw i32 32, %8

@@ -694,7 +694,7 @@ Abc_TtAnd.exit.loopexit.us:                       ; preds = %.lr.ph.i43.us
   %77 = lshr i64 %76, 1
   %78 = or i64 %77, %76
   %79 = and i64 %78, 6148914691236517205
-  %80 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %79)
+  %80 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %79)
   %or.cond.not.i.us.us = icmp eq i64 %80, 1
   br i1 %or.cond.not.i.us.us, label %.thread, label %Io_ReadPlaDistance1.exit.thread.us.us
 
@@ -936,7 +936,7 @@ Abc_TtImply.exit87.us:                            ; preds = %.lr.ph.i82.us
   %101 = lshr i64 %100, 1
   %102 = and i64 %101, %100
   %103 = and i64 %102, 6148914691236517205
-  %104 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %103)
+  %104 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %103)
   %or.cond.not.i.us.us = icmp eq i64 %104, 1
   br i1 %or.cond.not.i.us.us, label %.thread, label %Io_ReadPlaConsensus.exit.thread.us.us
 

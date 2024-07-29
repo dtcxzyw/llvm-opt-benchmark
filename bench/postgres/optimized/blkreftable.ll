@@ -215,7 +215,7 @@ define internal fastcc noundef ptr @blockreftable_insert(ptr nocapture noundef %
   %22 = shl i64 %18, 1
   %23 = load ptr, ptr %12, align 8
   %24 = call i64 @llvm.umax.i64(i64 %22, i64 2)
-  %25 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
+  %25 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %24)
   %26 = icmp ult i64 %25, 2
   %27 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 true)
   %28 = sub nuw nsw i64 64, %27
@@ -234,7 +234,7 @@ blockreftable_compute_size.exit.i.i:              ; preds = %21
   %33 = call ptr @pg_malloc0(i64 noundef %30) #12
   store ptr %33, ptr %12, align 8
   %34 = call i64 @llvm.umax.i64(i64 %.0.i.i.i.i, i64 2)
-  %35 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %34)
+  %35 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34)
   %36 = icmp ult i64 %35, 2
   %37 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %34, i1 true)
   %38 = sub nuw nsw i64 64, %37

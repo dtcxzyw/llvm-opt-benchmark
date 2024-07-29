@@ -131,7 +131,7 @@ Vec_IntGrow.exit.i:                               ; preds = %5, %36
 58:                                               ; preds = %52
   %59 = or i32 %.061.val, %.062.val
   %60 = lshr i32 %59, 4
-  %61 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %60)
+  %61 = tail call range(i32 0, 29) i32 @llvm.ctpop.i32(i32 %60)
   %62 = icmp sgt i32 %61, %4
   br i1 %62, label %Sle_CutMergeOrder.exit.thread, label %63
 

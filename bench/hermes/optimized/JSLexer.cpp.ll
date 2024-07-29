@@ -8098,7 +8098,7 @@ if.end:                                           ; preds = %for.inc.i
   %cmp = fcmp oge double %result.1, 0x4340000000000000
   %tobool.not.i = icmp ne i32 %radix, 0
   %or.cond37.not39 = and i1 %tobool.not.i, %cmp
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %radix)
+  %4 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %radix)
   %tobool1.not.i = icmp ult i32 %4, 2
   %or.cond38 = select i1 %or.cond37.not39, i1 %tobool1.not.i, i1 false
   br i1 %or.cond38, label %for.cond.preheader, label %return

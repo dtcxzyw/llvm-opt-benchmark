@@ -625,7 +625,7 @@ define hidden noundef range(i32 0, 7) i32 @_Z30MaxMetaspaceSizeConstraintFuncmb(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef range(i32 0, 7) i32 @_Z31GCCardSizeInBytesConstraintFuncjb(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %0)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %_Z13is_power_of_2IjTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 

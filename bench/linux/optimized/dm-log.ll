@@ -1202,7 +1202,7 @@ define internal fastcc i32 @create_log_context(ptr nocapture noundef writeonly %
   %35 = getelementptr inbounds i8, ptr %1, i64 24
   %36 = load i64, ptr %35, align 8
   %37 = icmp ult i64 %36, %34
-  %38 = call i64 @llvm.ctpop.i64(i64 %34), !range !21
+  %38 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %34), !range !21
   %39 = icmp ugt i64 %38, 1
   %or.cond = select i1 %37, i1 true, i1 %39
   br i1 %or.cond, label %.thread, label %42

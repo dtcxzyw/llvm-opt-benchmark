@@ -299,7 +299,7 @@ define hidden void @_ZN27XRelocationSetSelectorGroup12select_innerEv(ptr nocaptu
   %17 = getelementptr inbounds i8, ptr %13, i64 36
   %18 = load volatile i32, ptr %17, align 4
   %19 = shl i32 %18, 1
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %19)
+  %20 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %19)
   %or.cond.i.i = icmp eq i32 %20, 1
   %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %19, i1 true)
   %22 = sub nuw nsw i32 32, %21

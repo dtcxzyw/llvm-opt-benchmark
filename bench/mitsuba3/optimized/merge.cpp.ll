@@ -1827,7 +1827,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__112__hash_tableINS_17__hash_valu
   br i1 %.not, label %.critedge, label %30
 
 30:                                               ; preds = %5
-  %31 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
+  %31 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %29)
   %.not.i = icmp ult i64 %31, 2
   br i1 %.not.i, label %32, label %35
 
@@ -2064,7 +2064,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6Ma
 159:                                              ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEE3KeyENS2_3refINS2_4MeshIfS8_EEEEEENS_22__unordered_map_hasherISA_SF_NS9_10key_hasherENS_8equal_toISA_EELb1EEENS_21__unordered_map_equalISA_SF_SJ_SH_Lb1EEENS_9allocatorISF_EEE21__construct_node_hashIRKNS_21piecewise_construct_tEJNS_5tupleIJRKSA_EEENSU_IJRSE_EEEEEENS_10unique_ptrINS_11__hash_nodeISF_PvEENS_22__hash_node_destructorINSN_IS13_EEEEEEmOT_DpOT0_.exit
   %160 = shl i64 %29, 1
   %161 = icmp ult i64 %29, 3
-  %162 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
+  %162 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %29)
   %.not.i56 = icmp ugt i64 %162, 1
   %.not71 = select i1 %161, i1 true, i1 %.not.i56
   %163 = zext i1 %.not71 to i64
@@ -2097,7 +2097,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeIN7mitsuba10MergeShapeIfN5drjit6Ma
 
 177:                                              ; preds = %175
   %178 = icmp ugt i64 %173, 2
-  %179 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %173)
+  %179 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %173)
   %.not.i.i.i = icmp ult i64 %179, 2
   %180 = select i1 %178, i1 %.not.i.i.i, i1 false
   %181 = load i64, ptr %150, align 8
@@ -2309,7 +2309,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
   %.not.i47 = icmp ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 

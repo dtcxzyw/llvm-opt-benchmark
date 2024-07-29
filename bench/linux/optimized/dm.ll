@@ -3776,7 +3776,7 @@ alloc_io.exit:                                    ; preds = %98, %94, %90, %89, 
   %192 = getelementptr inbounds i8, ptr %191, i64 156
   %193 = load i32, ptr %192, align 4
   %194 = zext i32 %179 to i64
-  %195 = tail call i64 @llvm.ctpop.i64(i64 %194), !range !101
+  %195 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %194), !range !101
   %196 = icmp ult i64 %195, 2
   br i1 %196, label %200, label %197, !prof !16
 
@@ -5361,7 +5361,7 @@ define internal fastcc noundef zeroext range(i8 0, 2) i8 @__process_abnormal_io(
 44:                                               ; preds = %41, %39
   %45 = phi i32 [ %43, %41 ], [ %20, %39 ]
   %46 = zext i32 %25 to i64
-  %47 = tail call i64 @llvm.ctpop.i64(i64 %46), !range !101
+  %47 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %46), !range !101
   %48 = icmp ult i64 %47, 2
   br i1 %48, label %52, label %49, !prof !16
 

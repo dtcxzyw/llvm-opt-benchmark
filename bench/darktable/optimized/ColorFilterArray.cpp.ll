@@ -1662,7 +1662,7 @@ define hidden noundef i32 @_ZNK8rawspeed16ColorFilterArray14getDcrawFilterEv(ptr
   %17 = and i1 %16, %15
   %18 = icmp slt i32 %8, 9
   %19 = select i1 %17, i1 %18, i1 false
-  %20 = tail call i32 @llvm.ctpop.i32(i32 %8), !range !50
+  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8), !range !50
   %21 = icmp ult i32 %20, 2
   %22 = select i1 %19, i1 %21, i1 false
   br i1 %22, label %23, label %244

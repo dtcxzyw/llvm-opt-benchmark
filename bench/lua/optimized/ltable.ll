@@ -1978,7 +1978,7 @@ if.then15:                                        ; preds = %land.lhs.true5
   br i1 %tobool.not.i, label %ispow2realasize.exit, label %land.lhs.true16
 
 ispow2realasize.exit:                             ; preds = %if.then15
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %0)
   %cmp.i = icmp ugt i32 %7, 1
   %and20 = and i32 %sub, %sub7
   %cmp21 = icmp eq i32 %and20, 0
@@ -2018,7 +2018,7 @@ binsearch.exit:                                   ; preds = %while.body.i, %if.t
   %flags.i43 = getelementptr inbounds i8, ptr %t, i64 10
   %11 = load i8, ptr %flags.i43, align 2
   %tobool.not.i44 = icmp sgt i8 %11, -1
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %12 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %0)
   br i1 %tobool.not.i44, label %ispow2realasize.exit49, label %land.lhs.true34
 
 ispow2realasize.exit49:                           ; preds = %binsearch.exit

@@ -42787,7 +42787,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 13:                                               ; preds = %5
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
+  %14 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %4)
   %15 = icmp eq i64 %14, 1
   br i1 %15, label %16, label %32
 
@@ -42851,7 +42851,7 @@ define hidden void @"_ZN7dashmap24DashMap$LT$K$C$V$C$S$GT$41with_capacity_and_ha
   unreachable
 
 13:                                               ; preds = %5
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
+  %14 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %4)
   %15 = icmp eq i64 %14, 1
   br i1 %15, label %16, label %32
 

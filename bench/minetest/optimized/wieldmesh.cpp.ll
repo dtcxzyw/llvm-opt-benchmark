@@ -3033,11 +3033,11 @@ entry:
   %dim.sroa.0.0.extract.trunc = trunc i64 %dim.coerce to i32
   %dim.sroa.5.0.extract.shift = lshr i64 %dim.coerce, 32
   %dim.sroa.5.0.extract.trunc = trunc nuw i64 %dim.sroa.5.0.extract.shift to i32
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %dim.sroa.0.0.extract.trunc), !range !151
+  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %dim.sroa.0.0.extract.trunc), !range !151
   %or.cond = icmp eq i32 %0, 1
   %cmp.not.i38 = icmp ugt i64 %dim.coerce, 4294967295
   %or.cond64.not66 = and i1 %cmp.not.i38, %or.cond
-  %1 = tail call i32 @llvm.ctpop.i32(i32 %dim.sroa.5.0.extract.trunc), !range !151
+  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %dim.sroa.5.0.extract.trunc), !range !151
   %cmp1.i40 = icmp ult i32 %1, 2
   %or.cond65 = select i1 %or.cond64.not66, i1 %cmp1.i40, i1 false
   br i1 %or.cond65, label %if.end, label %if.then

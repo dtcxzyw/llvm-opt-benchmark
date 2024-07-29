@@ -93330,7 +93330,7 @@ if.else.i.i:                                      ; preds = %cond.true
   br i1 %cmp2.i.i, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit, label %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i
 
 _ZN4absl10CordBuffer6IsPow2Em.exit.i.i:           ; preds = %if.else.i.i
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i)
+  %4 = tail call range(i64 1, 18) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i)
   %cmp1.i.i.i.i = icmp ult i64 %4, 2
   br i1 %cmp1.i.i.i.i, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit, label %if.then7.i.i
 

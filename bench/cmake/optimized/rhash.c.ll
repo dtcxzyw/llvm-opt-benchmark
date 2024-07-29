@@ -44,7 +44,7 @@ define dso_local noundef ptr @rhash_init_multi(i64 noundef %0, ptr nocapture nou
   %10 = load i32, ptr %9, align 4
   %11 = add i32 %10, -1
   %or.cond.i = icmp ult i32 %11, 1023
-  %12 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %10)
+  %12 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %10)
   %13 = icmp ult i32 %12, 2
   %or.cond61.i = select i1 %or.cond.i, i1 %13, i1 false
   br i1 %or.cond61.i, label %14, label %.loopexit.sink.split.i
@@ -868,7 +868,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i32 @rhash_get_digest_size(i32 noundef %0) local_unnamed_addr #10 {
   %2 = and i32 %0, 1023
-  %3 = tail call range(i32 0, 11) i32 @llvm.ctpop.i32(i32 %2)
+  %3 = tail call range(i32 1, 11) i32 @llvm.ctpop.i32(i32 %2)
   %or.cond = icmp eq i32 %3, 1
   br i1 %or.cond, label %4, label %13
 

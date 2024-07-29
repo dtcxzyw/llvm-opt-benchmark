@@ -5544,7 +5544,7 @@ Vec_IntSelectSortCost2.exit:                      ; preds = %._crit_edge.i
   br i1 %204, label %Str_CountBits.exit, label %205
 
 205:                                              ; preds = %201
-  %206 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %203)
+  %206 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %203)
   %207 = trunc nuw nsw i64 %206 to i32
   br label %Str_CountBits.exit
 
@@ -5588,7 +5588,7 @@ Str_CountBits.exit:                               ; preds = %192, %197, %201, %2
   br i1 %225, label %Str_CountBits.exit312, label %226
 
 226:                                              ; preds = %222
-  %227 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %224)
+  %227 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %224)
   %228 = trunc nuw nsw i64 %227 to i32
   br label %Str_CountBits.exit312
 
@@ -5640,7 +5640,7 @@ Str_CountBits.exit312:                            ; preds = %213, %218, %222, %2
   br i1 %251, label %Str_CountBits.exit314, label %252
 
 252:                                              ; preds = %248
-  %253 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %250)
+  %253 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %250)
   %254 = trunc nuw nsw i64 %253 to i32
   br label %Str_CountBits.exit314
 
@@ -5753,7 +5753,7 @@ Str_CountBits.exit314:                            ; preds = %238, %244, %248, %2
   br i1 %290, label %Str_CountBits.exit316, label %291
 
 291:                                              ; preds = %287
-  %292 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %289)
+  %292 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %289)
   %293 = trunc nuw nsw i64 %292 to i32
   br label %Str_CountBits.exit316
 

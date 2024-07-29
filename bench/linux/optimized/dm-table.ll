@@ -2129,7 +2129,7 @@ define dso_local noundef range(i32 -22, 1) i32 @dm_calculate_queue_limits(ptr no
 
 93:                                               ; preds = %.thread17.thread, %.thread17, %80
   %94 = phi i32 [ %76, %.thread17 ], [ %54, %80 ], [ %74, %.thread17.thread ]
-  %95 = call i32 @llvm.ctpop.i32(i32 %94), !range !49
+  %95 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %94), !range !49
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %.thread18, label %.loopexit22
 

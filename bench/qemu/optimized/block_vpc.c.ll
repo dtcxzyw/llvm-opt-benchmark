@@ -366,7 +366,7 @@ if.end113:                                        ; preds = %if.end108
   store i32 %22, ptr %block_size115, align 8
   %conv117 = zext i32 %22 to i64
   %tobool.not.i119 = icmp eq i32 %21, 0
-  %23 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv117)
+  %23 = call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %conv117)
   %tobool1.not.i = icmp ugt i64 %23, 1
   %or.cond122.not124 = select i1 %tobool.not.i119, i1 true, i1 %tobool1.not.i
   %cmp122 = icmp ult i32 %22, 512

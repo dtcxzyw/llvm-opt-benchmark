@@ -977,7 +977,7 @@ define hidden noundef zeroext i1 @_ZN10VectorNode11implementedEij9BasicType(i32 
   %5 = icmp ult i8 %4, 8
   %6 = icmp ugt i32 %1, 1
   %or.cond = and i1 %6, %5
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)
   %8 = icmp ult i32 %7, 2
   %or.cond24 = select i1 %or.cond, i1 %8, i1 false
   br i1 %or.cond24, label %9, label %_ZN10VectorNode35is_vector_integral_negate_supportedEij9BasicTypeb.exit
@@ -11588,7 +11588,7 @@ define hidden noundef zeroext i1 @_ZN14VectorCastNode11implementedEij9BasicTypeS
   %9 = icmp ult i8 %8, 8
   %10 = icmp ugt i32 %1, 1
   %or.cond = and i1 %10, %9
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %11 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)
   %12 = icmp ult i32 %11, 2
   %or.cond20 = select i1 %or.cond, i1 %12, i1 false
   br i1 %or.cond20, label %13, label %_ZN14VectorCastNode6opcodeEi9BasicTypeb.exit
@@ -11869,7 +11869,7 @@ define hidden noundef zeroext i1 @_ZN13ReductionNode11implementedEij9BasicType(i
   %5 = icmp ult i8 %4, 8
   %6 = icmp ugt i32 %1, 1
   %or.cond = and i1 %6, %5
-  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %7 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1)
   %8 = icmp ult i32 %7, 2
   %or.cond17 = select i1 %or.cond, i1 %8, i1 false
   br i1 %or.cond17, label %9, label %_ZN10VectorNode40vector_size_supported_auto_vectorizationE9BasicTypei.exit.thread

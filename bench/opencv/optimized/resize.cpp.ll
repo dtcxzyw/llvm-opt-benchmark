@@ -6309,7 +6309,7 @@ define linkonce_odr hidden void @_ZN2cv5utils10BufferArea8allocateIiEEvRPT_mt(pt
   br label %75
 
 52:                                               ; preds = %42
-  %53 = tail call range(i16 0, 15) i16 @llvm.ctpop.i16(i16 %3)
+  %53 = tail call range(i16 1, 15) i16 @llvm.ctpop.i16(i16 %3)
   %54 = icmp ult i16 %53, 2
   br i1 %54, label %62, label %55
 

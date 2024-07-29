@@ -57,7 +57,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mei_dmam_ring_alloc(ptr noundef 
   br i1 %11, label %3, label %12
 
 12:                                               ; preds = %6
-  %13 = tail call i64 @llvm.ctpop.i64(i64 %10), !range !9
+  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10), !range !9
   %14 = icmp ult i64 %13, 2
   br i1 %14, label %16, label %15, !prof !10
 

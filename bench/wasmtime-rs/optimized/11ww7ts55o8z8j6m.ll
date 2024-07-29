@@ -693,7 +693,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11remove_las
   %22 = zext i32 %21 to i64
   %23 = add nsw i64 %22, -1
   %24 = icmp ugt i64 %1, 3
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %25 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
   %26 = icmp eq i64 %25, 1
   %or.cond = select i1 %24, i1 %26, i1 false
   br i1 %or.cond, label %31, label %.critedge
@@ -970,7 +970,7 @@ define hidden noundef i64 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4push
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %35, 1
   %37 = icmp ugt i32 %34, 2
-  %38 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %36)
+  %38 = tail call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %36)
   %39 = icmp eq i64 %38, 1
   %or.cond = select i1 %37, i1 %39, i1 false
   br i1 %or.cond, label %54, label %.critedge
@@ -1120,7 +1120,7 @@ define hidden noundef i64 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4push
   %37 = zext i32 %36 to i64
   %38 = add nuw nsw i64 %37, 1
   %39 = icmp ugt i32 %36, 2
-  %40 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %38)
+  %40 = tail call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %38)
   %41 = icmp eq i64 %40, 1
   %or.cond = select i1 %39, i1 %41, i1 false
   br i1 %or.cond, label %56, label %.critedge

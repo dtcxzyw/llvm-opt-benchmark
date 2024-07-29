@@ -518,7 +518,7 @@ define dso_local void @swiotlb_adjust_size(i64 noundef %0) local_unnamed_addr #4
   br label %18
 
 15:                                               ; preds = %11
-  %16 = tail call i64 @llvm.ctpop.i64(i64 %8), !range !15
+  %16 = tail call range(i64 0, 48) i64 @llvm.ctpop.i64(i64 %8), !range !15
   %17 = icmp ult i64 %16, 2
   br i1 %17, label %round_up_default_nslabs.exit.thread, label %18
 
@@ -793,7 +793,7 @@ define internal fastcc void @swiotlb_adjust_nareas(i32 noundef %0) unnamed_addr 
 
 3:                                                ; preds = %1
   %4 = zext i32 %0 to i64
-  %5 = tail call i64 @llvm.ctpop.i64(i64 %4), !range !15
+  %5 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %4), !range !15
   %6 = icmp ult i64 %5, 2
   br i1 %6, label %14, label %7
 
@@ -826,7 +826,7 @@ define internal fastcc void @swiotlb_adjust_nareas(i32 noundef %0) unnamed_addr 
   br label %28
 
 25:                                               ; preds = %20
-  %26 = tail call i64 @llvm.ctpop.i64(i64 %21), !range !15
+  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21), !range !15
   %27 = icmp ult i64 %26, 2
   br i1 %27, label %38, label %28
 
@@ -918,7 +918,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
 
 21:                                               ; preds = %16
   %22 = and i64 %18, 4294967295
-  %23 = tail call i64 @llvm.ctpop.i64(i64 %22), !range !15
+  %23 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %22), !range !15
   %24 = icmp ult i64 %23, 2
   br i1 %24, label %32, label %25
 
@@ -951,7 +951,7 @@ define dso_local i32 @swiotlb_init_late(i64 noundef %0, i32 noundef %1, ptr noun
   br label %46
 
 43:                                               ; preds = %38
-  %44 = tail call i64 @llvm.ctpop.i64(i64 %39), !range !15
+  %44 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %39), !range !15
   %45 = icmp ult i64 %44, 2
   br i1 %45, label %56, label %46
 
@@ -1528,7 +1528,7 @@ define dso_local noundef i64 @swiotlb_tbl_map_single(ptr noundef %0, i64 noundef
 121:                                              ; preds = %117
   %122 = load i32, ptr %119, align 8
   %123 = zext i32 %107 to i64
-  %124 = tail call i64 @llvm.ctpop.i64(i64 %94), !range !15
+  %124 = tail call range(i64 1, 55) i64 @llvm.ctpop.i64(i64 %94), !range !15
   %125 = icmp ult i64 %124, 2
   %126 = add i64 %92, 2047
   %127 = lshr i64 %126, 11

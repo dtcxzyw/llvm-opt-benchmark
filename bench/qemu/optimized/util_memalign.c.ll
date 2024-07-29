@@ -29,7 +29,7 @@ entry:
   br i1 %cmp, label %if.end3, label %do.body
 
 do.body:                                          ; preds = %entry
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %alignment)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %alignment)
   %tobool1.not.i = icmp ult i64 %0, 2
   br i1 %tobool1.not.i, label %if.end3, label %if.else2
 

@@ -4689,7 +4689,7 @@ if.then47:                                        ; preds = %do.end
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
 if.end48:                                         ; preds = %do.end
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %granularity.addr.0)
+  %1 = tail call range(i32 0, 28) i32 @llvm.ctpop.i32(i32 %granularity.addr.0)
   %tobool49.not = icmp ult i32 %1, 2
   br i1 %tobool49.not, label %if.end51, label %if.then50
 

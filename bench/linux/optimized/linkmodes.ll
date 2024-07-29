@@ -291,7 +291,7 @@ define internal i32 @ethnl_set_linkmodes_validate(ptr nocapture noundef readonly
 25:                                               ; preds = %21
   %26 = getelementptr i8, ptr %23, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = tail call i32 @llvm.ctpop.i32(i32 %27), !range !7
+  %28 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %27), !range !7
   %29 = icmp eq i32 %28, 1
   br i1 %29, label %41, label %30
 

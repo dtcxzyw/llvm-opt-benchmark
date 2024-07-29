@@ -3146,7 +3146,7 @@ define hidden void @_ZN8rawspeed10Cr2Decoder22decodeMetaDataInternalEPKNS_14Came
   call void @llvm.assume(i1 %139)
   %140 = load i32, ptr %136, align 4, !tbaa !32
   %141 = add nsw i32 %140, 1
-  %142 = call i32 @llvm.ctpop.i32(i32 %141), !range !225
+  %142 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %141), !range !225
   %143 = icmp ult i32 %142, 2
   br i1 %143, label %144, label %147
 

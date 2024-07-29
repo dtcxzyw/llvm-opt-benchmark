@@ -1006,7 +1006,7 @@ phpdbg_clean.exit:                                ; preds = %15, %19
 90:                                               ; preds = %.loopexit397
   %91 = icmp ugt i64 %indvars.iv, 3
   %92 = trunc nuw nsw i64 %indvars.iv to i32
-  %93 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %92)
+  %93 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %92)
   %94 = icmp ult i32 %93, 2
   %or.cond232 = select i1 %91, i1 %94, i1 false
   br i1 %or.cond232, label %95, label %99

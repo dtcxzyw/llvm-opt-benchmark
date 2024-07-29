@@ -18312,7 +18312,7 @@ define internal noundef zeroext i1 @hsw_get_pipe_config(ptr noundef %0, ptr noun
   br label %180
 
 180:                                              ; preds = %178, %156
-  %181 = tail call i8 @llvm.ctpop.i8(i8 %154), !range !292
+  %181 = tail call range(i8 1, 9) i8 @llvm.ctpop.i8(i8 %154), !range !292
   %182 = icmp eq i8 %181, 1
   %183 = select i1 %161, i1 true, i1 %182
   br i1 %183, label %195, label %184, !prof !293

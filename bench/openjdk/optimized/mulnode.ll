@@ -1243,7 +1243,7 @@ _ZN4NodenwEm.exit63:                              ; preds = %130, %132
 
 137:                                              ; preds = %48
   %138 = add nuw i32 %spec.select.i.i, 1
-  %139 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %138)
+  %139 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %138)
   %140 = icmp ult i32 %139, 2
   br i1 %140, label %141, label %197
 
@@ -1953,7 +1953,7 @@ _ZN4NodenwEm.exit63:                              ; preds = %133, %135
 
 140:                                              ; preds = %49
   %141 = add nuw i64 %spec.select.i.i, 1
-  %142 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %141)
+  %142 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %141)
   %143 = icmp ult i64 %142, 2
   br i1 %143, label %144, label %201
 

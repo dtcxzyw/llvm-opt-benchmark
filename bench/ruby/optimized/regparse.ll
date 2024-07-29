@@ -11220,7 +11220,7 @@ define internal fastcc range(i32 0, 2) i32 @is_onechar_cclass(ptr nocapture noun
   br i1 %.not35, label %62, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %34)
+  %36 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %34)
   %37 = icmp ult i32 %36, 2
   %38 = icmp eq i32 %.138, -1
   %or.cond = select i1 %37, i1 %38, i1 false

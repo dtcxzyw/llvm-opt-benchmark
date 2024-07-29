@@ -2908,7 +2908,7 @@ if.end64:                                         ; preds = %if.then62, %invoke.
 
 if.end67:                                         ; preds = %if.end64, %invoke.cont52
   %12 = phi i64 [ %.pre, %if.end64 ], [ 0, %invoke.cont52 ]
-  %13 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
+  %13 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %12)
   %or.cond = icmp eq i64 %13, 1
   %retval.0 = select i1 %or.cond, i64 %12, i64 4096
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname) #26

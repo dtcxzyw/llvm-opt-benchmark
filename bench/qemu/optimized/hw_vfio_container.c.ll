@@ -255,7 +255,7 @@ for.body19.us.i.i:                                ; preds = %while.end.us.i.i, %
   br i1 %tobool21.not.us.i.i, label %if.end52.us.i.i, label %if.then22.us.i.i
 
 if.then22.us.i.i:                                 ; preds = %for.body19.us.i.i
-  %14 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
+  %14 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %13)
   %15 = load ptr, ptr %blocks.i.i, align 16
   %arrayidx27.us.i.i = getelementptr ptr, ptr %15, i64 %idx.181.us.i.i
   %16 = load ptr, ptr %arrayidx27.us.i.i, align 8
@@ -395,7 +395,7 @@ if.then81.us.i.i:                                 ; preds = %for.body77.us.i.i
   br i1 %tobool87.not.us.i.i, label %if.end96.us.i.i, label %if.then94.us.i.i
 
 if.then94.us.i.i:                                 ; preds = %if.then81.us.i.i
-  %39 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
+  %39 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %37)
   %40 = load i64, ptr @total_dirty_pages, align 8
   %add95.us.i.i = add i64 %40, %39
   store i64 %add95.us.i.i, ptr @total_dirty_pages, align 8
@@ -547,7 +547,7 @@ if.then81.i.i:                                    ; preds = %for.body77.i.i
   br i1 %tobool87.not.i.i, label %if.end96.i.i, label %if.then94.i.i
 
 if.then94.i.i:                                    ; preds = %if.then81.i.i
-  %55 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %53)
+  %55 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %53)
   %56 = load i64, ptr @total_dirty_pages, align 8
   %add95.i.i = add i64 %56, %55
   store i64 %add95.i.i, ptr @total_dirty_pages, align 8

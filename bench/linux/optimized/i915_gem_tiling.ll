@@ -718,7 +718,7 @@ define dso_local i32 @i915_gem_set_tiling_ioctl(ptr nocapture noundef readonly %
 
 61:                                               ; preds = %57
   %62 = icmp ult i32 %45, 8193
-  %63 = tail call i32 @llvm.ctpop.i32(i32 %45), !range !18
+  %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45), !range !18
   %64 = icmp eq i32 %63, 1
   %65 = select i1 %62, i1 %64, i1 false
   br i1 %65, label %66, label %114

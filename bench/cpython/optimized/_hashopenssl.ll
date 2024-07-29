@@ -1577,7 +1577,7 @@ if.then11.i:                                      ; preds = %land.lhs.true.i
 
 if.end12.i:                                       ; preds = %land.lhs.true.i, %if.end8.i
   %cmp13.i = icmp ugt i64 %call.i, 1
-  %26 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call.i)
+  %26 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call.i)
   %tobool14.not.i = icmp ult i64 %26, 2
   %or.cond30.i = select i1 %cmp13.i, i1 %tobool14.not.i, i1 false
   br i1 %or.cond30.i, label %if.end16.i, label %if.then15.i

@@ -1998,7 +1998,7 @@ define internal fastcc i32 @eb_lookup_vmas(ptr noundef %0) unnamed_addr #0 align
 199:                                              ; preds = %193
   %200 = getelementptr inbounds i8, ptr %179, i64 16
   %201 = load i64, ptr %200, align 8
-  %202 = tail call i64 @llvm.ctpop.i64(i64 %201), !range !45
+  %202 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %201), !range !45
   %203 = icmp ugt i64 %202, 1
   br i1 %203, label %249, label %204, !prof !46
 
@@ -7630,7 +7630,7 @@ define internal fastcc i64 @eb_relocate_entry(ptr noundef %0, ptr nocapture noun
   %44 = phi ptr [ %42, %39 ], [ %28, %.preheader ]
   %45 = getelementptr inbounds i8, ptr %2, i64 28
   %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @llvm.ctpop.i32(i32 %46), !range !128
+  %47 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %46), !range !128
   %48 = icmp ult i32 %47, 2
   br i1 %48, label %61, label %49, !prof !11
 

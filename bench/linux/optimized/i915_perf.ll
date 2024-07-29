@@ -4913,7 +4913,7 @@ define internal range(i32 -28, 1) i32 @gen8_oa_read(ptr noundef %0, ptr noundef 
   %184 = getelementptr inbounds i8, ptr %0, i64 240
   %185 = sext i32 %116 to i64
   %186 = icmp ne i32 %116, 0
-  %187 = call i64 @llvm.ctpop.i64(i64 %185), !range !128
+  %187 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %185), !range !128
   %188 = icmp ult i64 %187, 2
   %189 = select i1 %186, i1 %188, i1 false
   br label %190

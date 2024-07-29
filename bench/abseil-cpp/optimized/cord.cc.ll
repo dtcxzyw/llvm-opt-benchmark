@@ -2122,7 +2122,7 @@ if.else.i.i:                                      ; preds = %cond.true
   br i1 %cmp2.i.i, label %_ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i, label %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i
 
 _ZN4absl10CordBuffer6IsPow2Em.exit.i.i:           ; preds = %if.else.i.i
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i)
+  %14 = tail call range(i64 1, 18) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i)
   %cmp1.i.i.i.i = icmp ult i64 %14, 2
   br i1 %cmp1.i.i.i.i, label %_ZN4absl10CordBuffer25CreateWithCustomLimitImplIJEEES0_mmDpT_.exit.i, label %if.then7.i.i
 
@@ -2256,7 +2256,7 @@ if.else.i.i.i:                                    ; preds = %cond.true.i
   br i1 %cmp2.i.i.i, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i, label %_ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i
 
 _ZN4absl10CordBuffer6IsPow2Em.exit.i.i.i:         ; preds = %if.else.i.i.i
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i.i)
+  %26 = tail call range(i64 1, 18) i64 @llvm.ctpop.i64(i64 %.sroa.speculated.i.i.i)
   %cmp1.i.i.i.i.i32 = icmp ult i64 %26, 2
   br i1 %cmp1.i.i.i.i.i32, label %_ZN4absl10CordBuffer21CreateWithCustomLimitEmm.exit.i, label %if.then7.i.i.i
 

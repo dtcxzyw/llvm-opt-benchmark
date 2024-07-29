@@ -43,7 +43,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %div)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %div)
   %tobool1.not.i = icmp ult i64 %0, 2
   br i1 %tobool1.not.i, label %if.end2, label %if.then1
 

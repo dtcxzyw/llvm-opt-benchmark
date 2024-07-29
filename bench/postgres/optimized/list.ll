@@ -131,7 +131,7 @@ define dso_local noundef ptr @lappend(ptr noundef %0, ptr noundef %1) local_unna
 15:                                               ; preds = %10
   %16 = add i32 %12, 1
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -213,7 +213,7 @@ define dso_local noundef ptr @lappend_int(ptr noundef %0, i32 noundef %1) local_
 15:                                               ; preds = %10
   %16 = add i32 %12, 1
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -295,7 +295,7 @@ define dso_local noundef ptr @lappend_oid(ptr noundef %0, i32 noundef %1) local_
 15:                                               ; preds = %10
   %16 = add i32 %12, 1
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -377,7 +377,7 @@ define dso_local noundef ptr @lappend_xid(ptr noundef %0, i32 noundef %1) local_
 15:                                               ; preds = %10
   %16 = add i32 %12, 1
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -471,7 +471,7 @@ define internal fastcc ptr @insert_new_cell(ptr noundef %0, i32 noundef %1) unna
 7:                                                ; preds = %2
   %8 = add i32 %4, 1
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 16)
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
   %11 = icmp ult i32 %10, 2
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %13 = xor i32 %12, 31
@@ -628,7 +628,7 @@ define dso_local noundef ptr @lcons(ptr noundef %0, ptr noundef %1) local_unname
 15:                                               ; preds = %10
   %16 = add i32 %12, 1
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -713,7 +713,7 @@ define dso_local noundef ptr @lcons_int(i32 noundef %0, ptr noundef %1) local_un
 15:                                               ; preds = %10
   %16 = add i32 %12, 1
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -798,7 +798,7 @@ define dso_local noundef ptr @lcons_oid(i32 noundef %0, ptr noundef %1) local_un
 15:                                               ; preds = %10
   %16 = add i32 %12, 1
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 16)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -870,7 +870,7 @@ define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly %
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 3
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 8)
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %11)
+  %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = icmp ult i32 %12, 2
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %15 = xor i32 %14, 31
@@ -912,7 +912,7 @@ define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly %
 
 40:                                               ; preds = %31
   %41 = tail call i32 @llvm.smax.i32(i32 %36, i32 16)
-  %42 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %41)
+  %42 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %41)
   %43 = icmp ult i32 %42, 2
   %44 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %41, i1 true)
   %45 = xor i32 %44, 31
@@ -980,7 +980,7 @@ define dso_local noundef ptr @list_copy(ptr noundef readonly %0) local_unnamed_a
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 3
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 8)
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %9 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
   %10 = icmp ult i32 %9, 2
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %12 = xor i32 %11, 31
@@ -1026,7 +1026,7 @@ define dso_local noundef ptr @list_concat_copy(ptr noundef readonly %0, ptr noun
   %9 = load i32, ptr %8, align 4
   %10 = add i32 %9, 3
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 8)
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %11)
+  %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = icmp ult i32 %12, 2
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %15 = xor i32 %14, 31
@@ -1061,7 +1061,7 @@ list_copy.exit20:                                 ; preds = %30
   %33 = load i32, ptr %32, align 4
   %34 = add i32 %33, 3
   %35 = tail call i32 @llvm.smax.i32(i32 %34, i32 8)
-  %36 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %35)
+  %36 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %35)
   %37 = icmp ult i32 %36, 2
   %38 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %35, i1 true)
   %39 = xor i32 %38, 31
@@ -1096,7 +1096,7 @@ list_copy.exit20:                                 ; preds = %30
   %60 = load i32, ptr %0, align 8
   %61 = add i32 %59, 3
   %62 = tail call i32 @llvm.smax.i32(i32 %61, i32 8)
-  %63 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %62)
+  %63 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %62)
   %64 = icmp ult i32 %63, 2
   %65 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %62, i1 true)
   %66 = xor i32 %65, 31
@@ -1863,7 +1863,7 @@ define dso_local ptr @list_union(ptr noundef readonly %0, ptr noundef readonly %
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
   %11 = icmp ult i32 %10, 2
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %13 = xor i32 %12, 31
@@ -1965,7 +1965,7 @@ define dso_local ptr @list_union_ptr(ptr noundef readonly %0, ptr noundef readon
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
   %11 = icmp ult i32 %10, 2
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %13 = xor i32 %12, 31
@@ -2066,7 +2066,7 @@ define dso_local ptr @list_union_int(ptr noundef readonly %0, ptr noundef readon
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
   %11 = icmp ult i32 %10, 2
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %13 = xor i32 %12, 31
@@ -2167,7 +2167,7 @@ define dso_local ptr @list_union_oid(ptr noundef readonly %0, ptr noundef readon
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 3
   %9 = tail call i32 @llvm.smax.i32(i32 %8, i32 8)
-  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
+  %10 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %9)
   %11 = icmp ult i32 %10, 2
   %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %9, i1 true)
   %13 = xor i32 %12, 31
@@ -2424,7 +2424,7 @@ define dso_local ptr @list_difference(ptr noundef readonly %0, ptr noundef reado
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -2525,7 +2525,7 @@ define dso_local ptr @list_difference_ptr(ptr noundef readonly %0, ptr noundef r
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -2625,7 +2625,7 @@ define dso_local ptr @list_difference_int(ptr noundef readonly %0, ptr noundef r
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -2725,7 +2725,7 @@ define dso_local ptr @list_difference_oid(ptr noundef readonly %0, ptr noundef r
   %15 = load i32, ptr %14, align 4
   %16 = add i32 %15, 3
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 8)
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %17)
   %19 = icmp ult i32 %18, 2
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %17, i1 true)
   %21 = xor i32 %20, 31
@@ -3314,7 +3314,7 @@ define dso_local noundef ptr @list_copy_head(ptr noundef readonly %0, i32 nounde
   %8 = load i32, ptr %0, align 8
   %9 = add i32 %., 3
   %10 = tail call i32 @llvm.smax.i32(i32 %9, i32 8)
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10)
+  %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %10)
   %12 = icmp ult i32 %11, 2
   %13 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %10, i1 true)
   %14 = xor i32 %13, 31
@@ -3362,7 +3362,7 @@ define dso_local noundef ptr @list_copy_tail(ptr noundef readonly %0, i32 nounde
   %9 = sub nsw i32 %6, %spec.store.select
   %10 = add i32 %9, 3
   %11 = tail call i32 @llvm.smax.i32(i32 %10, i32 8)
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %11)
+  %12 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %11)
   %13 = icmp ult i32 %12, 2
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %11, i1 true)
   %15 = xor i32 %14, 31
@@ -3406,7 +3406,7 @@ define dso_local noundef ptr @list_copy_deep(ptr noundef readonly %0) local_unna
   %6 = load i32, ptr %5, align 4
   %7 = add i32 %6, 3
   %8 = tail call i32 @llvm.smax.i32(i32 %7, i32 8)
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %9 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
   %10 = icmp ult i32 %9, 2
   %11 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 true)
   %12 = xor i32 %11, 31

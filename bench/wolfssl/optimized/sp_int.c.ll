@@ -1730,7 +1730,7 @@ entry:
 
 if.then5:                                         ; preds = %entry
   %sub = add i64 %d, -1
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %d)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %d)
   %cmp6 = icmp ult i64 %0, 2
   br i1 %cmp6, label %if.then7, label %if.else13
 

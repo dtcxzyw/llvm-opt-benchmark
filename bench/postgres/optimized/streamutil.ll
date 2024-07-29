@@ -565,7 +565,7 @@ define dso_local noundef zeroext i1 @RetrieveWalSegSize(ptr noundef %0) local_un
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %28
-  %33 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %30)
+  %33 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %30)
   %34 = icmp ult i32 %33, 2
   %35 = add nsw i32 %30, -1048576
   %36 = icmp ult i32 %35, 1072693249

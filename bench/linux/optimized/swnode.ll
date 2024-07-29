@@ -1795,7 +1795,7 @@ define internal i32 @software_node_read_int_array(ptr noundef readonly %0, ptr n
   br i1 %42, label %property_entry_read_int_array.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = tail call i64 @llvm.ctpop.i64(i64 %20), !range !23
+  %44 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %20), !range !23
   %45 = icmp ult i64 %44, 2
   %46 = icmp ult i32 %2, 9
   %47 = and i1 %46, %45

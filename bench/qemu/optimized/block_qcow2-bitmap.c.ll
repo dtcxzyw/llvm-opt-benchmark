@@ -2525,7 +2525,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %granularity)
+  %2 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %granularity)
   %cmp2 = icmp ult i32 %2, 2
   br i1 %cmp2, label %if.end5, label %if.else4
 

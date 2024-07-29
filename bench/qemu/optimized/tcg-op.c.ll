@@ -1582,7 +1582,7 @@ if.then.i.i:                                      ; preds = %if.then
 
 is_power_of_2.exit:                               ; preds = %entry
   %conv = sext i32 %arg2 to i64
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv)
+  %6 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %conv)
   %tobool1.not.i = icmp ult i64 %6, 2
   br i1 %tobool1.not.i, label %if.then1, label %if.else3
 
@@ -6009,7 +6009,7 @@ if.end.i.i:                                       ; preds = %if.then
   br label %if.end5
 
 is_power_of_2.exit:                               ; preds = %entry
-  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %arg2)
+  %6 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %arg2)
   %tobool1.not.i = icmp ult i64 %6, 2
   br i1 %tobool1.not.i, label %if.then1, label %if.else3
 

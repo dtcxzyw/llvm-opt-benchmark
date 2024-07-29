@@ -11262,7 +11262,7 @@ define internal void @"_ZNSt17_Function_handlerIFvPKcEZ4mainE4$_46E9_M_invokeERK
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, -16
   %or.cond.i.i.i = icmp ult i64 %7, 4081
-  %8 = tail call range(i64 0, 14) i64 @llvm.ctpop.i64(i64 %6)
+  %8 = tail call range(i64 1, 14) i64 @llvm.ctpop.i64(i64 %6)
   %.not.i.i.i = icmp ult i64 %8, 2
   %or.cond2.i.i.i = select i1 %or.cond.i.i.i, i1 %.not.i.i.i, i1 false
   br i1 %or.cond2.i.i.i, label %"_ZSt10__invoke_rIvRZ4mainE4$_46JPKcEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EES5_E4typeEOS6_DpOS7_.exit", label %9

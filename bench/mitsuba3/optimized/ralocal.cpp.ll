@@ -1947,7 +1947,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1016RALocalAllocator9allocInstEPNS0
 359:                                              ; preds = %354
   %360 = getelementptr inbounds i8, ptr %340, i64 24
   %361 = load i32, ptr %360, align 4, !tbaa !161
-  %362 = tail call i32 @llvm.ctpop.i32(i32 %361), !range !99
+  %362 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %361), !range !99
   %363 = icmp eq i32 %362, 1
   br i1 %363, label %364, label %412
 

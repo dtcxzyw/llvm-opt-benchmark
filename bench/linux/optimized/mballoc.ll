@@ -7850,7 +7850,7 @@ define internal fastcc i32 @ext4_mb_regular_allocator(ptr noundef %0) unnamed_ad
 206:                                              ; preds = %200
   %207 = sext i32 %193 to i64
   %208 = icmp ne i32 %193, 0
-  %209 = tail call i64 @llvm.ctpop.i64(i64 %207), !range !211
+  %209 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %207), !range !211
   %210 = icmp ult i64 %209, 2
   %211 = select i1 %208, i1 %210, i1 false
   br i1 %211, label %212, label %219

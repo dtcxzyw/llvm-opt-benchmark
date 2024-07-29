@@ -943,7 +943,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr nocapture nounde
   %260 = load ptr, ptr %259, align 8
   %261 = call i32 @atoi(ptr nocapture noundef %260) #22
   %262 = icmp sgt i32 %261, 0
-  %263 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %261)
+  %263 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %261)
   %264 = icmp ult i32 %263, 2
   %or.cond583 = select i1 %262, i1 %264, i1 false
   br i1 %or.cond583, label %265, label %266

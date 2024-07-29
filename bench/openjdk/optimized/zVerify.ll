@@ -1738,7 +1738,7 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
   %82 = zext i32 %80 to i64
   %83 = shl i64 %81, %82
   %84 = and i64 %83, %3
-  %85 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
+  %85 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %84)
   %or.cond43.i = icmp eq i64 %85, 1
   br i1 %or.cond43.i, label %86, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
@@ -1750,14 +1750,14 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
 
 89:                                               ; preds = %86, %66
   %90 = and i64 %3, 61440
-  %91 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %90)
+  %91 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %90)
   %or.cond45.i = icmp eq i64 %91, 1
   br i1 %or.cond45.i, label %92, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
 92:                                               ; preds = %89
   %93 = and i64 %3, 768
   %94 = and i64 %3, 48
-  %95 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %93)
+  %95 = tail call range(i64 1, 3) i64 @llvm.ctpop.i64(i64 %93)
   %or.cond47.i = icmp eq i64 %95, 1
   br i1 %or.cond47.i, label %96, label %_ZL24z_verify_root_oop_object8zaddressPv.exit
 
@@ -1767,7 +1767,7 @@ _ZN8ZBarrier35load_barrier_on_oop_field_preloadedEPV8zpointerS0_.exit: ; preds =
   br i1 %.not.i38.i, label %_ZL24z_verify_root_oop_object8zaddressPv.exit, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit39.i: ; preds = %96
-  %98 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %97)
+  %98 = tail call range(i64 1, 5) i64 @llvm.ctpop.i64(i64 %97)
   %99 = icmp ult i64 %98, 2
   %100 = icmp ne i64 %94, 0
   %or.cond.i.not26 = and i1 %100, %99

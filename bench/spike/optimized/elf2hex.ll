@@ -80,7 +80,7 @@ define noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef r
 
 18:                                               ; preds = %13
   %19 = add i32 %16, -1
-  %20 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %16)
+  %20 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %16)
   %.not = icmp ult i32 %20, 2
   br i1 %.not, label %23, label %21
 
@@ -110,7 +110,7 @@ define noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr nocapture noundef r
   %34 = getelementptr inbounds i8, ptr %1, i64 16
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 @atoi(ptr nocapture noundef %35) #12
-  %37 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %36)
+  %37 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %36)
   %or.cond28 = icmp eq i32 %37, 1
   br i1 %or.cond28, label %40, label %38
 

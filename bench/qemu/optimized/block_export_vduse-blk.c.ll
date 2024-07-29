@@ -71,7 +71,7 @@ if.then6:                                         ; preds = %if.end4
   br i1 %cmp9, label %if.then16, label %is_power_of_2.exit
 
 is_power_of_2.exit:                               ; preds = %if.then6
-  %5 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %4)
+  %5 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %4)
   %tobool1.not.i = icmp ult i16 %5, 2
   %cmp14 = icmp ult i16 %4, 1025
   %or.cond.not = and i1 %cmp14, %tobool1.not.i

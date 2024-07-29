@@ -829,7 +829,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler10embedLabelERK
   %32 = icmp eq i8 %31, 0
   %33 = select i1 %32, i64 8, i64 4
   %34 = select i1 %28, i64 %33, i64 %2
-  %35 = tail call i64 @llvm.ctpop.i64(i64 %34), !range !71
+  %35 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34), !range !71
   %36 = icmp eq i64 %35, 1
   %37 = icmp ult i64 %34, 9
   %38 = and i1 %37, %36
@@ -1113,7 +1113,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_1013BaseAssembler15embedLabelDel
   %45 = icmp eq i8 %44, 0
   %46 = select i1 %45, i64 8, i64 4
   %47 = select i1 %41, i64 %46, i64 %3
-  %48 = tail call i64 @llvm.ctpop.i64(i64 %47), !range !71
+  %48 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %47), !range !71
   %49 = icmp eq i64 %48, 1
   %50 = icmp ult i64 %47, 9
   %51 = and i1 %50, %49

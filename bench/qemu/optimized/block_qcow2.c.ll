@@ -1829,7 +1829,7 @@ if.end60:                                         ; preds = %if.end57.if.end60_c
   %cmp62 = icmp slt i64 %17, 65
   %tobool.not.i = icmp ne i64 %17, 0
   %or.cond161.not164 = and i1 %cmp62, %tobool.not.i
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %18 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %17)
   %tobool1.not.i = icmp ult i64 %18, 2
   %or.cond162 = select i1 %or.cond161.not164, i1 %tobool1.not.i, i1 false
   br i1 %or.cond162, label %if.end66, label %if.then65
@@ -2581,7 +2581,7 @@ if.then73:                                        ; preds = %if.else69
 
 lor.lhs.false81:                                  ; preds = %if.then73
   %conv82 = and i64 %call74, 4294967295
-  %34 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv82)
+  %34 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %conv82)
   %or.cond199 = icmp eq i64 %34, 1
   br i1 %or.cond199, label %if.end119, label %if.then84
 
@@ -5518,7 +5518,7 @@ if.end6:                                          ; preds = %qcow2_opt_get_versi
   %call.i72 = call i64 @qemu_opt_get_number_del(ptr noundef %opts, ptr noundef nonnull @.str.54, i64 noundef 16) #22
   %5 = add i64 %call.i72, -1
   %or.cond6.i = icmp ult i64 %5, 64
-  %6 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %call.i72)
+  %6 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %call.i72)
   %tobool1.not.i.i = icmp ult i64 %6, 2
   %or.cond7.i = select i1 %or.cond6.i, i1 %tobool1.not.i.i, i1 false
   br i1 %or.cond7.i, label %if.end.i, label %if.then.i
@@ -6332,7 +6332,7 @@ if.end75.i:                                       ; preds = %if.end75.sink.split
 lor.lhs.false.i:                                  ; preds = %if.end75.i
   %conv94.i = sext i32 %.pre.i.pre to i64
   %cmp95.i = icmp ule i64 %l2_cache_entry_size.0, %conv94.i
-  %8 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %l2_cache_entry_size.0)
+  %8 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %l2_cache_entry_size.0)
   %tobool1.not.i.i = icmp ult i64 %8, 2
   %or.cond1.i = select i1 %cmp95.i, i1 %tobool1.not.i.i, i1 false
   br i1 %or.cond1.i, label %if.end5, label %if.then99.i

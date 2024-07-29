@@ -1407,7 +1407,7 @@ define hidden noundef i32 @_ZN14ShenandoahHeap10initializeEv(ptr noundef nonnull
   unreachable
 
 100:                                              ; preds = %88
-  %101 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %97)
+  %101 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %97)
   %102 = icmp ult i64 %101, 2
   br i1 %102, label %104, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
@@ -1669,7 +1669,7 @@ _ZN10MemTracker26record_virtual_memory_typeEPv8MEMFLAGS.exit145: ; preds = %_ZN1
   %240 = add i64 %239, %238
   %241 = sub i64 0, %231
   %242 = and i64 %240, %241
-  %243 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %231)
+  %243 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %231)
   %or.cond.i146 = icmp eq i64 %243, 1
   %244 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %231, i1 true)
   %245 = sub nuw nsw i64 64, %244

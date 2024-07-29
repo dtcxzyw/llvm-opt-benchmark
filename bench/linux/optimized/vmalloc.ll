@@ -3359,7 +3359,7 @@ define internal fastcc ptr @alloc_vmap_area(i64 noundef %0, i64 noundef %1, i64 
   %12 = or i1 %9, %11
   %13 = icmp eq i64 %1, 0
   %14 = or i1 %13, %12
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !125
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1), !range !125
   %16 = icmp ugt i64 %15, 1
   %17 = select i1 %14, i1 true, i1 %16
   br i1 %17, label %444, label %18, !prof !126
@@ -6802,7 +6802,7 @@ define dso_local ptr @pcpu_get_vm_areas(ptr nocapture noundef readonly %0, ptr n
   %17 = icmp eq i64 %16, 0
   %18 = icmp ne i64 %3, 0
   %19 = and i1 %18, %17
-  %20 = tail call i64 @llvm.ctpop.i64(i64 %3), !range !125
+  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3), !range !125
   %21 = icmp ult i64 %20, 2
   %22 = select i1 %19, i1 %21, i1 false
   br i1 %22, label %23, label %27, !prof !219

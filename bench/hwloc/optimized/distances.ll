@@ -2342,13 +2342,13 @@ define noalias noundef ptr @hwloc_distances_add_create(ptr nocapture noundef %0,
 
 16:                                               ; preds = %15
   %17 = and i64 %2, 3
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %18 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %17)
   %.not11 = icmp eq i64 %18, 1
   br i1 %.not11, label %19, label %22
 
 19:                                               ; preds = %16
   %20 = and i64 %2, 12
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %20)
+  %21 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %20)
   %.not12 = icmp eq i64 %21, 1
   br i1 %.not12, label %24, label %22
 
@@ -2565,13 +2565,13 @@ define range(i32 -1, 1) i32 @hwloc_distances_add(ptr noundef %0, i32 noundef %1,
 
 18:                                               ; preds = %17
   %19 = and i64 %4, 3
-  %20 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %19)
+  %20 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %19)
   %.not11.i = icmp eq i64 %20, 1
   br i1 %.not11.i, label %21, label %24
 
 21:                                               ; preds = %18
   %22 = and i64 %4, 12
-  %23 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
+  %23 = tail call range(i64 0, 3) i64 @llvm.ctpop.i64(i64 %22)
   %.not12.i = icmp eq i64 %23, 1
   br i1 %.not12.i, label %26, label %24
 

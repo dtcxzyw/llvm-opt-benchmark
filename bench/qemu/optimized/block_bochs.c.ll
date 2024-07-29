@@ -202,7 +202,7 @@ if.then88:                                        ; preds = %for.cond.preheader
   br label %fail
 
 if.else89:                                        ; preds = %for.cond.preheader
-  %12 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %11)
+  %12 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %11)
   %tobool1.not.i = icmp ult i32 %12, 2
   br i1 %tobool1.not.i, label %if.else95, label %if.then93
 

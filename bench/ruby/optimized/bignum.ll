@@ -15422,7 +15422,7 @@ BIGNUM_LEN.exit.i:                                ; preds = %45, %40
   unreachable
 
 61:                                               ; preds = %57
-  %62 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1)
+  %62 = tail call range(i32 0, 7) i32 @llvm.ctpop.i32(i32 %1)
   %63 = icmp ult i32 %62, 2
   br i1 %63, label %64, label %131
 
@@ -29911,7 +29911,7 @@ define internal fastcc void @bigdivrem_restoring(ptr noundef %0, i64 noundef %1,
   %16 = getelementptr i32, ptr %0, i64 %1
   %17 = getelementptr i8, ptr %16, i64 -4
   %18 = load i32, ptr %17, align 4
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8)
+  %19 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %8)
   %20 = icmp ult i32 %19, 2
   br i1 %20, label %21, label %40
 

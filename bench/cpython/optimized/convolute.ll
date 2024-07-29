@@ -36,7 +36,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 
 x64_powmod.exit:                                  ; preds = %if.end.i, %entry
   %r.0.lcssa.i = phi i64 [ 1, %entry ], [ %r.1.i, %if.end.i ]
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %n)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %n)
   %or.cond.not = icmp eq i64 %1, 1
   %cmp = icmp ugt i64 %n, 4096
   %six_step_fnt.std_fnt = select i1 %cmp, ptr @six_step_fnt, ptr @std_fnt
@@ -159,7 +159,7 @@ if.end.i:                                         ; preds = %if.then.i, %while.b
 
 x64_powmod.exit:                                  ; preds = %if.end.i, %entry
   %r.0.lcssa.i = phi i64 [ 1, %entry ], [ %r.1.i, %if.end.i ]
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %n)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %n)
   %or.cond.not = icmp eq i64 %1, 1
   %cmp = icmp ugt i64 %n, 4096
   %inv_six_step_fnt.std_inv_fnt = select i1 %cmp, ptr @inv_six_step_fnt, ptr @std_inv_fnt

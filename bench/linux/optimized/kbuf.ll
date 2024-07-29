@@ -1244,7 +1244,7 @@ define dso_local i32 @io_register_pbuf_ring(ptr noundef %0, ptr noundef %1) loca
   br i1 %34, label %.thread, label %35
 
 35:                                               ; preds = %31
-  %36 = call i32 @llvm.ctpop.i32(i32 %33), !range !29
+  %36 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %33), !range !29
   %37 = icmp ugt i32 %36, 1
   %38 = icmp ugt i32 %33, 65535
   %39 = or i1 %38, %37

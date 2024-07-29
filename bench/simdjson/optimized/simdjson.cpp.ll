@@ -6958,7 +6958,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK8simdjson7icela
   %14 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %13)
   %vecinit.i66.i.i.i = insertelement <16 x i32> poison, i32 %conv.i.i, i64 0
   %vecinit15.i81.i.i.i = shufflevector <16 x i32> %vecinit.i66.i.i.i, <16 x i32> poison, <16 x i32> zeroinitializer
-  %15 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %11)
+  %15 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %11)
   %16 = shufflevector <64 x i8> %14, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %conv.i88.i.i.i = zext <16 x i8> %16 to <16 x i32>
   %17 = load ptr, ptr %indexer.i.i, align 64
@@ -8902,7 +8902,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage112json_scanner4nextERKNS1_4simd8simd8x
   %shr.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, 16
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %minifier.sroa.14.0251.i, i64 16
   %and.i.i.i.i = and i64 %and.i.i.i.i.i.i, 65535
-  %25 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i.i.i.i)
+  %25 = tail call noundef range(i64 0, 17) i64 @llvm.ctpop.i64(i64 %and.i.i.i.i)
   %idx.neg.i.i.i.i = sub nsw i64 0, %25
   %add.ptr5.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %idx.neg.i.i.i.i
   %26 = lshr i64 %and.i.i.i.i.i.i, 24
@@ -8928,7 +8928,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage112json_scanner4nextERKNS1_4simd8simd8x
   %shr8.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, 32
   %add.ptr10.i.i.i.i = getelementptr inbounds i8, ptr %minifier.sroa.14.0251.i, i64 32
   %and11.i.i.i.i = and i64 %and.i.i.i.i.i.i, 4294967295
-  %34 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and11.i.i.i.i)
+  %34 = tail call noundef range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %and11.i.i.i.i)
   %idx.neg13.i.i.i.i = sub nsw i64 0, %34
   %add.ptr14.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr10.i.i.i.i, i64 %idx.neg13.i.i.i.i
   %35 = lshr i64 %and.i.i.i.i.i.i, 40
@@ -8954,7 +8954,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage112json_scanner4nextERKNS1_4simd8simd8x
   %shr17.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, 48
   %add.ptr19.i.i.i.i = getelementptr inbounds i8, ptr %minifier.sroa.14.0251.i, i64 48
   %and20.i.i.i.i = and i64 %or15.i.i.i.i.i, %not.i.i.i.i.i.i
-  %43 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and20.i.i.i.i)
+  %43 = tail call noundef range(i64 0, 49) i64 @llvm.ctpop.i64(i64 %and20.i.i.i.i)
   %idx.neg22.i.i.i.i = sub nsw i64 0, %43
   %add.ptr23.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr19.i.i.i.i, i64 %idx.neg22.i.i.i.i
   %conv3.i33.i.i.i.i = lshr i64 %and.i.i.i.i.i.i, 56
@@ -9109,7 +9109,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage112json_scanner4nextERKNS1_4simd8simd8x
   %shr.i.i.i46.i = lshr i64 %and.i.i.i.i.i33.i, 16
   %add.ptr.i.i.i47.i = getelementptr inbounds i8, ptr %out_block.i, i64 16
   %and.i.i.i48.i = and i64 %and.i.i.i.i.i33.i, 65535
-  %78 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i.i.i48.i)
+  %78 = tail call noundef range(i64 0, 17) i64 @llvm.ctpop.i64(i64 %and.i.i.i48.i)
   %idx.neg.i.i.i49.i = sub nsw i64 0, %78
   %add.ptr5.i.i.i50.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i47.i, i64 %idx.neg.i.i.i49.i
   %79 = lshr i64 %and.i.i.i.i.i33.i, 24
@@ -9135,7 +9135,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage112json_scanner4nextERKNS1_4simd8simd8x
   %shr8.i.i.i62.i = lshr i64 %and.i.i.i.i.i33.i, 32
   %add.ptr10.i.i.i63.i = getelementptr inbounds i8, ptr %out_block.i, i64 32
   %and11.i.i.i64.i = and i64 %and.i.i.i.i.i33.i, 4294967295
-  %87 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and11.i.i.i64.i)
+  %87 = tail call noundef range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %and11.i.i.i64.i)
   %idx.neg13.i.i.i65.i = sub nsw i64 0, %87
   %add.ptr14.i.i.i66.i = getelementptr inbounds i8, ptr %add.ptr10.i.i.i63.i, i64 %idx.neg13.i.i.i65.i
   %88 = lshr i64 %and.i.i.i.i.i33.i, 40
@@ -9161,7 +9161,7 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage112json_scanner4nextERKNS1_4simd8simd8x
   %shr17.i.i.i78.i = lshr i64 %and.i.i.i.i.i33.i, 48
   %add.ptr19.i.i.i79.i = getelementptr inbounds i8, ptr %out_block.i, i64 48
   %and20.i.i.i80.i = and i64 %or15.i.i.i.i171.i, %not.i.i.i.i.i32.i
-  %96 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and20.i.i.i80.i)
+  %96 = tail call noundef range(i64 0, 49) i64 @llvm.ctpop.i64(i64 %and20.i.i.i80.i)
   %idx.neg22.i.i.i81.i = sub nsw i64 0, %96
   %add.ptr23.i.i.i82.i = getelementptr inbounds i8, ptr %add.ptr19.i.i.i79.i, i64 %idx.neg22.i.i.i81.i
   %conv3.i33.i.i.i83.i = lshr i64 %and.i.i.i.i.i33.i, 56
@@ -14242,7 +14242,7 @@ invoke.cont7:                                     ; preds = %if.end.i.i18, %invo
   store <4 x i32> %extract.i.i.i, ptr %add.ptr40.i.i.i, align 1
   %add.ptr.i.i = getelementptr inbounds i8, ptr %24, i64 32
   %conv5.i.i = and i64 %and.i.i.i.i, 4294967295
-  %41 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv5.i.i)
+  %41 = tail call noundef range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %conv5.i.i)
   %idx.neg.i.i = sub nsw i64 0, %41
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %idx.neg.i.i
   %shr.i5.i.i = lshr i64 %and.i.i.i.i, 40
@@ -14354,7 +14354,7 @@ invoke.cont7:                                     ; preds = %if.end.i.i18, %invo
   store <4 x i32> %extract.i.i.i108, ptr %add.ptr40.i.i.i112, align 1
   %add.ptr.i.i114 = getelementptr inbounds i8, ptr %add.ptr.i72, i64 32
   %conv5.i.i115 = and i64 %and.i.i.i.i74, 4294967295
-  %76 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv5.i.i115)
+  %76 = tail call noundef range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %conv5.i.i115)
   %idx.neg.i.i116 = sub nsw i64 0, %76
   %add.ptr6.i.i117 = getelementptr inbounds i8, ptr %add.ptr.i.i114, i64 %idx.neg.i.i116
   %shr.i5.i.i119 = lshr i64 %and.i.i.i.i74, 40
@@ -14815,7 +14815,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %bits)
+  %0 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %bits)
   %this.val.i.i = load ptr, ptr %this, align 8
   %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits, i1 true)
   %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32
@@ -16223,7 +16223,7 @@ if.end.i.i42:                                     ; preds = %_ZN8simdjson7icelak
   %47 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %46)
   %vecinit.i66.i.i = insertelement <16 x i32> poison, i32 %conv.i, i64 0
   %vecinit15.i81.i.i = shufflevector <16 x i32> %vecinit.i66.i.i, <16 x i32> poison, <16 x i32> zeroinitializer
-  %48 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %44)
+  %48 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %44)
   %49 = shufflevector <64 x i8> %47, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %conv.i88.i.i = zext <16 x i8> %49 to <16 x i32>
   %50 = load ptr, ptr %indexer.i, align 64
@@ -16346,7 +16346,7 @@ if.end.i.i73:                                     ; preds = %_ZN8simdjson7icelak
   %82 = tail call <64 x i8> @llvm.x86.avx512.mask.compress.v64i8(<64 x i8> <i8 0, i8 1, i8 2, i8 3, i8 4, i8 5, i8 6, i8 7, i8 8, i8 9, i8 10, i8 11, i8 12, i8 13, i8 14, i8 15, i8 16, i8 17, i8 18, i8 19, i8 20, i8 21, i8 22, i8 23, i8 24, i8 25, i8 26, i8 27, i8 28, i8 29, i8 30, i8 31, i8 32, i8 33, i8 34, i8 35, i8 36, i8 37, i8 38, i8 39, i8 40, i8 41, i8 42, i8 43, i8 44, i8 45, i8 46, i8 47, i8 48, i8 49, i8 50, i8 51, i8 52, i8 53, i8 54, i8 55, i8 56, i8 57, i8 58, i8 59, i8 60, i8 61, i8 62, i8 63>, <64 x i8> zeroinitializer, <64 x i1> %81)
   %vecinit.i66.i.i75 = insertelement <16 x i32> poison, i32 %80, i64 0
   %vecinit15.i81.i.i76 = shufflevector <16 x i32> %vecinit.i66.i.i75, <16 x i32> poison, <16 x i32> zeroinitializer
-  %83 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i.i44)
+  %83 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %and.i.i44)
   %84 = shufflevector <64 x i8> %82, <64 x i8> poison, <16 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
   %conv.i88.i.i78 = zext <16 x i8> %84 to <16 x i32>
   %85 = load ptr, ptr %indexer.i, align 64
@@ -17730,7 +17730,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %0 = tail call noundef range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %bits)
+  %0 = tail call noundef range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %bits)
   %this.val.i.i = load ptr, ptr %this, align 8
   %1 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %bits, i1 true)
   %cast.i.i.i.i = trunc nuw nsw i64 %1 to i32

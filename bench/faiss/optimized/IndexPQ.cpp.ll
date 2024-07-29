@@ -5136,7 +5136,7 @@ _ZN5faiss24dispatch_HammingComputerINS_12_GLOBAL__N_125Run_polysemous_inner_loop
   %670 = lshr i64 %669, 4
   %671 = or i64 %670, %669
   %672 = and i64 %671, 72340172838076673
-  %673 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %672)
+  %673 = call range(i64 0, 9) i64 @llvm.ctpop.i64(i64 %672)
   %674 = trunc nuw nsw i64 %673 to i32
   %675 = icmp sgt i32 %652, %674
   br i1 %675, label %676, label %725
@@ -5626,7 +5626,7 @@ _ZN5faiss12_GLOBAL__N_121polysemous_inner_loopINS_20GenHammingComputer32EEEmPKNS
   %922 = lshr i64 %921, 4
   %923 = or i64 %922, %921
   %924 = and i64 %923, 72340172838076673
-  %925 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %924)
+  %925 = call range(i64 0, 9) i64 @llvm.ctpop.i64(i64 %924)
   %926 = trunc nuw nsw i64 %925 to i32
   %927 = add nuw nsw i32 %.089.i.i, %926
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1

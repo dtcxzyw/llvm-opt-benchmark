@@ -5690,14 +5690,14 @@ if.end117.thread:                                 ; preds = %if.else28, %land.lh
   %base.addr.048.ph65 = phi i32 [ %base.addr.04959, %if.then110 ], [ %base, %land.lhs.true71 ], [ 10, %if.else28 ]
   %tobool126.not46.ph66 = phi i1 [ true, %if.then110 ], [ true, %land.lhs.true71 ], [ false, %if.else28 ]
   %str.addr.2.ph67 = phi ptr [ %add.ptr, %if.then110 ], [ %str.addr.1, %land.lhs.true71 ], [ %str.addr.1, %if.else28 ]
-  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048.ph65)
+  %11 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048.ph65)
   br label %while.cond.preheader.i
 
 if.end117:                                        ; preds = %if.then114, %if.then22, %if.end66
   %12 = phi i8 [ %5, %if.end66 ], [ %5, %if.then22 ], [ %.pr64.pre, %if.then114 ]
   %base.addr.048 = phi i32 [ %base, %if.end66 ], [ 10, %if.then22 ], [ %base.addr.04959, %if.then114 ]
   %str.addr.2 = phi ptr [ %str.addr.1, %if.end66 ], [ %str.addr.1, %if.then22 ], [ %incdec.ptr115, %if.then114 ]
-  %13 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048)
+  %13 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %base.addr.048)
   %cmp2.i = icmp eq i8 %12, 95
   br i1 %cmp2.i, label %onError, label %while.cond.preheader.i
 

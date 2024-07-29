@@ -1316,7 +1316,7 @@ check_size_impl.exit:                             ; preds = %entry
   %and.i = and i32 %size, 7
   %cmp1.i = icmp eq i32 %and.i, 0
   tail call void @llvm.assume(i1 %cmp1.i)
-  %1 = tail call range(i32 0, 6) i32 @llvm.ctpop.i32(i32 %rem.i)
+  %1 = tail call range(i32 0, 3) i32 @llvm.ctpop.i32(i32 %rem.i)
   %add.i = add nuw nsw i32 %1, %div.i40
   %cmp10.i = icmp ult i32 %add.i, 5
   br i1 %cmp10.i, label %land.lhs.true1, label %if.end

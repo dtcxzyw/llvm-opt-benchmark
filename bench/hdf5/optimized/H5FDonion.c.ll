@@ -937,7 +937,7 @@ H5FD__onion_get_legit_fapl_id.exit.thread:        ; preds = %102, %H5FD__onion_g
   store i8 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %.0256, i64 16
   %120 = load i32, ptr %119, align 8
-  %121 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %120)
+  %121 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %120)
   %or.cond317 = icmp eq i32 %121, 1
   br i1 %or.cond317, label %126, label %122
 

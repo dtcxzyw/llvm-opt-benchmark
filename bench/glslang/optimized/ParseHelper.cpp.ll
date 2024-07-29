@@ -31497,7 +31497,7 @@ define void @_ZN7glslang13TParseContext20memorySemanticsCheckERKNS_10TSourceLocE
   br i1 %366, label %368, label %370
 
 368:                                              ; preds = %364
-  %369 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %367)
+  %369 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %367)
   %or.cond168 = icmp eq i32 %369, 1
   br i1 %or.cond168, label %396, label %.sink.split
 

@@ -4278,7 +4278,7 @@ define hidden noundef i64 @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4push
   %34 = zext i32 %33 to i64
   %35 = add nuw nsw i64 %34, 1
   %36 = icmp ugt i32 %33, 2
-  %37 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %35)
+  %37 = tail call range(i64 1, 34) i64 @llvm.ctpop.i64(i64 %35)
   %38 = icmp eq i64 %37, 1
   %or.cond = select i1 %36, i1 %38, i1 false
   br i1 %or.cond, label %52, label %.critedge

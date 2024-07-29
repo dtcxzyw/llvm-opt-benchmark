@@ -4056,7 +4056,7 @@ _ZN2cv9SparseMat10removeNodeEmmm.exit:            ; preds = %.split.us.thread90,
 define void @_ZN2cv9SparseMat13resizeHashTabEm(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.0", align 8
   %.sroa.speculated = tail call i64 @llvm.umax.i64(i64 %1, i64 8)
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
+  %4 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
   %.not = icmp ult i64 %4, 2
   br i1 %.not, label %13, label %5
 

@@ -904,7 +904,7 @@ hbitmap_iter_next_word.exit:                      ; preds = %for.cond, %if.then.
   br i1 %cmp.not, label %if.end, label %for.end
 
 if.end:                                           ; preds = %hbitmap_iter_next_word.exit
-  %7 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %cur.0.i)
+  %7 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %cur.0.i)
   %add2 = add i64 %7, %count.0
   br label %for.cond
 
@@ -917,7 +917,7 @@ if.then6:                                         ; preds = %for.end
   %notmask = shl nsw i64 -1, %conv7
   %sub = xor i64 %notmask, -1
   %and10 = and i64 %cur.0.i, %sub
-  %8 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and10)
+  %8 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and10)
   %add13 = add i64 %8, %count.0
   br label %if.end14
 

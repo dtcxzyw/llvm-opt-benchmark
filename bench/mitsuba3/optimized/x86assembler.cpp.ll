@@ -8981,7 +8981,7 @@ define dso_local noundef i32 @_ZN6asmjit9_abi_1_103x869Assembler5alignENS0_9Alig
   br i1 %15, label %164, label %16
 
 16:                                               ; preds = %14
-  %17 = tail call i32 @llvm.ctpop.i32(i32 %2), !range !128
+  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2), !range !128
   %18 = icmp ult i32 %17, 2
   %19 = icmp ult i32 %2, 65
   %20 = and i1 %19, %18

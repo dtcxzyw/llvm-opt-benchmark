@@ -1184,7 +1184,7 @@ define internal fastcc ptr @pcpu_alloc(i64 noundef %0, i64 noundef %1, i1 nounde
   %43 = icmp ult i64 %42, -32768
   %44 = icmp ugt i64 %37, 4096
   %45 = or i1 %43, %44
-  %46 = tail call i64 @llvm.ctpop.i64(i64 %37), !range !22
+  %46 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %37), !range !22
   %47 = icmp ugt i64 %46, 1
   %48 = select i1 %45, i1 true, i1 %47
   br i1 %48, label %49, label %51, !prof !23

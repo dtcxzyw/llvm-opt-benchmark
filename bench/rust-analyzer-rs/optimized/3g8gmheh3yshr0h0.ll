@@ -6103,7 +6103,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h01a8c352
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hfcc934eb12049e18E.exit.i", label %.invoke
 
@@ -6266,7 +6266,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h052f0829
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h662858089fb49829E.exit.i", label %.invoke
 
@@ -6429,7 +6429,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h28aff4dc
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17haf4a2a9ddb3e0c54E.exit.i", label %.invoke
 
@@ -6592,7 +6592,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h2b315877
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h770e9c67dd89f8adE.exit.i", label %.invoke
 
@@ -6911,7 +6911,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h3a72f92e
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h26d3dc80a945c847E.exit.i", label %.invoke
 
@@ -7074,7 +7074,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h5557fb8f
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hbc04cd2f8085aeddE.exit.i", label %.invoke
 
@@ -7237,7 +7237,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h73493e2b
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hf7f332156fc0cdadE.exit.i", label %.invoke
 
@@ -7400,7 +7400,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h7ab556b9
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h15603ecf0764d6f2E.exit.i", label %.invoke
 
@@ -7563,7 +7563,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h7ef91ba9
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h5e77ccada26590deE.exit.i", label %.invoke
 
@@ -7726,7 +7726,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17h8c2bb239
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h12da9538c803be9cE.exit.i", label %.invoke
 
@@ -7889,7 +7889,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hae8464b5
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hdcc1d415ba62ca69E.exit.i", label %.invoke
 
@@ -8052,7 +8052,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hddeba1f8
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h9f1dd0f42a338ef2E.exit.i", label %.invoke
 
@@ -8215,7 +8215,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hec0c3240
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hb332df21375203e5E.exit.i", label %.invoke
 
@@ -8378,7 +8378,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hf241ffb7
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h2cd16d1ce4b92221E.exit.i", label %.invoke
 
@@ -8541,7 +8541,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hfe05b553
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17h789363764a8428c6E.exit.i", label %.invoke
 
@@ -8704,7 +8704,7 @@ define internal fastcc void @_ZN3std10sys_common4once5futex4Once4call17hffd8ed09
   br i1 %27, label %28, label %.invoke
 
 28:                                               ; preds = %.noexc10
-  %29 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %26)
+  %29 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %26)
   %30 = icmp eq i64 %29, 1
   br i1 %30, label %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$10initialize28_$u7b$$u7b$closure$u7d$$u7d$17hecde6b0c236d6353E.exit.i", label %.invoke
 

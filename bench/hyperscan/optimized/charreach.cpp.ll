@@ -246,7 +246,7 @@ return:                                           ; preds = %for.cond.i.i, %for.
 define hidden noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load <4 x i64>, ptr %this, align 8
-  %1 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %0), !range !5
+  %1 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %0), !range !5
   %2 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %1)
   %cmp.not = icmp eq i64 %2, 2
   br i1 %cmp.not, label %if.end, label %return

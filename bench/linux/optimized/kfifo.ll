@@ -135,7 +135,7 @@ define dso_local noundef range(i32 -22, 1) i32 @__kfifo_init(ptr nocapture nound
   %5 = zext i32 %2 to i64
   %6 = udiv i64 %5, %3
   %7 = icmp uge i64 %5, %3
-  %8 = tail call i64 @llvm.ctpop.i64(i64 %6), !range !7
+  %8 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %6), !range !7
   %9 = icmp ult i64 %8, 2
   %10 = select i1 %7, i1 %9, i1 false
   br i1 %10, label %15, label %11

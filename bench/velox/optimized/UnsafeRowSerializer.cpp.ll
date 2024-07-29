@@ -10734,7 +10734,7 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
   %arrayidx.i45.i.i.i = getelementptr inbounds i64, ptr %44, i64 %idxprom.i44.i.i.i
   %51 = load i64, ptr %arrayidx.i45.i.i.i, align 8
   %and.i46.i.i.i = and i64 %51, %sub.i43.i.i.i
-  %52 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.i.i.i)
+  %52 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.i.i.i)
   %cast.i47.i.i.i = trunc nuw nsw i64 %52 to i32
   %add.i48.i.i.i = add nsw i32 %count.1.i.i, %cast.i47.i.i.i
   br label %invoke.cont45
@@ -19797,7 +19797,7 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
   %arrayidx.i45.i.i.i = getelementptr inbounds i64, ptr %45, i64 %idxprom.i44.i.i.i
   %52 = load i64, ptr %arrayidx.i45.i.i.i, align 8
   %and.i46.i.i.i = and i64 %52, %sub.i43.i.i.i
-  %53 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.i.i.i)
+  %53 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.i.i.i)
   %cast.i47.i.i.i = trunc nuw nsw i64 %53 to i32
   %add.i48.i.i.i = add nsw i32 %count.1.i.i, %cast.i47.i.i.i
   br label %invoke.cont45

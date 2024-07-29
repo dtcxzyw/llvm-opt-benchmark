@@ -60,7 +60,7 @@ cond.false.i:                                     ; preds = %if.end
   unreachable
 
 cond.end.i:                                       ; preds = %if.end
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %size)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %size)
   %cmp1.i = icmp ult i64 %0, 2
   br i1 %cmp1.i, label %if.end.i, label %cond.false3.i
 
@@ -73,7 +73,7 @@ if.end.i:                                         ; preds = %cond.end.i
   br i1 %cmp10.i, label %if.end26.i, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.i
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %minsize)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %minsize)
   %cmp16.i = icmp ult i64 %1, 2
   br i1 %cmp16.i, label %if.end26.i, label %cond.false18.i
 

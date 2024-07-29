@@ -14,7 +14,7 @@ define hidden noundef signext i8 @_ZN9metaspace10chunklevel23level_fitting_word_
   br i1 %2, label %11, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %4 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %0)
   %or.cond.i = icmp eq i64 %4, 1
   %5 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %0, i1 true)
   %6 = sub nuw nsw i64 64, %5

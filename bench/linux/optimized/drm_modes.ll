@@ -3521,7 +3521,7 @@ define dso_local noundef zeroext i1 @drm_mode_parse_command_line_for_connector(p
   %451 = zext i1 %450 to i32
   %452 = or disjoint i32 %442, %451
   %453 = and i32 %452, 15
-  %454 = call i32 @llvm.ctpop.i32(i32 %453), !range !30
+  %454 = call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %453), !range !30
   %455 = icmp eq i32 %454, 1
   br i1 %455, label %drm_mode_parse_cmdline_options.exit, label %.thread
 

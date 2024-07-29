@@ -704,7 +704,7 @@ sub_2144:                                         ; preds = %sub_1143
   br i1 %225, label %226, label %231
 
 226:                                              ; preds = %222
-  %227 = call range(i32 0, 12) i32 @llvm.ctpop.i32(i32 %224)
+  %227 = call range(i32 1, 12) i32 @llvm.ctpop.i32(i32 %224)
   %228 = icmp ult i32 %227, 2
   %229 = add nsw i32 %224, -1048576
   %230 = icmp ult i32 %229, 1072693249
@@ -931,7 +931,7 @@ CheckDataVersion.exit:                            ; preds = %278
   br i1 %.not20.i, label %325, label %320
 
 320:                                              ; preds = %318
-  %321 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %319)
+  %321 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %319)
   %322 = icmp ult i32 %321, 2
   %323 = add i32 %319, -1048576
   %324 = icmp ult i32 %323, 1072693249

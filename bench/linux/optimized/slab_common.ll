@@ -2972,7 +2972,7 @@ define dso_local void @create_boot_cache(ptr noundef %0, ptr noundef %1, i32 nou
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %12 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2)
   %13 = icmp ult i32 %12, 2
   %14 = tail call i32 @llvm.umax.i32(i32 %2, i32 8)
   %spec.select = select i1 %13, i32 %14, i32 8

@@ -31,7 +31,7 @@ define dso_local ptr @manifest_files_create(i32 noundef %0, ptr noundef %1) loca
   %8 = select i1 %7, double 0x41F0000000000000, double %6
   %9 = fptoui double %8 to i64
   %10 = tail call i64 @llvm.umax.i64(i64 %9, i64 2)
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
   %12 = icmp ult i64 %11, 2
   %13 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %10, i1 true)
   %14 = sub nuw nsw i64 64, %13
@@ -51,7 +51,7 @@ manifest_files_compute_size.exit:                 ; preds = %2
   %20 = getelementptr inbounds i8, ptr %3, i64 24
   store ptr %19, ptr %20, align 8
   %21 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %22 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %21)
+  %22 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %21)
   %23 = icmp ult i64 %22, 2
   %24 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %21, i1 true)
   %25 = sub nuw nsw i64 64, %24
@@ -116,7 +116,7 @@ define dso_local void @manifest_files_grow(ptr nocapture noundef %0, i64 noundef
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @llvm.umax.i64(i64 %1, i64 2)
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %6)
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %6)
   %8 = icmp ult i64 %7, 2
   %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %6, i1 true)
   %10 = sub nuw nsw i64 64, %9
@@ -135,7 +135,7 @@ manifest_files_compute_size.exit:                 ; preds = %2
   %15 = tail call ptr @pg_malloc0(i64 noundef %12) #17
   store ptr %15, ptr %4, align 8
   %16 = tail call i64 @llvm.umax.i64(i64 %.0.i.i, i64 2)
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
+  %17 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %16)
   %18 = icmp ult i64 %17, 2
   %19 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %16, i1 true)
   %20 = sub nuw nsw i64 64, %19

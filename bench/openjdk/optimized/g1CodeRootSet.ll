@@ -679,7 +679,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   br i1 %.not.i.i3, label %_ZNK22G1CodeRootSetHashTable23log2_target_shrink_sizeEm.exit.i, label %51
 
 51:                                               ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_log2EP6Thread.exit.i
-  %52 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50)
+  %52 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %50)
   %or.cond.i.i.i = icmp eq i64 %52, 1
   %53 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
   %54 = sub nuw nsw i64 64, %53
@@ -1795,7 +1795,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   br i1 %.not.i.i3, label %_ZNK22G1CodeRootSetHashTable23log2_target_shrink_sizeEm.exit.i, label %51
 
 51:                                               ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_log2EP6Thread.exit.i
-  %52 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50)
+  %52 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %50)
   %or.cond.i.i.i = icmp eq i64 %52, 1
   %53 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
   %54 = sub nuw nsw i64 64, %53
@@ -2625,7 +2625,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_l
   br i1 %.not.i.i3, label %_ZNK22G1CodeRootSetHashTable23log2_target_shrink_sizeEm.exit.i, label %51
 
 51:                                               ; preds = %_ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE13get_size_log2EP6Thread.exit.i
-  %52 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %50)
+  %52 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %50)
   %or.cond.i.i.i = icmp eq i64 %52, 1
   %53 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %50, i1 true)
   %54 = sub nuw nsw i64 64, %53

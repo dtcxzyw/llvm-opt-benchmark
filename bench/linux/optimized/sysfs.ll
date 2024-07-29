@@ -825,7 +825,7 @@ define internal i64 @ext4_attr_store(ptr noundef %0, ptr nocapture noundef reado
   br i1 %91, label %97, label %92
 
 92:                                               ; preds = %89
-  %93 = call i64 @llvm.ctpop.i64(i64 %90), !range !12
+  %93 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %90), !range !12
   %94 = icmp ult i64 %93, 2
   %95 = icmp ult i64 %90, 1073741825
   %96 = and i1 %95, %94

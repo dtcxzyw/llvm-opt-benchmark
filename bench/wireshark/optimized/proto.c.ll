@@ -4470,7 +4470,7 @@ define internal fastcc void @proto_tree_set_int(ptr nocapture noundef %0, i32 no
   %9 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   %10 = trunc nuw nsw i64 %9 to i32
   %11 = lshr i32 %8, %10
-  %12 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
+  %12 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %5)
   %13 = trunc nuw nsw i64 %12 to i32
   %14 = and i32 %13, 95
   %or.cond.i = icmp eq i32 %14, 0
@@ -8382,7 +8382,7 @@ define internal fastcc void @proto_tree_set_int64(ptr nocapture noundef %0, i64 
   %7 = and i64 %5, %1
   %8 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   %9 = lshr i64 %7, %8
-  %10 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
+  %10 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %5)
   %11 = and i64 %10, 63
   %or.cond.i = icmp eq i64 %11, 0
   br i1 %or.cond.i, label %19, label %12
@@ -29921,7 +29921,7 @@ proto_item_add_subtree.exit:                      ; preds = %38
   br i1 %.not345, label %ws_sign_ext32.exit, label %176
 
 176:                                              ; preds = %174
-  %177 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %98)
+  %177 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %98)
   %178 = trunc nuw nsw i64 %177 to i32
   %179 = and i32 %178, 95
   %or.cond.i388 = icmp eq i32 %179, 0
@@ -30177,7 +30177,7 @@ hf_try_val64_to_str.exit.thread:                  ; preds = %hf_try_val64_to_str
   br i1 %.not322, label %ws_sign_ext64.exit, label %279
 
 279:                                              ; preds = %278
-  %280 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %98)
+  %280 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %98)
   %281 = and i64 %280, 63
   %or.cond.i395 = icmp eq i64 %281, 0
   br i1 %or.cond.i395, label %ws_sign_ext64.exit, label %282

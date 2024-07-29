@@ -5728,7 +5728,7 @@ if.then19.i.i:                                    ; preds = %for.end.i.i
   %arrayidx.i45.i.i = getelementptr inbounds i64, ptr %7, i64 %idxprom.i44.i.i
   %13 = load i64, ptr %arrayidx.i45.i.i, align 8
   %and.i46.i.i = and i64 %13, %sub.i43.i.i
-  %14 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.i.i)
+  %14 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.i.i)
   %cast.i47.i.i = trunc nuw nsw i64 %14 to i32
   %add.i48.i.i = add nsw i32 %count.1.i, %cast.i47.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit
@@ -10278,7 +10278,7 @@ if.then19.i.i:                                    ; preds = %for.end.i.i
   %arrayidx.i45.i.i = getelementptr inbounds i64, ptr %7, i64 %idxprom.i44.i.i
   %13 = load i64, ptr %arrayidx.i45.i.i, align 8
   %and.i46.i.i = and i64 %13, %sub.i43.i.i
-  %14 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.i.i)
+  %14 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.i.i)
   %cast.i47.i.i = trunc nuw nsw i64 %14 to i32
   %add.i48.i.i = add nsw i32 %count.1.i, %cast.i47.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit

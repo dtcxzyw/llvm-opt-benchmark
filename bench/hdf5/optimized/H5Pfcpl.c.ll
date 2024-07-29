@@ -266,7 +266,7 @@ define range(i32 -1, 1) i32 @H5Pset_userblock(i64 noundef %0, i64 noundef %1) lo
   br label %.thread29
 
 31:                                               ; preds = %25
-  %32 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %32 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
   %33 = icmp ult i64 %32, 2
   br i1 %33, label %38, label %34
 

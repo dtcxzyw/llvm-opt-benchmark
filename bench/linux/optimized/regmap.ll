@@ -4071,7 +4071,7 @@ define dso_local ptr @__regmap_init(ptr noundef %0, ptr noundef %1, ptr noundef 
   %135 = getelementptr inbounds i8, ptr %10, i64 508
   store i32 %134, ptr %135, align 4
   %136 = sext i32 %134 to i64
-  %137 = tail call i64 @llvm.ctpop.i64(i64 %136), !range !38
+  %137 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %136), !range !38
   %138 = icmp ult i64 %137, 2
   br i1 %138, label %139, label %141
 

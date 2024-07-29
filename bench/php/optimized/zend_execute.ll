@@ -262,7 +262,7 @@ define dso_local void @zend_vm_stack_init() local_unnamed_addr #1 {
 define dso_local void @zend_vm_stack_init_ex(i64 noundef %0) local_unnamed_addr #1 {
   %2 = icmp ne i64 %0, 0
   tail call void @llvm.assume(i1 %2)
-  %3 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0)
+  %3 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %0)
   %4 = icmp ult i64 %3, 2
   tail call void @llvm.assume(i1 %4)
   store i64 %0, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 480), align 8

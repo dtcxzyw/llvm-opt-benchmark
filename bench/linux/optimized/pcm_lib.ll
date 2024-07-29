@@ -3222,7 +3222,7 @@ define dso_local i32 @snd_pcm_hw_param_value(ptr nocapture noundef readonly %0, 
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %9
-  %17 = tail call i32 @llvm.ctpop.i32(i32 %14), !range !25
+  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %14), !range !25
   %18 = icmp ult i32 %17, 2
   %19 = icmp eq i32 %12, 0
   %20 = select i1 %18, i1 %19, i1 false
@@ -3380,7 +3380,7 @@ define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @llvm.ctpop.i32(i32 %15), !range !25
+  %18 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %15), !range !25
   %19 = icmp ult i32 %18, 2
   %20 = icmp eq i32 %13, 0
   %21 = select i1 %19, i1 %20, i1 false
@@ -3510,7 +3510,7 @@ define dso_local i32 @snd_pcm_hw_param_first(ptr noundef %0, ptr noundef %1, i32
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %96
-  %104 = tail call i32 @llvm.ctpop.i32(i32 %101), !range !25
+  %104 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %101), !range !25
   %105 = icmp ult i32 %104, 2
   %106 = icmp eq i32 %99, 0
   %107 = select i1 %105, i1 %106, i1 false
@@ -3629,7 +3629,7 @@ define dso_local i32 @snd_pcm_hw_param_last(ptr noundef %0, ptr noundef %1, i32 
   br i1 %16, label %22, label %17
 
 17:                                               ; preds = %10
-  %18 = tail call i32 @llvm.ctpop.i32(i32 %15), !range !25
+  %18 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %15), !range !25
   %19 = icmp ult i32 %18, 2
   %20 = icmp eq i32 %13, 0
   %21 = select i1 %19, i1 %20, i1 false
@@ -3761,7 +3761,7 @@ define dso_local i32 @snd_pcm_hw_param_last(ptr noundef %0, ptr noundef %1, i32 
   br i1 %104, label %110, label %105
 
 105:                                              ; preds = %98
-  %106 = tail call i32 @llvm.ctpop.i32(i32 %103), !range !25
+  %106 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %103), !range !25
   %107 = icmp ult i32 %106, 2
   %108 = icmp eq i32 %101, 0
   %109 = select i1 %107, i1 %108, i1 false

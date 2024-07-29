@@ -211,7 +211,7 @@ define internal noundef ptr @ExecMemoize(ptr noundef %0) #0 {
   %22 = select i1 %21, double 0x41F0000000000000, double %20
   %23 = fptoui double %22 to i64
   %24 = tail call i64 @llvm.umax.i64(i64 %23, i64 2)
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
+  %25 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %24)
   %26 = icmp ult i64 %25, 2
   %27 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %24, i1 true)
   %28 = sub nuw nsw i64 64, %27
@@ -233,7 +233,7 @@ memoize_compute_size.exit.i.i:                    ; preds = %8
   %36 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %35, ptr %36, align 8
   %37 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i, i64 2)
-  %38 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %37)
+  %38 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %37)
   %39 = icmp ult i64 %38, 2
   %40 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %37, i1 true)
   %41 = sub nuw nsw i64 64, %40
@@ -348,7 +348,7 @@ prepare_probe_slot.exit.i:                        ; preds = %75, %56
   %105 = shl i64 %99, 1
   %106 = load ptr, ptr %92, align 8
   %107 = tail call i64 @llvm.umax.i64(i64 %105, i64 2)
-  %108 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %107)
+  %108 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %107)
   %109 = icmp ult i64 %108, 2
   %110 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %107, i1 true)
   %111 = sub nuw nsw i64 64, %110
@@ -370,7 +370,7 @@ memoize_compute_size.exit.i.i.i.i:                ; preds = %104
   %118 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i.i, i64 noundef %113, i32 noundef 5) #10
   store ptr %118, ptr %92, align 8
   %119 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i.i, i64 2)
-  %120 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %119)
+  %120 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %119)
   %121 = icmp ult i64 %120, 2
   %122 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %119, i1 true)
   %123 = sub nuw nsw i64 64, %122

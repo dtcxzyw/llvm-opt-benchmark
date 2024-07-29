@@ -1467,7 +1467,7 @@ entry:
   %conv = sext i32 %call to i64
   store i64 %conv, ptr @qemu_host_page_size, align 8
   %cmp = icmp ne i32 %call, 0
-  %0 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %conv)
+  %0 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %conv)
   %cmp2.not = icmp ult i64 %0, 2
   %or.cond = select i1 %cmp, i1 %cmp2.not, i1 false
   br i1 %or.cond, label %if.end, label %if.then

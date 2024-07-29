@@ -9518,7 +9518,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %for.cond, %if.end45
   %exponent.0223 = phi i32 [ 2, %if.end45 ], [ %inc, %for.cond ]
   %notmask = shl nsw i32 -1, %exponent.0223
-  %0 = tail call i32 @llvm.ctpop.i32(i32 %notmask), !range !69
+  %0 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %notmask), !range !69
   %or.cond = icmp eq i32 %0, 31
   br i1 %or.cond, label %if.then70, label %for.cond
 

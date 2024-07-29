@@ -7175,7 +7175,7 @@ if.end.i.i:                                       ; preds = %if.then.i409
 
 for.cond.cleanup.i.i:                             ; preds = %cleanup.i.i, %if.end.i.i
   %64 = phi <4 x i64> [ zeroinitializer, %if.end.i.i ], [ %72, %cleanup.i.i ]
-  %65 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %64), !range !236
+  %65 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %64), !range !236
   %66 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %65)
   %cmp16.i.i = icmp ult i64 %66, 11
   %67 = zext i1 %cmp16.i.i to i8
@@ -9870,7 +9870,7 @@ if.then.i557:                                     ; preds = %invoke.cont210
   %426 = load <4 x i64>, ptr %stop1.i, align 8
   %427 = load <4 x i64>, ptr %stop2.i, align 8, !noalias !260
   %428 = xor <4 x i64> %427, %426
-  %429 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %428), !range !236
+  %429 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %428), !range !236
   %430 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %429)
   %conv.i = trunc i64 %430 to i32
   %add.ptr.i.i558 = getelementptr inbounds i8, ptr %ref.tmp212.sroa.0.0.copyload767, i64 8
@@ -11293,30 +11293,30 @@ if.then3.i:                                       ; preds = %if.end.i654
   %632 = load <4 x i64>, ptr %stop2.i651, align 8
   %633 = load <4 x i64>, ptr %stop1.i650, align 8
   %634 = and <4 x i64> %633, %632
-  %635 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %634), !range !236
+  %635 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %634), !range !236
   %636 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %635)
   %cmp.i659 = icmp ult i64 %636, 10
   %637 = extractelement <4 x i64> %633, i64 0
-  %638 = call i64 @llvm.ctpop.i64(i64 %637), !range !236
+  %638 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %637), !range !236
   %639 = extractelement <4 x i64> %633, i64 1
-  %640 = call i64 @llvm.ctpop.i64(i64 %639), !range !236
+  %640 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %639), !range !236
   %add9.i.i62.i = add nuw nsw i64 %640, %638
   %641 = extractelement <4 x i64> %633, i64 2
-  %642 = call i64 @llvm.ctpop.i64(i64 %641), !range !236
+  %642 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %641), !range !236
   %add15.i.i64.i = add nuw nsw i64 %add9.i.i62.i, %642
   %643 = extractelement <4 x i64> %633, i64 3
-  %644 = call i64 @llvm.ctpop.i64(i64 %643), !range !236
+  %644 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %643), !range !236
   %add21.i.i66.i = add nuw nsw i64 %add15.i.i64.i, %644
   br i1 %cmp.i659, label %land.lhs.true.i696, label %if.then3.if.end16_crit_edge.i
 
 if.then3.if.end16_crit_edge.i:                    ; preds = %.noexc698
-  %645 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %632), !range !236
+  %645 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %632), !range !236
   %646 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %645)
   br label %if.end16.i
 
 land.lhs.true.i696:                               ; preds = %.noexc698
   %cmp8.i = icmp ugt i64 %add21.i.i66.i, 10
-  %647 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %632), !range !236
+  %647 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %632), !range !236
   %648 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %647)
   %cmp11.i = icmp ugt i64 %648, 10
   %or.cond1383 = select i1 %cmp8.i, i1 true, i1 %cmp11.i

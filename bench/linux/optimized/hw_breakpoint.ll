@@ -531,7 +531,7 @@ define dso_local range(i32 -95, 1) i32 @hw_breakpoint_arch_parse(ptr nocapture n
   br label %106
 
 85:                                               ; preds = %80
-  %86 = tail call i64 @llvm.ctpop.i64(i64 %83), !range !43
+  %86 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83), !range !43
   %87 = icmp ult i64 %86, 2
   br i1 %87, label %88, label %.thread5
 

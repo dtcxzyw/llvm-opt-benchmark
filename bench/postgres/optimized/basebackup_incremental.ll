@@ -149,7 +149,7 @@ define internal void @manifest_process_file(ptr nocapture noundef readonly %0, p
   %28 = shl i64 %22, 1
   %29 = load ptr, ptr %15, align 8
   %30 = tail call i64 @llvm.umax.i64(i64 %28, i64 2)
-  %31 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %30)
+  %31 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %30)
   %32 = icmp ult i64 %31, 2
   %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
   %34 = sub nuw nsw i64 64, %33
@@ -171,7 +171,7 @@ backup_file_compute_size.exit.i.i.i:              ; preds = %27
   %41 = tail call ptr @MemoryContextAllocExtended(ptr noundef %.val.i.i.i, i64 noundef %36, i32 noundef 5) #12
   store ptr %41, ptr %15, align 8
   %42 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i, i64 2)
-  %43 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %42)
+  %43 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %42)
   %44 = icmp ult i64 %43, 2
   %45 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %42, i1 true)
   %46 = sub nuw nsw i64 64, %45

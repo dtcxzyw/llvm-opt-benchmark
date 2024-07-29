@@ -2091,7 +2091,7 @@ define internal fastcc range(i64 0, -4095) i64 @maximum_alignment(ptr nocapture 
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %12
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.fr4)
+  %17 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %.fr4)
   %18 = icmp ult i64 %17, 2
   %19 = tail call i64 @llvm.umax.i64(i64 %8, i64 %.fr4)
   %spec.select = select i1 %18, i64 %19, i64 %8

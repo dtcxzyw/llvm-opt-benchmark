@@ -2743,7 +2743,7 @@ _ZN9Stockfish10attacks_bbENS_9PieceTypeENS_6SquareEm.exit: ; preds = %166, %182,
   br i1 %.not44, label %253, label %241
 
 241:                                              ; preds = %240
-  %242 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %239)
+  %242 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %239)
   %243 = icmp ugt i64 %242, 1
   br i1 %243, label %265, label %244
 

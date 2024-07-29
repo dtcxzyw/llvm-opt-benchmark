@@ -5237,7 +5237,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @vring_alloc_queue_split(pt
   %7 = alloca i64, align 8
   %8 = zext i1 %4 to i8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #17
-  %9 = tail call i32 @llvm.ctpop.i32(i32 %2), !range !90
+  %9 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2), !range !90
   %10 = icmp eq i32 %9, 1
   br i1 %10, label %11, label %36
 

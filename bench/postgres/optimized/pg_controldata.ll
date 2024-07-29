@@ -276,7 +276,7 @@ sub_2110:                                         ; preds = %sub_1109
   br i1 %76, label %77, label %82
 
 77:                                               ; preds = %73
-  %78 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %75)
+  %78 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %75)
   %79 = icmp ult i32 %78, 2
   %80 = add nsw i32 %75, -1048576
   %81 = icmp ult i32 %80, 1072693249

@@ -479,7 +479,7 @@ define hidden void @_ZN22G1CardSetConfigurationC2Ejjdjdjj(ptr nocapture noundef 
   store i32 %16, ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 20
   %18 = udiv i32 %6, %4
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
+  %19 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %18)
   %or.cond.i.i = icmp eq i32 %19, 1
   %20 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %18, i1 true)
   %21 = sub nuw nsw i32 32, %20
@@ -1036,7 +1036,7 @@ define hidden void @_ZN9G1CardSet10initializeE9MemRegion(ptr nocapture readnone 
   %11 = xor i64 %notmask, -1
   store i64 %11, ptr @_ZN9G1CardSet16_split_card_maskE, align 8
   %12 = shl i64 %1, 3
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
+  %13 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %12)
   %or.cond.i = icmp eq i64 %13, 1
   %14 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 true)
   %15 = sub nuw nsw i64 64, %14

@@ -15343,7 +15343,7 @@ define hidden void @_ZN14MacroAssembler36push_call_clobbered_registers_exceptE14
   %25 = add i32 %24, add (i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32), i32 64)
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 -1, %26
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %28 = tail call range(i64 0, 62) i64 @llvm.ctpop.i64(i64 %17)
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %31 = shl i32 %30, 1
@@ -15358,7 +15358,7 @@ define hidden void @_ZN14MacroAssembler36push_call_clobbered_registers_exceptE14
   br i1 %37, label %38, label %_ZL22register_section_sizes14AbstractRegSetI8RegisterES_I11XMMRegisterEbRiS4_S4_.exit
 
 38:                                               ; preds = %35
-  %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
+  %39 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %27)
   %40 = trunc nuw nsw i64 %39 to i32
   %.not.i = icmp eq i32 %36, 1
   %41 = select i1 %.not.i, i32 2, i32 3
@@ -15663,7 +15663,7 @@ define hidden void @_ZN14MacroAssembler35pop_call_clobbered_registers_exceptE14A
   %25 = add i32 %24, add (i32 ptrtoint (ptr getelementptr inbounds (i8, ptr @all_XMMRegisterImpls, i64 1) to i32), i32 64)
   %26 = zext nneg i32 %25 to i64
   %27 = lshr i64 -1, %26
-  %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %28 = tail call range(i64 0, 62) i64 @llvm.ctpop.i64(i64 %17)
   %29 = trunc nuw nsw i64 %28 to i32
   %30 = load i32, ptr @_ZN9VMRegImpl15stack_slot_sizeE, align 4
   %31 = shl i32 %30, 1
@@ -15678,7 +15678,7 @@ define hidden void @_ZN14MacroAssembler35pop_call_clobbered_registers_exceptE14A
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %35
-  %39 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
+  %39 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %27)
   %40 = trunc nuw nsw i64 %39 to i32
   %.not.i = icmp eq i32 %36, 1
   %41 = select i1 %.not.i, i32 2, i32 3

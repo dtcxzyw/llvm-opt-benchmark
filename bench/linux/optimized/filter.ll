@@ -13565,7 +13565,7 @@ define dso_local zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 nounde
   br i1 %12, label %26, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !143
+  %14 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
   %15 = icmp ult i32 %14, 2
   br label %26
 
@@ -13578,7 +13578,7 @@ define dso_local zeroext i1 @bpf_sock_is_valid_access(i32 noundef %0, i32 nounde
   br i1 %20, label %26, label %21
 
 21:                                               ; preds = %16
-  %22 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !143
+  %22 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1), !range !143
   %23 = icmp ult i32 %22, 2
   br label %26
 
@@ -17069,7 +17069,7 @@ define internal noundef zeroext i1 @sock_addr_is_valid_access(i32 noundef %0, i3
 
 43:                                               ; preds = %38
   %44 = icmp ult i32 %1, 5
-  %45 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !143
+  %45 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1), !range !143
   %46 = icmp ult i32 %45, 2
   %47 = select i1 %44, i1 %46, i1 false
   br i1 %47, label %72, label %73
@@ -17901,7 +17901,7 @@ define internal zeroext i1 @sock_ops_is_valid_access(i32 noundef %0, i32 noundef
   br i1 %27, label %38, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !143
+  %29 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
   %30 = icmp ult i32 %29, 2
   br label %38
 
@@ -23270,7 +23270,7 @@ define internal zeroext i1 @sk_reuseport_is_valid_access(i32 noundef %0, i32 nou
   br i1 %27, label %31, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !143
+  %29 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
   %30 = icmp ult i32 %29, 2
   br label %31
 
@@ -23713,7 +23713,7 @@ define internal zeroext i1 @sk_lookup_is_valid_access(i32 noundef %0, i32 nounde
   br i1 %17, label %29, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !143
+  %19 = tail call range(i32 1, 4) i32 @llvm.ctpop.i32(i32 %1), !range !143
   %20 = icmp ult i32 %19, 2
   br label %29
 
@@ -28705,7 +28705,7 @@ define internal fastcc noundef zeroext i1 @bpf_skb_is_valid_access(i32 noundef %
   %32 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 4, ptr %32, align 8
   %33 = icmp ult i32 %1, 5
-  %34 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !143
+  %34 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %1), !range !143
   %35 = icmp ult i32 %34, 2
   %36 = select i1 %33, i1 %35, i1 false
   br i1 %36, label %37, label %38

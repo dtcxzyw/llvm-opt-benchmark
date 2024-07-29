@@ -3334,7 +3334,7 @@ define dso_local ptr @md_bitmap_create(ptr noundef %0, i32 noundef %1) local_unn
   unreachable
 
 83:                                               ; preds = %63
-  %84 = tail call i64 @llvm.ctpop.i64(i64 %80), !range !62
+  %84 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %80), !range !62
   %85 = icmp ult i64 %84, 2
   br i1 %85, label %97, label %86
 
@@ -3608,7 +3608,7 @@ define dso_local ptr @md_bitmap_create(ptr noundef %0, i32 noundef %1) local_unn
   br i1 %270, label %.thread31, label %271
 
 271:                                              ; preds = %269
-  %272 = tail call i64 @llvm.ctpop.i64(i64 %254), !range !62
+  %272 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %254), !range !62
   %273 = icmp ult i64 %272, 2
   br i1 %273, label %274, label %.thread31
 
@@ -6751,7 +6751,7 @@ define internal i64 @chunksize_store(ptr nocapture noundef %0, ptr noundef %1, i
 13:                                               ; preds = %8
   %14 = load i64, ptr %4, align 8
   %15 = icmp ugt i64 %14, 511
-  %16 = call i64 @llvm.ctpop.i64(i64 %14), !range !62
+  %16 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %14), !range !62
   %17 = icmp ult i64 %16, 2
   %18 = select i1 %15, i1 %17, i1 false
   br i1 %18, label %19, label %23

@@ -1742,7 +1742,7 @@ define noalias noundef ptr @Mop_ManFindDist1Pairs(ptr nocapture noundef readonly
   %45 = and i64 %44, %40
   %46 = icmp ne i64 %45, 0
   %or.cond.i = and i1 %46, %.not21.i
-  %47 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %45)
+  %47 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %45)
   %.not22.i = icmp ult i64 %47, 2
   %or.cond23.i = select i1 %or.cond.i, i1 %.not22.i, i1 false
   br i1 %or.cond23.i, label %.thread, label %Mop_ManCheckDist1.exit.thread
@@ -2589,7 +2589,7 @@ define i32 @Mop_ManMergeDist1Pairs2(ptr nocapture noundef readonly %0, ptr nocap
   %43 = and i64 %42, %38
   %44 = icmp ne i64 %43, 0
   %or.cond.i = and i1 %44, %.not21.i
-  %45 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %43)
+  %45 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %43)
   %.not22.i = icmp ult i64 %45, 2
   %or.cond23.i = select i1 %or.cond.i, i1 %.not22.i, i1 false
   br i1 %or.cond23.i, label %.thread, label %Mop_ManCheckDist1.exit.thread

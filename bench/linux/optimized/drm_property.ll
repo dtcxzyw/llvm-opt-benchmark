@@ -59,7 +59,7 @@ define dso_local noundef ptr @drm_property_create(ptr noundef %0, i32 noundef %1
   %10 = icmp eq i32 %8, 0
   %11 = icmp eq i32 %9, 0
   %12 = xor i1 %10, %11
-  %13 = tail call i32 @llvm.ctpop.i32(i32 %8), !range !6
+  %13 = tail call range(i32 0, 5) i32 @llvm.ctpop.i32(i32 %8), !range !6
   %14 = icmp ult i32 %13, 2
   %15 = select i1 %12, i1 %14, i1 false
   br i1 %15, label %17, label %16, !prof !7

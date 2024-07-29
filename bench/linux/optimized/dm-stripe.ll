@@ -620,7 +620,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   store i32 %65, ptr %55, align 8
   %66 = getelementptr inbounds i8, ptr %55, i64 8
   store i64 %36, ptr %66, align 8
-  %67 = call i32 @llvm.ctpop.i32(i32 %65), !range !13
+  %67 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %65), !range !13
   %68 = icmp ult i32 %67, 2
   br i1 %68, label %69, label %73
 
@@ -657,7 +657,7 @@ define internal i32 @stripe_ctr(ptr noundef %0, i32 noundef %1, ptr nocapture no
   %87 = load i32, ptr %7, align 4
   %88 = getelementptr inbounds i8, ptr %55, i64 16
   store i32 %87, ptr %88, align 8
-  %89 = call i32 @llvm.ctpop.i32(i32 %87), !range !13
+  %89 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %87), !range !13
   %90 = icmp ult i32 %89, 2
   br i1 %90, label %91, label %95
 

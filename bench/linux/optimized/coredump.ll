@@ -2210,7 +2210,7 @@ define dso_local noundef range(i32 0, 2) i32 @dump_align(ptr nocapture noundef %
   %8 = add i32 %1, -1
   %9 = trunc i64 %7 to i32
   %10 = and i32 %8, %9
-  %11 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !47
+  %11 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !47
   %12 = icmp ult i32 %11, 2
   br i1 %12, label %13, label %19
 

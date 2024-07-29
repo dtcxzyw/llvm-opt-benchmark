@@ -583,7 +583,7 @@ for.body19.us.i:                                  ; preds = %while.end.us.i, %if
   br i1 %tobool21.not.us.i, label %if.end52.us.i, label %if.then22.us.i
 
 if.then22.us.i:                                   ; preds = %for.body19.us.i
-  %10 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
+  %10 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %9)
   %11 = load ptr, ptr %blocks.i, align 16
   %arrayidx27.us.i = getelementptr ptr, ptr %11, i64 %idx.166.us.i
   %12 = load ptr, ptr %arrayidx27.us.i, align 8
@@ -714,7 +714,7 @@ for.body77.i:                                     ; preds = %if.else.i, %for.inc
   br i1 %cmp79.not.i, label %for.inc114.i, label %if.then81.i
 
 if.then81.i:                                      ; preds = %for.body77.i
-  %35 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %34)
+  %35 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %34)
   %36 = load i32, ptr @global_dirty_tracking, align 4
   %and86.i = and i32 %36, 2
   %tobool87.not.i = icmp eq i32 %and86.i, 0

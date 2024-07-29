@@ -7356,7 +7356,7 @@ define internal fastcc void @skl_ctx_workarounds_init(ptr nocapture noundef read
   %9 = phi i64 [ 0, %2 ], [ %21, %20 ]
   %10 = getelementptr [3 x i8], ptr %7, i64 0, i64 %9
   %11 = load i8, ptr %10, align 1
-  %12 = tail call i8 @llvm.ctpop.i8(i8 %11), !range !207
+  %12 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %11), !range !207
   %13 = icmp eq i8 %12, 1
   br i1 %13, label %14, label %20
 

@@ -9862,7 +9862,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcix_set_mmrbc(ptr noundef %0, i
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #27
   %5 = add i32 %1, -512
   %6 = icmp ult i32 %5, 3585
-  %7 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !87
+  %7 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !87
   %8 = icmp ult i32 %7, 2
   %9 = select i1 %6, i1 %8, i1 false
   br i1 %9, label %10, label %53
@@ -9962,7 +9962,7 @@ define dso_local range(i32 -2147483648, 1) i32 @pcie_set_readrq(ptr noundef %0, 
   %7 = tail call ptr @pci_find_host_bridge(ptr noundef %6) #27
   %8 = add i32 %1, -128
   %9 = icmp ult i32 %8, 3969
-  %10 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !87
+  %10 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !87
   %11 = icmp ult i32 %10, 2
   %12 = select i1 %9, i1 %11, i1 false
   br i1 %12, label %13, label %55
@@ -10076,7 +10076,7 @@ define dso_local range(i32 128, 16385) i32 @pcie_get_mps(ptr noundef %0) #5 alig
 define dso_local range(i32 -2147483648, 1) i32 @pcie_set_mps(ptr noundef %0, i32 noundef %1) #5 align 16 {
   %3 = add i32 %1, -128
   %4 = icmp ult i32 %3, 3969
-  %5 = tail call i32 @llvm.ctpop.i32(i32 %1), !range !87
+  %5 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %1), !range !87
   %6 = icmp ult i32 %5, 2
   %7 = select i1 %4, i1 %6, i1 false
   br i1 %7, label %8, label %30

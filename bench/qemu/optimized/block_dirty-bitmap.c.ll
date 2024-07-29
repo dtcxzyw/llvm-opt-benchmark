@@ -134,7 +134,7 @@ entry:
   br i1 %tobool.not.i, label %if.else, label %is_power_of_2.exit
 
 is_power_of_2.exit:                               ; preds = %entry
-  %0 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %granularity)
+  %0 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %granularity)
   %tobool1.not.i = icmp ult i32 %0, 2
   %cmp = icmp ugt i32 %granularity, 511
   %or.cond = and i1 %cmp, %tobool1.not.i

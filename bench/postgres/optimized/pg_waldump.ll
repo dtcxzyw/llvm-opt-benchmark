@@ -2544,7 +2544,7 @@ open_file_in_directory.exit34:                    ; preds = %25, %29
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %41
-  %46 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %43)
+  %46 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %43)
   %47 = icmp ult i32 %46, 2
   %48 = add nsw i32 %43, -1048576
   %49 = icmp ult i32 %48, 1072693249

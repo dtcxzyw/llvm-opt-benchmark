@@ -6000,7 +6000,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass7binPackENS0_8RegGrou
   %26 = getelementptr inbounds i8, ptr %0, i64 280
   %27 = getelementptr inbounds [4 x i32], ptr %26, i64 0, i64 %9
   %28 = load i32, ptr %27, align 4, !tbaa !24
-  %29 = call noundef i32 @llvm.ctpop.i32(i32 %28), !range !283
+  %29 = call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %28), !range !283
   %30 = zext i8 %1 to i32
   %31 = call noundef i32 (ptr, ptr, ...) @_ZN6asmjit9_abi_1_106Logger4logfEPKcz(ptr noundef nonnull align 8 dereferenceable(20) %20, ptr noundef nonnull @.str.15, i32 noundef %29, i32 noundef %28, i32 noundef %11, i32 noundef %30) #15
   %32 = load i32, ptr %10, align 8, !tbaa !3

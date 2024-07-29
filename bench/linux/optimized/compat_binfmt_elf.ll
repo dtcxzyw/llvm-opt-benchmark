@@ -2221,7 +2221,7 @@ define internal fastcc range(i64 0, 4294971391) i64 @maximum_alignment(ptr nocap
 
 16:                                               ; preds = %12
   %17 = zext i32 %.fr to i64
-  %18 = tail call range(i64 0, 33) i64 @llvm.ctpop.i64(i64 %17)
+  %18 = tail call range(i64 1, 33) i64 @llvm.ctpop.i64(i64 %17)
   %19 = icmp ult i64 %18, 2
   %20 = tail call i64 @llvm.umax.i64(i64 %8, i64 %17)
   %spec.select = select i1 %19, i64 %20, i64 %8

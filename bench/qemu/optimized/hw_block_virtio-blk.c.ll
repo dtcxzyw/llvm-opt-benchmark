@@ -2792,7 +2792,7 @@ if.then20:                                        ; preds = %if.end16
   br label %return
 
 is_power_of_2.exit:                               ; preds = %if.end16
-  %3 = tail call range(i16 0, 17) i16 @llvm.ctpop.i16(i16 %2)
+  %3 = tail call range(i16 1, 17) i16 @llvm.ctpop.i16(i16 %2)
   %tobool1.not.i = icmp ugt i16 %3, 1
   %cmp29 = icmp ugt i16 %2, 1024
   %or.cond83 = or i1 %cmp29, %tobool1.not.i

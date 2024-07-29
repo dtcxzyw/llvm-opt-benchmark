@@ -2365,10 +2365,10 @@ _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i: ; pr
   %__y.addr.1.i.i.i.i24.i.sroa.sel361.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i21.i, ptr %__y.addr.010.i.i.i.i19.i, ptr %__x.addr.011.i.i.i.i18.i
   %__y.addr.1.i.i.i.i24.i.sroa.sel361.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i24.i.sroa.sel361.v.sroa.sel.v.sroa.sel.v, i64 40
   %262 = load <4 x i64>, ptr %__y.addr.1.i.i.i.i.i193.sroa.sel358.v.sroa.sel.v.sroa.sel, align 8
-  %263 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %262), !range !103
+  %263 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %262), !range !103
   %264 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %263)
   %265 = load <4 x i64>, ptr %__y.addr.1.i.i.i.i24.i.sroa.sel361.v.sroa.sel.v.sroa.sel, align 8
-  %266 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %265), !range !103
+  %266 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %265), !range !103
   %267 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %266)
   %cmp.not.i200 = icmp eq i64 %264, %267
   br i1 %cmp.not.i200, label %call2.i.i.i.i.noexc.i, label %if.then.i201
@@ -2810,7 +2810,7 @@ if.then.i.i236.i:                                 ; preds = %invoke.cont73.i
 
 invoke.cont76.i:                                  ; preds = %if.then.i.i236.i, %invoke.cont73.i
   %incdec.ptr.i.i235.i = getelementptr inbounds i8, ptr %pq.sroa.17.3445.i, i64 -4
-  %310 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %307), !range !103
+  %310 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %307), !range !103
   %311 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %310)
   %cmp78.i = icmp ult i64 %311, 200
   br i1 %cmp78.i, label %cleanup.i169, label %do.end83.i, !llvm.loop !109
@@ -4885,7 +4885,7 @@ invoke.cont.i.i49:                                ; preds = %for.body.i.i, %_ZNS
   %second.i547.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.0148.i.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cr.i.i, ptr noundef nonnull align 8 dereferenceable(32) %second.i547.i, i64 32, i1 false)
   %95 = load <4 x i64>, ptr %cr.i.i, align 8
-  %96 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %95), !range !103
+  %96 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %95), !range !103
   %97 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %96)
   %cmp.i548.i = icmp ugt i64 %97, 128
   %98 = extractelement <4 x i64> %95, i64 0
@@ -6293,10 +6293,10 @@ _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i: ; pr
   %__y.addr.1.i.i.i.i24.i.sroa.sel40.v.sroa.sel.v.sroa.sel.v = select i1 %cmp.i.i.i.i.i21.i, ptr %__y.addr.010.i.i.i.i19.i, ptr %__x.addr.011.i.i.i.i18.i
   %__y.addr.1.i.i.i.i24.i.sroa.sel40.v.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i24.i.sroa.sel40.v.sroa.sel.v.sroa.sel.v, i64 40
   %26 = load <4 x i64>, ptr %__y.addr.1.i.i.i.i.i.sroa.sel37.v.sroa.sel.v.sroa.sel, align 8
-  %27 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %26), !range !103
+  %27 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %26), !range !103
   %28 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %27)
   %29 = load <4 x i64>, ptr %__y.addr.1.i.i.i.i24.i.sroa.sel40.v.sroa.sel.v.sroa.sel, align 8
-  %30 = call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %29), !range !103
+  %30 = call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %29), !range !103
   %31 = call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %30)
   %cmp.not.i15 = icmp eq i64 %28, %31
   br i1 %cmp.not.i15, label %call2.i.i.i.i.noexc, label %if.then.i16
@@ -10940,10 +10940,10 @@ if.then.i34.i:                                    ; preds = %lor.rhs.i30.i, %_ZN
 _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i: ; preds = %lor.rhs.i30.i
   %second.i33.i = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i24.i, i64 40
   %7 = load <4 x i64>, ptr %second.i.i, align 8
-  %8 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %7), !range !103
+  %8 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %7), !range !103
   %9 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %8)
   %10 = load <4 x i64>, ptr %second.i33.i, align 8
-  %11 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %10), !range !103
+  %11 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %10), !range !103
   %12 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %11)
   %cmp.not.i = icmp eq i64 %9, %12
   br i1 %cmp.not.i, label %if.end.i, label %if.then.i
@@ -11068,10 +11068,10 @@ if.then.i34.i44:                                  ; preds = %lor.rhs.i30.i33, %_
 _ZNKSt3mapIiN3ue29CharReachESt4lessIiESaISt4pairIKiS1_EEE2atERS5_.exit35.i36: ; preds = %lor.rhs.i30.i33
   %second.i33.i37 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i.i24.i25, i64 40
   %24 = load <4 x i64>, ptr %second.i.i31, align 8
-  %25 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %24), !range !103
+  %25 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %24), !range !103
   %26 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %25)
   %27 = load <4 x i64>, ptr %second.i33.i37, align 8
-  %28 = tail call <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %27), !range !103
+  %28 = tail call range(i64 0, 65) <4 x i64> @llvm.ctpop.v4i64(<4 x i64> %27), !range !103
   %29 = tail call i64 @llvm.vector.reduce.add.v4i64(<4 x i64> %28)
   %cmp.not.i38 = icmp eq i64 %26, %29
   br i1 %cmp.not.i38, label %_ZNK3ue212_GLOBAL__N_112LookPriorityclEii.exit46, label %if.then.i39

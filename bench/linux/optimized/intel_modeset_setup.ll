@@ -1683,7 +1683,7 @@ define internal fastcc void @intel_crtc_disable_noatomic(ptr nocapture noundef r
 
 .loopexit32:                                      ; preds = %49, %14
   %53 = phi i8 [ 0, %14 ], [ %50, %49 ]
-  %54 = tail call i8 @llvm.ctpop.i8(i8 %53), !range !56
+  %54 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %53), !range !56
   %55 = icmp eq i8 %54, 1
   br i1 %55, label %68, label %56, !prof !57
 

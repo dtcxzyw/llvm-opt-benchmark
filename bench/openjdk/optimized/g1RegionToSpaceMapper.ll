@@ -68,7 +68,7 @@ define hidden void @_ZN21G1RegionToSpaceMapperC2E13ReservedSpacemmmm8MEMFLAGS(pt
   tail call void @_ZN11CHeapBitMapC1Em8MEMFLAGSb(ptr noundef nonnull align 8 dereferenceable(17) %11, i64 noundef %15, i8 noundef zeroext 5, i1 noundef zeroext true) #8
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   store i8 %6, ptr %16, align 8
-  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
+  %17 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %3)
   %or.cond = icmp eq i64 %17, 1
   br i1 %or.cond, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit9, label %_Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit.thread
 
@@ -79,7 +79,7 @@ _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi
   unreachable
 
 _Z13is_power_of_2ImTnNSt9enable_ifIXcvbsr3std11is_integralIT_EE5valueEiE4typeELi0EEbS1_.exit9: ; preds = %7
-  %19 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %4)
+  %19 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %4)
   %20 = icmp ult i64 %19, 2
   br i1 %20, label %23, label %21
 

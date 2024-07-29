@@ -1879,7 +1879,7 @@ if.end:                                           ; preds = %_ZNSt6vectorINSt7__
   br i1 %cmp, label %if.then4, label %if.end30
 
 if.then4:                                         ; preds = %if.end
-  %6 = call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %5)
+  %6 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %5)
   %cmp7.not = icmp ult i64 %6, 2
   br i1 %cmp7.not, label %if.end11, label %if.then8
 
@@ -1940,7 +1940,7 @@ _ZSt3minIlET_St16initializer_listIS0_E.exit:      ; preds = %while.body.i.i
   %15 = load i64, ptr %spec.select.i.i, align 8
   %.sroa.speculated = call i64 @llvm.smax.i64(i64 %15, i64 2)
   store i64 %.sroa.speculated, ptr %secure_heap_min, align 8
-  %16 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
+  %16 = call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %.sroa.speculated)
   %cmp25.not = icmp ult i64 %16, 2
   br i1 %cmp25.not, label %if.end30, label %if.then26
 

@@ -655,7 +655,7 @@ if.end35:                                         ; preds = %if.then17
   %sub37 = add nuw nsw i32 %shl28, 65535
   %and38 = and i32 %sub37, %conv26
   %conv40 = zext i16 %10 to i32
-  %11 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and38)
+  %11 = tail call noundef range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %and38)
   %add = sub nsw i32 %and23, %11
   %sub42 = add nsw i32 %add, %conv40
   br label %return.sink.split
@@ -930,7 +930,7 @@ if.end35.i64:                                     ; preds = %if.then17.i
   %sub37.i = add nuw nsw i32 %shl28.i, 65535
   %and38.i = and i32 %sub37.i, %conv26.i63
   %conv40.i = zext i16 %17 to i32
-  %18 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and38.i)
+  %18 = tail call noundef range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %and38.i)
   %add.i = sub nsw i32 %and23.i, %18
   %sub42.i = add nsw i32 %add.i, %conv40.i
   br label %_ZN6google8protobuf8internal8TcParser14FindFieldEntryEPKNS1_16TcParseTableBaseEj.exit
@@ -1126,7 +1126,7 @@ if.end35.i74:                                     ; preds = %if.then17.i
   %sub37.i = add nuw nsw i32 %shl28.i, 65535
   %and38.i = and i32 %sub37.i, %conv26.i73
   %conv40.i = zext i16 %18 to i32
-  %19 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and38.i)
+  %19 = tail call noundef range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %and38.i)
   %add.i = sub nsw i32 %and23.i, %19
   %sub42.i = add nsw i32 %add.i, %conv40.i
   br label %_ZN6google8protobuf8internal8TcParser14FindFieldEntryEPKNS1_16TcParseTableBaseEj.exit
@@ -11832,7 +11832,7 @@ if.end35.i:                                       ; preds = %if.then17.i
   %sub37.i = add nuw nsw i32 %shl28.i, 65535
   %and38.i = and i32 %sub37.i, %conv26.i
   %conv40.i = zext i16 %9 to i32
-  %10 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and38.i)
+  %10 = tail call noundef range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %and38.i)
   %add.i = sub nsw i32 %and23.i, %10
   %sub42.i = add nsw i32 %add.i, %conv40.i
   br label %return.sink.split.i
@@ -14754,7 +14754,7 @@ if.end35.i:                                       ; preds = %if.then17.i
   %sub37.i = add nuw nsw i32 %shl28.i, 65535
   %and38.i = and i32 %sub37.i, %conv26.i
   %conv40.i = zext i16 %12 to i32
-  %13 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and38.i)
+  %13 = tail call noundef range(i32 0, 17) i32 @llvm.ctpop.i32(i32 %and38.i)
   %add.i = sub nsw i32 %and23.i, %13
   %sub42.i = add nsw i32 %add.i, %conv40.i
   br label %return.sink.split.i

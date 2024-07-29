@@ -3150,7 +3150,7 @@ define hidden void @_ZN9SuperWord32filter_packs_for_power_of_2_sizeEv(ptr nocapt
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr i8, ptr %15, i64 24
   %.val16.i.i = load i32, ptr %16, align 8
-  %17 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %.val16.i.i)
+  %17 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %.val16.i.i)
   %or.cond.i.i.i = icmp ne i32 %17, 1
   %18 = zext i1 %or.cond.i.i.i to i64
   call void @_ZN7PackSet10split_packEPKcP9Node_List9SplitTask(ptr dead_on_unwind nonnull writable sret(%class.SplitStatus) align 8 %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr nonnull poison, ptr noundef nonnull %15, i64 %18, ptr nonnull poison)

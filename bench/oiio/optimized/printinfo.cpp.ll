@@ -2580,7 +2580,7 @@ for.body127.i:                                    ; preds = %for.inc149.i, %for.
 
 lor.lhs.false133.i:                               ; preds = %for.body127.i
   %add134.i = add nuw i64 %i122.0711.i, 1
-  %136 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %add134.i)
+  %136 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %add134.i)
   %cmp.i140.i = icmp ult i64 %136, 2
   br i1 %cmp.i140.i, label %if.then136.i, label %for.inc149.i
 

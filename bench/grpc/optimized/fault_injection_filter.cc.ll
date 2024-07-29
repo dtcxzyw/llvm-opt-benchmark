@@ -1614,7 +1614,7 @@ if.end3.i:                                        ; preds = %if.end.i88
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i, 58
   %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i.i
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i.i = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i)
-  %42 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %40)
+  %42 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %40)
   %cmp.i.i.i.i.i.i.i = icmp ult i32 %42, 2
   br i1 %cmp.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i.i
 
@@ -1711,7 +1711,7 @@ if.end3.i94:                                      ; preds = %if.end.i91
   %shr.i.i.i.i.i.i.i.i.i.i.i.i.i107 = lshr i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i106, 58
   %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i108 = xor i64 %.narrow.i.i.i.i.i.i.i.i.i.i.i.i.i106, %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i.i.i.i.i.i104
   %or.i.i.i.i.i.i.i.i.i.i.i.i.i.i109 = call noundef i64 @llvm.fshr.i64(i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i108, i64 %xor.i.i14.i.i.i.i.i.i.i.i.i.i.i.i108, i64 %shr.i.i.i.i.i.i.i.i.i.i.i.i.i107)
-  %47 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %45)
+  %47 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %45)
   %cmp.i.i.i.i.i.i.i110 = icmp ult i32 %47, 2
   br i1 %cmp.i.i.i.i.i.i.i110, label %if.then.i.i.i.i.i.i.i148, label %if.end.i.i.i.i.i.i.i111
 

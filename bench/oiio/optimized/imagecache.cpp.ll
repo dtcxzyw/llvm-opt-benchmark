@@ -66189,7 +66189,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_
   br label %cond.true
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %if.end.i
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %bucket_count)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %bucket_count)
   %cmp1.i.i.i = icmp ult i64 %1, 2
   br i1 %cmp1.i.i.i, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %if.end2.i.i
 
@@ -70190,7 +70190,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_
   br label %cond.true
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %if.end.i
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %bucket_count)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %bucket_count)
   %cmp1.i.i.i = icmp ult i64 %1, 2
   br i1 %cmp1.i.i.i, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %if.end2.i.i
 
@@ -70809,7 +70809,7 @@ _ZNSt6vectorIN3tsl17detail_robin_hash12bucket_entryISt4pairIN18OpenImageIO_v2_6_
   br label %cond.true
 
 _ZN3tsl2rh26power_of_two_growth_policyILm2EE15is_power_of_twoEm.exit.i.i: ; preds = %if.end.i
-  %1 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %bucket_count)
+  %1 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %bucket_count)
   %cmp1.i.i.i = icmp ult i64 %1, 2
   br i1 %cmp1.i.i.i, label %_ZN3tsl2rh26power_of_two_growth_policyILm2EEC2ERm.exit, label %if.end2.i.i
 

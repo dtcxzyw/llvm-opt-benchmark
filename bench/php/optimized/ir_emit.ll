@@ -43930,7 +43930,7 @@ ir_match_fuse_load.exit1211:                      ; preds = %410, %414, %419, %4
   br i1 %475, label %switch.hole_check, label %476
 
 476:                                              ; preds = %switch.hole_check, %474, %469
-  %477 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %468)
+  %477 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %468)
   %.not1129 = icmp ult i64 %477, 2
   br i1 %.not1129, label %ir_match_fuse_load_cmp_fp.exit, label %478
 

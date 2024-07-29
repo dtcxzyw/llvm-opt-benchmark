@@ -172,7 +172,7 @@ define dso_local i32 @hex_dump_to_buffer(ptr nocapture noundef readonly %0, i64 
 
 13:                                               ; preds = %7
   %14 = sext i32 %3 to i64
-  %15 = tail call i64 @llvm.ctpop.i64(i64 %14), !range !9
+  %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %14), !range !9
   %16 = icmp ult i64 %15, 2
   br label %17
 

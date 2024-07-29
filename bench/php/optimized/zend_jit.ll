@@ -102720,7 +102720,7 @@ define internal fastcc void @zend_jit_verify_return_type(ptr noundef %0, ptr nou
   br i1 %27, label %219, label %28
 
 28:                                               ; preds = %24
-  %29 = tail call range(i32 0, 10) i32 @llvm.ctpop.i32(i32 %21)
+  %29 = tail call range(i32 1, 10) i32 @llvm.ctpop.i32(i32 %21)
   %.not93 = icmp ult i32 %29, 2
   br i1 %.not93, label %30, label %60
 
@@ -117624,7 +117624,7 @@ jit_STUB_ADDR.exit586:                            ; preds = %314, %317
 
 327:                                              ; preds = %325
   %328 = add nsw i64 %312, -1
-  %329 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %312)
+  %329 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %312)
   %.not490 = icmp ult i64 %329, 2
   %330 = icmp ne ptr %7, null
   %or.cond = and i1 %330, %.not490
@@ -142515,7 +142515,7 @@ jit_ADD_OFFSET.exit:                              ; preds = %49, %57
   br i1 %.not94, label %117, label %62
 
 62:                                               ; preds = %61
-  %63 = tail call range(i32 0, 10) i32 @llvm.ctpop.i32(i32 %12)
+  %63 = tail call range(i32 1, 10) i32 @llvm.ctpop.i32(i32 %12)
   %.not95 = icmp ult i32 %63, 2
   br i1 %.not95, label %64, label %92
 

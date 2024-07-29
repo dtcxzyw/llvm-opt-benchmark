@@ -2065,7 +2065,7 @@ _ZNSt8functionIFP11extension_tvEED2Ev.exit41:     ; preds = %146, %144, %142
   %151 = getelementptr inbounds i8, ptr %2, i64 64
   %152 = load i64, ptr %151, align 8
   %153 = icmp ugt i64 %152, 3
-  %154 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %152)
+  %154 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %152)
   %.not.i = icmp ult i64 %154, 2
   %or.cond.i = select i1 %153, i1 %.not.i, i1 false
   br i1 %or.cond.i, label %158, label %155
@@ -128524,7 +128524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeEv.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN11processor_t19set_pmp_granularityEm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(659880) %0, i64 noundef %1) local_unnamed_addr #6 align 2 {
   %3 = icmp ugt i64 %1, 3
-  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %4 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %1)
   %.not = icmp ult i64 %4, 2
   %or.cond = select i1 %3, i1 %.not, i1 false
   br i1 %or.cond, label %8, label %5

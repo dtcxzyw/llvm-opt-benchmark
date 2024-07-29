@@ -3507,7 +3507,7 @@ hwloc_flsl_manual.exit380:                        ; preds = %840, %842
   br i1 %866, label %867, label %.thread425
 
 867:                                              ; preds = %863
-  %868 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %837)
+  %868 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %837)
   %.not258 = icmp ult i32 %868, 2
   %869 = call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %837, i1 true)
   %870 = shl nuw i32 4, %869

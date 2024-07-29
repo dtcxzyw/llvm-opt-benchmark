@@ -1096,7 +1096,7 @@ define dso_local ptr @nfs4_create_server(ptr nocapture noundef readonly %0) loca
   br i1 %76, label %77, label %89
 
 77:                                               ; preds = %67
-  %78 = call i32 @llvm.ctpop.i32(i32 %73), !range !23
+  %78 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %73), !range !23
   %79 = icmp ugt i32 %78, 1
   br i1 %79, label %.preheader11, label %91
 
@@ -1146,7 +1146,7 @@ define dso_local ptr @nfs4_create_server(ptr nocapture noundef readonly %0) loca
   br i1 %107, label %108, label %120
 
 108:                                              ; preds = %98
-  %109 = call i32 @llvm.ctpop.i32(i32 %104), !range !23
+  %109 = call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %104), !range !23
   %110 = icmp ugt i32 %109, 1
   br i1 %110, label %.preheader, label %122
 

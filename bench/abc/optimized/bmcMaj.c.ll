@@ -21545,7 +21545,7 @@ Abc_Tt6FirstBit.exit:                             ; preds = %4
   br i1 %52, label %Abc_TtSuppOnlyOne.exit, label %53
 
 53:                                               ; preds = %Abc_Tt6FirstBit.exit
-  %54 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %51)
+  %54 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %51)
   %55 = icmp ugt i32 %54, 1
   br label %Abc_TtSuppOnlyOne.exit
 

@@ -547,7 +547,7 @@ for.body.lr.ph.split:                             ; preds = %if.end
   %tobool.not5.i.i = icmp ult i32 %num.addr.0.off4.i.i, 3
   %conv9.i = sext i32 %assoc to i64
   %sub.i = add nsw i32 %blksize, -1
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %blksize)
+  %2 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %blksize)
   %cmp.i.i = icmp ult i32 %2, 2
   br i1 %cmp.i.i, label %for.body.us, label %for.body
 

@@ -39,7 +39,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %15 = select i1 %14, i64 1, i64 3
   %16 = add i32 %10, -64
   %17 = icmp ult i32 %16, 193
-  %18 = tail call i32 @llvm.ctpop.i32(i32 %10), !range !12
+  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %10), !range !12
   %19 = icmp ult i32 %18, 2
   %20 = select i1 %17, i1 %19, i1 false
   %21 = select i1 %20, i32 %10, i32 64
@@ -55,7 +55,7 @@ define dso_local void @_ZN6asmjit9_abi_1_1012JitAllocatorC2EPKNS1_12CreateParams
   %29 = select i1 %28, i32 -858993460, i32 %12
   %30 = add i32 %8, -65536
   %31 = icmp ult i32 %30, 268369921
-  %32 = tail call i32 @llvm.ctpop.i32(i32 %8), !range !12
+  %32 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %8), !range !12
   %33 = icmp ult i32 %32, 2
   %34 = select i1 %31, i1 %33, i1 false
   %35 = lshr i64 %3, 32

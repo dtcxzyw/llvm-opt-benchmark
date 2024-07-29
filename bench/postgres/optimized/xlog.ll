@@ -1757,7 +1757,7 @@ define dso_local void @assign_checkpoint_completion_target(double noundef %0, pt
 ; Function Attrs: nounwind uwtable
 define dso_local noundef zeroext i1 @check_wal_segment_size(ptr nocapture noundef readonly %0, ptr nocapture noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
-  %5 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %4)
+  %5 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %4)
   %6 = icmp ult i32 %5, 2
   %7 = add i32 %4, -1048576
   %8 = icmp ult i32 %7, 1072693249
@@ -4425,7 +4425,7 @@ define internal fastcc void @ReadControlFile() unnamed_addr #0 {
   br i1 %177, label %178, label %183
 
 178:                                              ; preds = %174
-  %179 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %176)
+  %179 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %176)
   %180 = icmp ult i32 %179, 2
   %181 = add nsw i32 %176, -1048576
   %182 = icmp ult i32 %181, 1072693249

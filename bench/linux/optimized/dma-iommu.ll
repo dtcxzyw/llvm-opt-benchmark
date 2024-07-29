@@ -3460,7 +3460,7 @@ define internal fastcc i64 @iommu_dma_alloc_iova(ptr nocapture noundef readonly 
   %51 = load i8, ptr %50, align 4
   %52 = and i8 %51, -3
   store i8 %52, ptr %50, align 4
-  %53 = tail call i64 @llvm.ctpop.i64(i64 %35), !range !73
+  %53 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %35), !range !73
   %54 = icmp ult i64 %53, 2
   %55 = add i64 %35, -1
   %56 = tail call i32 asm "bsrq $1,${0:q}", "=r,rm,0,~{dirflag},~{fpsr},~{flags}"(i64 %55, i32 -1) #18

@@ -1261,7 +1261,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   %cmp3 = icmp sgt i32 %1, 7
-  %2 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %1)
+  %2 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %1)
   %cmp6 = icmp ult i32 %2, 2
   %or.cond = select i1 %cmp3, i1 %cmp6, i1 false
   br i1 %or.cond, label %for.body.preheader, label %if.end17
@@ -1867,7 +1867,7 @@ if.then.i:                                        ; preds = %for.body
 
 if.else.i:                                        ; preds = %for.body
   %cmp3.i = icmp sgt i32 %6, 7
-  %7 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %6)
+  %7 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %6)
   %cmp6.i = icmp ult i32 %7, 2
   %or.cond.i = select i1 %cmp3.i, i1 %cmp6.i, i1 false
   %.pre14 = load ptr, ptr %runes_8.i, align 8

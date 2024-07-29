@@ -21239,7 +21239,7 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %36, %_ZNK7AstNode6i
   br i1 %48, label %52, label %49
 
 49:                                               ; preds = %_ZNK7AstNode6isWideEv.exit.thread
-  %50 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %47)
+  %50 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %47)
   %51 = icmp ugt i32 %50, 1
   br label %52
 
@@ -21285,7 +21285,7 @@ _ZNK7AstNode6isWideEv.exit.thread:                ; preds = %36, %_ZNK7AstNode6i
   br label %336
 
 71:                                               ; preds = %59
-  %72 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %58)
+  %72 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %58)
   %73 = icmp ult i64 %72, 2
   br i1 %73, label %74, label %159
 

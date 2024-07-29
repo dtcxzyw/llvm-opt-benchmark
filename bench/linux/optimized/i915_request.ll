@@ -235,7 +235,7 @@ define internal void @i915_fence_release(ptr noundef %0) #3 align 16 {
 30:                                               ; preds = %.thread7, %.loopexit
   %31 = getelementptr inbounds i8, ptr %0, i64 440
   %32 = load i32, ptr %31, align 8
-  %33 = tail call i32 @llvm.ctpop.i32(i32 %32), !range !12
+  %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32), !range !12
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %41
 
@@ -2126,7 +2126,7 @@ define dso_local range(i32 -2147483648, 1) i32 @i915_request_await_dma_fence(ptr
   %115 = getelementptr inbounds i8, ptr %30, i64 440
   %116 = load volatile i32, ptr %115, align 8
   %117 = or i32 %116, %114
-  %118 = tail call i32 @llvm.ctpop.i32(i32 %117), !range !12
+  %118 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %117), !range !12
   %119 = icmp eq i32 %118, 1
   br i1 %119, label %120, label %129
 
@@ -2445,7 +2445,7 @@ define dso_local ptr @__i915_request_commit(ptr noundef %0) local_unnamed_addr #
   br i1 %92, label %96, label %93
 
 93:                                               ; preds = %78
-  %94 = tail call i32 @llvm.ctpop.i32(i32 %91), !range !12
+  %94 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %91), !range !12
   %95 = icmp ugt i32 %94, 1
   br label %96
 

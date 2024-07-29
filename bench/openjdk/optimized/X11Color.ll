@@ -1161,7 +1161,7 @@ define hidden range(i32 0, 2) i32 @awt_allocate_colors(ptr nocapture noundef %0)
   br i1 %402, label %.thread417, label %403
 
 403:                                              ; preds = %400
-  %404 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %401)
+  %404 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %401)
   %405 = icmp ugt i32 %404, 1
   %406 = icmp sgt i32 %401, 32
   %or.cond13 = or i1 %406, %405

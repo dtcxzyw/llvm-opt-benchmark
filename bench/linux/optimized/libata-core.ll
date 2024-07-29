@@ -8630,14 +8630,14 @@ ata_id_xfermask.exit:                             ; preds = %600, %605
 730:                                              ; preds = %724
   %731 = and i32 %721, 255
   %732 = and i32 %727, 255
-  %733 = call i32 @llvm.ctpop.i32(i32 %731), !range !78
+  %733 = call range(i32 0, 9) i32 @llvm.ctpop.i32(i32 %731), !range !78
   %734 = icmp ne i32 %733, 1
   %735 = icmp eq i32 %732, 0
   %or.cond = or i1 %734, %735
   br i1 %or.cond, label %.thread37, label %736
 
 736:                                              ; preds = %730
-  %737 = call i32 @llvm.ctpop.i32(i32 %732), !range !78
+  %737 = call range(i32 1, 9) i32 @llvm.ctpop.i32(i32 %732), !range !78
   %738 = icmp ult i32 %737, 2
   %739 = icmp ule i32 %732, %731
   %740 = and i1 %739, %738

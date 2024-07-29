@@ -9,7 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c"../qemu/target/riscv/pmu.c\00", align 1
 @__func__.riscv_pmu_init = private unnamed_addr constant [15 x i8] c"riscv_pmu_init\00", align 1
 @.str.2 = private unnamed_addr constant [43 x i8] c"\22pmu-mask\22 contains invalid bits (0-2) set\00", align 1
-@.str.3 = private unnamed_addr constant [45 x i8] c"Number of counters exceeds maximum available\00", align 1
 @.str.4 = private unnamed_addr constant [40 x i8] c"Unable to allocate PMU event hash table\00", align 1
 @use_icount = external local_unnamed_addr global i32, align 4
 
@@ -643,22 +642,13 @@ entry:
   %0 = load i32, ptr %pmu_mask, align 4
   %and = and i32 %0, 7
   %tobool.not = icmp eq i32 %and, 0
-  br i1 %tobool.not, label %if.end, label %if.then
+  br i1 %tobool.not, label %if.end4, label %if.then
 
 if.then:                                          ; preds = %entry
   tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 435, ptr noundef nonnull @__func__.riscv_pmu_init, ptr noundef nonnull @.str.2) #6
   br label %return
 
-if.end:                                           ; preds = %entry
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
-  %cmp = icmp ugt i32 %1, 29
-  br i1 %cmp, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  tail call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef %errp, ptr noundef nonnull @.str.1, i32 noundef 440, ptr noundef nonnull @__func__.riscv_pmu_init, ptr noundef nonnull @.str.3) #6
-  br label %return
-
-if.end4:                                          ; preds = %if.end
+if.end4:                                          ; preds = %entry
   %call5 = tail call ptr @g_hash_table_new(ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal) #6
   %pmu_event_ctr_map = getelementptr inbounds i8, ptr %cpu, i64 19184
   store ptr %call5, ptr %pmu_event_ctr_map, align 16
@@ -670,12 +660,12 @@ if.then8:                                         ; preds = %if.end4
   br label %return
 
 if.end9:                                          ; preds = %if.end4
-  %2 = load i32, ptr %pmu_mask, align 4
+  %1 = load i32, ptr %pmu_mask, align 4
   %pmu_avail_ctrs = getelementptr inbounds i8, ptr %cpu, i64 19176
-  store i32 %2, ptr %pmu_avail_ctrs, align 8
+  store i32 %1, ptr %pmu_avail_ctrs, align 8
   br label %return
 
-return:                                           ; preds = %if.end9, %if.then8, %if.then3, %if.then
+return:                                           ; preds = %if.end9, %if.then8, %if.then
   ret void
 }
 
@@ -695,9 +685,6 @@ declare i32 @llvm.bswap.i32(i32) #5
 declare i64 @riscv_cpu_update_mip(ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 declare i64 @icount_to_ns(i64 noundef) local_unnamed_addr #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctpop.i32(i32) #5
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

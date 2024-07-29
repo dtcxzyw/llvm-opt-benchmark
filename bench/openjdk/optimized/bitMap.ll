@@ -2329,7 +2329,7 @@ _ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit.i: ; preds = %6
   %15 = getelementptr inbounds i64, ptr %.pre.i, i64 %4
   %16 = load i64, ptr %15, align 8
   %17 = and i64 %16, %14
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
+  %18 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %17)
   br label %_ZNK6BitMap26count_one_bits_within_wordEmm.exit31.i
 
 _ZNK6BitMap26count_one_bits_within_wordEmm.exit31.i: ; preds = %13, %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit.i
@@ -2347,7 +2347,7 @@ _ZNK6BitMap26count_one_bits_within_wordEmm.exit31.i: ; preds = %13, %_ZNK6BitMap
   %23 = load ptr, ptr %0, align 8
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, %22
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
+  %26 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %25)
   br label %_ZNK6BitMap14count_one_bitsEmm.exit
 
 _ZNK6BitMap14count_one_bitsEmm.exit:              ; preds = %20, %21, %_ZNK6BitMap26count_one_bits_within_wordEmm.exit31.i
@@ -2406,7 +2406,7 @@ _ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit: ; preds = %17
   %27 = getelementptr inbounds i64, ptr %.pre, i64 %6
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, %26
-  %30 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %29)
+  %30 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %29)
   br label %_ZNK6BitMap26count_one_bits_within_wordEmm.exit31
 
 _ZNK6BitMap26count_one_bits_within_wordEmm.exit31: ; preds = %_ZNK6BitMap32count_one_bits_in_range_of_wordsEmm.exit, %25

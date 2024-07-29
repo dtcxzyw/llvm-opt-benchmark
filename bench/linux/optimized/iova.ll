@@ -78,7 +78,7 @@ define dso_local noundef i64 @iova_rcache_range() local_unnamed_addr #0 align 16
 define dso_local void @init_iova_domain(ptr noundef %0, i64 noundef %1, i64 noundef %2) #1 align 16 {
   %4 = add i64 %1, -4097
   %5 = icmp ult i64 %4, -4096
-  %6 = tail call i64 @llvm.ctpop.i64(i64 %1), !range !5
+  %6 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1), !range !5
   %7 = icmp ugt i64 %6, 1
   %8 = select i1 %5, i1 true, i1 %7
   br i1 %8, label %9, label %10, !prof !6

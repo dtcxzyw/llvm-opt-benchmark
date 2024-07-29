@@ -1948,7 +1948,7 @@ define dso_local i32 @intel_modeset_calc_cdclk(ptr noundef %0) local_unnamed_add
 
 99:                                               ; preds = %96, %61
   %100 = load i8, ptr %17, align 8
-  %101 = tail call i8 @llvm.ctpop.i8(i8 %100), !range !48
+  %101 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %100), !range !48
   %102 = icmp eq i8 %101, 1
   br i1 %102, label %103, label %151
 
@@ -5210,7 +5210,7 @@ define internal fastcc i32 @intel_compute_min_cdclk(ptr noundef %0) unnamed_addr
 75:                                               ; preds = %70
   %76 = getelementptr inbounds i8, ptr %0, i64 96
   %77 = load i8, ptr %76, align 8
-  %78 = tail call i8 @llvm.ctpop.i8(i8 %77), !range !48
+  %78 = tail call range(i8 0, 9) i8 @llvm.ctpop.i8(i8 %77), !range !48
   %79 = icmp ult i8 %78, 2
   br i1 %79, label %82, label %80
 

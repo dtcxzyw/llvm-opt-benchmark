@@ -10648,7 +10648,7 @@ define linkonce_odr hidden ptr @_ZNSt3__112__hash_tableINS_17__hash_value_typeIN
   br i1 %.not, label %.critedge, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %5)
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %5)
   %.not.i = icmp ult i64 %7, 2
   br i1 %.not.i, label %8, label %11
 
@@ -11126,7 +11126,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt3__112__hash_tableINS_17__hash_valu
   br i1 %.not, label %.critedge, label %10
 
 10:                                               ; preds = %5
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %9)
   %.not.i = icmp ult i64 %11, 2
   br i1 %.not.i, label %12, label %15
 
@@ -11272,7 +11272,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_4pairIN7mitsuba3refIKNS3_6Stru
 70:                                               ; preds = %_ZNSt3__112__hash_tableINS_17__hash_value_typeINS_4pairIN7mitsuba3refIKNS3_6StructEEES7_EEPvEENS_22__unordered_map_hasherIS8_SA_NS3_6hasherIS8_EENS3_10comparatorIS8_EELb1EEENS_21__unordered_map_equalIS8_SA_SF_SD_Lb1EEENS_9allocatorISA_EEE21__construct_node_hashIRKNS_21piecewise_construct_tEJNS_5tupleIJRKS8_EEENSQ_IJEEEEEENS_10unique_ptrINS_11__hash_nodeISA_S9_EENS_22__hash_node_destructorINSJ_ISX_EEEEEEmOT_DpOT0_.exit
   %71 = shl i64 %9, 1
   %72 = icmp ult i64 %9, 3
-  %73 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
+  %73 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %9)
   %.not.i56 = icmp ugt i64 %73, 1
   %.not72 = select i1 %72, i1 true, i1 %.not.i56
   %74 = zext i1 %.not72 to i64
@@ -11305,7 +11305,7 @@ _ZNSt3__112__hash_tableINS_17__hash_value_typeINS_4pairIN7mitsuba3refIKNS3_6Stru
 
 88:                                               ; preds = %86
   %89 = icmp ugt i64 %84, 2
-  %90 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %84)
+  %90 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %84)
   %.not.i.i.i = icmp ult i64 %90, 2
   %91 = select i1 %89, i1 %.not.i.i.i, i1 false
   %92 = load i64, ptr %61, align 8
@@ -11527,7 +11527,7 @@ _ZNSt3__110unique_ptrIA_PNS_16__hash_node_baseIPNS_11__hash_nodeINS_17__hash_val
 18:                                               ; preds = %15
   %19 = getelementptr inbounds i8, ptr %17, i64 8
   %20 = load i64, ptr %19, align 8
-  %21 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %1)
+  %21 = tail call range(i64 1, 62) i64 @llvm.ctpop.i64(i64 %1)
   %.not.i47 = icmp ult i64 %21, 2
   br i1 %.not.i47, label %_ZNSt3__116__constrain_hashB8ne190000Emm.exit.thread, label %22
 

@@ -2517,7 +2517,7 @@ define noundef ptr @bit_pick_cnt(ptr nocapture noundef readonly %0, i64 noundef 
   br i1 %26, label %.lr.ph.split, label %.loopexit, !llvm.loop !36
 
 .split.us:                                        ; preds = %.lr.ph.split
-  %27 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %22)
+  %27 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %22)
   %28 = add nsw i64 %27, %.035.ph63
   %.not42 = icmp sle i64 %28, %1
   %29 = add i64 %.03651, 63

@@ -289,7 +289,7 @@ define i32 @cli_scanhfsplus(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread68
 
 54:                                               ; preds = %35
-  %55 = tail call range(i32 0, 22) i32 @llvm.ctpop.i32(i32 %46)
+  %55 = tail call range(i32 1, 22) i32 @llvm.ctpop.i32(i32 %46)
   %.not86.i = icmp ult i32 %55, 2
   br i1 %.not86.i, label %57, label %56
 

@@ -3476,7 +3476,7 @@ if.then3.i:                                       ; preds = %if.then
   br label %simplify_intmul_k.exit
 
 if.else7.i:                                       ; preds = %if.then
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %cmp8.i = icmp ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
@@ -3527,7 +3527,7 @@ if.then3.i:                                       ; preds = %if.then
   br label %simplify_intmul_k.exit
 
 if.else7.i:                                       ; preds = %if.then
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %conv)
+  %3 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %conv)
   %cmp8.i = icmp ult i32 %3, 2
   br i1 %cmp8.i, label %if.then10.i, label %simplify_intmul_k.exit
 
@@ -3558,7 +3558,7 @@ entry:
   %right = getelementptr inbounds i8, ptr %J, i64 208
   %0 = load i32, ptr %right, align 8
   %cmp = icmp sgt i32 %0, 0
-  %1 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %0)
+  %1 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %cmp1 = icmp ult i32 %1, 2
   %or.cond = select i1 %cmp, i1 %cmp1, i1 false
   br i1 %or.cond, label %if.then, label %return

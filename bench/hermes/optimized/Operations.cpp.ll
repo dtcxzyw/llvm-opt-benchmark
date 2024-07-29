@@ -1270,7 +1270,7 @@ if.end:                                           ; preds = %entry
   %cmp = fcmp oge double %0, 0x4340000000000000
   %tobool.not.i = icmp ne i32 %radix, 0
   %or.cond117.not119 = and i1 %tobool.not.i, %cmp
-  %1 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %radix)
+  %1 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %radix)
   %tobool1.not.i = icmp ult i32 %1, 2
   %or.cond118 = select i1 %or.cond117.not119, i1 %tobool1.not.i, i1 false
   br i1 %or.cond118, label %if.then3, label %return

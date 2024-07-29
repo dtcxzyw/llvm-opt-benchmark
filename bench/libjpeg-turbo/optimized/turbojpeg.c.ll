@@ -1675,7 +1675,7 @@ define i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %4
-  %7 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %1)
+  %7 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %1)
   %8 = icmp ugt i32 %7, 1
   %9 = icmp ugt i32 %3, 6
   %or.cond3 = or i1 %8, %9
@@ -3221,7 +3221,7 @@ define noundef ptr @tj3LoadImage8(ptr noundef %0, ptr noundef readonly %1, ptr n
   br label %.thread178
 
 29:                                               ; preds = %21
-  %30 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %3)
+  %30 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
   %.not155 = icmp ult i32 %30, 2
   br i1 %.not155, label %36, label %31
 
@@ -4676,7 +4676,7 @@ define noundef ptr @tj3LoadImage12(ptr noundef %0, ptr noundef readonly %1, ptr 
   br label %.thread178
 
 29:                                               ; preds = %21
-  %30 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %3)
+  %30 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
   %.not155 = icmp ult i32 %30, 2
   br i1 %.not155, label %36, label %31
 
@@ -5932,7 +5932,7 @@ define noundef ptr @tj3LoadImage16(ptr noundef %0, ptr noundef readonly %1, ptr 
   br label %.thread178
 
 29:                                               ; preds = %21
-  %30 = call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %3)
+  %30 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %3)
   %.not155 = icmp ult i32 %30, 2
   br i1 %.not155, label %36, label %31
 

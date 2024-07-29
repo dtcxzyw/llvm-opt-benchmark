@@ -364,7 +364,7 @@ define dso_local noundef range(i32 0, 5) i32 @_ZN6asmjit9_abi_1_109FuncFrame8fin
   %90 = getelementptr inbounds [4 x i32], ptr %62, i64 0, i64 %87
   %91 = load i32, ptr %90, align 4, !tbaa !66
   %92 = and i32 %91, %89
-  %93 = tail call noundef i32 @llvm.ctpop.i32(i32 %92), !range !76
+  %93 = tail call noundef range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %92), !range !76
   %94 = getelementptr inbounds [4 x i8], ptr %10, i64 0, i64 %87
   %95 = load i8, ptr %94, align 1, !tbaa !67
   %96 = zext i8 %95 to i32

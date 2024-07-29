@@ -4483,7 +4483,7 @@ if.then24.i246:                                   ; preds = %land.lhs.true14.i
 if.then26.i:                                      ; preds = %if.then24.i246
   %and28.i = and i32 %92, 65535
   %call.i250 = call i32 @lj_ctype_size(ptr noundef %91, i32 noundef %and28.i) #8
-  %95 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %call.i250)
+  %95 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %call.i250)
   %or.cond95.i = icmp eq i32 %95, 1
   br i1 %or.cond95.i, label %if.end34.i, label %land.lhs.true208
 

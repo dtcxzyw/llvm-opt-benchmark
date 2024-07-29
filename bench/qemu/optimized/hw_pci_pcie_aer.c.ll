@@ -248,7 +248,7 @@ if.end:                                           ; preds = %entry
   %and3 = and i32 %0, 61889
   %and4 = and i32 %0, 67104816
   %error_status.0 = select i1 %tobool1.not, i32 %and4, i32 %and3
-  %4 = tail call range(i32 0, 21) i32 @llvm.ctpop.i32(i32 %error_status.0)
+  %4 = tail call range(i32 1, 21) i32 @llvm.ctpop.i32(i32 %error_status.0)
   %or.cond = icmp eq i32 %4, 1
   br i1 %or.cond, label %if.end10, label %return
 
@@ -411,7 +411,7 @@ if.else.i.i:                                      ; preds = %if.then28.i
   unreachable
 
 if.end.i.i:                                       ; preds = %if.then28.i
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %17)
+  %18 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %17)
   %tobool6.not.i.i = icmp ult i32 %18, 2
   br i1 %tobool6.not.i.i, label %if.end9.i.i, label %if.else8.i.i
 
@@ -522,7 +522,7 @@ if.else.i.i114:                                   ; preds = %if.end28.i
   unreachable
 
 if.end.i.i84:                                     ; preds = %if.end28.i
-  %33 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %32)
+  %33 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %32)
   %tobool6.not.i.i85 = icmp ult i32 %33, 2
   br i1 %tobool6.not.i.i85, label %if.end9.i.i87, label %if.else8.i.i86
 
@@ -1201,7 +1201,7 @@ if.else:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %4 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %2)
+  %4 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %2)
   %tobool8.not = icmp ult i32 %4, 2
   br i1 %tobool8.not, label %if.end11, label %if.else10
 

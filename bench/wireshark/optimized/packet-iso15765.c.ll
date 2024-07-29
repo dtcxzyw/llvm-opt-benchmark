@@ -1516,7 +1516,7 @@ handle_pdu_transport_addresses.exit:              ; preds = %find_pdu_transport_
   %196 = trunc i32 %195 to i16
   store i16 %196, ptr %172, align 2
   store i16 %196, ptr %173, align 4
-  %197 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %191)
+  %197 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %191)
   %198 = add nuw nsw i32 %197, 7
   %199 = lshr i32 %198, 3
   %200 = trunc nuw nsw i32 %199 to i8
@@ -1545,8 +1545,8 @@ handle_pdu_transport_addresses.exit:              ; preds = %find_pdu_transport_
   %214 = lshr i32 %212, %213
   %215 = trunc i32 %214 to i16
   store i16 %215, ptr %173, align 4
-  %216 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %203)
-  %217 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %206)
+  %216 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %203)
+  %217 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %206)
   %spec.select.i = tail call i32 @llvm.umax.i32(i32 %217, i32 %216)
   %218 = add nuw nsw i32 %spec.select.i, 7
   %219 = lshr i32 %218, 3

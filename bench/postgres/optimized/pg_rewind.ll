@@ -1350,7 +1350,7 @@ define internal fastcc void @digestControlFile(ptr noundef %0, ptr nocapture nou
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %6
-  %11 = tail call range(i32 0, 32) i32 @llvm.ctpop.i32(i32 %8)
+  %11 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %8)
   %12 = icmp ult i32 %11, 2
   %13 = add nsw i32 %8, -1048576
   %14 = icmp ult i32 %13, 1072693249

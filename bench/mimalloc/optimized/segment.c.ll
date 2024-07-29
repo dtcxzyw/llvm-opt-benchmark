@@ -1620,7 +1620,7 @@ _mi_segment_page_start.exit.i:                    ; preds = %if.else.i.i.i, %if.
 if.then7.i:                                       ; preds = %_mi_segment_page_start.exit.i
   %6 = ptrtoint ptr %add.ptr.i.i.i to i64
   %sub.i.i = add i64 %spec.store.select, -1
-  %7 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %spec.store.select)
+  %7 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %spec.store.select)
   %cmp.i.i = icmp ult i64 %7, 2
   %add.i.i = add i64 %sub.i.i, %6
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
@@ -1733,7 +1733,7 @@ land.lhs.true.i:                                  ; preds = %_mi_segment_page_st
 if.then7.i51:                                     ; preds = %land.lhs.true.i
   %15 = ptrtoint ptr %add.ptr.i.i.i45 to i64
   %sub.i.i52 = add nsw i64 %page_alignment, -1
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %page_alignment)
+  %16 = tail call range(i64 1, 26) i64 @llvm.ctpop.i64(i64 %page_alignment)
   %cmp.i.i53 = icmp ult i64 %16, 2
   %add.i.i54 = add i64 %sub.i.i52, %15
   br i1 %cmp.i.i53, label %if.then.i.i63, label %if.else.i.i55

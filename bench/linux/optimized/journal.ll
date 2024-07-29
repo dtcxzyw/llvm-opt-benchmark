@@ -5401,7 +5401,7 @@ declare dso_local void @jbd2_buffer_frozen_trigger(ptr noundef, ptr noundef, ptr
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local ptr @jbd2_alloc(i64 noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = add i64 %0, -1
-  %4 = tail call i64 @llvm.ctpop.i64(i64 %0), !range !98
+  %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %0), !range !98
   %5 = icmp ult i64 %4, 2
   br i1 %5, label %7, label %6, !prof !29
 

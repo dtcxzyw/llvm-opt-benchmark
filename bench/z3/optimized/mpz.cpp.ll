@@ -12347,7 +12347,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %1 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit.sink.split, label %_ZN11mpz_managerILb1EE15is_power_of_twoERK3mpzRj.exit
 
@@ -12409,7 +12409,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %1 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %if.then5, label %return
 
@@ -13891,7 +13891,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i.i4, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %2 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %if.then5.i, label %if.then3.i21
 
@@ -27029,7 +27029,7 @@ if.end.i:                                         ; preds = %entry
   br i1 %cmp.i.i, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %1 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit.sink.split, label %_ZN11mpz_managerILb0EE15is_power_of_twoERK3mpzRj.exit
 
@@ -27091,7 +27091,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i, label %if.then3, label %if.end8
 
 if.then3:                                         ; preds = %if.end
-  %1 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %1 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %2 = icmp eq i32 %1, 1
   br i1 %2, label %if.then5, label %return
 
@@ -28601,7 +28601,7 @@ if.end.i:                                         ; preds = %if.end
   br i1 %cmp.i.i4, label %if.then3.i, label %if.end8.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %2 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %0)
+  %2 = tail call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %0)
   %3 = icmp eq i32 %2, 1
   br i1 %3, label %if.then5.i, label %if.then3.i21
 

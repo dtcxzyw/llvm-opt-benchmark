@@ -1321,7 +1321,7 @@ if.then19.i.i.i.i:                                ; preds = %for.end.i.i.i.i
 if.end23.sink.split.i.i.i.i:                      ; preds = %if.then19.i.i.i.i, %if.then3.i.i.i.i
   %count.2.i.i.i = phi i32 [ 0, %if.then3.i.i.i.i ], [ %count.1.i.i.i, %if.then19.i.i.i.i ]
   %and.i46.sink.i.i.i.i = phi i64 [ %and.i.i.i.i.i, %if.then3.i.i.i.i ], [ %and.i46.i.i.i.i, %if.then19.i.i.i.i ]
-  %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i.i)
+  %25 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i.i)
   %cast.i47.i.i.i.i = trunc nuw nsw i64 %25 to i32
   %add.i48.i.i.i.i = add nsw i32 %count.2.i.i.i, %cast.i47.i.i.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i.i
@@ -1507,7 +1507,7 @@ if.then19.i.i.i85.i:                              ; preds = %for.end.i.i.i82.i
 if.end23.sink.split.i.i.i94.i:                    ; preds = %if.then19.i.i.i85.i, %if.then3.i.i.i99.i
   %count.2.i.i95.i = phi i32 [ 0, %if.then3.i.i.i99.i ], [ %count.1.i.i83.i, %if.then19.i.i.i85.i ]
   %and.i46.sink.i.i.i96.i = phi i64 [ %and.i.i.i.i115.i, %if.then3.i.i.i99.i ], [ %and.i46.i.i.i93.i, %if.then19.i.i.i85.i ]
-  %60 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i96.i)
+  %60 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i96.i)
   %cast.i47.i.i.i97.i = trunc nuw nsw i64 %60 to i32
   %add.i48.i.i.i98.i = add nsw i32 %count.2.i.i95.i, %cast.i47.i.i.i97.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i35.i
@@ -1693,7 +1693,7 @@ if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
 if.end23.sink.split.i.i.i.i.i:                    ; preds = %if.then19.i.i.i.i.i, %if.then3.i.i.i.i.i
   %count.2.i.i.i.i = phi i32 [ 0, %if.then3.i.i.i.i.i ], [ %count.1.i.i.i.i, %if.then19.i.i.i.i.i ]
   %and.i46.sink.i.i.i.i.i = phi i64 [ %and.i.i.i.i.i.i, %if.then3.i.i.i.i.i ], [ %and.i46.i.i.i.i.i, %if.then19.i.i.i.i.i ]
-  %95 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i.i.i)
+  %95 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i.i.i)
   %cast.i47.i.i.i.i.i = trunc nuw nsw i64 %95 to i32
   %add.i48.i.i.i.i.i = add nsw i32 %count.2.i.i.i.i, %cast.i47.i.i.i.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i.i.i
@@ -1879,7 +1879,7 @@ if.then19.i.i.i87.i.i:                            ; preds = %for.end.i.i.i84.i.i
 if.end23.sink.split.i.i.i96.i.i:                  ; preds = %if.then19.i.i.i87.i.i, %if.then3.i.i.i101.i.i
   %count.2.i.i97.i.i = phi i32 [ 0, %if.then3.i.i.i101.i.i ], [ %count.1.i.i85.i.i, %if.then19.i.i.i87.i.i ]
   %and.i46.sink.i.i.i98.i.i = phi i64 [ %and.i.i.i.i117.i.i, %if.then3.i.i.i101.i.i ], [ %and.i46.i.i.i95.i.i, %if.then19.i.i.i87.i.i ]
-  %130 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i98.i.i)
+  %130 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i98.i.i)
   %cast.i47.i.i.i99.i.i = trunc nuw nsw i64 %130 to i32
   %add.i48.i.i.i100.i.i = add nsw i32 %count.2.i.i97.i.i, %cast.i47.i.i.i99.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i37.i.i
@@ -2065,7 +2065,7 @@ if.then19.i.i.i201.i.i:                           ; preds = %for.end.i.i.i198.i.
 if.end23.sink.split.i.i.i210.i.i:                 ; preds = %if.then19.i.i.i201.i.i, %if.then3.i.i.i215.i.i
   %count.2.i.i211.i.i = phi i32 [ 0, %if.then3.i.i.i215.i.i ], [ %count.1.i.i199.i.i, %if.then19.i.i.i201.i.i ]
   %and.i46.sink.i.i.i212.i.i = phi i64 [ %and.i.i.i.i231.i.i, %if.then3.i.i.i215.i.i ], [ %and.i46.i.i.i209.i.i, %if.then19.i.i.i201.i.i ]
-  %165 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i212.i.i)
+  %165 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i212.i.i)
   %cast.i47.i.i.i213.i.i = trunc nuw nsw i64 %165 to i32
   %add.i48.i.i.i214.i.i = add nsw i32 %count.2.i.i211.i.i, %cast.i47.i.i.i213.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i151.i.i
@@ -2251,7 +2251,7 @@ if.then19.i.i.i315.i.i:                           ; preds = %for.end.i.i.i312.i.
 if.end23.sink.split.i.i.i324.i.i:                 ; preds = %if.then19.i.i.i315.i.i, %if.then3.i.i.i329.i.i
   %count.2.i.i325.i.i = phi i32 [ 0, %if.then3.i.i.i329.i.i ], [ %count.1.i.i313.i.i, %if.then19.i.i.i315.i.i ]
   %and.i46.sink.i.i.i326.i.i = phi i64 [ %and.i.i.i.i345.i.i, %if.then3.i.i.i329.i.i ], [ %and.i46.i.i.i323.i.i, %if.then19.i.i.i315.i.i ]
-  %200 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i326.i.i)
+  %200 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i326.i.i)
   %cast.i47.i.i.i327.i.i = trunc nuw nsw i64 %200 to i32
   %add.i48.i.i.i328.i.i = add nsw i32 %count.2.i.i325.i.i, %cast.i47.i.i.i327.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i265.i.i
@@ -2437,7 +2437,7 @@ if.then19.i.i.i429.i.i:                           ; preds = %for.end.i.i.i426.i.
 if.end23.sink.split.i.i.i438.i.i:                 ; preds = %if.then19.i.i.i429.i.i, %if.then3.i.i.i443.i.i
   %count.2.i.i439.i.i = phi i32 [ 0, %if.then3.i.i.i443.i.i ], [ %count.1.i.i427.i.i, %if.then19.i.i.i429.i.i ]
   %and.i46.sink.i.i.i440.i.i = phi i64 [ %and.i.i.i.i459.i.i, %if.then3.i.i.i443.i.i ], [ %and.i46.i.i.i437.i.i, %if.then19.i.i.i429.i.i ]
-  %235 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i440.i.i)
+  %235 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i440.i.i)
   %cast.i47.i.i.i441.i.i = trunc nuw nsw i64 %235 to i32
   %add.i48.i.i.i442.i.i = add nsw i32 %count.2.i.i439.i.i, %cast.i47.i.i.i441.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i379.i.i
@@ -2623,7 +2623,7 @@ if.then19.i.i.i543.i.i:                           ; preds = %for.end.i.i.i540.i.
 if.end23.sink.split.i.i.i552.i.i:                 ; preds = %if.then19.i.i.i543.i.i, %if.then3.i.i.i557.i.i
   %count.2.i.i553.i.i = phi i32 [ 0, %if.then3.i.i.i557.i.i ], [ %count.1.i.i541.i.i, %if.then19.i.i.i543.i.i ]
   %and.i46.sink.i.i.i554.i.i = phi i64 [ %and.i.i.i.i573.i.i, %if.then3.i.i.i557.i.i ], [ %and.i46.i.i.i551.i.i, %if.then19.i.i.i543.i.i ]
-  %270 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i554.i.i)
+  %270 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i554.i.i)
   %cast.i47.i.i.i555.i.i = trunc nuw nsw i64 %270 to i32
   %add.i48.i.i.i556.i.i = add nsw i32 %count.2.i.i553.i.i, %cast.i47.i.i.i555.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i493.i.i
@@ -2809,7 +2809,7 @@ if.then19.i.i.i657.i.i:                           ; preds = %for.end.i.i.i654.i.
 if.end23.sink.split.i.i.i666.i.i:                 ; preds = %if.then19.i.i.i657.i.i, %if.then3.i.i.i671.i.i
   %count.2.i.i667.i.i = phi i32 [ 0, %if.then3.i.i.i671.i.i ], [ %count.1.i.i655.i.i, %if.then19.i.i.i657.i.i ]
   %and.i46.sink.i.i.i668.i.i = phi i64 [ %and.i.i.i.i687.i.i, %if.then3.i.i.i671.i.i ], [ %and.i46.i.i.i665.i.i, %if.then19.i.i.i657.i.i ]
-  %305 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i668.i.i)
+  %305 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i668.i.i)
   %cast.i47.i.i.i669.i.i = trunc nuw nsw i64 %305 to i32
   %add.i48.i.i.i670.i.i = add nsw i32 %count.2.i.i667.i.i, %cast.i47.i.i.i669.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i607.i.i
@@ -2995,7 +2995,7 @@ if.then19.i.i.i771.i.i:                           ; preds = %for.end.i.i.i768.i.
 if.end23.sink.split.i.i.i780.i.i:                 ; preds = %if.then19.i.i.i771.i.i, %if.then3.i.i.i785.i.i
   %count.2.i.i781.i.i = phi i32 [ 0, %if.then3.i.i.i785.i.i ], [ %count.1.i.i769.i.i, %if.then19.i.i.i771.i.i ]
   %and.i46.sink.i.i.i782.i.i = phi i64 [ %and.i.i.i.i801.i.i, %if.then3.i.i.i785.i.i ], [ %and.i46.i.i.i779.i.i, %if.then19.i.i.i771.i.i ]
-  %340 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i782.i.i)
+  %340 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i782.i.i)
   %cast.i47.i.i.i783.i.i = trunc nuw nsw i64 %340 to i32
   %add.i48.i.i.i784.i.i = add nsw i32 %count.2.i.i781.i.i, %cast.i47.i.i.i783.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i721.i.i
@@ -3181,7 +3181,7 @@ if.then19.i.i.i885.i.i:                           ; preds = %for.end.i.i.i882.i.
 if.end23.sink.split.i.i.i894.i.i:                 ; preds = %if.then19.i.i.i885.i.i, %if.then3.i.i.i899.i.i
   %count.2.i.i895.i.i = phi i32 [ 0, %if.then3.i.i.i899.i.i ], [ %count.1.i.i883.i.i, %if.then19.i.i.i885.i.i ]
   %and.i46.sink.i.i.i896.i.i = phi i64 [ %and.i.i.i.i915.i.i, %if.then3.i.i.i899.i.i ], [ %and.i46.i.i.i893.i.i, %if.then19.i.i.i885.i.i ]
-  %375 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i896.i.i)
+  %375 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i896.i.i)
   %cast.i47.i.i.i897.i.i = trunc nuw nsw i64 %375 to i32
   %add.i48.i.i.i898.i.i = add nsw i32 %count.2.i.i895.i.i, %cast.i47.i.i.i897.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i835.i.i
@@ -4232,7 +4232,7 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
 if.end23.sink.split.i.i.i:                        ; preds = %if.then19.i.i.i, %if.then3.i.i.i
   %count.2.i.i = phi i32 [ 0, %if.then3.i.i.i ], [ %count.1.i.i, %if.then19.i.i.i ]
   %and.i46.sink.i.i.i = phi i64 [ %and.i.i.i.i51, %if.then3.i.i.i ], [ %and.i46.i.i.i, %if.then19.i.i.i ]
-  %620 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i)
+  %620 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i)
   %cast.i47.i.i.i = trunc nuw nsw i64 %620 to i32
   %add.i48.i.i.i = add nsw i32 %count.2.i.i, %cast.i47.i.i.i
   br label %_ZN8facebook5velox4bits9countBitsEPKmii.exit.i
@@ -53909,7 +53909,7 @@ if.then19.i.i.i:                                  ; preds = %for.end.i.i.i
 if.end23.sink.split.i.i.i:                        ; preds = %if.then19.i.i.i, %if.then3.i.i.i
   %count.2.i.i = phi i32 [ 0, %if.then3.i.i.i ], [ %count.1.i.i, %if.then19.i.i.i ]
   %and.i46.sink.i.i.i = phi i64 [ %and.i.i.i.i, %if.then3.i.i.i ], [ %and.i46.i.i.i, %if.then19.i.i.i ]
-  %8 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i)
+  %8 = tail call range(i64 0, 64) i64 @llvm.ctpop.i64(i64 %and.i46.sink.i.i.i)
   %cast.i47.i.i.i = trunc nuw nsw i64 %8 to i32
   %add.i48.i.i.i = add nsw i32 %count.2.i.i, %cast.i47.i.i.i
   br label %_ZN8facebook5velox4bits13countNonNullsEPKmii.exit

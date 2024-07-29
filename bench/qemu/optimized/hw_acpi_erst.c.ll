@@ -655,7 +655,7 @@ if.end5.i:                                        ; preds = %if.then4.i, %do.end
   br i1 %cmp8.i, label %land.lhs.true9.i, label %if.then13.i
 
 land.lhs.true9.i:                                 ; preds = %if.end5.i
-  %19 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %18)
+  %19 = call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %18)
   %cmp10.i = icmp ult i32 %19, 2
   %cmp12.i = icmp ugt i32 %18, 4095
   %or.cond1.i = and i1 %cmp12.i, %cmp10.i

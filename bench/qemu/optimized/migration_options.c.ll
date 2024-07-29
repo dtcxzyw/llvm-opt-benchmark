@@ -1699,7 +1699,7 @@ land.lhs.true103:                                 ; preds = %if.end100
 
 lor.lhs.false106:                                 ; preds = %land.lhs.true103
   %25 = load i64, ptr %xbzrle_cache_size, align 8
-  %26 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %25)
+  %26 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %25)
   %or.cond84 = icmp eq i64 %26, 1
   br i1 %or.cond84, label %if.end110, label %if.then109
 

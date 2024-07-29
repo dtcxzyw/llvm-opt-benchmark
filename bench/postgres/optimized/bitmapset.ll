@@ -853,7 +853,7 @@ define dso_local i32 @bms_singleton_member(ptr noundef readonly %0) local_unname
 
 13:                                               ; preds = %10
   %14 = icmp slt i32 %.0, 0
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
+  %15 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %12)
   %.not18 = icmp ult i64 %15, 2
   %or.cond = select i1 %14, i1 %.not18, i1 false
   br i1 %or.cond, label %19, label %16
@@ -906,7 +906,7 @@ define dso_local noundef zeroext i1 @bms_get_singleton_member(ptr noundef readon
 
 11:                                               ; preds = %8
   %12 = icmp slt i32 %.017, 0
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
+  %13 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %10)
   %.not21 = icmp ult i64 %13, 2
   %or.cond = select i1 %12, i1 %.not21, i1 false
   br i1 %or.cond, label %14, label %.loopexit
@@ -995,7 +995,7 @@ define dso_local range(i32 0, 3) i32 @bms_membership(ptr noundef readonly %0) lo
 
 10:                                               ; preds = %7
   %.not17 = icmp eq i32 %.013, 0
-  %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %9)
+  %11 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %9)
   %.not18 = icmp ult i64 %11, 2
   %or.cond = select i1 %.not17, i1 %.not18, i1 false
   br i1 %or.cond, label %12, label %.loopexit

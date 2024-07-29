@@ -16,7 +16,7 @@ define range(i32 0, 2) i32 @hcreate_r(i64 noundef %0, ptr nocapture noundef %1) 
 4:                                                ; preds = %2
   %spec.store.select = tail call i64 @llvm.umax.i64(i64 %0, i64 16)
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 288230376151711744)
-  %5 = tail call range(i64 0, 60) i64 @llvm.ctpop.i64(i64 %spec.store.select1)
+  %5 = tail call range(i64 1, 60) i64 @llvm.ctpop.i64(i64 %spec.store.select1)
   %.not23 = icmp ult i64 %5, 2
   br i1 %.not23, label %11, label %.preheader25
 

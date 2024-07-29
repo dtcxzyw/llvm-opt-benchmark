@@ -6446,7 +6446,7 @@ thread-pre-split:                                 ; preds = %15, %..thread_crit_
   br i1 %31, label %37, label %32
 
 32:                                               ; preds = %25
-  %33 = tail call i32 @llvm.ctpop.i32(i32 %30), !range !57
+  %33 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %30), !range !57
   %34 = icmp ult i32 %33, 2
   %35 = icmp eq i32 %28, 0
   %36 = select i1 %34, i1 %35, i1 false
@@ -6571,7 +6571,7 @@ thread-pre-split:                                 ; preds = %15, %..thread_crit_
   br i1 %107, label %113, label %108
 
 108:                                              ; preds = %101
-  %109 = tail call i32 @llvm.ctpop.i32(i32 %106), !range !57
+  %109 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %106), !range !57
   %110 = icmp ult i32 %109, 2
   %111 = icmp eq i32 %104, 0
   %112 = select i1 %110, i1 %111, i1 false

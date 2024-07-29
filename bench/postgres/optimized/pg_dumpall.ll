@@ -2477,7 +2477,7 @@ define internal fastcc void @dumpRoleMembership(ptr noundef %0) unnamed_addr #3 
   %39 = select i1 %38, double 0x41F0000000000000, double %37
   %40 = fptoui double %39 to i64
   %41 = tail call i64 @llvm.umax.i64(i64 %40, i64 2)
-  %42 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %41)
+  %42 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %41)
   %43 = icmp ult i64 %42, 2
   %44 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %41, i1 true)
   %45 = sub nuw nsw i64 64, %44
@@ -2497,7 +2497,7 @@ rolename_compute_size.exit.i:                     ; preds = %29
   %51 = getelementptr inbounds i8, ptr %34, i64 24
   store ptr %50, ptr %51, align 8
   %52 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i, i64 2)
-  %53 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %52)
+  %53 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %52)
   %54 = icmp ult i64 %53, 2
   %55 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %52, i1 true)
   %56 = sub nuw nsw i64 64, %55
@@ -2643,7 +2643,7 @@ rolename_lookup.exit.us:                          ; preds = %105, %88, %87
   %131 = shl i64 %128, 1
   %132 = load ptr, ptr %51, align 8
   %133 = tail call i64 @llvm.umax.i64(i64 %131, i64 2)
-  %134 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %133)
+  %134 = tail call range(i64 1, 64) i64 @llvm.ctpop.i64(i64 %133)
   %135 = icmp ult i64 %134, 2
   %136 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %133, i1 true)
   %137 = sub nuw nsw i64 64, %136
@@ -2657,7 +2657,7 @@ rolename_compute_size.exit.i.i.i.us:              ; preds = %130
   %141 = tail call ptr @pg_malloc0(i64 noundef %139) #14
   store ptr %141, ptr %51, align 8
   %142 = tail call i64 @llvm.umax.i64(i64 %.0.i.i.i.i.i.us, i64 2)
-  %143 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %142)
+  %143 = tail call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %142)
   %144 = icmp ult i64 %143, 2
   %145 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %142, i1 true)
   %146 = sub nuw nsw i64 64, %145
