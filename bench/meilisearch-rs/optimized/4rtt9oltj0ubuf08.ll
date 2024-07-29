@@ -1632,7 +1632,7 @@ define hidden void @"_ZN109_$LT$heed..iterator..range..RwRange$LT$KC$C$DC$C$IM$G
   %14 = icmp eq i64 %13, 7
   br i1 %14, label %15, label %19
 
-default.unreachable70:                            ; preds = %21
+default.unreachable68:                            ; preds = %21
   unreachable
 
 15:                                               ; preds = %12
@@ -1654,7 +1654,7 @@ default.unreachable70:                            ; preds = %21
   %23 = load i64, ptr %22, align 8, !noundef !4
   %24 = getelementptr inbounds i8, ptr %1, i64 32
   %25 = load i64, ptr %24, align 8, !range !310, !noundef !4
-  switch i64 %25, label %default.unreachable70 [
+  switch i64 %25, label %default.unreachable68 [
     i64 0, label %27
     i64 1, label %36
     i64 2, label %47
@@ -121632,11 +121632,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN49_$LT$u8$u20$as$u20$core..slice..
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select, 0
-  %.not = icmp ne i64 %spec.store.select, 0
-  %10 = zext i1 %.not to i8
-  %11 = select i1 %9, i8 -1, i8 %10
-  ret i8 %11
+  %9 = tail call i8 @llvm.scmp.i8.i64(i64 %spec.store.select, i64 0)
+  ret i8 %9
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
@@ -127192,11 +127189,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN4core5slice3cmp56_$LT$impl$u20$cor
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select.i = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select.i, 0
-  %.not.i = icmp ne i64 %spec.store.select.i, 0
-  %10 = zext i1 %.not.i to i8
-  %11 = select i1 %9, i8 -1, i8 %10
-  ret i8 %11
+  %9 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i, i64 0)
+  ret i8 %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -127385,11 +127379,8 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN55_$LT$A$u20$as$u20$core..slice..c
   %7 = sext i32 %6 to i64
   %8 = icmp eq i32 %6, 0
   %spec.store.select.i = select i1 %8, i64 %5, i64 %7
-  %9 = icmp slt i64 %spec.store.select.i, 0
-  %.not.i = icmp ne i64 %spec.store.select.i, 0
-  %10 = zext i1 %.not.i to i8
-  %11 = select i1 %9, i8 -1, i8 %10
-  ret i8 %11
+  %9 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i, i64 0)
+  ret i8 %9
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -133439,7 +133430,7 @@ switch.lookup:                                    ; preds = %4
   %40 = load ptr, ptr %29, align 8, !align !13, !noundef !4
   %41 = load i64, ptr %30, align 8
   %42 = icmp eq ptr %40, null
-  %spec.select170 = select i1 %42, i64 2, i64 1
+  %spec.select169 = select i1 %42, i64 2, i64 1
   %43 = load ptr, ptr %31, align 8, !align !13, !noundef !4
   %44 = icmp eq ptr %43, null
   br i1 %44, label %"_ZN50_$LT$log..Record$u20$as$u20$core..clone..Clone$GT$5clone17hd506f8d862dec04dE.exit102", label %75
@@ -133553,7 +133544,7 @@ switch.lookup:                                    ; preds = %4
   store ptr %.sroa.5134.0.copyload, ptr %.sroa.32.80..sroa_idx123, align 8, !alias.scope !19453
   %.sroa.33125.80..sroa_idx126 = getelementptr inbounds i8, ptr %5, i64 120
   store i64 %.sroa.6.0.copyload, ptr %.sroa.33125.80..sroa_idx126, align 8, !alias.scope !19453
-  store i64 %spec.select170, ptr %5, align 8, !alias.scope !19451, !noalias !19448
+  store i64 %spec.select169, ptr %5, align 8, !alias.scope !19451, !noalias !19448
   %.sroa.53.0..sroa_idx4.i100 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %40, ptr %.sroa.53.0..sroa_idx4.i100, align 8, !noalias !19448
   %.sroa.53.i93.sroa.4.0..sroa.53.0..sroa_idx4.i100.sroa_idx = getelementptr inbounds i8, ptr %5, i64 16
@@ -140625,6 +140616,9 @@ declare hidden void @_ZN10rayon_core5spawn5spawn17hb22852a9fc960e94E(ptr noalias
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 declare hidden void @"_ZN11meilisearch11import_dump28_$u7b$$u7b$closure$u7d$$u7d$17h034f79e74ed47dd3E.llvm.12408969533158119881"(ptr noalias noundef nonnull readonly align 1, ptr noalias nocapture noundef align 8 dereferenceable(24)) unnamed_addr #5
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #49

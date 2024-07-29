@@ -10201,17 +10201,11 @@ define hidden noundef i32 @_ZN2os27compare_file_modified_timesEPKcS1_(ptr nounde
   %.sroa.2.0..sroa_idx.i5 = getelementptr inbounds i8, ptr %3, i64 96
   %.sroa.2.0.copyload.i6 = load i64, ptr %.sroa.2.0..sroa_idx.i5, align 8
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %3)
-  %9 = icmp slt i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i4
-  %10 = icmp ne i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i4
-  %11 = zext i1 %10 to i32
-  %12 = select i1 %9, i32 -1, i32 %11
-  %13 = icmp eq i32 %12, 0
-  %14 = icmp slt i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i6
-  %15 = icmp ne i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i6
-  %16 = zext i1 %15 to i32
-  %17 = select i1 %14, i32 -1, i32 %16
-  %.0 = select i1 %13, i32 %17, i32 %12
-  ret i32 %.0
+  %9 = call noundef i32 @llvm.scmp.i32.i64(i64 %.sroa.0.0.copyload.i, i64 %.sroa.0.0.copyload.i4)
+  %10 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i4
+  %11 = call i32 @llvm.scmp.i32.i64(i64 %.sroa.2.0.copyload.i, i64 %.sroa.2.0.copyload.i6)
+  %spec.select = select i1 %10, i32 %11, i32 %9
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -12426,6 +12420,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #24
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.scmp.i32.i64(i64, i64) #24
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

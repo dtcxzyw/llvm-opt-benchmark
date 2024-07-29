@@ -26095,7 +26095,7 @@ _ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit: ; p
   %37 = load i32, ptr %36, align 4
   %.sroa.8.0 = select i1 %trunc, i32 %37, i32 undef
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3)
-  br i1 %trunc, label %38, label %61
+  br i1 %trunc, label %38, label %63
 
 38:                                               ; preds = %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5993)
@@ -26119,41 +26119,41 @@ _ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875
   %.not.i.i8 = icmp eq i64 %48, 0
   br i1 %.not.i.i8, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit, %53
-  %.028.i.i = phi i64 [ %56, %53 ], [ %48, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ]
-  %.01927.i.i = phi i64 [ %.022.i.i, %53 ], [ 0, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ]
-  %.02026.i.i = phi i64 [ %.021.i.i, %53 ], [ %48, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ]
-  %49 = lshr i64 %.028.i.i, 1
-  %50 = add i64 %49, %.01927.i.i
+.lr.ph.i.i:                                       ; preds = %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit, %54
+  %.027.i.i = phi i64 [ %58, %54 ], [ %48, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ]
+  %.01926.i.i = phi i64 [ %.022.i.i, %54 ], [ 0, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ]
+  %.02025.i.i = phi i64 [ %.021.i.i, %54 ], [ %48, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ]
+  %49 = lshr i64 %.027.i.i, 1
+  %50 = add i64 %49, %.01926.i.i
   %51 = icmp ult i64 %50, %48
   tail call void @llvm.assume(i1 %51)
   %52 = getelementptr { { { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }, i32, [1 x i32] }, ptr %46, i64 %50, i32 1
   %.val23.i.i = load i32, ptr %52, align 8, !alias.scope !5999, !noalias !6004, !noundef !4
-  %.not24.i.i = icmp eq i32 %.val23.i.i, %.sroa.8.0
-  br i1 %.not24.i.i, label %59, label %53
+  %53 = icmp eq i32 %.val23.i.i, %.sroa.8.0
+  br i1 %53, label %61, label %54
 
-53:                                               ; preds = %.lr.ph.i.i
-  %.not.not.i.i = icmp ult i32 %.val23.i.i, %.sroa.8.0
-  %54 = icmp ugt i32 %.val23.i.i, %.sroa.8.0
-  %.021.i.i = select i1 %54, i64 %50, i64 %.02026.i.i
-  %55 = add nuw i64 %50, 1
-  %.022.i.i = select i1 %.not.not.i.i, i64 %55, i64 %.01927.i.i
-  %56 = sub i64 %.021.i.i, %.022.i.i
-  %57 = icmp ult i64 %.022.i.i, %.021.i.i
-  br i1 %57, label %.lr.ph.i.i, label %.loopexit
+54:                                               ; preds = %.lr.ph.i.i
+  %55 = icmp ugt i32 %.val23.i.i, %.sroa.8.0
+  %.021.i.i = select i1 %55, i64 %50, i64 %.02025.i.i
+  %56 = icmp ult i32 %.val23.i.i, %.sroa.8.0
+  %57 = add nuw i64 %50, 1
+  %.022.i.i = select i1 %56, i64 %57, i64 %.01926.i.i
+  %58 = sub i64 %.021.i.i, %.022.i.i
+  %59 = icmp ult i64 %.022.i.i, %.021.i.i
+  br i1 %59, label %.lr.ph.i.i, label %.loopexit
 
-.loopexit:                                        ; preds = %53, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit
-  %.019.lcssa.i.i = phi i64 [ 0, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ], [ %.022.i.i, %53 ]
-  %58 = icmp ule i64 %.019.lcssa.i.i, %48
-  tail call void @llvm.assume(i1 %58)
-  br label %61
+.loopexit:                                        ; preds = %54, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit
+  %.019.lcssa.i.i = phi i64 [ 0, %_ZN8wasmtime7runtime11instantiate14CompiledModule14wasm_func_info17h5267bc391875ce8aE.exit ], [ %.022.i.i, %54 ]
+  %60 = icmp ule i64 %.019.lcssa.i.i, %48
+  tail call void @llvm.assume(i1 %60)
+  br label %63
 
-59:                                               ; preds = %.lr.ph.i.i
-  %60 = getelementptr inbounds [0 x { { { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }, i32, [1 x i32] }], ptr %46, i64 0, i64 %50
-  br label %61
+61:                                               ; preds = %.lr.ph.i.i
+  %62 = getelementptr inbounds [0 x { { { { { { ptr, i64 } }, {} }, {} }, i32, [1 x i32] }, i32, [1 x i32] }], ptr %46, i64 0, i64 %50
+  br label %63
 
-61:                                               ; preds = %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit, %59, %.loopexit
-  %.0 = phi ptr [ null, %.loopexit ], [ %60, %59 ], [ null, %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit ]
+63:                                               ; preds = %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit, %61, %.loopexit
+  %.0 = phi ptr [ null, %.loopexit ], [ %62, %61 ], [ null, %_ZN8wasmtime7runtime11code_memory10CodeMemory4text17h5e24d6c2ed268e0cE.exit ]
   ret ptr %.0
 }
 

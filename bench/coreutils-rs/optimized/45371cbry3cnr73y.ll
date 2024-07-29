@@ -14638,7 +14638,7 @@ _ZN5uu_cp20print_verbose_output17ha7c156600c1fc3dfE.exit: ; preds = %789, %794
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %61)
   br label %768
 
-796:                                              ; preds = %1141, %1117, %1104, %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread397.i", %1088, %1081, %1074, %1067, %1060, %.noexc416, %1044, %1036, %1026, %.noexc262.i, %986, %968, %966, %964, %963, %.noexc254.i, %939, %901, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e2f076d4e7aba8aE.exit.i", %883, %881, %877, %874, %871, %869, %865, %862, %860, %856, %853, %828, %.noexc385, %821, %817, %812, %804, %798, %1122, %1145, %1138, %1137, %1136, %_ZN5uu_cp7Options11dereference17h42d97d8be8cec55aE.exit445, %1119
+796:                                              ; preds = %1141, %1117, %1104, %1100, %1088, %1081, %1074, %1067, %1060, %.noexc416, %1044, %1036, %1026, %.noexc262.i, %986, %968, %966, %964, %963, %.noexc254.i, %939, %901, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h6e2f076d4e7aba8aE.exit.i", %883, %881, %877, %874, %871, %869, %865, %862, %860, %856, %853, %828, %.noexc385, %821, %817, %812, %804, %798, %1122, %1145, %1138, %1137, %1136, %_ZN5uu_cp7Options11dereference17h42d97d8be8cec55aE.exit445, %1119
   %797 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -15193,7 +15193,7 @@ _ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit.i403: ; preds = %936
   br label %1025
 
 950:                                              ; preds = %_ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit257.i
-  %.not211.i = icmp eq i64 %.pre405.i, -9223372036854775808
+  %.not211.i = icmp eq i64 %.pre402.i, -9223372036854775808
   %brmerge.i400 = or i1 %.not208.i, %.not211.i
   br i1 %brmerge.i400, label %1025, label %1026
 
@@ -15222,14 +15222,14 @@ _ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit.i403: ; preds = %936
           to label %_ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit257.i unwind label %940, !noalias !4115
 
 960:                                              ; preds = %_ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit257.i, %._crit_edge.i
-  %961 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.pre405.i, %_ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit257.i ]
+  %961 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %.pre402.i, %_ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit257.i ]
   %.not212.i = icmp eq i64 %961, -9223372036854775808
-  %brmerge404.i = or i1 %.not208.i, %.not212.i
-  br i1 %brmerge404.i, label %.noexc424, label %963
+  %brmerge401.i = or i1 %.not208.i, %.not212.i
+  br i1 %brmerge401.i, label %.noexc424, label %963
 
 _ZN3std2fs11remove_file17ha19524c0c67ebe9eE.exit257.i: ; preds = %958
   %962 = icmp eq ptr %959, null
-  %.pre405.i = load i64, ptr %52, align 8, !range !35, !noalias !4083
+  %.pre402.i = load i64, ptr %52, align 8, !range !35, !noalias !4083
   br i1 %962, label %960, label %950
 
 .noexc424:                                        ; preds = %963, %960
@@ -15699,7 +15699,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5591502974640346016.exit.i398: ; p
   %1091 = icmp eq i32 %1090, 1000000000
   %1092 = load ptr, ptr %35, align 8, !noalias !4083
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %35), !noalias !4083
-  br i1 %1091, label %1099, label %1095
+  br i1 %1091, label %1098, label %1095
 
 1093:                                             ; preds = %.noexc437
   %1094 = ptrtoint ptr %1085 to i64
@@ -15707,26 +15707,27 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5591502974640346016.exit.i398: ; p
 
 1095:                                             ; preds = %.noexc438
   %1096 = icmp slt ptr %1085, %1092
-  br i1 %1096, label %1114, label %1097
+  %1097 = icmp eq ptr %1085, %1092
+  %.05.i.i = call i8 @llvm.ucmp.i8.i32(i32 %1083, i32 %1090)
+  %spec.select.i.i396 = select i1 %1097, i8 %.05.i.i, i8 1
+  %.0.i266.i = select i1 %1096, i8 -1, i8 %spec.select.i.i396
+  switch i8 %.0.i266.i, label %1100 [
+    i8 -1, label %1114
+    i8 0, label %1114
+  ]
 
-1097:                                             ; preds = %1095
-  %1098 = icmp ne ptr %1085, %1092
-  %or.cond.not.i = icmp ugt i32 %1083, %1090
-  %or.cond.i396 = or i1 %or.cond.not.i, %1098
-  br i1 %or.cond.i396, label %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread397.i", label %1114
-
-1099:                                             ; preds = %.noexc438
-  %1100 = ptrtoint ptr %1092 to i64
+1098:                                             ; preds = %.noexc438
+  %1099 = ptrtoint ptr %1092 to i64
   br label %.thread683
 
-"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread397.i": ; preds = %1097
+1100:                                             ; preds = %1095
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %34), !noalias !4083
   %1101 = getelementptr inbounds i8, ptr %6, i64 60
   %.val226.i = load i8, ptr %1101, align 4, !range !2497, !alias.scope !4029, !noalias !4032, !noundef !4
   invoke fastcc void @_ZN5uu_cp13OverwriteMode6verify17h0dd1499c53e4e7f2E(ptr noalias nocapture noundef nonnull align 8 dereferenceable(64) %34, i8 %.val226.i, ptr noalias noundef nonnull readonly align 1 %4, i64 noundef %5)
           to label %.noexc439 unwind label %796
 
-.noexc439:                                        ; preds = %"_ZN77_$LT$std..sys..pal..unix..time..Timespec$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h6e44c7c4099b6ff7E.exit.thread397.i"
+.noexc439:                                        ; preds = %1100
   %1102 = load i64, ptr %34, align 8, !range !2569, !noalias !4083, !noundef !4
   %1103 = icmp eq i64 %1102, 13
   br i1 %1103, label %1104, label %1107
@@ -15809,17 +15810,17 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.5591502974640346016.exit.i398: ; p
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %137)
   br label %1116
 
-.thread683:                                       ; preds = %1086, %1093, %1099, %1109, %1107
-  %.sroa.0516.2.ph = phi i64 [ %1102, %1107 ], [ %1105, %1109 ], [ 2, %1099 ], [ 2, %1093 ], [ 2, %1086 ]
-  %.sroa.20.2.ph = phi i64 [ %.sroa.2174.i.sroa.0.0.copyload, %1107 ], [ %.sroa.2180.i.sroa.0.0.copyload, %1109 ], [ %1100, %1099 ], [ %1094, %1093 ], [ %1087, %1086 ]
-  %.sroa.36.0.ph = phi ptr [ %.sroa.2174.i.sroa.5.0.copyload, %1107 ], [ %.sroa.2180.i.sroa.5.0.copyload, %1109 ], [ undef, %1099 ], [ undef, %1093 ], [ undef, %1086 ]
+.thread683:                                       ; preds = %1086, %1093, %1098, %1109, %1107
+  %.sroa.0516.2.ph = phi i64 [ %1102, %1107 ], [ %1105, %1109 ], [ 2, %1098 ], [ 2, %1093 ], [ 2, %1086 ]
+  %.sroa.20.2.ph = phi i64 [ %.sroa.2174.i.sroa.0.0.copyload, %1107 ], [ %.sroa.2180.i.sroa.0.0.copyload, %1109 ], [ %1099, %1098 ], [ %1094, %1093 ], [ %1087, %1086 ]
+  %.sroa.36.0.ph = phi ptr [ %.sroa.2174.i.sroa.5.0.copyload, %1107 ], [ %.sroa.2180.i.sroa.5.0.copyload, %1109 ], [ undef, %1098 ], [ undef, %1093 ], [ undef, %1086 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %37), !noalias !4083
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %137)
   br label %1116
 
-1114:                                             ; preds = %1097, %1095
+1114:                                             ; preds = %1095, %1095
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %37), !noalias !4083
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %47)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %49)
@@ -18283,6 +18284,9 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.vector.reduce.xor.v4i64(<4 x i64>) #20

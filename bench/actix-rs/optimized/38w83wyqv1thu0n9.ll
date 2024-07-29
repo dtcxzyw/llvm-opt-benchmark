@@ -7207,10 +7207,10 @@ define void @_ZN9actix_web4http6header15accept_encoding14AcceptEncoding10prefere
 10:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17head4a2b31cd3dd89E.exit", %9
   ret void
 
-11:                                               ; preds = %61
+11:                                               ; preds = %62
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %68
 
 .lr.ph:                                           ; preds = %2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
@@ -7226,10 +7226,10 @@ define void @_ZN9actix_web4http6header15accept_encoding14AcceptEncoding10prefere
   %.sroa.58.sroa.5.0..sroa.58.0..sroa_idx9.sroa_idx = getelementptr inbounds i8, ptr %5, i64 9
   br label %26
 
-._crit_edge:                                      ; preds = %44
+._crit_edge:                                      ; preds = %45
   call void @llvm.experimental.noalias.scope.decl(metadata !1855)
   call void @llvm.experimental.noalias.scope.decl(metadata !1858)
-  %17 = icmp eq i64 %45, -9223372036854775806
+  %17 = icmp eq i64 %46, -9223372036854775806
   br i1 %17, label %18, label %"_ZN9actix_web4http6header15accept_encoding14AcceptEncoding10preference28_$u7b$$u7b$closure$u7d$$u7d$17hc5e652059852dbfbE.exit.thread.i"
 
 18:                                               ; preds = %._crit_edge
@@ -7267,17 +7267,17 @@ define void @_ZN9actix_web4http6header15accept_encoding14AcceptEncoding10prefere
 
 "_ZN9actix_web4http6header15accept_encoding14AcceptEncoding10preference28_$u7b$$u7b$closure$u7d$$u7d$17hc5e652059852dbfbE.exit.thread.i": ; preds = %._crit_edge
   %.sroa.537.0..sroa_idx = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %45, ptr %0, align 8, !alias.scope !1868
+  store i64 %46, ptr %0, align 8, !alias.scope !1868
   %.sroa.537.0..sroa_idx38 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.537.0..sroa_idx38, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.537.0..sroa_idx, i64 16, i1 false)
   br label %"_ZN4core6option15Option$LT$T$GT$7or_else17head4a2b31cd3dd89E.exit"
 
-26:                                               ; preds = %.lr.ph, %44
-  %27 = phi i64 [ -9223372036854775806, %.lr.ph ], [ %45, %44 ]
-  %.044 = phi i16 [ 0, %.lr.ph ], [ %.1, %44 ]
-  %.01643 = phi i8 [ 0, %.lr.ph ], [ %.117, %44 ]
-  %.sroa.5.sroa.0.042 = phi i8 [ undef, %.lr.ph ], [ %.sroa.5.sroa.0.1, %44 ]
-  %.sroa.0.041 = phi ptr [ %.val, %.lr.ph ], [ %28, %44 ]
+26:                                               ; preds = %.lr.ph, %45
+  %27 = phi i64 [ -9223372036854775806, %.lr.ph ], [ %46, %45 ]
+  %.044 = phi i16 [ 0, %.lr.ph ], [ %.1, %45 ]
+  %.01643 = phi i8 [ 0, %.lr.ph ], [ %.117, %45 ]
+  %.sroa.5.sroa.0.042 = phi i8 [ undef, %.lr.ph ], [ %.sroa.5.sroa.0.1, %45 ]
+  %.sroa.0.041 = phi ptr [ %.val, %.lr.ph ], [ %28, %45 ]
   %28 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 32
   %29 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 24
   %30 = load i16, ptr %29, align 8, !noundef !13
@@ -7309,117 +7309,117 @@ switch.lookup:                                    ; preds = %32
 
 38:                                               ; preds = %switch.lookup, %26, %32, %37
   %.0.i28 = phi i8 [ 1, %37 ], [ 0, %26 ], [ 0, %32 ], [ %switch.masked, %switch.lookup ]
-  %.not.i = icmp eq i16 %30, %.044
-  %39 = icmp ugt i8 %.0.i28, %.01643
-  %40 = icmp ugt i16 %30, %.044
-  %.0.in.i = select i1 %.not.i, i1 %39, i1 %40
-  br i1 %.0.in.i, label %41, label %44
+  %39 = icmp eq i16 %30, %.044
+  %40 = icmp ugt i8 %.0.i28, %.01643
+  %41 = icmp ugt i16 %30, %.044
+  %.0.in.i = select i1 %39, i1 %40, i1 %41
+  br i1 %.0.in.i, label %42, label %45
 
-41:                                               ; preds = %38
+42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.58.sroa.5)
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.5.sroa.4)
-  %42 = load i64, ptr %.sroa.0.041, align 8, !range !608, !noundef !13
-  %43 = icmp eq i64 %42, -9223372036854775807
-  br i1 %43, label %49, label %47
+  %43 = load i64, ptr %.sroa.0.041, align 8, !range !608, !noundef !13
+  %44 = icmp eq i64 %43, -9223372036854775807
+  br i1 %44, label %50, label %48
 
-44:                                               ; preds = %38, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit"
-  %45 = phi i64 [ %.sroa.03.0, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit" ], [ %27, %38 ]
+45:                                               ; preds = %38, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit"
+  %46 = phi i64 [ %.sroa.03.0, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit" ], [ %27, %38 ]
   %.sroa.5.sroa.0.1 = phi i8 [ %.sroa.5.sroa.0.2, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit" ], [ %.sroa.5.sroa.0.042, %38 ]
   %.117 = phi i8 [ %.0.i28, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit" ], [ %.01643, %38 ]
   %.1 = phi i16 [ %30, %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit" ], [ %.044, %38 ]
-  %46 = icmp eq ptr %28, %14
-  br i1 %46, label %._crit_edge, label %26
+  %47 = icmp eq ptr %28, %14
+  br i1 %47, label %._crit_edge, label %26
 
-47:                                               ; preds = %41
+48:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %.sroa.7)
-  %48 = icmp eq i64 %42, -9223372036854775808
-  br i1 %48, label %58, label %61
+  %49 = icmp eq i64 %43, -9223372036854775808
+  br i1 %49, label %59, label %62
 
-49:                                               ; preds = %41, %62
-  %50 = phi i64 [ %.pre, %62 ], [ %27, %41 ]
-  %.sroa.5.sroa.0.2 = phi i8 [ %.sroa.513.0, %62 ], [ %.sroa.5.sroa.0.042, %41 ]
-  %.sroa.03.0 = phi i64 [ %.sroa.012.0, %62 ], [ -9223372036854775807, %41 ]
+50:                                               ; preds = %42, %63
+  %51 = phi i64 [ %.pre, %63 ], [ %27, %42 ]
+  %.sroa.5.sroa.0.2 = phi i8 [ %.sroa.513.0, %63 ], [ %.sroa.5.sroa.0.042, %42 ]
+  %.sroa.03.0 = phi i64 [ %.sroa.012.0, %63 ], [ -9223372036854775807, %42 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.58.sroa.5, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.5.sroa.4, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.5.sroa.4)
   call void @llvm.experimental.noalias.scope.decl(metadata !1872)
-  %switch.i = icmp slt i64 %50, -9223372036854775805
-  br i1 %switch.i, label %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit", label %51
+  %switch.i = icmp slt i64 %51, -9223372036854775805
+  br i1 %switch.i, label %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit", label %52
 
-51:                                               ; preds = %49
+52:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !1875
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17h8bacfafbb0293cf9E.llvm.11632439649900387884"(ptr noalias nocapture noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-          to label %.noexc unwind label %64
+          to label %.noexc unwind label %65
 
-.noexc:                                           ; preds = %51
-  %52 = load i64, ptr %15, align 8, !range !583, !noalias !1875, !noundef !13
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %52, 0
-  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i", label %53
+.noexc:                                           ; preds = %52
+  %53 = load i64, ptr %15, align 8, !range !583, !noalias !1875, !noundef !13
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %53, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i", label %54
 
-53:                                               ; preds = %.noexc
-  %54 = load i64, ptr %16, align 8, !noalias !1875, !noundef !13
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i", label %56
+54:                                               ; preds = %.noexc
+  %55 = load i64, ptr %16, align 8, !noalias !1875, !noundef !13
+  %56 = icmp eq i64 %55, 0
+  br i1 %56, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i", label %57
 
-56:                                               ; preds = %53
-  %57 = load ptr, ptr %3, align 8, !noalias !1875, !nonnull !13, !noundef !13
-  call void @__rust_dealloc(ptr noundef nonnull %57, i64 noundef %54, i64 noundef %52) #38
+57:                                               ; preds = %54
+  %58 = load ptr, ptr %3, align 8, !noalias !1875, !nonnull !13, !noundef !13
+  call void @__rust_dealloc(ptr noundef nonnull %58, i64 noundef %55, i64 noundef %53) #38
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i"
 
-"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i": ; preds = %56, %53, %.noexc
+"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i": ; preds = %57, %54, %.noexc
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !1875
   br label %"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit"
 
-58:                                               ; preds = %47
-  %59 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 8
-  %60 = load i8, ptr %59, align 8, !range !1866, !noundef !13
-  br label %62
+59:                                               ; preds = %48
+  %60 = getelementptr inbounds i8, ptr %.sroa.0.041, i64 8
+  %61 = load i8, ptr %60, align 8, !range !1866, !noundef !13
+  br label %63
 
-61:                                               ; preds = %47
+62:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   invoke void @"_ZN60_$LT$alloc..string..String$u20$as$u20$core..clone..Clone$GT$5clone17hf54273bb14505f61E"(ptr noalias nocapture noundef nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.sroa.0.041)
-          to label %63 unwind label %11
+          to label %64 unwind label %11
 
-62:                                               ; preds = %63, %58
-  %.pre = phi i64 [ %27, %58 ], [ %.pre.pre, %63 ]
-  %.sroa.012.0 = phi i64 [ -9223372036854775808, %58 ], [ %.sroa.012.0.copyload, %63 ]
-  %.sroa.513.0 = phi i8 [ %60, %58 ], [ %.sroa.513.0.copyload, %63 ]
+63:                                               ; preds = %64, %59
+  %.pre = phi i64 [ %27, %59 ], [ %.pre.pre, %64 ]
+  %.sroa.012.0 = phi i64 [ -9223372036854775808, %59 ], [ %.sroa.012.0.copyload, %64 ]
+  %.sroa.513.0 = phi i8 [ %61, %59 ], [ %.sroa.513.0.copyload, %64 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.5.sroa.4, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.7)
-  br label %49
+  br label %50
 
-63:                                               ; preds = %61
+64:                                               ; preds = %62
   %.sroa.012.0.copyload = load i64, ptr %4, align 8
   %.sroa.513.0.copyload = load i8, ptr %.sroa.513.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.7.0..sroa_idx, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.pre.pre = load i64, ptr %5, align 8, !range !569, !alias.scope !1872
-  br label %62
+  br label %63
 
-64:                                               ; preds = %51
-  %65 = landingpad { ptr, i32 }
+65:                                               ; preds = %52
+  %66 = landingpad { ptr, i32 }
           cleanup
   store i64 %.sroa.03.0, ptr %5, align 8
   store i8 %.sroa.5.sroa.0.2, ptr %.sroa.58.0..sroa_idx9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.58.sroa.5.0..sroa.58.0..sroa_idx9.sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.58.sroa.5, i64 15, i1 false)
-  br label %67
+  br label %68
 
-"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i", %49
+"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E.exit": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hdbe1298128667ae0E.exit.i.i.i", %50
   store i64 %.sroa.03.0, ptr %5, align 8
   store i8 %.sroa.5.sroa.0.2, ptr %.sroa.58.0..sroa_idx9, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %.sroa.58.sroa.5.0..sroa.58.0..sroa_idx9.sroa_idx, ptr noundef nonnull align 1 dereferenceable(15) %.sroa.58.sroa.5, i64 15, i1 false)
   call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %.sroa.58.sroa.5)
-  br label %44
+  br label %45
 
-66:                                               ; preds = %67
+67:                                               ; preds = %68
   resume { ptr, i32 } %.pn
 
-67:                                               ; preds = %11, %64
-  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %65, %64 ]
+68:                                               ; preds = %11, %65
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %66, %65 ]
   invoke fastcc void @"_ZN4core3ptr147drop_in_place$LT$core..option..Option$LT$actix_web..http..header..preference..Preference$LT$actix_web..http..header..encoding..Encoding$GT$$GT$$GT$17hecbcfd53585bc1d6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #36
-          to label %66 unwind label %68
+          to label %67 unwind label %69
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %68
+  %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #37
   unreachable

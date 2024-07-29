@@ -124,26 +124,28 @@ _ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit: ; preds = %27
   br label %34
 
 40:                                               ; preds = %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread
-  %.sroa.5.055 = phi ptr [ %.pre8.i, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread ], [ %33, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit ]
+  %.sroa.5.052 = phi ptr [ %.pre8.i, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit.thread ], [ %33, %_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  %41 = icmp ne ptr %.sroa.5.055, null
+  %41 = icmp ne ptr %.sroa.5.052, null
   call void @llvm.assume(i1 %41)
-  store ptr %.sroa.5.055, ptr %18, align 8
+  store ptr %.sroa.5.052, ptr %18, align 8
   %.not = icmp eq ptr %3, null
   %42 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17hb42e1435f2009f43E monotonic, align 8
   %43 = icmp ult i64 %42, 6
   call void @llvm.assume(i1 %43)
-  %44 = icmp ugt i64 %42, 3
+  %.0.i38 = call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 4, i64 %42)
+  %44 = add nsw i8 %.0.i38, 1
+  %switch.selectcmp28 = icmp ult i8 %44, 2
   br i1 %.not, label %63, label %47
 
 45:                                               ; preds = %64, %48
   %46 = landingpad { ptr, i32 }
           cleanup
-  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdf25b10f0ddf00b0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #8
+  invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hdf25b10f0ddf00b0E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %18) #9
           to label %73 unwind label %71
 
 47:                                               ; preds = %40
-  br i1 %44, label %48, label %58
+  br i1 %switch.selectcmp28, label %48, label %58
 
 48:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17)
@@ -200,7 +202,7 @@ _ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit: ; preds = %27
   br label %34
 
 63:                                               ; preds = %40
-  br i1 %44, label %64, label %58
+  br i1 %switch.selectcmp28, label %64, label %58
 
 64:                                               ; preds = %63
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
@@ -228,7 +230,7 @@ _ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E.exit: ; preds = %27
 71:                                               ; preds = %45
   %72 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #9
+  call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #10
   unreachable
 
 73:                                               ; preds = %45
@@ -285,6 +287,9 @@ declare hidden void @"_ZN7memmap211MmapOptions7get_len28_$u7b$$u7b$closure$u7d$$
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #8
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -293,8 +298,9 @@ attributes #4 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inli
 attributes #5 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #6 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { cold }
-attributes #9 = { cold noreturn nounwind }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { cold }
+attributes #10 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

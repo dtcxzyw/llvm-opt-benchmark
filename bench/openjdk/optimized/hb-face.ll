@@ -783,65 +783,62 @@ define internal noundef ptr @_ZL33_hb_face_for_data_reference_tableP9hb_face_tjP
 .lr.ph.i.i.i.i:                                   ; preds = %29
   %30 = zext nneg i32 %26 to i64
   %.val17.i7.i.i.i = load i32, ptr %28, align 1
-  %.not.i.i.i8.i.i.i = icmp eq i32 %.val17.i7.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
-  br i1 %.not.i.i.i8.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.thread.i, label %.lr.ph.i.i.i
+  %31 = icmp eq i32 %.sroa.0.0.insert.insert.i.i.i.i, %.val17.i7.i.i.i
+  br i1 %31, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.thread.i, label %.lr.ph.i.i.i
 
-31:                                               ; preds = %.lr.ph.i.i.i
-  %32 = getelementptr inbounds %"struct.OT::TableRecord", ptr %28, i64 %indvars.iv.next.i.i.i.i
-  %.val17.i.i.i.i = load i32, ptr %32, align 1
-  %.not.i.i.i.i.i.i = icmp eq i32 %.val17.i.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
-  br i1 %.not.i.i.i.i.i.i, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
+32:                                               ; preds = %.lr.ph.i.i.i
+  %33 = getelementptr inbounds %"struct.OT::TableRecord", ptr %28, i64 %indvars.iv.next.i.i.i.i
+  %.val17.i.i.i.i = load i32, ptr %33, align 1
+  %34 = icmp eq i32 %.sroa.0.0.insert.insert.i.i.i.i, %.val17.i.i.i.i
+  br i1 %34, label %._crit_edge.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !9
 
-._crit_edge.loopexit.i.i.i:                       ; preds = %31
-  %33 = trunc nuw i64 %indvars.iv.next.i.i.i.i to i32
+._crit_edge.loopexit.i.i.i:                       ; preds = %32
+  %35 = trunc nuw i64 %indvars.iv.next.i.i.i.i to i32
   br label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i
 
-.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i, %31
-  %indvars.iv.i9.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %31 ], [ 0, %.lr.ph.i.i.i.i ]
-  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i9.i.i.i, 1
+.lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.i, %32
+  %indvars.iv.i8.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %32 ], [ 0, %.lr.ph.i.i.i.i ]
+  %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i8.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %30
-  br i1 %exitcond.not.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %31, !llvm.loop !9
+  br i1 %exitcond.not.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %32, !llvm.loop !9
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %9
-  %34 = add nsw i32 %26, -1
-  br label %35
+  %36 = add nsw i32 %26, -1
+  br label %37
 
-35:                                               ; preds = %50, %.lr.ph.i.i.i.i.i.i
-  %.0194.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %50 ]
-  %.0203.i.i.i.i.i.i = phi i32 [ %34, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %50 ]
-  %36 = add i32 %.0203.i.i.i.i.i.i, %.0194.i.i.i.i.i.i
-  %37 = lshr i32 %36, 1
-  %38 = zext nneg i32 %37 to i64
-  %39 = shl nuw nsw i64 %38, 4
-  %40 = getelementptr inbounds i8, ptr %28, i64 %39
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %40, align 1
-  %41 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
-  %42 = icmp uge i32 %41, %1
-  %43 = icmp ne i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
-  %44 = and i1 %43, %42
+37:                                               ; preds = %50, %.lr.ph.i.i.i.i.i.i
+  %.0193.i.i.i.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i, %50 ]
+  %.0202.i.i.i.i.i.i = phi i32 [ %36, %.lr.ph.i.i.i.i.i.i ], [ %.121.i.i.i.i.i.i, %50 ]
+  %38 = add i32 %.0202.i.i.i.i.i.i, %.0193.i.i.i.i.i.i
+  %39 = lshr i32 %38, 1
+  %40 = zext nneg i32 %39 to i64
+  %41 = shl nuw nsw i64 %40, 4
+  %42 = getelementptr inbounds i8, ptr %28, i64 %41
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i = load i32, ptr %42, align 1
+  %43 = call i32 @llvm.bswap.i32(i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i)
+  %44 = icmp ugt i32 %43, %1
   br i1 %44, label %45, label %47
 
-45:                                               ; preds = %35
-  %46 = add nsw i32 %37, -1
+45:                                               ; preds = %37
+  %46 = add nsw i32 %39, -1
   br label %50
 
-47:                                               ; preds = %35
-  %.not231.i.i.i.i.i.i = xor i1 %43, true
-  %.not23.i.i.i.i.i.i = and i1 %42, %.not231.i.i.i.i.i.i
+47:                                               ; preds = %37
+  %.not23.i.i.i.i.i.i = icmp eq i32 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, %.sroa.0.0.insert.insert.i.i.i.i
   br i1 %.not23.i.i.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %48
 
 48:                                               ; preds = %47
-  %49 = add nuw nsw i32 %37, 1
+  %49 = add nuw nsw i32 %39, 1
   br label %50
 
 50:                                               ; preds = %48, %45
-  %.121.i.i.i.i.i.i = phi i32 [ %46, %45 ], [ %.0203.i.i.i.i.i.i, %48 ]
-  %.1.i.i.i.i.i.i = phi i32 [ %.0194.i.i.i.i.i.i, %45 ], [ %49, %48 ]
+  %.121.i.i.i.i.i.i = phi i32 [ %46, %45 ], [ %.0202.i.i.i.i.i.i, %48 ]
+  %.1.i.i.i.i.i.i = phi i32 [ %.0193.i.i.i.i.i.i, %45 ], [ %49, %48 ]
   %.not.not.i.i.i.i.i.i = icmp sgt i32 %.1.i.i.i.i.i.i, %.121.i.i.i.i.i.i
-  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %35, !llvm.loop !10
+  br i1 %.not.not.i.i.i.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i, label %37, !llvm.loop !10
 
 _ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.i: ; preds = %50, %47, %.lr.ph.i.i.i, %._crit_edge.loopexit.i.i.i
-  %storemerge.i.i.ph.sink.i.i.sink.i.i = phi i32 [ %33, %._crit_edge.loopexit.i.i.i ], [ 65535, %.lr.ph.i.i.i ], [ %37, %47 ], [ 65535, %50 ]
+  %storemerge.i.i.ph.sink.i.i.sink.i.i = phi i32 [ %35, %._crit_edge.loopexit.i.i.i ], [ 65535, %.lr.ph.i.i.i ], [ %39, %47 ], [ 65535, %50 ]
   %.not.i.i.i = icmp ugt i32 %26, %storemerge.i.i.ph.sink.i.i.sink.i.i
   br i1 %.not.i.i.i, label %_ZNK2OT19OpenTypeOffsetTable16find_table_indexEjPj.exit.thread.i, label %_ZNK2OT19OpenTypeOffsetTable16get_table_by_tagEj.exit
 

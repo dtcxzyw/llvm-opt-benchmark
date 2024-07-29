@@ -1286,7 +1286,13 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   %7 = getelementptr inbounds i8, ptr %0, i64 2329
   %8 = load i8, ptr %7, align 1, !range !290, !noundef !13
   %9 = trunc nuw i8 %8 to i1
-  %spec.select = select i1 %9, i64 6, i64 %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 2330
+  %11 = load i8, ptr %10, align 2, !range !290
+  %12 = trunc nuw i8 %11 to i1
+  %.not35.i = icmp eq i64 %2, 6
+  %or.cond36.i = and i1 %.not35.i, %12
+  %or.cond = select i1 %9, i1 true, i1 %or.cond36.i
+  %spec.select = select i1 %or.cond, i64 6, i64 %2
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h0270c532812ab792E.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h0270c532812ab792E.exit": ; preds = %6, %1
@@ -1306,65 +1312,71 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   %7 = getelementptr inbounds i8, ptr %0, i64 2329
   %8 = load i8, ptr %7, align 1, !range !290, !noundef !13
   %9 = trunc nuw i8 %8 to i1
-  %spec.select.i.i = select i1 %9, i64 6, i64 %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 2330
+  %11 = load i8, ptr %10, align 2, !range !290
+  %12 = trunc nuw i8 %11 to i1
+  %.not35.i.i.i = icmp eq i64 %2, 6
+  %or.cond36.i.i.i = and i1 %.not35.i.i.i, %12
+  %or.cond.i.i = select i1 %9, i1 true, i1 %or.cond36.i.i.i
+  %spec.select.i.i = select i1 %or.cond.i.i, i64 6, i64 %2
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i": ; preds = %6, %1
   %.1.i.i.i = phi i64 [ %2, %1 ], [ %spec.select.i.i, %6 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 2344
-  %11 = load i8, ptr %10, align 8, !range !290, !noundef !13
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", label %13
+  %13 = getelementptr inbounds i8, ptr %0, i64 2344
+  %14 = load i8, ptr %13, align 8, !range !290, !noundef !13
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", label %16
 
-13:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i"
-  %14 = getelementptr inbounds i8, ptr %0, i64 2345
-  %15 = load i8, ptr %14, align 1, !range !290, !noundef !13
-  %16 = trunc nuw i8 %15 to i1
-  %17 = getelementptr inbounds i8, ptr %0, i64 2346
-  %18 = load i8, ptr %17, align 2, !range !290
+16:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i"
+  %17 = getelementptr inbounds i8, ptr %0, i64 2345
+  %18 = load i8, ptr %17, align 1, !range !290, !noundef !13
   %19 = trunc nuw i8 %18 to i1
-  br i1 %16, label %20, label %21
+  %20 = getelementptr inbounds i8, ptr %0, i64 2346
+  %21 = load i8, ptr %20, align 2, !range !290
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %19, label %23, label %.thread.i.i
 
-20:                                               ; preds = %13
+23:                                               ; preds = %16
   %.not.i.i = icmp eq i64 %.1.i.i.i, 6
-  %or.cond.i = select i1 %19, i1 true, i1 %.not.i.i
-  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", label %.thread49.i.i
+  %or.cond.i = select i1 %22, i1 true, i1 %.not.i.i
+  br i1 %or.cond.i, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", label %.thread.thread.i.i
 
-21:                                               ; preds = %13
-  br i1 %19, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", label %.thread49.i.i
+.thread.i.i:                                      ; preds = %16
+  br i1 %22, label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", label %.thread.thread.i.i
 
-.thread49.i.i:                                    ; preds = %21, %20
+.thread.thread.i.i:                               ; preds = %.thread.i.i, %23
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit"
 
-"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i", %20, %21, %.thread49.i.i
-  %.1.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i" ], [ 6, %21 ], [ 6, %20 ], [ %.1.i.i.i, %.thread49.i.i ]
-  %22 = getelementptr inbounds i8, ptr %0, i64 2376
-  %23 = load i8, ptr %22, align 8, !range !290, !noundef !13
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit", label %25
+"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit": ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i", %23, %.thread.i.i, %.thread.thread.i.i
+  %.1.i.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit.i" ], [ 6, %.thread.i.i ], [ 6, %23 ], [ %.1.i.i.i, %.thread.thread.i.i ]
+  %24 = getelementptr inbounds i8, ptr %0, i64 2376
+  %25 = load i8, ptr %24, align 8, !range !290, !noundef !13
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit", label %27
 
-25:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit"
-  %26 = getelementptr inbounds i8, ptr %0, i64 2377
-  %27 = load i8, ptr %26, align 1, !range !290, !noundef !13
-  %28 = trunc nuw i8 %27 to i1
-  %29 = getelementptr inbounds i8, ptr %0, i64 2378
-  %30 = load i8, ptr %29, align 2, !range !290
-  %31 = trunc nuw i8 %30 to i1
-  br i1 %28, label %32, label %33
+27:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit"
+  %28 = getelementptr inbounds i8, ptr %0, i64 2377
+  %29 = load i8, ptr %28, align 1, !range !290, !noundef !13
+  %30 = trunc nuw i8 %29 to i1
+  %31 = getelementptr inbounds i8, ptr %0, i64 2378
+  %32 = load i8, ptr %31, align 2, !range !290
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %30, label %34, label %.thread.i
 
-32:                                               ; preds = %25
+34:                                               ; preds = %27
   %.not.i = icmp eq i64 %.1.i.i, 6
-  %or.cond = select i1 %31, i1 true, i1 %.not.i
-  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit", label %.thread49.i
+  %or.cond = select i1 %33, i1 true, i1 %.not.i
+  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit", label %.thread.thread.i
 
-33:                                               ; preds = %25
-  br i1 %31, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit", label %.thread49.i
+.thread.i:                                        ; preds = %27
+  br i1 %33, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit", label %.thread.thread.i
 
-.thread49.i:                                      ; preds = %32, %33
+.thread.thread.i:                                 ; preds = %34, %.thread.i
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit": ; preds = %.thread49.i, %32, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", %33
-  %.1.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit" ], [ 6, %33 ], [ 6, %32 ], [ %.1.i.i, %.thread49.i ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h5a1d46c27d547e31E.exit": ; preds = %.thread.thread.i, %34, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit", %.thread.i
+  %.1.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17he593d7f0ea8d001aE.exit" ], [ 6, %.thread.i ], [ 6, %34 ], [ %.1.i.i, %.thread.thread.i ]
   ret i64 %.1.i
 }
 
@@ -1380,38 +1392,44 @@ define hidden noundef range(i64 0, 7) i64 @"_ZN113_$LT$tracing_subscriber..layer
   %7 = getelementptr inbounds i8, ptr %0, i64 2329
   %8 = load i8, ptr %7, align 1, !range !290, !noundef !13
   %9 = trunc nuw i8 %8 to i1
-  %spec.select.i = select i1 %9, i64 6, i64 %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 2330
+  %11 = load i8, ptr %10, align 2, !range !290
+  %12 = trunc nuw i8 %11 to i1
+  %.not35.i.i = icmp eq i64 %2, 6
+  %or.cond36.i.i = and i1 %.not35.i.i, %12
+  %or.cond.i = select i1 %9, i1 true, i1 %or.cond36.i.i
+  %spec.select.i = select i1 %or.cond.i, i64 6, i64 %2
   br label %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit"
 
 "_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit": ; preds = %1, %6
   %.1.i.i = phi i64 [ %2, %1 ], [ %spec.select.i, %6 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 2344
-  %11 = load i8, ptr %10, align 8, !range !290, !noundef !13
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit", label %13
+  %13 = getelementptr inbounds i8, ptr %0, i64 2344
+  %14 = load i8, ptr %13, align 8, !range !290, !noundef !13
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %15, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit", label %16
 
-13:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit"
-  %14 = getelementptr inbounds i8, ptr %0, i64 2345
-  %15 = load i8, ptr %14, align 1, !range !290, !noundef !13
-  %16 = trunc nuw i8 %15 to i1
-  %17 = getelementptr inbounds i8, ptr %0, i64 2346
-  %18 = load i8, ptr %17, align 2, !range !290
+16:                                               ; preds = %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit"
+  %17 = getelementptr inbounds i8, ptr %0, i64 2345
+  %18 = load i8, ptr %17, align 1, !range !290, !noundef !13
   %19 = trunc nuw i8 %18 to i1
-  br i1 %16, label %20, label %21
+  %20 = getelementptr inbounds i8, ptr %0, i64 2346
+  %21 = load i8, ptr %20, align 2, !range !290
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %19, label %23, label %.thread.i
 
-20:                                               ; preds = %13
+23:                                               ; preds = %16
   %.not.i = icmp eq i64 %.1.i.i, 6
-  %or.cond = select i1 %19, i1 true, i1 %.not.i
-  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit", label %.thread49.i
+  %or.cond = select i1 %22, i1 true, i1 %.not.i
+  br i1 %or.cond, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit", label %.thread.thread.i
 
-21:                                               ; preds = %13
-  br i1 %19, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit", label %.thread49.i
+.thread.i:                                        ; preds = %16
+  br i1 %22, label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit", label %.thread.thread.i
 
-.thread49.i:                                      ; preds = %20, %21
+.thread.thread.i:                                 ; preds = %23, %.thread.i
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit"
 
-"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit": ; preds = %.thread49.i, %20, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit", %21
-  %.1.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit" ], [ 6, %21 ], [ 6, %20 ], [ %.1.i.i, %.thread49.i ]
+"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$15pick_level_hint17h6065f16fe390c88bE.exit": ; preds = %.thread.thread.i, %23, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit", %.thread.i
+  %.1.i = phi i64 [ 6, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$14max_level_hint17h127425e1722e9ee9E.exit" ], [ 6, %.thread.i ], [ 6, %23 ], [ %.1.i.i, %.thread.thread.i ]
   ret i64 %.1.i
 }
 

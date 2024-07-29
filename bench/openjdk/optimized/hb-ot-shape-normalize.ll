@@ -1834,11 +1834,8 @@ define internal noundef range(i32 -1, 2) i32 @_ZL23compare_combining_classPK15hb
   %16 = lshr i16 %.val, 8
   %17 = zext nneg i16 %16 to i32
   %18 = select i1 %.not.i6, i32 0, i32 %17
-  %19 = icmp ult i32 %10, %18
-  %20 = icmp ne i32 %10, %18
-  %21 = zext i1 %20 to i32
-  %22 = select i1 %19, i32 -1, i32 %21
-  ret i32 %22
+  %19 = tail call i32 @llvm.ucmp.i32.i32(i32 %10, i32 %18)
+  ret i32 %19
 }
 
 declare void @_ZN11hb_buffer_t18merge_out_clustersEjj(ptr noundef nonnull align 8 dereferenceable(220), i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -2492,6 +2489,9 @@ _ZL12hb_in_rangesIjJjjjjEEbT_S0_S0_DpT0_.exit:    ; preds = %20, %17, %34, %3, %
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.ucmp.i32.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #5

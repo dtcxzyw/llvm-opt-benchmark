@@ -897,7 +897,7 @@ define { i32, float } @_ZN6sparse6common13sparse_vector12SparseVector5score17ha9
   %20 = load ptr, ptr %19, align 8, !nonnull !5
   br label %25
 
-._crit_edge.loopexit:                             ; preds = %38
+._crit_edge.loopexit:                             ; preds = %36
   %21 = and i8 %.140, 1
   %22 = zext nneg i8 %21 to i32
   br label %._crit_edge
@@ -909,70 +909,67 @@ define { i32, float } @_ZN6sparse6common13sparse_vector12SparseVector5score17ha9
   %24 = insertvalue { i32, float } %23, float %.041.lcssa, 1
   ret { i32, float } %24
 
-25:                                               ; preds = %.lr.ph, %38
-  %.03670 = phi i64 [ 0, %.lr.ph ], [ %.1, %38 ]
-  %.03769 = phi i64 [ 0, %.lr.ph ], [ %.138, %38 ]
-  %.03968 = phi i8 [ 0, %.lr.ph ], [ %.140, %38 ]
-  %.04167 = phi float [ 0.000000e+00, %.lr.ph ], [ %.142, %38 ]
+25:                                               ; preds = %.lr.ph, %36
+  %.03670 = phi i64 [ 0, %.lr.ph ], [ %.1, %36 ]
+  %.03769 = phi i64 [ 0, %.lr.ph ], [ %.138, %36 ]
+  %.03968 = phi i8 [ 0, %.lr.ph ], [ %.140, %36 ]
+  %.04167 = phi float [ 0.000000e+00, %.lr.ph ], [ %.142, %36 ]
   %26 = getelementptr inbounds [0 x i32], ptr %12, i64 0, i64 %.03670
   %27 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %.03769
   %28 = load i32, ptr %26, align 4, !noundef !5
   %29 = load i32, ptr %27, align 4, !noundef !5
-  %30 = icmp ult i32 %28, %29
-  %31 = icmp ne i32 %28, %29
-  %.51 = zext i1 %31 to i8
-  %.0 = select i1 %30, i8 -1, i8 %.51
-  switch i8 %.0, label %default.unreachable78 [
-    i8 -1, label %32
-    i8 0, label %34
-    i8 1, label %36
+  %.0 = tail call i8 @llvm.ucmp.i8.i32(i32 %28, i32 %29)
+  switch i8 %.0, label %default.unreachable [
+    i8 -1, label %30
+    i8 0, label %32
+    i8 1, label %34
   ]
 
-default.unreachable78:                            ; preds = %25
+default.unreachable:                              ; preds = %25
   unreachable
 
+30:                                               ; preds = %25
+  %31 = add nuw i64 %.03670, 1
+  br label %36
+
 32:                                               ; preds = %25
-  %33 = add nuw i64 %.03670, 1
-  br label %38
+  %33 = icmp ult i64 %.03670, %14
+  br i1 %33, label %39, label %41, !prof !154
 
 34:                                               ; preds = %25
-  %35 = icmp ult i64 %.03670, %14
-  br i1 %35, label %41, label %43, !prof !154
+  %35 = add nuw i64 %.03769, 1
+  br label %36
 
-36:                                               ; preds = %25
-  %37 = add nuw i64 %.03769, 1
-  br label %38
-
-38:                                               ; preds = %44, %36, %32
-  %.142 = phi float [ %.04167, %36 ], [ %50, %44 ], [ %.04167, %32 ]
-  %.140 = phi i8 [ %.03968, %36 ], [ 1, %44 ], [ %.03968, %32 ]
-  %.138 = phi i64 [ %37, %36 ], [ %52, %44 ], [ %.03769, %32 ]
-  %.1 = phi i64 [ %.03670, %36 ], [ %51, %44 ], [ %33, %32 ]
-  %39 = icmp ult i64 %.1, %4
-  %40 = icmp ult i64 %.138, %6
-  %or.cond = select i1 %39, i1 %40, i1 false
+36:                                               ; preds = %42, %34, %30
+  %.142 = phi float [ %.04167, %34 ], [ %48, %42 ], [ %.04167, %30 ]
+  %.140 = phi i8 [ %.03968, %34 ], [ 1, %42 ], [ %.03968, %30 ]
+  %.138 = phi i64 [ %35, %34 ], [ %50, %42 ], [ %.03769, %30 ]
+  %.1 = phi i64 [ %.03670, %34 ], [ %49, %42 ], [ %31, %30 ]
+  %37 = icmp ult i64 %.1, %4
+  %38 = icmp ult i64 %.138, %6
+  %or.cond = select i1 %37, i1 %38, i1 false
   br i1 %or.cond, label %25, label %._crit_edge.loopexit
 
-41:                                               ; preds = %34
-  %42 = icmp ult i64 %.03769, %16
-  br i1 %42, label %44, label %53, !prof !154
+39:                                               ; preds = %32
+  %40 = icmp ult i64 %.03769, %16
+  br i1 %40, label %42, label %51, !prof !154
 
-43:                                               ; preds = %34
+41:                                               ; preds = %32
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.03670, i64 noundef %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30f34e5a9fd2306e2b5288d77ea6d58a.19) #21
   unreachable
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds [0 x float], ptr %20, i64 0, i64 %.03670
+42:                                               ; preds = %39
+  %43 = getelementptr inbounds [0 x float], ptr %20, i64 0, i64 %.03670
+  %44 = load float, ptr %43, align 4, !noundef !5
+  %45 = getelementptr inbounds [0 x float], ptr %18, i64 0, i64 %.03769
   %46 = load float, ptr %45, align 4, !noundef !5
-  %47 = getelementptr inbounds [0 x float], ptr %18, i64 0, i64 %.03769
-  %48 = load float, ptr %47, align 4, !noundef !5
-  %49 = fmul float %46, %48
-  %50 = fadd float %.04167, %49
-  %51 = add nuw i64 %.03670, 1
-  %52 = add nuw i64 %.03769, 1
-  br label %38
+  %47 = fmul float %44, %46
+  %48 = fadd float %.04167, %47
+  %49 = add nuw i64 %.03670, 1
+  %50 = add nuw i64 %.03769, 1
+  br label %36
 
-53:                                               ; preds = %41
+51:                                               ; preds = %39
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %.03769, i64 noundef %16, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.30f34e5a9fd2306e2b5288d77ea6d58a.20) #21
   unreachable
 }
@@ -2396,6 +2393,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #16
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i32(i32, i32) #16
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #17

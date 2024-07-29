@@ -18854,7 +18854,7 @@ define internal fastcc noundef zeroext i1 @_ZN10hir_expand16builtin_fn_macro14us
   %8 = load i32, ptr %7, align 4, !noundef !9
   %.not = icmp eq i32 %8, 0
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4)
-  br i1 %.not, label %36, label %9
+  br i1 %.not, label %35, label %9
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3)
@@ -18863,61 +18863,62 @@ define internal fastcc noundef zeroext i1 @_ZN10hir_expand16builtin_fn_macro14us
   call void %11(ptr noalias nocapture noundef nonnull sret({ { i8, [23 x i8] }, i32, i32, { { i8, [15 x i8] }, i32, i8, i8, i8, [1 x i8] } }) align 8 dereferenceable(56) %3, ptr noundef nonnull align 1 %0, i32 noundef %8)
   %12 = getelementptr inbounds i8, ptr %3, i64 52
   %13 = load i8, ptr %12, align 4, !range !1862, !noundef !9
-  %14 = icmp ugt i8 %13, 1
+  %.05 = tail call i8 @llvm.ucmp.i8.i8(i8 %13, i8 2)
+  %switch = icmp ult i8 %.05, 2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3467)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3470)
-  %15 = load i8, ptr %3, align 8, !range !391, !alias.scope !3473, !noundef !9
-  switch i8 %15, label %16 [
-    i8 0, label %26
+  %14 = load i8, ptr %3, align 8, !range !391, !alias.scope !3473, !noundef !9
+  switch i8 %14, label %15 [
+    i8 0, label %25
     i8 1, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
   ]
 
-16:                                               ; preds = %9
-  %17 = getelementptr inbounds i8, ptr %3, i64 16
+15:                                               ; preds = %9
+  %16 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3474)
-  %18 = load ptr, ptr %17, align 8, !alias.scope !3477, !noundef !9
-  %19 = icmp eq ptr %18, null
-  br i1 %19, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit", label %20
+  %17 = load ptr, ptr %16, align 8, !alias.scope !3477, !noundef !9
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit", label %19
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3478)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3481)
-  %21 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !3484
-  %22 = icmp eq i64 %21, 1
-  br i1 %22, label %23, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
+  %20 = atomicrmw sub ptr %17, i64 1 release, align 8, !noalias !3484
+  %21 = icmp eq i64 %20, 1
+  br i1 %21, label %22, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
 
-23:                                               ; preds = %20
-  %24 = load ptr, ptr %17, align 8, !alias.scope !3484, !nonnull !9, !noundef !9
-  %25 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h151d5319c512b581E.llvm.10606712881621943088(ptr noundef nonnull %24, i8 noundef 2), !noalias !3484
-  call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h624058c11e6c50ecE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
+22:                                               ; preds = %19
+  %23 = load ptr, ptr %16, align 8, !alias.scope !3484, !nonnull !9, !noundef !9
+  %24 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h151d5319c512b581E.llvm.10606712881621943088(ptr noundef nonnull %23, i8 noundef 2), !noalias !3484
+  call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h624058c11e6c50ecE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %16)
   br label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
 
-26:                                               ; preds = %9
-  %27 = getelementptr inbounds i8, ptr %3, i64 16
+25:                                               ; preds = %9
+  %26 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3485)
-  %28 = load ptr, ptr %27, align 8, !alias.scope !3488, !noundef !9
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit", label %30
+  %27 = load ptr, ptr %26, align 8, !alias.scope !3488, !noundef !9
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit", label %29
 
-30:                                               ; preds = %26
+29:                                               ; preds = %25
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3489)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3492)
-  %31 = atomicrmw sub ptr %28, i64 1 release, align 8, !noalias !3495
-  %32 = icmp eq i64 %31, 1
-  br i1 %32, label %33, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
+  %30 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !3495
+  %31 = icmp eq i64 %30, 1
+  br i1 %31, label %32, label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
 
-33:                                               ; preds = %30
-  %34 = load ptr, ptr %27, align 8, !alias.scope !3495, !nonnull !9, !noundef !9
-  %35 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h151d5319c512b581E.llvm.10606712881621943088(ptr noundef nonnull %34, i8 noundef 2), !noalias !3495
-  call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h17dc37ff402b6f42E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %27)
+32:                                               ; preds = %29
+  %33 = load ptr, ptr %26, align 8, !alias.scope !3495, !nonnull !9, !noundef !9
+  %34 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h151d5319c512b581E.llvm.10606712881621943088(ptr noundef nonnull %33, i8 noundef 2), !noalias !3495
+  call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h17dc37ff402b6f42E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
   br label %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
 
-"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit": ; preds = %9, %16, %20, %23, %26, %30, %33
+"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit": ; preds = %9, %15, %19, %22, %25, %29, %32
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3)
-  br label %36
+  br label %35
 
-36:                                               ; preds = %2, %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
-  %.1 = phi i1 [ %14, %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit" ], [ false, %2 ]
+35:                                               ; preds = %2, %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit"
+  %.1 = phi i1 [ %switch, %"_ZN4core3ptr45drop_in_place$LT$hir_expand..MacroCallLoc$GT$17h56511f24b94c48e4E.exit" ], [ false, %2 ]
   ret i1 %.1
 }
 
@@ -32445,6 +32446,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #29
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #30
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i8(i8, i8) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #27

@@ -1111,75 +1111,70 @@ define hidden { i64, i64 } @"_ZN5alloc11collections5btree6search91_$LT$impl$u20$
   %30 = sext i32 %29 to i64
   %31 = icmp eq i32 %29, 0
   %spec.store.select.i.i.i = select i1 %31, i64 %28, i64 %30
-  %32 = icmp slt i64 %spec.store.select.i.i.i, 0
-  %33 = icmp ne i64 %spec.store.select.i.i.i, 0
-  %.8.i.i.i = zext i1 %33 to i8
-  %.0.i.i.i = select i1 %32, i8 -1, i8 %.8.i.i.i
-  %34 = icmp eq i8 %.0.i.i.i, 0
-  br i1 %34, label %35, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
+  %.0.i.i.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i.i, i64 0)
+  %32 = icmp eq i64 %spec.store.select.i.i.i, 0
+  br i1 %32, label %34, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
 
-default.unreachable:                              ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
+33:                                               ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
   unreachable
 
-35:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23b5989bb4399f66E.exit"
-  %36 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 48
-  %37 = load i64, ptr %36, align 8, !alias.scope !132, !noalias !135, !noundef !4
-  %38 = icmp ult i64 %13, %37
-  br i1 %38, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %39
+34:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23b5989bb4399f66E.exit"
+  %35 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 48
+  %36 = load i64, ptr %35, align 8, !alias.scope !132, !noalias !135, !noundef !4
+  %37 = icmp ult i64 %13, %36
+  br i1 %37, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %38
 
-39:                                               ; preds = %35
-  %40 = icmp eq i64 %13, %37
-  br i1 %40, label %41, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
+38:                                               ; preds = %34
+  %39 = icmp eq i64 %13, %36
+  br i1 %39, label %40, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 56
-  %43 = load i64, ptr %42, align 8, !alias.scope !132, !noalias !135, !noundef !4
-  %44 = icmp ult i64 %15, %43
-  br i1 %44, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %45
+40:                                               ; preds = %38
+  %41 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 56
+  %42 = load i64, ptr %41, align 8, !alias.scope !132, !noalias !135, !noundef !4
+  %43 = icmp ult i64 %15, %42
+  br i1 %43, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %44
 
-45:                                               ; preds = %41
-  %46 = icmp eq i64 %15, %43
-  br i1 %46, label %47, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
+44:                                               ; preds = %40
+  %45 = icmp eq i64 %15, %42
+  br i1 %45, label %46, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 64
-  %49 = load i64, ptr %48, align 8, !alias.scope !132, !noalias !135, !noundef !4
-  %50 = icmp ult i64 %17, %49
-  br i1 %50, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %51
+46:                                               ; preds = %44
+  %47 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 64
+  %48 = load i64, ptr %47, align 8, !alias.scope !132, !noalias !135, !noundef !4
+  %49 = icmp ult i64 %17, %48
+  br i1 %49, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %50
 
-51:                                               ; preds = %47
-  %52 = icmp eq i64 %17, %49
-  br i1 %52, label %53, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
+50:                                               ; preds = %46
+  %51 = icmp eq i64 %17, %48
+  br i1 %51, label %52, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
 
-53:                                               ; preds = %51
-  %54 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 72
-  %55 = load i64, ptr %54, align 8, !alias.scope !132, !noalias !135, !noundef !4
-  %56 = icmp ult i64 %19, %55
-  br i1 %56, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %57
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 72
+  %54 = load i64, ptr %53, align 8, !alias.scope !132, !noalias !135, !noundef !4
+  %55 = icmp ult i64 %19, %54
+  br i1 %55, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %56
 
-57:                                               ; preds = %53
-  %58 = icmp eq i64 %19, %55
-  br i1 %58, label %59, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
+56:                                               ; preds = %52
+  %57 = icmp eq i64 %19, %54
+  br i1 %57, label %58, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 32
-  %.val23.i = load ptr, ptr %60, align 8, !alias.scope !132, !noalias !135, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 40
-  %.val24.i = load i64, ptr %61, align 8, !alias.scope !132, !noalias !135, !noundef !4
-  %62 = sub i64 %.val22.i, %.val24.i
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 32
+  %.val23.i = load ptr, ptr %59, align 8, !alias.scope !132, !noalias !135, !nonnull !4, !noundef !4
+  %60 = getelementptr inbounds i8, ptr %.sroa.0.020, i64 40
+  %.val24.i = load i64, ptr %60, align 8, !alias.scope !132, !noalias !135, !noundef !4
+  %61 = sub i64 %.val22.i, %.val24.i
   %..i.i29.i = tail call i64 @llvm.umin.i64(i64 %.val22.i, i64 %.val24.i)
-  %63 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val23.i, i64 %..i.i29.i), !alias.scope !142, !noalias !141
-  %64 = sext i32 %63 to i64
-  %65 = icmp eq i32 %63, 0
-  %spec.store.select.i.i30.i = select i1 %65, i64 %62, i64 %64
-  %66 = icmp slt i64 %spec.store.select.i.i30.i, 0
-  %67 = icmp ne i64 %spec.store.select.i.i30.i, 0
-  %.8.i.i31.i = zext i1 %67 to i8
-  br i1 %66, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit", label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
+  %62 = tail call i32 @memcmp(ptr nonnull readonly %.val.i, ptr nonnull readonly %.val23.i, i64 %..i.i29.i), !alias.scope !142, !noalias !141
+  %63 = sext i32 %62 to i64
+  %64 = icmp eq i32 %62, 0
+  %spec.store.select.i.i30.i = select i1 %64, i64 %61, i64 %63
+  %.0.i.i31.i = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i.i30.i, i64 0)
+  br label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit"
 
-"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit": ; preds = %59, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23b5989bb4399f66E.exit", %39, %45, %51, %57
-  %.0.i = phi i8 [ %.8.i.i31.i, %59 ], [ 1, %57 ], [ 1, %51 ], [ 1, %45 ], [ 1, %39 ], [ %.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23b5989bb4399f66E.exit" ]
-  switch i8 %.0.i, label %default.unreachable [
+"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23b5989bb4399f66E.exit", %38, %44, %50, %56, %58
+  %.0.i = phi i8 [ %.0.i.i31.i, %58 ], [ 1, %56 ], [ 1, %50 ], [ 1, %44 ], [ 1, %38 ], [ %.0.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23b5989bb4399f66E.exit" ]
+  switch i8 %.0.i, label %33 [
     i8 -1, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit"
     i8 0, label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread"
     i8 1, label %22
@@ -1188,11 +1183,11 @@ default.unreachable:                              ; preds = %"_ZN50_$LT$uu_ptx..
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h23b5989bb4399f66E.exit.thread": ; preds = %22, %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread"
   %.sroa.4.0 = phi i64 [ %.sroa.4.1, %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread" ], [ %7, %22 ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1, %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread" ], [ 1, %22 ]
-  %68 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %69 = insertvalue { i64, i64 } %68, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %69
+  %65 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %66 = insertvalue { i64, i64 } %65, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %66
 
-"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit": ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit", %35, %41, %47, %53, %59
+"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit": ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit", %34, %40, %46, %52
   br label %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread"
 
 "_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread": ; preds = %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit", %"_ZN50_$LT$uu_ptx..WordRef$u20$as$u20$core..cmp..Ord$GT$3cmp17hb3870a5a220f892cE.exit.thread.loopexit"
@@ -1535,6 +1530,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #20
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #20
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #21

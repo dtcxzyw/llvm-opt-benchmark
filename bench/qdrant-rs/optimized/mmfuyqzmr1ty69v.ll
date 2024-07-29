@@ -1772,8 +1772,8 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
   %.0.i = select i1 %.not, ptr %14, ptr null
   br i1 %.not, label %16, label %15
 
-15:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread47, %45, %55, %44, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, %6, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread ], [ true, %44 ], [ %58, %55 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread47 ], [ false, %45 ]
+15:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45, %45, %55, %44, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, %6, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %6 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread ], [ true, %44 ], [ %58, %55 ], [ false, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45 ], [ false, %45 ]
   ret i1 %.0
 
 16:                                               ; preds = %6
@@ -1817,7 +1817,7 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
 
 .thread:                                          ; preds = %25
   %31 = icmp eq ptr %20, %17
-  br i1 %31, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread47, label %.lr.ph.i.backedge
+  br i1 %31, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45, label %.lr.ph.i.backedge
 
 32:                                               ; preds = %25
   %33 = icmp ult i32 %28, %.sroa.5.015.i
@@ -1827,7 +1827,7 @@ define noundef zeroext i1 @_ZN6sparse5index14search_context13SearchContext26prun
 
 _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit: ; preds = %29
   %switch = icmp eq i32 %.sroa.0.1.i, 0
-  br i1 %switch, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread47
+  br i1 %switch, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread, label %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
 
 _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread: ; preds = %16, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit
   %34 = getelementptr inbounds i8, ptr %.0.i, i64 4
@@ -1841,17 +1841,17 @@ _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E
   %42 = fcmp ugt float %41, %1
   br i1 %42, label %15, label %44
 
-_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread47: ; preds = %.thread, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit
-  %.sroa.5.1.i4551 = phi i32 [ %.sroa.5.1.i, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit ], [ %28, %.thread ]
+_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45: ; preds = %.thread, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit
+  %.sroa.5.1.i4349 = phi i32 [ %.sroa.5.1.i, %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit ], [ %28, %.thread ]
   %43 = load i32, ptr %.0.i, align 4, !noundef !5
-  %switch37 = icmp ugt i32 %.sroa.5.1.i4551, %43
+  %switch37 = icmp ugt i32 %.sroa.5.1.i4349, %43
   br i1 %switch37, label %45, label %15
 
 44:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread
   store i64 %10, ptr %11, align 8, !alias.scope !205
   br label %15
 
-45:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread47
+45:                                               ; preds = %_ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E.exit.thread45
   %46 = getelementptr inbounds i8, ptr %.0.i, i64 4
   %47 = load float, ptr %46, align 4, !noundef !5
   %48 = getelementptr inbounds i8, ptr %.0.i, i64 8
@@ -1864,7 +1864,7 @@ _ZN6sparse5index14search_context13SearchContext11next_min_id17ha0e475fc87baa532E
   br i1 %54, label %15, label %55
 
 55:                                               ; preds = %45
-  %56 = tail call noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12posting_list19PostingListIterator7skip_to17h1f932048eaf675dcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %.sroa.5.1.i4551)
+  %56 = tail call noundef align 4 dereferenceable_or_null(12) ptr @_ZN6sparse5index12posting_list19PostingListIterator7skip_to17h1f932048eaf675dcE(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, i32 noundef %.sroa.5.1.i4349)
   %57 = load i64, ptr %11, align 8, !noundef !5
   %58 = icmp ne i64 %12, %57
   br label %15

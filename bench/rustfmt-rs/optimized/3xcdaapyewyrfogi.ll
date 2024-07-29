@@ -1695,10 +1695,7 @@ define hidden void @"_ZN49_$LT$F$u20$as$u20$core..str..pattern..Pattern$GT$13int
 define hidden noundef range(i8 -1, 2) i8 @"_ZN4core3cmp5impls50_$LT$impl$u20$core..cmp..Ord$u20$for$u20$usize$GT$3cmp17he0bff06e137ef0d3E.llvm.15131964271339581801"(ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(8) %1) unnamed_addr #7 {
   %3 = load i64, ptr %0, align 8, !noundef !10
   %4 = load i64, ptr %1, align 8, !noundef !10
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %. = zext i1 %6 to i8
-  %.0 = select i1 %5, i8 -1, i8 %.
+  %.0 = tail call i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0
 }
 
@@ -1817,10 +1814,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %3 = load i64, ptr %0, align 8, !alias.scope !310, !noalias !313, !noundef !10
   %4 = load i64, ptr %1, align 8, !alias.scope !313, !noalias !310, !noundef !10
-  %5 = icmp ult i64 %3, %4
-  %6 = icmp ne i64 %3, %4
-  %..i = zext i1 %6 to i8
-  %.0.i = select i1 %5, i8 -1, i8 %..i
+  %.0.i = tail call noundef range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64 %3, i64 %4)
   ret i8 %.0.i
 }
 
@@ -38270,7 +38264,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_
 11:                                               ; preds = %2
   %12 = load i64, ptr %1, align 8, !range !6295, !noundef !10
   %13 = icmp eq i64 %12, -9223372036854775803
-  br i1 %13, label %56, label %7
+  br i1 %13, label %52, label %7
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds i8, ptr %0, i64 8
@@ -38301,77 +38295,67 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN15rustfmt_nightly7reorder13compare_
   %33 = sext i32 %32 to i64
   %34 = icmp eq i32 %32, 0
   %spec.store.select.i = select i1 %34, i64 %31, i64 %33
-  %35 = icmp slt i64 %spec.store.select.i, 0
-  %36 = icmp ne i64 %spec.store.select.i, 0
-  %.9.i = zext i1 %36 to i8
-  %.0.i = select i1 %35, i8 -1, i8 %.9.i
-  %.not = icmp eq i8 %.0.i, 0
-  br i1 %.not, label %37, label %38
+  %.not = icmp eq i64 %spec.store.select.i, 0
+  br i1 %.not, label %35, label %36
 
-37:                                               ; preds = %14
-  br i1 %19, label %39, label %40
+35:                                               ; preds = %14
+  br i1 %19, label %37, label %38
 
-38:                                               ; preds = %14
+36:                                               ; preds = %14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %55
+  br label %51
 
-39:                                               ; preds = %37
+37:                                               ; preds = %35
   %. = sext i1 %23 to i8
-  br label %41
+  br label %39
 
-40:                                               ; preds = %37
-  br i1 %23, label %42, label %41
+38:                                               ; preds = %35
+  br i1 %23, label %40, label %39
 
-41:                                               ; preds = %40, %39, %42
-  %.0 = phi i8 [ %.0.i13, %42 ], [ %., %39 ], [ 1, %40 ]
+39:                                               ; preds = %38, %37, %40
+  %.0 = phi i8 [ %.0.i12, %40 ], [ %., %37 ], [ 1, %38 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  br label %55
+  br label %51
 
-42:                                               ; preds = %40
-  %43 = call { ptr, i64 } @_RNvMNtCsdF516cSs19B_10rustc_span6symbolNtB2_5Ident6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %18)
-  %44 = extractvalue { ptr, i64 } %43, 0
-  %45 = extractvalue { ptr, i64 } %43, 1
-  %46 = call { ptr, i64 } @_RNvMNtCsdF516cSs19B_10rustc_span6symbolNtB2_5Ident6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %22)
-  %47 = extractvalue { ptr, i64 } %46, 0
-  %48 = extractvalue { ptr, i64 } %46, 1
-  %49 = sub i64 %45, %48
-  %..i10 = call i64 @llvm.umin.i64(i64 %45, i64 %48)
-  %50 = call i32 @memcmp(ptr nonnull readonly %44, ptr nonnull readonly %47, i64 %..i10), !alias.scope !6300
-  %51 = sext i32 %50 to i64
-  %52 = icmp eq i32 %50, 0
-  %spec.store.select.i11 = select i1 %52, i64 %49, i64 %51
-  %53 = icmp slt i64 %spec.store.select.i11, 0
-  %54 = icmp ne i64 %spec.store.select.i11, 0
-  %.9.i12 = zext i1 %54 to i8
-  %.0.i13 = select i1 %53, i8 -1, i8 %.9.i12
-  br label %41
+40:                                               ; preds = %38
+  %41 = call { ptr, i64 } @_RNvMNtCsdF516cSs19B_10rustc_span6symbolNtB2_5Ident6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %18)
+  %42 = extractvalue { ptr, i64 } %41, 0
+  %43 = extractvalue { ptr, i64 } %41, 1
+  %44 = call { ptr, i64 } @_RNvMNtCsdF516cSs19B_10rustc_span6symbolNtB2_5Ident6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %22)
+  %45 = extractvalue { ptr, i64 } %44, 0
+  %46 = extractvalue { ptr, i64 } %44, 1
+  %47 = sub i64 %43, %46
+  %..i10 = call i64 @llvm.umin.i64(i64 %43, i64 %46)
+  %48 = call i32 @memcmp(ptr nonnull readonly %42, ptr nonnull readonly %45, i64 %..i10), !alias.scope !6300
+  %49 = sext i32 %48 to i64
+  %50 = icmp eq i32 %48, 0
+  %spec.store.select.i11 = select i1 %50, i64 %47, i64 %49
+  %.0.i12 = call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i11, i64 0)
+  br label %39
 
-55:                                               ; preds = %56, %41, %38
-  %.1 = phi i8 [ %.0.i17, %56 ], [ %.0.i, %38 ], [ %.0, %41 ]
+51:                                               ; preds = %52, %39, %36
+  %.1 = phi i8 [ %.0.i15, %52 ], [ 0, %36 ], [ %.0, %39 ]
   ret i8 %.1
 
-56:                                               ; preds = %11
-  %57 = getelementptr inbounds i8, ptr %0, i64 124
+52:                                               ; preds = %11
+  %53 = getelementptr inbounds i8, ptr %0, i64 124
+  %54 = tail call { ptr, i64 } @_RNvMNtCsdF516cSs19B_10rustc_span6symbolNtB2_5Ident6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %53)
+  %55 = extractvalue { ptr, i64 } %54, 0
+  %56 = extractvalue { ptr, i64 } %54, 1
+  %57 = getelementptr inbounds i8, ptr %1, i64 124
   %58 = tail call { ptr, i64 } @_RNvMNtCsdF516cSs19B_10rustc_span6symbolNtB2_5Ident6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %57)
   %59 = extractvalue { ptr, i64 } %58, 0
   %60 = extractvalue { ptr, i64 } %58, 1
-  %61 = getelementptr inbounds i8, ptr %1, i64 124
-  %62 = tail call { ptr, i64 } @_RNvMNtCsdF516cSs19B_10rustc_span6symbolNtB2_5Ident6as_str(ptr noalias noundef nonnull readonly align 4 dereferenceable(12) %61)
-  %63 = extractvalue { ptr, i64 } %62, 0
-  %64 = extractvalue { ptr, i64 } %62, 1
-  %65 = sub i64 %60, %64
-  %..i14 = tail call i64 @llvm.umin.i64(i64 %60, i64 %64)
-  %66 = tail call i32 @memcmp(ptr nonnull readonly %59, ptr nonnull readonly %63, i64 %..i14), !alias.scope !6304
-  %67 = sext i32 %66 to i64
-  %68 = icmp eq i32 %66, 0
-  %spec.store.select.i15 = select i1 %68, i64 %65, i64 %67
-  %69 = icmp slt i64 %spec.store.select.i15, 0
-  %70 = icmp ne i64 %spec.store.select.i15, 0
-  %.9.i16 = zext i1 %70 to i8
-  %.0.i17 = select i1 %69, i8 -1, i8 %.9.i16
-  br label %55
+  %61 = sub i64 %56, %60
+  %..i13 = tail call i64 @llvm.umin.i64(i64 %56, i64 %60)
+  %62 = tail call i32 @memcmp(ptr nonnull readonly %55, ptr nonnull readonly %59, i64 %..i13), !alias.scope !6304
+  %63 = sext i32 %62 to i64
+  %64 = icmp eq i32 %62, 0
+  %spec.store.select.i14 = select i1 %64, i64 %61, i64 %63
+  %.0.i15 = tail call noundef range(i8 -1, 2) i8 @llvm.scmp.i8.i64(i64 %spec.store.select.i14, i64 0)
+  br label %51
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -45976,10 +45960,16 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #48
 declare void @llvm.experimental.noalias.scope.decl(metadata) #49
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.ucmp.i8.i64(i64, i64) #47
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #47
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #50
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #47
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

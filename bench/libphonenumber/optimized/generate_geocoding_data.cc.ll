@@ -7160,17 +7160,17 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local i64 @_ZNK4absl7debian218container_internal10btree_nodeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE18binary_search_implIS9_NS1_22StringBtreeDefaultLessEEENS1_12SearchResultIiLb1EEERKT_iiRKT0_St17integral_constantIbLb1EE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull align 1 dereferenceable(1) %4) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.not28 = icmp eq i32 %2, %3
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq i32 %2, %3
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   br label %7
 
 7:                                                ; preds = %.lr.ph, %.thread
-  %.030 = phi i32 [ %2, %.lr.ph ], [ %.1, %.thread ]
-  %.01529 = phi i32 [ %3, %.lr.ph ], [ %.116, %.thread ]
-  %8 = add nsw i32 %.030, %.01529
+  %.023 = phi i32 [ %2, %.lr.ph ], [ %.1, %.thread ]
+  %.01522 = phi i32 [ %3, %.lr.ph ], [ %.116, %.thread ]
+  %8 = add nsw i32 %.023, %.01522
   %9 = ashr i32 %8, 1
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.85", ptr %6, i64 %10
@@ -7208,26 +7208,31 @@ _ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_tra
   br i1 %.inv.i.i.i, label %.thread, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit: ; preds = %_ZN4absl7debian211string_viewC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit17, %22
-  %26 = icmp ult i64 %13, %17
-  br i1 %26, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread, label %28
+  %26 = icmp ugt i64 %13, %17
+  %27 = zext i1 %26 to i32
+  %28 = icmp ult i64 %13, %17
+  %.neg.i.i.i = sext i1 %28 to i32
+  %29 = add nsw i32 %.neg.i.i.i, %27
+  %30 = icmp slt i32 %29, 0
+  br i1 %30, label %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread, label %32
 
 _ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread: ; preds = %25, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
-  %27 = add nsw i32 %9, 1
+  %31 = add nsw i32 %9, 1
   br label %.thread
 
-28:                                               ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
-  %.not27 = icmp eq i64 %13, %17
-  br i1 %.not27, label %._crit_edge, label %.thread
+32:                                               ; preds = %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit
+  %.not20 = icmp eq i32 %29, 0
+  br i1 %.not20, label %._crit_edge, label %.thread
 
-.thread:                                          ; preds = %25, %28, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread
-  %.116 = phi i32 [ %.01529, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread ], [ %9, %28 ], [ %9, %25 ]
-  %.1 = phi i32 [ %27, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread ], [ %.030, %28 ], [ %.030, %25 ]
+.thread:                                          ; preds = %25, %32, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread
+  %.116 = phi i32 [ %.01522, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread ], [ %9, %32 ], [ %9, %25 ]
+  %.1 = phi i32 [ %31, %_ZNK4absl7debian218container_internal22StringBtreeDefaultLessclENS0_11string_viewES3_.exit.thread ], [ %.023, %32 ], [ %.023, %25 ]
   %.not = icmp eq i32 %.1, %.116
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !114
 
-._crit_edge:                                      ; preds = %28, %.thread, %5
-  %.sroa.014.0 = phi i32 [ %2, %5 ], [ %.116, %.thread ], [ %9, %28 ]
-  %.sroa.3.0 = phi i64 [ 4294967296, %5 ], [ 4294967296, %.thread ], [ 0, %28 ]
+._crit_edge:                                      ; preds = %32, %.thread, %5
+  %.sroa.014.0 = phi i32 [ %2, %5 ], [ %.116, %.thread ], [ %9, %32 ]
+  %.sroa.3.0 = phi i64 [ 4294967296, %5 ], [ 4294967296, %.thread ], [ 0, %32 ]
   %.sroa.014.0.insert.ext = zext i32 %.sroa.014.0 to i64
   %.sroa.014.0.insert.insert = or disjoint i64 %.sroa.3.0, %.sroa.014.0.insert.ext
   ret i64 %.sroa.014.0.insert.insert

@@ -2740,8 +2740,8 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm7preStepEldb(ptr nocapture nounde
   br i1 %11, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread, label %12
 
 12:                                               ; preds = %4
-  %.not.i.not.i = icmp eq i8 %10, 0
-  %brmerge.i = or i1 %.not.i.not.i, %3
+  %.not2.i = icmp eq i8 %10, 0
+  %brmerge.i = or i1 %.not2.i, %3
   br i1 %brmerge.i, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit, label %13
 
 13:                                               ; preds = %12
@@ -2751,7 +2751,7 @@ define void @_ZN3gmx25ModularSimulatorAlgorithm7preStepEldb(ptr nocapture nounde
   br i1 %16, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread, label %34
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit: ; preds = %12
-  br i1 %.not.i.not.i, label %34, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread
+  br i1 %.not2.i, label %34, label %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread
 
 _ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit.thread: ; preds = %4, %13, %_ZNK3gmx11StopHandler24stoppingAfterCurrentStepEb.exit
   %17 = getelementptr inbounds i8, ptr %0, i64 320

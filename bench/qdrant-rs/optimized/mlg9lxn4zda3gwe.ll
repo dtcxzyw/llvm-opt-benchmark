@@ -255,63 +255,60 @@ define noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE() unnamed_a
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i64 @_ZN6common3cpu14get_cpu_budget17hf0884385e486daffE(i64 noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = icmp slt i64 %0, 0
-  %3 = icmp ne i64 %0, 0
-  %. = zext i1 %3 to i8
-  %.0 = select i1 %2, i8 -1, i8 %.
-  switch i8 %.0, label %default.unreachable10 [
-    i8 -1, label %4
-    i8 0, label %8
-    i8 1, label %23
+  %.0 = tail call i8 @llvm.scmp.i8.i64(i64 %0, i64 0)
+  switch i8 %.0, label %default.unreachable [
+    i8 -1, label %2
+    i8 0, label %6
+    i8 1, label %21
   ]
 
-default.unreachable10:                            ; preds = %1
+default.unreachable:                              ; preds = %1
   unreachable
 
-4:                                                ; preds = %1
-  %5 = tail call noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE()
-  %6 = sub i64 0, %0
-  %7 = tail call i64 @llvm.usub.sat.i64(i64 %5, i64 %6)
-  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %7, i64 1)
-  br label %23
+2:                                                ; preds = %1
+  %3 = tail call noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE()
+  %4 = sub i64 0, %0
+  %5 = tail call i64 @llvm.usub.sat.i64(i64 %3, i64 %4)
+  %.0.sroa.speculated.i = tail call noundef i64 @llvm.umax.i64(i64 %5, i64 1)
+  br label %21
 
-8:                                                ; preds = %1
-  %9 = tail call noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE()
-  %10 = icmp ult i64 %9, 3
+6:                                                ; preds = %1
+  %7 = tail call noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE()
+  %8 = icmp ult i64 %7, 3
+  br i1 %8, label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, label %9
+
+9:                                                ; preds = %6
+  %10 = icmp ult i64 %7, 33
   br i1 %10, label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, label %11
 
-11:                                               ; preds = %8
-  %12 = icmp ult i64 %9, 33
+11:                                               ; preds = %9
+  %12 = icmp ult i64 %7, 49
   br i1 %12, label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = icmp ult i64 %9, 49
+  %14 = icmp ult i64 %7, 65
   br i1 %14, label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = icmp ult i64 %9, 65
+  %16 = icmp ult i64 %7, 97
   br i1 %16, label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, label %17
 
 17:                                               ; preds = %15
-  %18 = icmp ult i64 %9, 97
+  %18 = icmp ult i64 %7, 129
   br i1 %18, label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, label %19
 
 19:                                               ; preds = %17
-  %20 = icmp ult i64 %9, 129
-  br i1 %20, label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, label %21
-
-21:                                               ; preds = %19
-  %.neg.i.neg = sdiv i64 %9, 16
+  %.neg.i.neg = sdiv i64 %7, 16
   br label %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit
 
-_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit: ; preds = %8, %11, %13, %15, %17, %19, %21
-  %.0.i.neg = phi i64 [ %.neg.i.neg, %21 ], [ 0, %8 ], [ 1, %11 ], [ 2, %13 ], [ 3, %15 ], [ 4, %17 ], [ 6, %19 ]
-  %22 = tail call i64 @llvm.usub.sat.i64(i64 %9, i64 %.0.i.neg)
-  %.0.sroa.speculated.i9 = tail call noundef i64 @llvm.umax.i64(i64 %22, i64 1)
-  br label %23
+_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit: ; preds = %6, %9, %11, %13, %15, %17, %19
+  %.0.i.neg = phi i64 [ %.neg.i.neg, %19 ], [ 0, %6 ], [ 1, %9 ], [ 2, %11 ], [ 3, %13 ], [ 4, %15 ], [ 6, %17 ]
+  %20 = tail call i64 @llvm.usub.sat.i64(i64 %7, i64 %.0.i.neg)
+  %.0.sroa.speculated.i9 = tail call noundef i64 @llvm.umax.i64(i64 %20, i64 1)
+  br label %21
 
-23:                                               ; preds = %1, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, %4
-  %.07 = phi i64 [ %.0.sroa.speculated.i9, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit ], [ %.0.sroa.speculated.i, %4 ], [ %0, %1 ]
+21:                                               ; preds = %1, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit, %2
+  %.07 = phi i64 [ %.0.sroa.speculated.i9, %_ZN6common8defaults30default_cpu_budget_unallocated17ha4cd006b1243a7aaE.exit ], [ %.0.sroa.speculated.i, %2 ], [ %0, %1 ]
   ret i64 %.07
 }
 
@@ -857,6 +854,9 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i8 @llvm.scmp.i8.i64(i64, i64) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #12
