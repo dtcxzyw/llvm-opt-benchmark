@@ -315,18 +315,18 @@ entry:
 for.body.lr.ph.i:                                 ; preds = %entry
   %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load float, ptr %vec, align 4
+  %2 = load float, ptr %m_localScaling, align 8
+  %mul.i = fmul float %1, %2
   %arrayidx5.i1 = getelementptr inbounds i8, ptr %vec, i64 4
-  %2 = load float, ptr %arrayidx5.i1, align 4
-  %3 = load <2 x float>, ptr %m_localScaling, align 8
-  %4 = extractelement <2 x float> %3, i64 0
-  %mul.i = fmul float %1, %4
-  %5 = extractelement <2 x float> %3, i64 1
-  %mul8.i = fmul float %2, %5
+  %3 = load float, ptr %arrayidx5.i1, align 4
+  %arrayidx7.i2 = getelementptr inbounds i8, ptr %this, i64 36
   %arrayidx11.i = getelementptr inbounds i8, ptr %vec, i64 8
-  %6 = load float, ptr %arrayidx11.i, align 4
-  %arrayidx13.i = getelementptr inbounds i8, ptr %this, i64 40
-  %7 = load float, ptr %arrayidx13.i, align 8
-  %mul14.i = fmul float %6, %7
+  %4 = load float, ptr %arrayidx11.i, align 4
+  %5 = load <2 x float>, ptr %arrayidx7.i2, align 4
+  %6 = extractelement <2 x float> %5, i64 0
+  %mul8.i = fmul float %3, %6
+  %7 = extractelement <2 x float> %5, i64 1
+  %mul14.i = fmul float %4, %7
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 136
   %8 = load ptr, ptr %m_data.i, align 8
   %conv = zext nneg i32 %0 to i64
@@ -356,20 +356,21 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
 _ZNK9btVector36maxDotEPKS_lRf.exit:               ; preds = %for.body.i
   %idxprom.i = sext i32 %ptIndex.1.i to i64
   %arrayidx.i5 = getelementptr inbounds %class.btVector3, ptr %8, i64 %idxprom.i
-  %15 = load <2 x float>, ptr %arrayidx.i5, align 4
-  %16 = fmul <2 x float> %3, %15
-  %arrayidx11.i10 = getelementptr inbounds i8, ptr %arrayidx.i5, i64 8
-  %17 = load float, ptr %arrayidx11.i10, align 4
-  %mul14.i12 = fmul float %7, %17
-  %retval.sroa.3.12.vec.insert.i15 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul14.i12, i64 0
+  %15 = load float, ptr %arrayidx.i5, align 4
+  %mul.i6 = fmul float %2, %15
+  %arrayidx5.i7 = getelementptr inbounds i8, ptr %arrayidx.i5, i64 4
+  %16 = load <2 x float>, ptr %arrayidx5.i7, align 4
+  %17 = fmul <2 x float> %5, %16
+  %retval.sroa.0.0.vec.insert.i13 = insertelement <2 x float> poison, float %mul.i6, i64 0
+  %18 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i13, <2 x float> %17, <2 x i32> <i32 0, i32 2>
+  %19 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %17, <2 x i32> <i32 3, i32 1>
+  %.fca.0.insert.i16 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %18, 0
+  %.fca.1.insert.i17 = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert.i16, <2 x float> %19, 1
   br label %return
 
 return:                                           ; preds = %entry, %_ZNK9btVector36maxDotEPKS_lRf.exit
-  %retval.sroa.0.0 = phi <2 x float> [ %16, %_ZNK9btVector36maxDotEPKS_lRf.exit ], [ zeroinitializer, %entry ]
-  %retval.sroa.3.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i15, %_ZNK9btVector36maxDotEPKS_lRf.exit ], [ zeroinitializer, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.3.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %.fca.1.insert.i17, %_ZNK9btVector36maxDotEPKS_lRf.exit ], [ zeroinitializer, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -484,16 +485,16 @@ entry:
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 136
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { <2 x float>, <2 x float> } %0(ptr noundef nonnull align 8 dereferenceable(152) %this, ptr noundef nonnull align 4 dereferenceable(16) %vec)
-  %1 = extractvalue { <2 x float>, <2 x float> } %call, 0
-  %2 = extractvalue { <2 x float>, <2 x float> } %call, 1
   %vtable2 = load ptr, ptr %this, align 8
   %vfn3 = getelementptr inbounds i8, ptr %vtable2, i64 96
-  %3 = load ptr, ptr %vfn3, align 8
-  %call4 = tail call noundef float %3(ptr noundef nonnull align 8 dereferenceable(72) %this)
+  %1 = load ptr, ptr %vfn3, align 8
+  %call4 = tail call noundef float %1(ptr noundef nonnull align 8 dereferenceable(72) %this)
   %cmp = fcmp une float %call4, 0.000000e+00
   br i1 %cmp, label %if.then, label %if.end19
 
 if.then:                                          ; preds = %entry
+  %2 = extractvalue { <2 x float>, <2 x float> } %call, 1
+  %3 = extractvalue { <2 x float>, <2 x float> } %call, 0
   %vecnorm.sroa.11.0.vec.sroa_idx = getelementptr inbounds i8, ptr %vec, i64 8
   %vecnorm.sroa.11.0.copyload = load float, ptr %vecnorm.sroa.11.0.vec.sroa_idx, align 4
   %vtable13 = load ptr, ptr %this, align 8
@@ -526,18 +527,17 @@ if.then:                                          ; preds = %entry
   %21 = shufflevector <2 x float> %20, <2 x float> poison, <2 x i32> zeroinitializer
   %22 = fmul <2 x float> %21, %19
   %mul8.i.i2 = fmul float %call15, %mul7.i.i.i
-  %23 = fadd <2 x float> %1, %22
+  %23 = fadd <2 x float> %3, %22
   %retval.sroa.6.8.vec.extract = extractelement <2 x float> %2, i64 0
   %add13.i = fadd float %retval.sroa.6.8.vec.extract, %mul8.i.i2
   %retval.sroa.6.8.vec.insert = insertelement <2 x float> %2, float %add13.i, i64 0
+  %24 = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %23, 0
+  %25 = insertvalue { <2 x float>, <2 x float> } %24, <2 x float> %retval.sroa.6.8.vec.insert, 1
   br label %if.end19
 
 if.end19:                                         ; preds = %if.then, %entry
-  %retval.sroa.0.0 = phi <2 x float> [ %23, %if.then ], [ %1, %entry ]
-  %retval.sroa.6.0 = phi <2 x float> [ %retval.sroa.6.8.vec.insert, %if.then ], [ %2, %entry ]
-  %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %retval.sroa.6.0, 1
-  ret { <2 x float>, <2 x float> } %.fca.1.insert
+  %.fca.1.insert.merged = phi { <2 x float>, <2 x float> } [ %25, %if.then ], [ %call, %entry ]
+  ret { <2 x float>, <2 x float> } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable

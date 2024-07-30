@@ -281,14 +281,13 @@ define hidden { i8, i8 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT
   %.sroa.0.1.i.i.i.i.i = phi i8 [ 0, %45 ], [ 1, %"_ZN58_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$hex..FromHex$GT$8from_hex28_$u7b$$u7b$closure$u7d$$u7d$17h76b1d52bec8852acE.exit.i.i.i.i" ]
   %46 = add i64 %15, 1
   store i64 %46, ptr %4, align 8, !alias.scope !34, !noalias !51
+  %47 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1.i.i.i.i.i, 0
+  %48 = insertvalue { i8, i8 } %47, i8 %.sroa.6.08.i.i.i.i, 1
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h06defcafa0db3ac2E.llvm.3198005069098508149.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h06defcafa0db3ac2E.llvm.3198005069098508149.exit": ; preds = %3, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i.i"
-  %.sroa.3.0.i.i = phi i8 [ %.sroa.6.08.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i.i" ], [ undef, %3 ]
-  %.sroa.0.0.i.i = phi i8 [ %.sroa.0.1.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i.i" ], [ 2, %3 ]
-  %47 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0.i.i, 0
-  %48 = insertvalue { i8, i8 } %47, i8 %.sroa.3.0.i.i, 1
-  ret { i8, i8 } %48
+  %.merged.i.i = phi { i8, i8 } [ %48, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i.i" ], [ { i8 2, i8 undef }, %3 ]
+  ret { i8, i8 } %.merged.i.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -976,14 +975,13 @@ define hidden { i8, i8 } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate
   %.sroa.0.1.i.i.i.i = phi i8 [ 0, %44 ], [ 1, %"_ZN58_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$hex..FromHex$GT$8from_hex28_$u7b$$u7b$closure$u7d$$u7d$17h76b1d52bec8852acE.exit.i.i.i" ]
   %46 = add i64 %14, 1
   store i64 %46, ptr %3, align 8, !noalias !256
+  %47 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1.i.i.i.i, 0
+  %48 = insertvalue { i8, i8 } %47, i8 %.sroa.6.08.i.i.i, 1
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h12820251cad19d26E.llvm.3198005069098508149.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h12820251cad19d26E.llvm.3198005069098508149.exit: ; preds = %2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i"
-  %.sroa.3.0.i = phi i8 [ %.sroa.6.08.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i" ], [ undef, %2 ]
-  %.sroa.0.0.i = phi i8 [ %.sroa.0.1.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i" ], [ 2, %2 ]
-  %47 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0.i, 0
-  %48 = insertvalue { i8, i8 } %47, i8 %.sroa.3.0.i, 1
-  ret { i8, i8 } %48
+  %.merged.i = phi { i8, i8 } [ %48, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit.i" ], [ { i8 2, i8 undef }, %2 ]
+  ret { i8, i8 } %.merged.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
@@ -1784,7 +1782,7 @@ define hidden { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1282
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !480, !noundef !4
   %5 = icmp eq i64 %4, 0
-  br i1 %5, label %49, label %6
+  br i1 %5, label %51, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1895,14 +1893,13 @@ define hidden { i8, i8 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h1282
   %.sroa.0.1.i.i.i = phi i8 [ 0, %45 ], [ 1, %"_ZN58_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$hex..FromHex$GT$8from_hex28_$u7b$$u7b$closure$u7d$$u7d$17h76b1d52bec8852acE.exit.i.i" ]
   %48 = add i64 %47, 1
   store i64 %48, ptr %.val17, align 8, !noalias !483
-  br label %49
+  %49 = insertvalue { i8, i8 } poison, i8 %.sroa.0.1.i.i.i, 0
+  %50 = insertvalue { i8, i8 } %49, i8 %.sroa.6.08.i.i, 1
+  br label %51
 
-49:                                               ; preds = %2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit"
-  %.sroa.3.0 = phi i8 [ %.sroa.6.08.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit" ], [ undef, %2 ]
-  %.sroa.0.0 = phi i8 [ %.sroa.0.1.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit" ], [ 2, %2 ]
-  %50 = insertvalue { i8, i8 } poison, i8 %.sroa.0.0, 0
-  %51 = insertvalue { i8, i8 } %50, i8 %.sroa.3.0, 1
-  ret { i8, i8 } %51
+51:                                               ; preds = %2, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit"
+  %.merged = phi { i8, i8 } [ %50, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h553cb57bfbfdb48bE.exit" ], [ { i8 2, i8 undef }, %2 ]
+  ret { i8, i8 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

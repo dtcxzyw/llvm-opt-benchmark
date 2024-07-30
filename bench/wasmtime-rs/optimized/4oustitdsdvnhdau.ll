@@ -227,20 +227,19 @@ define void @"_ZN4core6option15Option$LT$T$GT$6map_or17h6f5f62f710b676a9E"(ptr s
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h6822b2ba40c325e2E"(ptr readonly align 8 %0) unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %7, label %3
+  br i1 %2, label %9, label %3
 
 3:                                                ; preds = %1
   %4 = load ptr, ptr %0, align 8, !nonnull !3, !align !10, !noundef !3
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !3
-  br label %7
+  %7 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %6, 1
+  br label %9
 
-7:                                                ; preds = %1, %3
-  %.sroa.0.0 = phi ptr [ %4, %3 ], [ null, %1 ]
-  %.sroa.3.0 = phi i64 [ %6, %3 ], [ undef, %1 ]
-  %8 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %9 = insertvalue { ptr, i64 } %8, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %9
+9:                                                ; preds = %1, %3
+  %.merged = phi { ptr, i64 } [ %8, %3 ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

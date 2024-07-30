@@ -3733,23 +3733,43 @@ entry:
   %6 = extractvalue { i32, i64 } %call4, 0
   %7 = extractvalue { i32, i64 } %call4, 1
   %cmp.i = icmp eq i32 %2, 2
-  br i1 %cmp.i, label %return, label %if.end
+  br i1 %cmp.i, label %if.then, label %if.end
+
+if.then:                                          ; preds = %entry
+  %8 = insertvalue { i32, i64 } { i32 2, i64 poison }, i64 %3, 1
+  br label %return
 
 if.end:                                           ; preds = %entry
   %cmp.i3 = icmp eq i32 %6, 2
-  br i1 %cmp.i3, label %return, label %if.end8
+  br i1 %cmp.i3, label %if.then7, label %if.end8
+
+if.then7:                                         ; preds = %if.end
+  %9 = insertvalue { i32, i64 } { i32 2, i64 poison }, i64 %7, 1
+  br label %return
 
 if.end8:                                          ; preds = %if.end
   %cmp.i4 = icmp eq i32 %2, 1
-  br i1 %cmp.i4, label %return, label %if.end11
+  br i1 %cmp.i4, label %if.then10, label %if.end11
+
+if.then10:                                        ; preds = %if.end8
+  %10 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %3, 1
+  br label %return
 
 if.end11:                                         ; preds = %if.end8
   %cmp.i5 = icmp eq i32 %6, 1
-  br i1 %cmp.i5, label %return, label %if.end14
+  br i1 %cmp.i5, label %if.then13, label %if.end14
+
+if.then13:                                        ; preds = %if.end11
+  %11 = insertvalue { i32, i64 } { i32 1, i64 poison }, i64 %7, 1
+  br label %return
 
 if.end14:                                         ; preds = %if.end11
   %cmp = icmp eq i64 %3, 1
-  br i1 %cmp, label %return, label %if.end17
+  br i1 %cmp, label %if.then16, label %if.end17
+
+if.then16:                                        ; preds = %if.end14
+  %12 = insertvalue { i32, i64 } %call, i64 1, 1
+  br label %return
 
 if.end17:                                         ; preds = %if.end14
   %cmp19 = icmp eq i64 %7, 1
@@ -3777,28 +3797,27 @@ invoke.cont33:                                    ; preds = %invoke.cont31
   %.fca.0.load.pre = load i32, ptr %retval, align 8
   %.fca.1.gep.phi.trans.insert = getelementptr inbounds i8, ptr %retval, i64 8
   %.fca.1.load.pre = load i64, ptr %.fca.1.gep.phi.trans.insert, align 8
+  %13 = insertvalue { i32, i64 } poison, i32 %.fca.0.load.pre, 0
+  %14 = insertvalue { i32, i64 } %13, i64 %.fca.1.load.pre, 1
   br label %return
 
 lpad:                                             ; preds = %if.end28
-  %8 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
 lpad32:                                           ; preds = %invoke.cont31
-  %9 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   br label %eh.resume
 
-return:                                           ; preds = %if.end21, %if.end17, %if.end14, %if.end11, %if.end8, %if.end, %entry, %invoke.cont33
-  %.fca.1.load = phi i64 [ %.fca.1.load.pre, %invoke.cont33 ], [ %3, %entry ], [ %7, %if.end ], [ %3, %if.end8 ], [ %7, %if.end11 ], [ 1, %if.end14 ], [ %3, %if.end17 ], [ 0, %if.end21 ]
-  %.fca.0.load = phi i32 [ %.fca.0.load.pre, %invoke.cont33 ], [ 2, %entry ], [ 2, %if.end ], [ 1, %if.end8 ], [ 1, %if.end11 ], [ %2, %if.end14 ], [ %2, %if.end17 ], [ 1, %if.end21 ]
-  %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %.fca.0.load, 0
-  %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %.fca.1.load, 1
-  ret { i32, i64 } %.fca.1.insert
+return:                                           ; preds = %if.end21, %if.end17, %invoke.cont33, %if.then16, %if.then13, %if.then10, %if.then7, %if.then
+  %.fca.1.insert.merged = phi { i32, i64 } [ %14, %invoke.cont33 ], [ %12, %if.then16 ], [ %11, %if.then13 ], [ %10, %if.then10 ], [ %9, %if.then7 ], [ %8, %if.then ], [ %call, %if.end17 ], [ { i32 1, i64 0 }, %if.end21 ]
+  ret { i32, i64 } %.fca.1.insert.merged
 
 eh.resume:                                        ; preds = %lpad32, %lpad
   %r.sink = phi ptr [ %r, %lpad32 ], [ %ref.tmp, %lpad ]
-  %.pn = phi { ptr, i32 } [ %9, %lpad32 ], [ %8, %lpad ]
+  %.pn = phi { ptr, i32 } [ %16, %lpad32 ], [ %15, %lpad ]
   call void @_ZN8rationalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %r.sink) #22
   resume { ptr, i32 } %.pn
 }

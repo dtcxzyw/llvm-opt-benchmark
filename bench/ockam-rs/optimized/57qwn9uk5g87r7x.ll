@@ -6477,11 +6477,7 @@ define hidden { ptr, ptr } @_ZN13opentelemetry7context7Context11map_current17h63
 _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit: ; preds = %1
   %6 = tail call noundef align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h38c48c5435dbf51bE.llvm.15061331801585140981"(ptr noundef nonnull align 8 @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, ptr noalias noundef align 8 dereferenceable_or_null(56) null), !noalias !794
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit.thread", label %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit.thread
-
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit.thread": ; preds = %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit
-  call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
-  br label %27
+  br i1 %7, label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit", label %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit.thread
 
 _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit.thread: ; preds = %1, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit
   %.0.i.i2 = phi ptr [ %6, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit ], [ getelementptr inbounds (i8, ptr @_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit5__KEY17h1d8dbb0a0c7f3df7E, i64 8), %1 ]
@@ -6507,7 +6503,7 @@ _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.575
 
 .noexc.i.i:                                       ; preds = %10
   %16 = invoke { ptr, ptr } @"_ZN98_$LT$opentelemetry..global..trace..BoxedTracer$u20$as$u20$opentelemetry..trace..tracer..Tracer$GT$18build_with_context17h892d04cceff4b595E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.0.copyload, ptr noalias nocapture noundef nonnull align 8 dereferenceable(272) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %12)
-          to label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit" unwind label %18, !noalias !795
+          to label %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit.i" unwind label %18, !noalias !795
 
 17:                                               ; preds = %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit.thread
   tail call void @_ZN4core4cell30panic_already_mutably_borrowed17h031c3e30084bef55E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f34e10cb350ba88450f4cf96dacee54d.49) #25, !noalias !795
@@ -6528,27 +6524,31 @@ _ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.575
 22:                                               ; preds = %18
   resume { ptr, i32 } %19
 
-"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit": ; preds = %.noexc.i.i
+"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit.i": ; preds = %.noexc.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %3), !noalias !798
   %23 = load i64, ptr %.0.i.i2, align 8, !noalias !806, !noundef !4
   %24 = add i64 %23, -1
   store i64 %24, ptr %.0.i.i2, align 8, !noalias !806
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !795
-  %25 = extractvalue { ptr, ptr } %16, 0
+  br label %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit"
+
+"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit": ; preds = %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit, %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit.i"
+  %.merged.i = phi { ptr, ptr } [ %16, %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit.i" ], [ { ptr null, ptr undef }, %_ZN13opentelemetry7context15CURRENT_CONTEXT7__getit17hfcb1fc94255ffce3E.llvm.5757598564771583165.exit ]
+  %25 = extractvalue { ptr, ptr } %.merged.i, 0
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h86af369b80fc2bf2E.llvm.5757598564771583165.exit"
 
-27:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit.thread", %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit"
+27:                                               ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit"
   call void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 @anon.f34e10cb350ba88450f4cf96dacee54d.45.llvm.5757598564771583165, i64 noundef 70, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f34e10cb350ba88450f4cf96dacee54d.68.llvm.5757598564771583165, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.f34e10cb350ba88450f4cf96dacee54d.47.llvm.5757598564771583165) #25
   unreachable
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6expect17h86af369b80fc2bf2E.llvm.5757598564771583165.exit": ; preds = %"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h46a6e43e8050abccE.llvm.5757598564771583165.exit"
-  %28 = extractvalue { ptr, ptr } %16, 1
+  %28 = extractvalue { ptr, ptr } %.merged.i, 1
   %29 = icmp ne ptr %28, null
   tail call void @llvm.assume(i1 %29)
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  ret { ptr, ptr } %16
+  ret { ptr, ptr } %.merged.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -6558,7 +6558,7 @@ define hidden { ptr, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   %5 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %6 = tail call noundef align 8 ptr %5(ptr noalias noundef align 8 dereferenceable_or_null(56) null)
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %28, label %8
+  br i1 %7, label %26, label %8
 
 8:                                                ; preds = %2
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8
@@ -6615,16 +6615,11 @@ define hidden { ptr, ptr } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h
   %25 = add i64 %24, -1
   store i64 %25, ptr %6, align 8, !noalias !824
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !813
-  %26 = extractvalue { ptr, ptr } %17, 0
-  %27 = extractvalue { ptr, ptr } %17, 1
-  br label %28
+  br label %26
 
-28:                                               ; preds = %2, %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit"
-  %.sroa.3.0 = phi ptr [ %27, %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit" ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %26, %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit" ], [ null, %2 ]
-  %29 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %30 = insertvalue { ptr, ptr } %29, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %30
+26:                                               ; preds = %2, %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit"
+  %.merged = phi { ptr, ptr } [ %17, %"_ZN13opentelemetry7context7Context11map_current28_$u7b$$u7b$closure$u7d$$u7d$17h9cd2aff7584e7775E.exit" ], [ { ptr null, ptr undef }, %2 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

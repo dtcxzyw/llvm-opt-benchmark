@@ -328,11 +328,8 @@ define hidden { ptr, ptr } @_ZN3std9panicking3try17h3b54ab928018d0ecE(ptr noalia
   br label %16
 
 16:                                               ; preds = %10, %15
-  %17 = phi ptr [ undef, %15 ], [ %12, %10 ]
-  %18 = phi ptr [ null, %15 ], [ %11, %10 ]
-  %19 = insertvalue { ptr, ptr } poison, ptr %18, 0
-  %20 = insertvalue { ptr, ptr } %19, ptr %17, 1
-  ret { ptr, ptr } %20
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %15 ], [ %7, %10 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -416,11 +413,8 @@ __rust_try.llvm.17432428852515034553.exit:        ; preds = %.body.i.i.i.i
   br label %37
 
 37:                                               ; preds = %__rust_try.llvm.17432428852515034553.exit, %36
-  %.sroa.6.06 = phi ptr [ undef, %36 ], [ %33, %__rust_try.llvm.17432428852515034553.exit ]
-  %38 = phi ptr [ null, %36 ], [ %32, %__rust_try.llvm.17432428852515034553.exit ]
-  %39 = insertvalue { ptr, ptr } poison, ptr %38, 0
-  %40 = insertvalue { ptr, ptr } %39, ptr %.sroa.6.06, 1
-  ret { ptr, ptr } %40
+  %.merged = phi { ptr, ptr } [ { ptr null, ptr undef }, %36 ], [ %29, %__rust_try.llvm.17432428852515034553.exit ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -734,14 +728,13 @@ default.unreachable:                              ; preds = %13
   %.sroa.4.0.i.i.i = phi ptr [ undef, %24 ], [ %23, %19 ], [ undef, %13 ]
   %.sroa.0.0.i.i.i = phi ptr [ null, %24 ], [ %21, %19 ], [ null, %13 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !123
+  %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i.i, 0
+  %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.4.0.i.i.i, 1
   br label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9d5760175140b0afE.llvm.17432428852515034553.exit"
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h9d5760175140b0afE.llvm.17432428852515034553.exit": ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit.i"
-  %.sroa.3.0.i = phi ptr [ %.sroa.4.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit.i" ], [ undef, %2 ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.0.i.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit.i" ], [ null, %2 ]
-  %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.3.0.i, 1
-  ret { ptr, ptr } %28
+  %.merged.i = phi { ptr, ptr } [ %28, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit.i" ], [ { ptr null, ptr undef }, %2 ]
+  ret { ptr, ptr } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -829,7 +822,7 @@ define hidden { ptr, ptr } @"_ZN4core4iter8adapters6filter15filter_try_fold28_$u
   %6 = getelementptr inbounds i8, ptr %5, i64 256
   %7 = load i64, ptr %6, align 128, !noalias !145, !noundef !5
   %.not = icmp eq i64 %7, %1
-  br i1 %.not, label %26, label %8
+  br i1 %.not, label %28, label %8
 
 8:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !146)
@@ -876,14 +869,13 @@ default.unreachable:                              ; preds = %12
   %.sroa.4.0.i.i = phi ptr [ undef, %23 ], [ %22, %18 ], [ undef, %12 ]
   %.sroa.0.0.i.i = phi ptr [ null, %23 ], [ %20, %18 ], [ null, %12 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !152
-  br label %26
+  %26 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i.i, 0
+  %27 = insertvalue { ptr, ptr } %26, ptr %.sroa.4.0.i.i, 1
+  br label %28
 
-26:                                               ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit"
-  %.sroa.3.0 = phi ptr [ %.sroa.4.0.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit" ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.i.i, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit" ], [ null, %2 ]
-  %27 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %28 = insertvalue { ptr, ptr } %27, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %28
+28:                                               ; preds = %2, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit"
+  %.merged = phi { ptr, ptr } [ %27, %"_ZN4core4iter6traits8iterator8Iterator8find_map5check28_$u7b$$u7b$closure$u7d$$u7d$17h7f8e6c323355850cE.llvm.17432428852515034553.exit" ], [ { ptr null, ptr undef }, %2 ]
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

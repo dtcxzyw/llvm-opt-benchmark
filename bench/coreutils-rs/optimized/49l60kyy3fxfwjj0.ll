@@ -385,16 +385,11 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17h6e4bc65b0ba79d
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit.thread: ; preds = %5
   %10 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h9c53fffebf38163cE(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
-  %11 = extractvalue { ptr, i64 } %10, 0
-  %12 = extractvalue { ptr, i64 } %10, 1
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit: ; preds = %6, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit.thread
-  %.sroa.3.0 = phi i64 [ %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit.thread ], [ undef, %6 ]
-  %.sroa.0.0 = phi ptr [ %11, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit.thread ], [ null, %6 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %14
+  %.merged = phi { ptr, i64 } [ %10, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h60a295f005b248dcE.exit.thread ], [ { ptr null, i64 undef }, %6 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -420,16 +415,11 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17h7cf19edd89c195
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit.thread: ; preds = %6
   tail call void @llvm.assume(i1 %5)
   %11 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17h4f82092896f38708E(ptr nonnull align 8 %3, ptr nonnull align 1 %4, ptr nonnull align 8 %0)
-  %12 = extractvalue { ptr, i64 } %11, 0
-  %13 = extractvalue { ptr, i64 } %11, 1
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit: ; preds = %7, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit.thread
-  %.sroa.3.0 = phi i64 [ %13, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit.thread ], [ undef, %7 ]
-  %.sroa.0.0 = phi ptr [ %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit.thread ], [ null, %7 ]
-  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %15
+  %.merged = phi { ptr, i64 } [ %11, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hfbf2674c76f42004E.exit.thread ], [ { ptr null, i64 undef }, %7 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -452,16 +442,11 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17h9685c83d1caf1a
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit.thread: ; preds = %5
   %10 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17hee3dc89172be79a0E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
-  %11 = extractvalue { ptr, i64 } %10, 0
-  %12 = extractvalue { ptr, i64 } %10, 1
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit: ; preds = %6, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit.thread
-  %.sroa.3.0 = phi i64 [ %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit.thread ], [ undef, %6 ]
-  %.sroa.0.0 = phi ptr [ %11, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit.thread ], [ null, %6 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %14
+  %.merged = phi { ptr, i64 } [ %10, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h29e6227faf28e4adE.exit.thread ], [ { ptr null, i64 undef }, %6 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -484,16 +469,11 @@ define { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator3nth17hb78a6431b9b8f3
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit.thread: ; preds = %5
   %10 = tail call { ptr, i64 } @_ZN4core4iter6traits8iterator8Iterator4find17he2e2387d1f517709E(ptr align 8 %0, ptr nonnull align 1 %3, ptr nonnull align 1 %4)
-  %11 = extractvalue { ptr, i64 } %10, 0
-  %12 = extractvalue { ptr, i64 } %10, 1
   br label %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit: ; preds = %6, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit.thread
-  %.sroa.3.0 = phi i64 [ %12, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit.thread ], [ undef, %6 ]
-  %.sroa.0.0 = phi ptr [ %11, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit.thread ], [ null, %6 ]
-  %13 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %14 = insertvalue { ptr, i64 } %13, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %14
+  %.merged = phi { ptr, i64 } [ %10, %_ZN4core4iter6traits8iterator8Iterator10advance_by17hcbe386b774344537E.exit.thread ], [ { ptr null, i64 undef }, %6 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

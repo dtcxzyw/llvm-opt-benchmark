@@ -109,7 +109,7 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs4next17h67c1e2c729ff7522E(ptr noalias n
 
 _ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread: ; preds = %2
   %6 = tail call i64 @llvm.uadd.sat.i64(i64 %5, i64 1)
-  br label %16
+  br label %18
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -120,16 +120,15 @@ _ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread: ; preds = %2
   %13 = getelementptr inbounds i8, ptr %10, i64 16
   %14 = load i64, ptr %13, align 8, !noalias !15, !noundef !4
   %15 = add nuw i64 %5, 1
-  br label %16
+  %16 = insertvalue { ptr, i64 } poison, ptr %12, 0
+  %17 = insertvalue { ptr, i64 } %16, i64 %14, 1
+  br label %18
 
-16:                                               ; preds = %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread, %7
-  %storemerge = phi i64 [ %6, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %15, %7 ]
-  %.sroa.3.0 = phi i64 [ undef, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %14, %7 ]
-  %.sroa.0.0 = phi ptr [ null, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ], [ %12, %7 ]
-  store i64 %storemerge, ptr %1, align 8, !alias.scope !13, !noalias !10
-  %17 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %18 = insertvalue { ptr, i64 } %17, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %18
+18:                                               ; preds = %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread, %7
+  %.sink = phi i64 [ %15, %7 ], [ %6, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ]
+  %.merged = phi { ptr, i64 } [ %17, %7 ], [ { ptr null, i64 undef }, %_ZN8clap_lex7RawArgs7next_os17h900686034d40f235E.exit.thread ]
+  store i64 %.sink, ptr %1, align 8
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -178,14 +177,13 @@ define { ptr, i64 } @_ZN8clap_lex7RawArgs4peek17h9c091d774d1c058fE(ptr noalias n
   %11 = load ptr, ptr %10, align 8, !noalias !21, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   %13 = load i64, ptr %12, align 8, !noalias !21, !noundef !4
+  %14 = insertvalue { ptr, i64 } poison, ptr %11, 0
+  %15 = insertvalue { ptr, i64 } %14, i64 %13, 1
   br label %_ZN8clap_lex7RawArgs7peek_os17he56275292fcdee6aE.exit.thread
 
 _ZN8clap_lex7RawArgs7peek_os17he56275292fcdee6aE.exit.thread: ; preds = %2, %6
-  %.sroa.3.0 = phi i64 [ %13, %6 ], [ undef, %2 ]
-  %.sroa.0.0 = phi ptr [ %11, %6 ], [ null, %2 ]
-  %14 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %15 = insertvalue { ptr, i64 } %14, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %15
+  %.merged = phi { ptr, i64 } [ %15, %6 ], [ { ptr null, i64 undef }, %2 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable

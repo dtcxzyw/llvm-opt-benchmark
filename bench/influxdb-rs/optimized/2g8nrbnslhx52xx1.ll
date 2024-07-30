@@ -459,16 +459,11 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   %.sroa.0.1.i.i = getelementptr inbounds i8, ptr %.val.i.i, i64 %.pn
   %77 = getelementptr inbounds i8, ptr %0, i64 72
   %78 = tail call { ptr, i64 } @"_ZN89_$LT$core..str..LinesMap$u20$as$u20$core..ops..function..Fn$LT$$LP$$RF$str$C$$RP$$GT$$GT$4call17h49335e292259be4dE.llvm.2921359679148529085"(ptr noalias noundef nonnull readonly align 1 %77, ptr noalias noundef nonnull readonly align 1 %.sroa.0.1.i.i, i64 noundef %.sroa.4.1.i.i)
-  %79 = extractvalue { ptr, i64 } %78, 0
-  %80 = extractvalue { ptr, i64 } %78, 1
   br label %"_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b94148a549c7132E.exit.thread"
 
 "_ZN99_$LT$core..str..iter..SplitInclusive$LT$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8b94148a549c7132E.exit.thread": ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h068e4749ca468c23E.exit.i.i", %1, %select.unfold
-  %.sroa.3.0 = phi i64 [ %80, %select.unfold ], [ undef, %1 ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h068e4749ca468c23E.exit.i.i" ]
-  %.sroa.0.0 = phi ptr [ %79, %select.unfold ], [ null, %1 ], [ null, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h068e4749ca468c23E.exit.i.i" ]
-  %81 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %82 = insertvalue { ptr, i64 } %81, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %82
+  %.merged = phi { ptr, i64 } [ %78, %select.unfold ], [ { ptr null, i64 undef }, %1 ], [ { ptr null, i64 undef }, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17h068e4749ca468c23E.exit.i.i" ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: alwaysinline nounwind nonlazybind uwtable
@@ -5365,12 +5360,12 @@ define hidden { ptr, i64 } @"_ZN71_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$co
   %3 = icmp eq ptr %2, null
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !12, !align !13
-  %.sroa.0.0 = select i1 %3, ptr %5, ptr %2
-  %.sroa.5.0.in = getelementptr inbounds i8, ptr %0, i64 16
-  %.sroa.5.0 = load i64, ptr %.sroa.5.0.in, align 8, !noundef !12
-  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.5.0, 1
-  ret { ptr, i64 } %7
+  %.pn3 = select i1 %3, ptr %5, ptr %2
+  %.pn1.in = getelementptr inbounds i8, ptr %0, i64 16
+  %.pn1 = load i64, ptr %.pn1.in, align 8, !noundef !12
+  %.pn = insertvalue { ptr, i64 } poison, ptr %.pn3, 0
+  %.merged = insertvalue { ptr, i64 } %.pn, i64 %.pn1, 1
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

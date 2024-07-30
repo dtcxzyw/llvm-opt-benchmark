@@ -1357,7 +1357,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit: ; 
   %.sroa.618.0 = phi i64 [ %.val1.i, %119 ], [ 1, %84 ], [ 1, %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit" ], [ 1, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit.thread ], [ 1, %102 ]
   %49 = tail call noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$3get17hd114727ed3896974E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 1 @anon.305833e901efdab365351de932979111.46, i64 noundef 16), !noalias !128
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit", label %51
+  br i1 %50, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63.thread, label %51
 
 51:                                               ; preds = %48
   %52 = tail call noundef i128 @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg13infer_type_id17hf290abf4832dccb4E(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %49, i128 noundef -75035133943807973589178565794283963657), !noalias !133
@@ -1367,7 +1367,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit: ; 
 54:                                               ; preds = %51
   %55 = tail call noundef align 16 dereferenceable_or_null(32) ptr @_ZN12clap_builder6parser7matches11matched_arg10MatchedArg5first17h50d2ee94eaddf3d5E(ptr noalias noundef nonnull readonly align 16 dereferenceable(112) %49), !noalias !136
   %56 = icmp eq ptr %55, null
-  br i1 %56, label %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit", label %57
+  br i1 %56, label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63.thread, label %57
 
 57:                                               ; preds = %54
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
@@ -1493,7 +1493,7 @@ _ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit: ; preds = %.no
   store ptr %92, ptr %100, align 8
   %101 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @anon.665fe9b1cceef5d373a7ecaaa3833e15.7.llvm.11389445161417936973, ptr %101, align 8
-  br label %130
+  br label %134
 
 102:                                              ; preds = %84
   %103 = getelementptr i8, ptr %32, i64 24
@@ -1553,7 +1553,7 @@ _ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit: ; preds = %.no
   store ptr %122, ptr %124, align 8
   %125 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %123, ptr %125, align 8
-  br label %130
+  br label %134
 
 126:                                              ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63
   %127 = icmp ne ptr %.val51, null
@@ -1567,23 +1567,31 @@ _ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit: ; preds = %.no
   br i1 %128, label %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit", label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h76c8a946bfff30cbE.exit.i"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h76c8a946bfff30cbE.exit.i": ; preds = %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i", %126
+  %129 = insertvalue { ptr, i64 } poison, ptr %.val51, 0
+  %130 = insertvalue { ptr, i64 } %129, i64 %.val52, 1
   br label %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit"
 
-"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit": ; preds = %54, %48, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h76c8a946bfff30cbE.exit.i", %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i", %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63
-  %.sroa.019.0 = phi ptr [ %.val51, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h76c8a946bfff30cbE.exit.i" ], [ @anon.305833e901efdab365351de932979111.44, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63 ], [ @anon.305833e901efdab365351de932979111.44, %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i" ], [ null, %48 ], [ null, %54 ]
-  %.sroa.3.0 = phi i64 [ %.val52, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h76c8a946bfff30cbE.exit.i" ], [ 1, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63 ], [ 1, %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i" ], [ undef, %48 ], [ undef, %54 ]
-  %129 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr %.sroa.017.0, ptr %129, align 8
+"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit": ; preds = %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63, %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i", %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h76c8a946bfff30cbE.exit.i"
+  %.merged.i = phi { ptr, i64 } [ %130, %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h76c8a946bfff30cbE.exit.i" ], [ { ptr @anon.305833e901efdab365351de932979111.44, i64 1 }, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63 ], [ { ptr @anon.305833e901efdab365351de932979111.44, i64 1 }, %"_ZN78_$LT$std..ffi..os_str..OsString$u20$as$u20$core..cmp..PartialEq$LT$str$GT$$GT$2eq17h9e3fbbf39e857366E.exit.i" ]
+  %131 = extractvalue { ptr, i64 } %.merged.i, 0
+  %132 = extractvalue { ptr, i64 } %.merged.i, 1
+  br label %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63.thread
+
+_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63.thread: ; preds = %54, %48, %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit"
+  %.sroa.019.0 = phi ptr [ %131, %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit" ], [ null, %48 ], [ null, %54 ]
+  %.sroa.3.0 = phi i64 [ %132, %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit" ], [ undef, %48 ], [ undef, %54 ]
+  %133 = getelementptr inbounds i8, ptr %0, i64 8
+  store ptr %.sroa.017.0, ptr %133, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %.sroa.618.0, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %.sroa.019.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.616.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %.sroa.3.0, ptr %.sroa.616.0..sroa_idx, align 8
-  br label %130
+  br label %134
 
-130:                                              ; preds = %_ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit, %120, %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit"
-  %storemerge = phi i64 [ 0, %"_ZN6uu_cut14get_delimiters28_$u7b$$u7b$closure$u7d$$u7d$17hd376541e46cbad56E.exit" ], [ 1, %120 ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit ]
+134:                                              ; preds = %_ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit, %120, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63.thread
+  %storemerge = phi i64 [ 0, %_ZN12clap_builder6parser5error12MatchesError6unwrap17h533190a0ac4545dfE.exit63.thread ], [ 1, %120 ], [ 1, %_ZN6uucore4mods5error12USimpleError3new17h662ce6101a732c3bE.exit ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }

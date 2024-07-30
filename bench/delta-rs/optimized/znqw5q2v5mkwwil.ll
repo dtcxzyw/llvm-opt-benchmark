@@ -3736,44 +3736,45 @@ define { ptr, ptr } @_ZN14deltalake_test11TestContext11get_storage17hc5e02e7cb70
   %2 = getelementptr inbounds i8, ptr %0, i64 680
   %3 = load ptr, ptr %2, align 8, !noundef !4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %4, label %..thread_crit_edge
+  br i1 %.not, label %6, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 688
   %..val5.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %4 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %5 = insertvalue { ptr, ptr } %4, ptr %..val5.pre, 1
   br label %.thread
 
-4:                                                ; preds = %1
-  %5 = tail call { ptr, ptr } @_ZN14deltalake_test11TestContext11new_storage17hb079a9494087dc6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %0)
-  %6 = extractvalue { ptr, ptr } %5, 1
-  %7 = extractvalue { ptr, ptr } %5, 0
-  store ptr %7, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 688
-  store ptr %6, ptr %8, align 8
-  %9 = icmp eq ptr %7, null
-  br i1 %9, label %10, label %.thread
+6:                                                ; preds = %1
+  %7 = tail call { ptr, ptr } @_ZN14deltalake_test11TestContext11new_storage17hb079a9494087dc6eE(ptr noalias noundef nonnull readonly align 8 dereferenceable(712) %0)
+  %8 = extractvalue { ptr, ptr } %7, 1
+  %9 = extractvalue { ptr, ptr } %7, 0
+  store ptr %9, ptr %2, align 8
+  %10 = getelementptr inbounds i8, ptr %0, i64 688
+  store ptr %8, ptr %10, align 8
+  %11 = icmp eq ptr %9, null
+  br i1 %11, label %12, label %.thread
 
-10:                                               ; preds = %4
+12:                                               ; preds = %6
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.791db69454e89ea14b1bf901649a42ca.77) #21
   unreachable
 
-.thread:                                          ; preds = %..thread_crit_edge, %4
-  %..val5 = phi ptr [ %..val5.pre, %..thread_crit_edge ], [ %6, %4 ]
-  %..val = phi ptr [ %3, %..thread_crit_edge ], [ %7, %4 ]
-  %11 = atomicrmw add ptr %..val, i64 1 monotonic, align 8
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %13, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf01f75ffd4eadce4E.exit"
+.thread:                                          ; preds = %..thread_crit_edge, %6
+  %..val5 = phi ptr [ %..val5.pre, %..thread_crit_edge ], [ %8, %6 ]
+  %..val = phi ptr [ %3, %..thread_crit_edge ], [ %9, %6 ]
+  %.merged = phi { ptr, ptr } [ %5, %..thread_crit_edge ], [ %7, %6 ]
+  %13 = atomicrmw add ptr %..val, i64 1 monotonic, align 8
+  %14 = icmp slt i64 %13, 0
+  br i1 %14, label %15, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf01f75ffd4eadce4E.exit"
 
-13:                                               ; preds = %.thread
+15:                                               ; preds = %.thread
   tail call void @llvm.trap()
   unreachable
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf01f75ffd4eadce4E.exit": ; preds = %.thread
-  %14 = icmp ne ptr %..val5, null
-  tail call void @llvm.assume(i1 %14)
-  %15 = insertvalue { ptr, ptr } poison, ptr %..val, 0
-  %16 = insertvalue { ptr, ptr } %15, ptr %..val5, 1
-  ret { ptr, ptr } %16
+  %16 = icmp ne ptr %..val5, null
+  tail call void @llvm.assume(i1 %16)
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

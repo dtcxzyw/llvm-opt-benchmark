@@ -3713,7 +3713,7 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23Binar
   %14 = load i64, ptr %13, align 8, !noalias !754, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !757)
   %15 = icmp eq i64 %6, 0
-  br i1 %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hcf21dc7803f3b6d3E.exit.thread", label %16
+  br i1 %15, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h28d94dbf967720c4E.exit", label %16
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %10, align 8, !alias.scope !760, !noalias !763, !nonnull !4, !align !5, !noundef !4
@@ -3901,14 +3901,18 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$mini_lsm
   store ptr %12, ptr %97, align 8, !noalias !757
   %.sroa.13.16..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %97, i64 8
   store i64 %14, ptr %.sroa.13.16..sroa_idx.i.i.i, align 8, !noalias !757
+  br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h28d94dbf967720c4E.exit"
+
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h28d94dbf967720c4E.exit": ; preds = %5, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha12e688016bf4400E.exit.i"
+  %.sroa.3.0.i5 = phi i64 [ %14, %5 ], [ %19, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha12e688016bf4400E.exit.i" ]
+  %.sroa.0.0.i6 = phi ptr [ %12, %5 ], [ %17, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha12e688016bf4400E.exit.i" ]
+  %98 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i6, 0
+  %99 = insertvalue { ptr, i64 } %98, i64 %.sroa.3.0.i5, 1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hcf21dc7803f3b6d3E.exit.thread"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hcf21dc7803f3b6d3E.exit.thread": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha12e688016bf4400E.exit.i", %5, %1
-  %.sroa.3.0 = phi i64 [ undef, %1 ], [ %14, %5 ], [ %19, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha12e688016bf4400E.exit.i" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %12, %5 ], [ %17, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha12e688016bf4400E.exit.i" ]
-  %98 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %99 = insertvalue { ptr, i64 } %98, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %99
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hcf21dc7803f3b6d3E.exit.thread": ; preds = %1, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h28d94dbf967720c4E.exit"
+  %.merged = phi { ptr, i64 } [ %99, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17h28d94dbf967720c4E.exit" ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4077,15 +4081,14 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23Binar
 "_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hc7d13592f6655c46E.exit": ; preds = %6, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha251d43d1b29f8b8E.exit.i"
   %63 = phi i64 [ %22, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha251d43d1b29f8b8E.exit.i" ], [ %15, %6 ]
   %64 = phi ptr [ %20, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17ha251d43d1b29f8b8E.exit.i" ], [ %13, %6 ]
+  %65 = insertvalue { ptr, i64 } poison, ptr %64, 0
+  %66 = insertvalue { ptr, i64 } %65, i64 %63, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf07550a5800b94d3E.exit.thread"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hf07550a5800b94d3E.exit.thread": ; preds = %1, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hc7d13592f6655c46E.exit"
-  %.sroa.3.0 = phi i64 [ %63, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hc7d13592f6655c46E.exit" ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %64, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hc7d13592f6655c46E.exit" ], [ null, %1 ]
-  %65 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %66 = insertvalue { ptr, i64 } %65, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %66
+  %.merged = phi { ptr, i64 } [ %66, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hc7d13592f6655c46E.exit" ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nofree nounwind nonlazybind uwtable
@@ -4110,7 +4113,7 @@ define internal fastcc { ptr, i64 } @"_ZN5alloc11collections11binary_heap23Binar
   %14 = load i64, ptr %13, align 8, !noalias !814, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !817)
   %15 = icmp eq i64 %6, 0
-  br i1 %15, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc6392a171bcf3863E.exit.thread", label %16
+  br i1 %15, label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hbbd8107e0111bc13E.exit", label %16
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr %10, align 8, !alias.scope !820, !noalias !823, !nonnull !4, !align !5, !noundef !4
@@ -4298,14 +4301,18 @@ default.unreachable:                              ; preds = %"_ZN67_$LT$mini_lsm
   store ptr %12, ptr %97, align 8, !noalias !817
   %.sroa.13.16..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %97, i64 8
   store i64 %14, ptr %.sroa.13.16..sroa_idx.i.i.i, align 8, !noalias !817
+  br label %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hbbd8107e0111bc13E.exit"
+
+"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hbbd8107e0111bc13E.exit": ; preds = %5, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hfd48608076e60186E.exit.i"
+  %.sroa.3.0.i5 = phi i64 [ %14, %5 ], [ %19, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hfd48608076e60186E.exit.i" ]
+  %.sroa.0.0.i6 = phi ptr [ %12, %5 ], [ %17, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hfd48608076e60186E.exit.i" ]
+  %98 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i6, 0
+  %99 = insertvalue { ptr, i64 } %98, i64 %.sroa.3.0.i5, 1
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc6392a171bcf3863E.exit.thread"
 
-"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc6392a171bcf3863E.exit.thread": ; preds = %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hfd48608076e60186E.exit.i", %5, %1
-  %.sroa.3.0 = phi i64 [ undef, %1 ], [ %14, %5 ], [ %19, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hfd48608076e60186E.exit.i" ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ %12, %5 ], [ %17, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$19sift_down_to_bottom17hfd48608076e60186E.exit.i" ]
-  %98 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %99 = insertvalue { ptr, i64 } %98, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %99
+"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hc6392a171bcf3863E.exit.thread": ; preds = %1, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hbbd8107e0111bc13E.exit"
+  %.merged = phi { ptr, i64 } [ %99, %"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT$3pop28_$u7b$$u7b$closure$u7d$$u7d$17hbbd8107e0111bc13E.exit" ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

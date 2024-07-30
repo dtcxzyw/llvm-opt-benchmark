@@ -1785,21 +1785,20 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval5union17h4b6d
   %.0.sroa.speculated.i1.i = tail call noundef i32 @llvm.umin.i32(i32 %5, i32 %8)
   %9 = add nuw nsw i32 %.0.sroa.speculated.i1.i, 1
   %.not = icmp ugt i32 %.0.sroa.speculated.i.i, %9
-  br i1 %.not, label %11, label %10
+  br i1 %.not, label %13, label %10
 
 10:                                               ; preds = %2
   %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %3, i32 %6)
   %.0.sroa.speculated.i.i2 = tail call noundef range(i32 0, 1114112) i32 @llvm.umax.i32(i32 %5, i32 %8)
   %..i = tail call i32 @llvm.umin.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
   %.6.i = tail call i32 @llvm.umax.i32(i32 %.0.sroa.speculated.i.i1, i32 %.0.sroa.speculated.i.i2)
-  br label %11
+  %11 = insertvalue { i32, i32 } poison, i32 %..i, 0
+  %12 = insertvalue { i32, i32 } %11, i32 %.6.i, 1
+  br label %13
 
-11:                                               ; preds = %2, %10
-  %.sroa.3.0 = phi i32 [ %.6.i, %10 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i32 [ %..i, %10 ], [ 1114112, %2 ]
-  %12 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
-  %13 = insertvalue { i32, i32 } %12, i32 %.sroa.3.0, 1
-  ret { i32, i32 } %13
+13:                                               ; preds = %2, %10
+  %.merged = phi { i32, i32 } [ %12, %10 ], [ { i32 1114112, i32 undef }, %2 ]
+  ret { i32, i32 } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1834,10 +1833,10 @@ define hidden { i32, i32 } @_ZN12regex_syntax3hir8interval8Interval9intersect17h
   %8 = load i32, ptr %7, align 4, !range !74, !alias.scope !161, !noundef !4
   %.0.sroa.speculated.i.i1 = tail call noundef range(i32 0, 1114112) i32 @llvm.umin.i32(i32 %6, i32 %8)
   %.not = icmp ugt i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i1
-  %spec.select = select i1 %.not, i32 1114112, i32 %.0.sroa.speculated.i.i
-  %9 = insertvalue { i32, i32 } poison, i32 %spec.select, 0
+  %9 = insertvalue { i32, i32 } poison, i32 %.0.sroa.speculated.i.i, 0
   %10 = insertvalue { i32, i32 } %9, i32 %.0.sroa.speculated.i.i1, 1
-  ret { i32, i32 } %10
+  %.merged = select i1 %.not, { i32, i32 } { i32 1114112, i32 undef }, { i32, i32 } %10
+  ret { i32, i32 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

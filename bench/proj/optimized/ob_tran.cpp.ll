@@ -657,17 +657,17 @@ define internal { double, double } @_ZL9o_inverse5PJ_XYP8PJconsts(double %0, dou
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { double, double } %8(double %0, double %1, ptr noundef %6)
   %10 = extractvalue { double, double } %9, 0
-  %11 = extractvalue { double, double } %9, 1
-  %12 = fcmp une double %10, 0x7FF0000000000000
-  br i1 %12, label %13, label %38
+  %11 = fcmp une double %10, 0x7FF0000000000000
+  br i1 %11, label %12, label %40
 
-13:                                               ; preds = %3
+12:                                               ; preds = %3
+  %13 = extractvalue { double, double } %9, 1
   %14 = getelementptr inbounds i8, ptr %5, i64 8
   %15 = load double, ptr %14, align 8
   %16 = fsub double %10, %15
   %17 = tail call double @cos(double noundef %16) #9
-  %18 = tail call double @sin(double noundef %11) #9
-  %19 = tail call double @cos(double noundef %11) #9
+  %18 = tail call double @sin(double noundef %13) #9
+  %19 = tail call double @cos(double noundef %13) #9
   %20 = load ptr, ptr %2, align 8
   %21 = getelementptr inbounds i8, ptr %5, i64 24
   %22 = load double, ptr %21, align 8
@@ -686,14 +686,13 @@ define internal { double, double } @_ZL9o_inverse5PJ_XYP8PJconsts(double %0, dou
   %35 = fmul double %18, %34
   %36 = tail call double @llvm.fmuladd.f64(double %32, double %17, double %35)
   %37 = tail call noundef double @_Z6aatan2dd(double noundef %30, double noundef %36)
-  br label %38
+  %38 = insertvalue { double, double } poison, double %37, 0
+  %39 = insertvalue { double, double } %38, double %28, 1
+  br label %40
 
-38:                                               ; preds = %13, %3
-  %.sroa.018.0 = phi double [ %37, %13 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.8.0 = phi double [ %28, %13 ], [ %11, %3 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.018.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.8.0, 1
-  ret { double, double } %.fca.1.insert
+40:                                               ; preds = %12, %3
+  %.fca.1.insert.merged = phi { double, double } [ %39, %12 ], [ %9, %3 ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -730,32 +729,31 @@ define internal { double, double } @_ZL9t_inverse5PJ_XYP8PJconsts(double %0, dou
   %8 = load ptr, ptr %7, align 8
   %9 = tail call { double, double } %8(double %0, double %1, ptr noundef %6)
   %10 = extractvalue { double, double } %9, 0
-  %11 = extractvalue { double, double } %9, 1
-  %12 = fcmp une double %10, 0x7FF0000000000000
-  br i1 %12, label %13, label %27
+  %11 = fcmp une double %10, 0x7FF0000000000000
+  br i1 %11, label %12, label %29
 
-13:                                               ; preds = %3
-  %14 = tail call double @cos(double noundef %11) #9
+12:                                               ; preds = %3
+  %13 = extractvalue { double, double } %9, 1
+  %14 = tail call double @cos(double noundef %13) #9
   %15 = getelementptr inbounds i8, ptr %5, i64 8
   %16 = load double, ptr %15, align 8
   %17 = fsub double %10, %16
   %18 = tail call double @sin(double noundef %17) #9
   %19 = fmul double %14, %18
-  %20 = tail call double @sin(double noundef %11) #9
+  %20 = tail call double @sin(double noundef %13) #9
   %21 = fneg double %20
   %22 = tail call noundef double @_Z6aatan2dd(double noundef %19, double noundef %21)
   %23 = load ptr, ptr %2, align 8
   %24 = tail call double @cos(double noundef %17) #9
   %25 = fmul double %14, %24
   %26 = tail call noundef double @_Z5aasinP6pj_ctxd(ptr noundef %23, double noundef %25)
-  br label %27
+  %27 = insertvalue { double, double } poison, double %22, 0
+  %28 = insertvalue { double, double } %27, double %26, 1
+  br label %29
 
-27:                                               ; preds = %13, %3
-  %.sroa.011.0 = phi double [ %22, %13 ], [ 0x7FF0000000000000, %3 ]
-  %.sroa.5.0 = phi double [ %26, %13 ], [ %11, %3 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %.sroa.011.0, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %.sroa.5.0, 1
-  ret { double, double } %.fca.1.insert
+29:                                               ; preds = %12, %3
+  %.fca.1.insert.merged = phi { double, double } [ %28, %12 ], [ %9, %3 ]
+  ret { double, double } %.fca.1.insert.merged
 }
 
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1

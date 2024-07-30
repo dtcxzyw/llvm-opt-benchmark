@@ -293,10 +293,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN3app6launchERKSt9nothrow_tPFvvEP11
 
 30:                                               ; preds = %28, %26
   %.pn = phi { ptr, i32 } [ %29, %28 ], [ %27, %26 ]
-  %.015 = extractvalue { ptr, i32 } %.pn, 0
-  %.016 = extractvalue { ptr, i32 } %.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #12
-  br label %106
+  br label %108
 
 31:                                               ; preds = %24
   call fastcc void @_ZN12_GLOBAL__N_121SetLoggerAtEndOfScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #12
@@ -493,14 +491,13 @@ _ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i25: ; preds = %101
 _ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26: ; preds = %101, %_ZNKSt14default_deleteI20WithExtraLogAppenderEclEPS0_.exit.i25
   store ptr null, ptr %7, align 8
   call void @_ZN6Logger11ScopeTracerD1Ev(ptr noundef nonnull align 8 dereferenceable(121) %4) #12
-  br label %106
+  %106 = insertvalue { ptr, i32 } poison, ptr %.2, 0
+  %107 = insertvalue { ptr, i32 } %106, i32 %.218, 1
+  br label %108
 
-106:                                              ; preds = %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26, %30
-  %.319 = phi i32 [ %.218, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.016, %30 ]
-  %.3 = phi ptr [ %.2, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.015, %30 ]
-  %107 = insertvalue { ptr, i32 } poison, ptr %.3, 0
-  %108 = insertvalue { ptr, i32 } %107, i32 %.319, 1
-  resume { ptr, i32 } %108
+108:                                              ; preds = %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26, %30
+  %.merged = phi { ptr, i32 } [ %107, %_ZNSt10unique_ptrI20WithExtraLogAppenderSt14default_deleteIS0_EED2Ev.exit26 ], [ %.pn, %30 ]
+  resume { ptr, i32 } %.merged
 
 109:                                              ; preds = %95, %91, %68, %60
   %110 = landingpad { ptr, i32 }

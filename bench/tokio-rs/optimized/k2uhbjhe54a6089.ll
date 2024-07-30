@@ -20,12 +20,8 @@ define { i64, i32 } @"_ZN97_$LT$tokio_stream..wrappers..interval..IntervalStream
   %3 = tail call { i64, i32 } @_ZN5tokio4time8interval8Interval9poll_tick17h3ccd193c126e82caE(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
   %.fca.1.extract = extractvalue { i64, i32 } %3, 1
   %4 = icmp eq i32 %.fca.1.extract, 1000000000
-  %5 = extractvalue { i64, i32 } %3, 0
-  %spec.select = select i1 %4, i64 undef, i64 %5
-  %spec.select6 = select i1 %4, i32 1000000001, i32 %.fca.1.extract
-  %6 = insertvalue { i64, i32 } poison, i64 %spec.select, 0
-  %7 = insertvalue { i64, i32 } %6, i32 %spec.select6, 1
-  ret { i64, i32 } %7
+  %spec.select = select i1 %4, { i64, i32 } { i64 undef, i32 1000000001 }, { i64, i32 } %3
+  ret { i64, i32 } %spec.select
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable

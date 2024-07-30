@@ -1547,34 +1547,55 @@ define internal noundef i32 @"_ZN92_$LT$aho_corasick..nfa..noncontiguous..NFA$u2
   %exitcond.not.i.i = icmp eq i64 %11, %2
   br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i, label %9
 
+_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i: ; preds = %9
+  %21 = icmp eq i64 %.sroa.01.015.i.i, %2
+  br i1 %21, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i", label %_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E.exit
+
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i: ; preds = %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i", %3
-  %21 = phi i32 [ %6, %3 ], [ %20, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i" ]
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i, label %23
+  %22 = phi i32 [ %6, %3 ], [ %20, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i.i" ]
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i", label %24
 
-23:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i
-  %24 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %24)
-  %25 = zext i32 %21 to i64
-  %26 = getelementptr inbounds i8, ptr %5, i64 88
-  %27 = load i64, ptr %26, align 8, !noalias !48, !noundef !5
-  %28 = icmp ugt i64 %27, %25
-  br i1 %28, label %30, label %29, !prof !18
+24:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i
+  %25 = icmp ne ptr %5, null
+  tail call void @llvm.assume(i1 %25)
+  %26 = zext i32 %22 to i64
+  %27 = getelementptr inbounds i8, ptr %5, i64 88
+  %28 = load i64, ptr %27, align 8, !noalias !48, !noundef !5
+  %29 = icmp ugt i64 %28, %26
+  br i1 %29, label %30, label %35, !prof !18
 
-29:                                               ; preds = %23
-  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %25, i64 noundef %27, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !48
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds i8, ptr %5, i64 80
+  %32 = load ptr, ptr %31, align 8, !noalias !48, !nonnull !5, !noundef !5
+  %33 = getelementptr inbounds [0 x { i32, i32 }], ptr %32, i64 0, i64 %26
+  %34 = load i32, ptr %33, align 4, !noalias !48, !noundef !5
+  br label %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i"
+
+35:                                               ; preds = %24
+  tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %26, i64 noundef %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.24) #13, !noalias !48
   unreachable
 
-_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i: ; preds = %9, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i
+"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i": ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i, %30, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i
+  %.sroa.3.0.i.i.i = phi i32 [ %34, %30 ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i ], [ undef, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i ]
+  %.sroa.0.0.i.i.i = phi i32 [ 1, %30 ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.thread.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i ]
+  %36 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0.i.i.i, 0
+  %37 = insertvalue { i32, i32 } %36, i32 %.sroa.3.0.i.i.i, 1
+  br label %_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E.exit
+
+_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E.exit: ; preds = %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i"
+  %.merged.i = phi { i32, i32 } [ %37, %"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h46c636757ac6fd0dE.exit.i" ], [ { i32 0, i32 undef }, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h449dfa10aec3d63bE.exit.i ]
+  %38 = extractvalue { i32, i32 } %.merged.i, 0
+  %switch = icmp eq i32 %38, 0
+  br i1 %switch, label %39, label %40
+
+39:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E.exit
   tail call void @_ZN4core6option13unwrap_failed17hac39b9b7507453f8E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e316c324bdc0d28376b7586f951427b3.54) #13
   unreachable
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds i8, ptr %5, i64 80
-  %32 = load ptr, ptr %31, align 8, !noalias !48, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds [0 x { i32, i32 }], ptr %32, i64 0, i64 %25
-  %34 = load i32, ptr %33, align 4, !noalias !48, !noundef !5
-  ret i32 %34
+40:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator3nth17hdbfbf8272b46ac86E.exit
+  %41 = extractvalue { i32, i32 } %.merged.i, 1
+  ret i32 %41
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

@@ -5775,7 +5775,7 @@ lpad16:                                           ; preds = %if.then20
   br label %ehcleanup
 
 if.then.i28:                                      ; preds = %invoke.cont17, %invoke.cont15
-  %ret.sroa.0.0.insert.insert.i45 = phi i32 [ %6, %invoke.cont17 ], [ 0, %invoke.cont15 ]
+  %ret.sroa.0.0.insert.insert.i43 = phi i32 [ %6, %invoke.cont17 ], [ 0, %invoke.cont15 ]
   invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %errors)
           to label %cleanup.cont unwind label %terminate.lpad.i29
 
@@ -5790,7 +5790,7 @@ cleanup.cont:                                     ; preds = %if.then.i28
   %call26 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %address_str) #19
   %13 = extractvalue { i64, ptr } %call26, 0
   %14 = extractvalue { i64, ptr } %call26, 1
-  invoke void @_ZN9grpc_core16StringToSockaddrESt17basic_string_viewIcSt11char_traitsIcEEi(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.116") align 8 %addr, i64 %13, ptr %14, i32 noundef %ret.sroa.0.0.insert.insert.i45)
+  invoke void @_ZN9grpc_core16StringToSockaddrESt17basic_string_viewIcSt11char_traitsIcEEi(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.116") align 8 %addr, i64 %13, ptr %14, i32 noundef %ret.sroa.0.0.insert.insert.i43)
           to label %invoke.cont27 unwind label %lpad14
 
 invoke.cont27:                                    ; preds = %cleanup.cont
@@ -5808,39 +5808,40 @@ cond.true.i:                                      ; preds = %if.then31
   %16 = inttoptr i64 %sub.i.i to ptr
   %message.i = getelementptr inbounds i8, ptr %16, i64 8
   %call4.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %message.i) #19
-  %17 = extractvalue { i64, ptr } %call4.i, 0
-  %18 = extractvalue { i64, ptr } %call4.i, 1
   br label %invoke.cont35
 
 cond.false.i:                                     ; preds = %if.then31
-  %19 = and i64 %15, 2
-  %.not.i = icmp eq i64 %19, 0
+  %17 = and i64 %15, 2
+  %.not.i = icmp eq i64 %17, 0
   %spec.select.i = select i1 %.not.i, i64 0, i64 27
   %spec.select1.i = select i1 %.not.i, ptr null, ptr @_ZN4absl12lts_202308026Status16kMovedFromStringE
+  %18 = insertvalue { i64, ptr } poison, i64 %spec.select.i, 0
+  %19 = insertvalue { i64, ptr } %18, ptr %spec.select1.i, 1
   br label %invoke.cont35
 
 invoke.cont35:                                    ; preds = %cond.false.i, %cond.true.i
-  %retval.sroa.0.0.i = phi i64 [ %17, %cond.true.i ], [ %spec.select.i, %cond.false.i ]
-  %retval.sroa.4.0.i = phi ptr [ %18, %cond.true.i ], [ %spec.select1.i, %cond.false.i ]
-  invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %retval.sroa.0.0.i, ptr %retval.sroa.4.0.i)
+  %.fca.1.insert.merged.i = phi { i64, ptr } [ %call4.i, %cond.true.i ], [ %19, %cond.false.i ]
+  %20 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 0
+  %21 = extractvalue { i64, ptr } %.fca.1.insert.merged.i, 1
+  invoke void @_ZN9grpc_core16ValidationErrors8AddErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(72) %errors, i64 %20, ptr %21)
           to label %cleanup42 unwind label %lpad28
 
 lpad28:                                           ; preds = %invoke.cont35
-  %20 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202308028StatusOrI21grpc_resolved_addressED2Ev(ptr noundef nonnull align 8 dereferenceable(140) %addr) #19
   br label %ehcleanup
 
 cleanup42.thread:                                 ; preds = %invoke.cont27
-  %21 = getelementptr inbounds i8, ptr %addr, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %21, i64 132, i1 false)
-  %_M_engaged.i.i.i.i35 = getelementptr inbounds i8, ptr %agg.result, i64 132
-  store i8 1, ptr %_M_engaged.i.i.i.i35, align 4
+  %23 = getelementptr inbounds i8, ptr %addr, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %agg.result, ptr noundef nonnull align 8 dereferenceable(132) %23, i64 132, i1 false)
+  %_M_engaged.i.i.i.i33 = getelementptr inbounds i8, ptr %agg.result, i64 132
+  store i8 1, ptr %_M_engaged.i.i.i.i33, align 4
   br label %cleanup43
 
 cleanup42:                                        ; preds = %invoke.cont35
-  %_M_engaged.i.i.i.i34 = getelementptr inbounds i8, ptr %agg.result, i64 132
-  store i8 0, ptr %_M_engaged.i.i.i.i34, align 4
+  %_M_engaged.i.i.i.i32 = getelementptr inbounds i8, ptr %agg.result, i64 132
+  store i8 0, ptr %_M_engaged.i.i.i.i32, align 4
   %.pre = load i64, ptr %addr, align 8
   %and.i.i.i1.i.i = and i64 %.pre, 1
   %cmp.i.i.i2.i.i = icmp eq i64 %and.i.i.i1.i.i, 0
@@ -5851,36 +5852,36 @@ if.then.i.i3.i.i:                                 ; preds = %cleanup42
           to label %cleanup43 unwind label %terminate.lpad.i4.i.i
 
 terminate.lpad.i4.i.i:                            ; preds = %if.then.i.i3.i.i
-  %22 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  call void @__clang_call_terminate(ptr %23) #24
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #24
   unreachable
 
 cleanup43:                                        ; preds = %cleanup42.thread, %if.then.i.i3.i.i, %cleanup42, %if.then.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str) #19
-  %.pre46 = load ptr, ptr %field, align 8
+  %.pre44 = load ptr, ptr %field, align 8
   br label %cleanup44
 
 ehcleanup:                                        ; preds = %lpad28, %lpad16, %lpad14
-  %.pn = phi { ptr, i32 } [ %20, %lpad28 ], [ %9, %lpad14 ], [ %10, %lpad16 ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad28 ], [ %9, %lpad14 ], [ %10, %lpad16 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %address_str) #19
   br label %ehcleanup45
 
 cleanup44:                                        ; preds = %cleanup43, %invoke.cont6
-  %24 = phi ptr [ %.pre46, %cleanup43 ], [ %errors, %invoke.cont6 ]
-  %cmp.not.i36 = icmp eq ptr %24, null
-  br i1 %cmp.not.i36, label %return, label %if.then.i37
+  %26 = phi ptr [ %.pre44, %cleanup43 ], [ %errors, %invoke.cont6 ]
+  %cmp.not.i34 = icmp eq ptr %26, null
+  br i1 %cmp.not.i34, label %return, label %if.then.i35
 
-if.then.i37:                                      ; preds = %cleanup44
-  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %24)
-          to label %return unwind label %terminate.lpad.i38
+if.then.i35:                                      ; preds = %cleanup44
+  invoke void @_ZN9grpc_core16ValidationErrors8PopFieldEv(ptr noundef nonnull align 8 dereferenceable(72) %26)
+          to label %return unwind label %terminate.lpad.i36
 
-terminate.lpad.i38:                               ; preds = %if.then.i37
-  %25 = landingpad { ptr, i32 }
+terminate.lpad.i36:                               ; preds = %if.then.i35
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %26 = extractvalue { ptr, i32 } %25, 0
-  call void @__clang_call_terminate(ptr %26) #24
+  %28 = extractvalue { ptr, i32 } %27, 0
+  call void @__clang_call_terminate(ptr %28) #24
   unreachable
 
 ehcleanup45:                                      ; preds = %lpad, %lpad.i, %ehcleanup
@@ -5888,7 +5889,7 @@ ehcleanup45:                                      ; preds = %lpad, %lpad.i, %ehc
   call void @_ZN9grpc_core16ValidationErrors11ScopedFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %field) #19
   resume { ptr, i32 } %.pn11
 
-return:                                           ; preds = %if.then.i37, %cleanup44, %if.then
+return:                                           ; preds = %if.then.i35, %cleanup44, %if.then
   ret void
 }
 

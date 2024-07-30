@@ -25,18 +25,18 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 16:                                               ; preds = %4
   %17 = or i64 %10, %0
   %.not100 = icmp eq i64 %17, 0
-  br i1 %.not100, label %18, label %72
+  br i1 %.not100, label %18, label %70
 
 18:                                               ; preds = %16
   %19 = icmp ne i64 %12, 32767
   %20 = or i64 %13, %2
   %.not101 = icmp eq i64 %20, 0
   %or.cond = select i1 %19, i1 true, i1 %.not101
-  br i1 %or.cond, label %21, label %72
+  br i1 %or.cond, label %21, label %70
 
 21:                                               ; preds = %18
   %22 = or i64 %20, %12
-  br label %76
+  br label %72
 
 23:                                               ; preds = %4
   %24 = icmp eq i64 %12, 32767
@@ -45,12 +45,12 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 25:                                               ; preds = %23
   %26 = or i64 %13, %2
   %.not99 = icmp eq i64 %26, 0
-  br i1 %.not99, label %27, label %72
+  br i1 %.not99, label %27, label %70
 
 27:                                               ; preds = %25
   %28 = or i64 %10, %0
   %29 = or i64 %28, %9
-  br label %76
+  br label %72
 
 30:                                               ; preds = %23
   %.not = icmp eq i64 %9, 0
@@ -59,7 +59,7 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 31:                                               ; preds = %30
   %32 = or i64 %10, %0
   %.not96 = icmp eq i64 %32, 0
-  br i1 %.not96, label %80, label %33
+  br i1 %.not96, label %76, label %33
 
 33:                                               ; preds = %31
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %6, i64 noundef %10, i64 noundef %0) #3
@@ -80,7 +80,7 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 35:                                               ; preds = %34
   %36 = or i64 %13, %2
   %.not98 = icmp eq i64 %36, 0
-  br i1 %.not98, label %80, label %37
+  br i1 %.not98, label %76, label %37
 
 37:                                               ; preds = %35
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %7, i64 noundef %13, i64 noundef %2) #3
@@ -135,40 +135,38 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   %.sroa.411.0 = phi i64 [ %62, %60 ], [ %58, %38 ]
   %.sroa.09.0 = phi i64 [ %63, %60 ], [ %54, %38 ]
   %69 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %14, i64 noundef %.090, i64 noundef %.sroa.411.0, i64 noundef %.sroa.09.0, i64 noundef %.089) #3
-  %70 = extractvalue { i64, i64 } %69, 0
-  %71 = extractvalue { i64, i64 } %69, 1
-  br label %81
+  br label %79
 
-72:                                               ; preds = %18, %25, %16
-  %73 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %1, i64 noundef %0, i64 noundef %3, i64 noundef %2) #3
-  %74 = extractvalue { i64, i64 } %73, 0
-  %75 = extractvalue { i64, i64 } %73, 1
-  br label %81
+70:                                               ; preds = %18, %25, %16
+  %71 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %1, i64 noundef %0, i64 noundef %3, i64 noundef %2) #3
+  br label %79
 
-76:                                               ; preds = %27, %21
+72:                                               ; preds = %27, %21
   %.088 = phi i64 [ %22, %21 ], [ %29, %27 ]
   %.not102 = icmp eq i64 %.088, 0
-  br i1 %.not102, label %77, label %78
+  br i1 %.not102, label %73, label %74
 
-77:                                               ; preds = %76
+73:                                               ; preds = %72
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %81
+  br label %79
 
-78:                                               ; preds = %76
+74:                                               ; preds = %72
   %.lobit95.lobit103 = and i64 %.lobit95, -9223372036854775808
-  %79 = or disjoint i64 %.lobit95.lobit103, 9223090561878065152
-  br label %81
+  %75 = or disjoint i64 %.lobit95.lobit103, 9223090561878065152
+  br label %77
 
-80:                                               ; preds = %35, %31
+76:                                               ; preds = %35, %31
   %.lobit95.lobit = and i64 %.lobit95, -9223372036854775808
-  br label %81
+  br label %77
 
-81:                                               ; preds = %72, %77, %80, %78, %68
-  %.sroa.086.0 = phi i64 [ %70, %68 ], [ %74, %72 ], [ 0, %77 ], [ 0, %80 ], [ 0, %78 ]
-  %.sroa.3.0 = phi i64 [ %71, %68 ], [ %75, %72 ], [ 9223231299366420480, %77 ], [ %.lobit95.lobit, %80 ], [ %79, %78 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.086.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+77:                                               ; preds = %76, %74
+  %.sroa.4.0 = phi i64 [ %75, %74 ], [ %.lobit95.lobit, %76 ]
+  %78 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.4.0, 1
+  br label %79
+
+79:                                               ; preds = %70, %73, %77, %68
+  %.fca.1.insert.merged = phi { i64, i64 } [ %69, %68 ], [ %71, %70 ], [ %78, %77 ], [ { i64 0, i64 9223231299366420480 }, %73 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind writable sret(%struct.exp32_sig128) align 8, i64 noundef, i64 noundef) local_unnamed_addr #1

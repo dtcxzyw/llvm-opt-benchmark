@@ -5919,7 +5919,7 @@ common.resume:                                    ; preds = %20, %15
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %5) #11
-          to label %common.resume unwind label %33
+          to label %common.resume unwind label %30
 
 22:                                               ; preds = %"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17h1836cf416292db68E.exit"
   %23 = extractvalue { ptr, i64 } %19, 0
@@ -5933,25 +5933,21 @@ common.resume:                                    ; preds = %20, %15
 
 28:                                               ; preds = %26
   %29 = invoke { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h8b762248b703527aE(ptr nonnull align 8 %25)
-          to label %30 unwind label %20
+          to label %_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17h889a6c41b5f42200E.exit unwind label %20
 
-30:                                               ; preds = %28
-  %31 = extractvalue { ptr, i64 } %29, 0
-  %32 = extractvalue { ptr, i64 } %29, 1
-  br label %_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17h889a6c41b5f42200E.exit
-
-33:                                               ; preds = %20
-  %34 = landingpad { ptr, i32 }
+30:                                               ; preds = %20
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17h889a6c41b5f42200E.exit: ; preds = %26, %30
-  %.sroa.3.0.i = phi i64 [ %32, %30 ], [ undef, %26 ]
-  %.sroa.0.0.i = phi ptr [ %31, %30 ], [ null, %26 ]
+_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17h889a6c41b5f42200E.exit: ; preds = %26, %28
+  %.merged.i = phi { ptr, i64 } [ { ptr null, i64 undef }, %26 ], [ %29, %28 ]
   call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr nonnull align 8 %5)
-  %35 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h1cc46037d98b3c23E"(ptr align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i, i1 zeroext false)
-  ret i1 %35
+  %32 = extractvalue { ptr, i64 } %.merged.i, 0
+  %33 = extractvalue { ptr, i64 } %.merged.i, 1
+  %34 = call zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17h1cc46037d98b3c23E"(ptr align 1 %32, i64 %33, i1 zeroext false)
+  ret i1 %34
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -6046,7 +6042,7 @@ define { ptr, i64 } @_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17h889
   %5 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %1) #11
-          to label %22 unwind label %20
+          to label %17 unwind label %15
 
 6:                                                ; preds = %2
   %7 = extractvalue { ptr, i64 } %3, 0
@@ -6060,28 +6056,20 @@ define { ptr, i64 } @_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17h889
 
 12:                                               ; preds = %10
   %13 = invoke { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h8b762248b703527aE(ptr nonnull align 8 %9)
-          to label %17 unwind label %4
+          to label %14 unwind label %4
 
-14:                                               ; preds = %10, %17
-  %.sroa.3.0 = phi i64 [ %19, %17 ], [ undef, %10 ]
-  %.sroa.0.0 = phi ptr [ %18, %17 ], [ null, %10 ]
+14:                                               ; preds = %12, %10
+  %.merged = phi { ptr, i64 } [ { ptr null, i64 undef }, %10 ], [ %13, %12 ]
   tail call void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h489115c1f7a5ec5cE"(ptr align 8 %1)
-  %15 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %16 = insertvalue { ptr, i64 } %15, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %16
+  ret { ptr, i64 } %.merged
 
-17:                                               ; preds = %12
-  %18 = extractvalue { ptr, i64 } %13, 0
-  %19 = extractvalue { ptr, i64 } %13, 1
-  br label %14
-
-20:                                               ; preds = %4
-  %21 = landingpad { ptr, i32 }
+15:                                               ; preds = %4
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #12
   unreachable
 
-22:                                               ; preds = %4
+17:                                               ; preds = %4
   resume { ptr, i32 } %5
 }
 
@@ -6096,20 +6084,15 @@ define { ptr, i64 } @_ZN17pyo3_build_config5impl_13Sysconfigdata9get_value17he52
   %8 = extractvalue { ptr, i64 } %6, 1
   %9 = call align 8 ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17hd0f1cebd42ffc927E"(ptr align 8 %0, ptr align 1 %7, i64 %8)
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %15, label %11
+  br i1 %10, label %13, label %11
 
 11:                                               ; preds = %3
   %12 = call { ptr, i64 } @_ZN4core3ops8function6FnOnce9call_once17h8b762248b703527aE(ptr nonnull align 8 %9)
-  %13 = extractvalue { ptr, i64 } %12, 0
-  %14 = extractvalue { ptr, i64 } %12, 1
-  br label %15
+  br label %13
 
-15:                                               ; preds = %3, %11
-  %.sroa.3.0 = phi i64 [ %14, %11 ], [ undef, %3 ]
-  %.sroa.0.0 = phi ptr [ %13, %11 ], [ null, %3 ]
-  %16 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %17 = insertvalue { ptr, i64 } %16, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %17
+13:                                               ; preds = %3, %11
+  %.merged = phi { ptr, i64 } [ %12, %11 ], [ { ptr null, i64 undef }, %3 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: nonlazybind uwtable

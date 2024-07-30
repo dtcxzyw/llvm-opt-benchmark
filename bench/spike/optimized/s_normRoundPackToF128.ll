@@ -15,7 +15,7 @@ define { i64, i64 } @softfloat_normRoundPackToF128(i1 noundef zeroext %0, i64 no
   %8 = sext i8 %7 to i64
   %9 = sub nsw i64 %.0, %8
   %10 = icmp sgt i8 %7, -1
-  br i1 %10, label %11, label %31
+  br i1 %10, label %11, label %33
 
 11:                                               ; preds = %4
   %.not42 = icmp eq i8 %7, 0
@@ -37,7 +37,7 @@ define { i64, i64 } @softfloat_normRoundPackToF128(i1 noundef zeroext %0, i64 no
   %.1 = phi i64 [ %19, %12 ], [ %.034, %11 ]
   %22 = trunc i64 %9 to i32
   %23 = icmp ult i32 %22, 32765
-  br i1 %23, label %24, label %41
+  br i1 %23, label %24, label %43
 
 24:                                               ; preds = %21
   %25 = select i1 %0, i64 -9223372036854775808, i64 0
@@ -47,36 +47,33 @@ define { i64, i64 } @softfloat_normRoundPackToF128(i1 noundef zeroext %0, i64 no
   %28 = select i1 %.not43, i64 0, i64 %27
   %29 = add i64 %.1, %25
   %30 = add i64 %29, %28
+  %31 = insertvalue { i64, i64 } poison, i64 %.136, 0
+  %32 = insertvalue { i64, i64 } %31, i64 %30, 1
   br label %45
 
-31:                                               ; preds = %4
+33:                                               ; preds = %4
   %.neg = add nsw i8 %6, 49
-  %32 = sub i8 15, %6
-  %33 = zext i8 %32 to i64
-  %34 = lshr i64 %.034, %33
-  %35 = and i8 %.neg, 63
-  %36 = zext nneg i8 %35 to i64
-  %37 = shl i64 %.034, %36
-  %38 = lshr i64 %.035, %33
-  %39 = or i64 %37, %38
-  %40 = shl i64 %.035, %36
-  br label %41
+  %34 = sub i8 15, %6
+  %35 = zext i8 %34 to i64
+  %36 = lshr i64 %.034, %35
+  %37 = and i8 %.neg, 63
+  %38 = zext nneg i8 %37 to i64
+  %39 = shl i64 %.034, %38
+  %40 = lshr i64 %.035, %35
+  %41 = or i64 %39, %40
+  %42 = shl i64 %.035, %38
+  br label %43
 
-41:                                               ; preds = %21, %31
-  %.038 = phi i64 [ %40, %31 ], [ 0, %21 ]
-  %.237 = phi i64 [ %39, %31 ], [ %.136, %21 ]
-  %.2 = phi i64 [ %34, %31 ], [ %.1, %21 ]
-  %42 = tail call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 noundef %9, i64 noundef %.2, i64 noundef %.237, i64 noundef %.038) #2
-  %43 = extractvalue { i64, i64 } %42, 0
-  %44 = extractvalue { i64, i64 } %42, 1
+43:                                               ; preds = %21, %33
+  %.038 = phi i64 [ %42, %33 ], [ 0, %21 ]
+  %.237 = phi i64 [ %41, %33 ], [ %.136, %21 ]
+  %.2 = phi i64 [ %36, %33 ], [ %.1, %21 ]
+  %44 = tail call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %0, i64 noundef %9, i64 noundef %.2, i64 noundef %.237, i64 noundef %.038) #2
   br label %45
 
-45:                                               ; preds = %41, %24
-  %.sroa.032.0 = phi i64 [ %.136, %24 ], [ %43, %41 ]
-  %.sroa.333.0 = phi i64 [ %30, %24 ], [ %44, %41 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.032.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.333.0, 1
-  ret { i64, i64 } %.fca.1.insert
+45:                                               ; preds = %43, %24
+  %.fca.1.insert.merged = phi { i64, i64 } [ %32, %24 ], [ %44, %43 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare zeroext i8 @softfloat_countLeadingZeros64(i64 noundef) local_unnamed_addr #1

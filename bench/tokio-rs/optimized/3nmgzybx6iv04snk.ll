@@ -2800,7 +2800,7 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %.0.i.i.i.i.i = select i1 %20, i8 -1, i8 %..i.i.i.i.i
   switch i8 %.0.i.i.i.i.i, label %default.unreachable [
     i8 -1, label %22
-    i8 0, label %33
+    i8 0, label %31
     i8 1, label %16
   ]
 
@@ -2830,21 +2830,20 @@ default.unreachable:                              ; preds = %"_ZN110_$LT$core..i
   %29 = call noundef align 8 dereferenceable(16) ptr @"_ZN5alloc11collections5btree3map5entry28VacantEntry$LT$K$C$V$C$A$GT$6insert17ha49fd40f6cb2a386E.llvm.6895680396811105915"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3)
   br label %30
 
-30:                                               ; preds = %.loopexit, %33
-  %.sroa.3.0 = phi ptr [ %38, %33 ], [ undef, %.loopexit ]
-  %.sroa.0.0 = phi ptr [ %36, %33 ], [ null, %.loopexit ]
-  %31 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %32 = insertvalue { ptr, ptr } %31, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %32
+30:                                               ; preds = %.loopexit, %31
+  %.merged = phi { ptr, ptr } [ %38, %31 ], [ { ptr null, ptr undef }, %.loopexit ]
+  ret { ptr, ptr } %.merged
 
-33:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
-  %34 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 176
-  %35 = getelementptr inbounds { ptr, ptr }, ptr %34, i64 %.sroa.8.0.i.i.i.i
-  %36 = load ptr, ptr %35, align 8, !noalias !733, !nonnull !86, !noundef !86
-  %37 = getelementptr inbounds i8, ptr %35, i64 8
-  %38 = load ptr, ptr %37, align 8, !noalias !733, !nonnull !86, !align !113, !noundef !86
-  store ptr %2, ptr %35, align 8, !noalias !733
-  store ptr %3, ptr %37, align 8, !noalias !733
+31:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h3b207d57d43c85e8E.exit.i.i.i.i"
+  %32 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i, i64 176
+  %33 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.sroa.8.0.i.i.i.i
+  %34 = load ptr, ptr %33, align 8, !noalias !733, !nonnull !86, !noundef !86
+  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %36 = load ptr, ptr %35, align 8, !noalias !733, !nonnull !86, !align !113, !noundef !86
+  store ptr %2, ptr %33, align 8, !noalias !733
+  store ptr %3, ptr %35, align 8, !noalias !733
+  %37 = insertvalue { ptr, ptr } poison, ptr %34, 0
+  %38 = insertvalue { ptr, ptr } %37, ptr %36, 1
   br label %30
 }
 

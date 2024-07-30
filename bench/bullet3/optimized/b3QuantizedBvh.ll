@@ -453,10 +453,10 @@ if.end.i58:                                       ; preds = %for.body
   br label %_ZNK14b3QuantizedBvh10getAabbMaxEi.exit
 
 _ZNK14b3QuantizedBvh10getAabbMaxEi.exit:          ; preds = %if.then.i68, %if.end.i58
-  %retval.sroa.0.0.i64 = phi <2 x float> [ %57, %if.then.i68 ], [ %retval.sroa.0.0.copyload.i62, %if.end.i58 ]
-  %retval.sroa.3.0.i65 = phi <2 x float> [ %retval.sroa.7.8.vec.insert16.i.i89, %if.then.i68 ], [ %retval.sroa.3.0.copyload.i63, %if.end.i58 ]
-  store <2 x float> %retval.sroa.0.0.i64, ptr %ref.tmp12, align 16
-  store <2 x float> %retval.sroa.3.0.i65, ptr %39, align 8
+  %retval.sroa.0.4.vec.insert12.i.pn.i64 = phi <2 x float> [ %57, %if.then.i68 ], [ %retval.sroa.0.0.copyload.i62, %if.end.i58 ]
+  %retval.sroa.7.8.vec.insert16.i.pn.i65 = phi <2 x float> [ %retval.sroa.7.8.vec.insert16.i.i89, %if.then.i68 ], [ %retval.sroa.3.0.copyload.i63, %if.end.i58 ]
+  store <2 x float> %retval.sroa.0.4.vec.insert12.i.pn.i64, ptr %ref.tmp12, align 16
+  store <2 x float> %retval.sroa.7.8.vec.insert16.i.pn.i65, ptr %39, align 8
   call void @_ZN14b3QuantizedBvh21mergeInternalNodeAabbEiRK9b3Vector3S2_(ptr noundef nonnull align 16 dereferenceable(252) %this, i32 noundef %41, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp, ptr noundef nonnull align 16 dereferenceable(16) %ref.tmp12)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1199,13 +1199,13 @@ if.end.i108:                                      ; preds = %for.body24
   br label %_ZNK14b3QuantizedBvh10getAabbMinEi.exit140
 
 _ZNK14b3QuantizedBvh10getAabbMinEi.exit140:       ; preds = %if.then.i118, %if.end.i108
-  %retval.sroa.3.0.i79186 = phi <2 x float> [ %retval.sroa.7.8.vec.insert16.i.i103, %if.then.i118 ], [ %retval.sroa.3.0.copyload.i77, %if.end.i108 ]
-  %retval.sroa.0.0.i78184 = phi <2 x float> [ %57, %if.then.i118 ], [ %retval.sroa.0.0.copyload.i75, %if.end.i108 ]
-  %retval.sroa.0.0.i114 = phi <2 x float> [ %61, %if.then.i118 ], [ %retval.sroa.0.0.copyload.i111, %if.end.i108 ]
-  %retval.sroa.3.0.i115 = phi <2 x float> [ %retval.sroa.7.8.vec.insert16.i.i139, %if.then.i118 ], [ %retval.sroa.3.0.copyload.i113, %if.end.i108 ]
-  %63 = fadd <2 x float> %retval.sroa.3.0.i79186, %retval.sroa.3.0.i115
+  %retval.sroa.7.8.vec.insert16.i.pn.i79186 = phi <2 x float> [ %retval.sroa.7.8.vec.insert16.i.i103, %if.then.i118 ], [ %retval.sroa.3.0.copyload.i77, %if.end.i108 ]
+  %retval.sroa.0.4.vec.insert12.i.pn.i78184 = phi <2 x float> [ %57, %if.then.i118 ], [ %retval.sroa.0.0.copyload.i75, %if.end.i108 ]
+  %retval.sroa.0.4.vec.insert12.i.pn.i114 = phi <2 x float> [ %61, %if.then.i118 ], [ %retval.sroa.0.0.copyload.i111, %if.end.i108 ]
+  %retval.sroa.7.8.vec.insert16.i.pn.i115 = phi <2 x float> [ %retval.sroa.7.8.vec.insert16.i.i139, %if.then.i118 ], [ %retval.sroa.3.0.copyload.i113, %if.end.i108 ]
+  %63 = fadd <2 x float> %retval.sroa.7.8.vec.insert16.i.pn.i79186, %retval.sroa.7.8.vec.insert16.i.pn.i115
   %add7.i147 = extractelement <2 x float> %63, i64 0
-  %64 = fadd <2 x float> %retval.sroa.0.0.i78184, %retval.sroa.0.0.i114
+  %64 = fadd <2 x float> %retval.sroa.0.4.vec.insert12.i.pn.i78184, %retval.sroa.0.4.vec.insert12.i.pn.i114
   %65 = fmul <2 x float> %64, <float 5.000000e-01, float 5.000000e-01>
   %mul4.i.i157 = fmul float %add7.i147, 5.000000e-01
   %retval.sroa.3.12.vec.insert.i.i.i160 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %mul4.i.i157, i64 0

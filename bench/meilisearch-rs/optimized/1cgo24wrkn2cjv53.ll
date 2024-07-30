@@ -676,13 +676,9 @@ define hidden { i32, float } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !166
   %9 = extractvalue { i32, float } %8, 0
   %10 = icmp eq i32 %9, 2
-  %11 = extractvalue { i32, float } %8, 1
-  %.sroa.3.0.i = select i1 %10, float undef, float %11
-  %.sroa.0.0.i = select i1 %10, i32 0, i32 %9
-  %12 = insertvalue { i32, float } poison, i32 %.sroa.0.0.i, 0
-  %13 = insertvalue { i32, float } %12, float %.sroa.3.0.i, 1
+  %spec.select.i = select i1 %10, { i32, float } { i32 0, float undef }, { i32, float } %8
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %2)
-  ret { i32, float } %13
+  ret { i32, float } %spec.select.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1441,12 +1437,8 @@ define hidden { i32, float } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !522
   %9 = extractvalue { i32, float } %8, 0
   %10 = icmp eq i32 %9, 2
-  %11 = extractvalue { i32, float } %8, 1
-  %.sroa.3.0 = select i1 %10, float undef, float %11
-  %.sroa.0.0 = select i1 %10, i32 0, i32 %9
-  %12 = insertvalue { i32, float } poison, i32 %.sroa.0.0, 0
-  %13 = insertvalue { i32, float } %12, float %.sroa.3.0, 1
-  ret { i32, float } %13
+  %spec.select = select i1 %10, { i32, float } { i32 0, float undef }, { i32, float } %8
+  ret { i32, float } %spec.select
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -39857,7 +39849,7 @@ define hidden { i64, ptr } @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17hb1
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96948cf3dca85ca0E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %19)
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %68
+  br label %70
 
 20:                                               ; preds = %12
   %21 = add i8 %11, -1
@@ -40020,16 +40012,15 @@ define hidden { i64, ptr } @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17hb1
 67:                                               ; preds = %64, %62, %53, %50, %41, %.noexc22, %34
   %.sroa.7.0.i = phi ptr [ undef, %41 ], [ undef, %.noexc22 ], [ undef, %34 ], [ undef, %53 ], [ %43, %50 ], [ undef, %64 ], [ %55, %62 ]
   %.sroa.0.0.i19 = phi i64 [ 0, %41 ], [ 2, %.noexc22 ], [ 2, %34 ], [ 0, %53 ], [ 1, %50 ], [ 0, %64 ], [ 1, %62 ]
+  %68 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i19, 0
+  %69 = insertvalue { i64, ptr } %68, ptr %.sroa.7.0.i, 1
   call void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96948cf3dca85ca0E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %6)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
-  br label %68
+  br label %70
 
-68:                                               ; preds = %67, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit"
-  %.sroa.3.0 = phi ptr [ undef, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit" ], [ %.sroa.7.0.i, %67 ]
-  %.sroa.0.0 = phi i64 [ 2, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit" ], [ %.sroa.0.0.i19, %67 ]
-  %69 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %70 = insertvalue { i64, ptr } %69, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %70
+70:                                               ; preds = %67, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit"
+  %.merged = phi { i64, ptr } [ { i64 2, ptr undef }, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h22cfc91176c7a0c4E.exit" ], [ %69, %67 ]
+  ret { i64, ptr } %.merged
 
 71:                                               ; preds = %.body
   %72 = landingpad { ptr, i32 }
@@ -40442,19 +40433,19 @@ define hidden { i64, i64 } @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$9recv_many
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %36
-  %lpad.loopexit53 = landingpad { ptr, i32 }
+  %lpad.loopexit55 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %101, %.noexc31, %80, %.noexc28, %55, %53, %43, %41
-  %lpad.loopexit.split-lp54 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp56 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %68, %89
-  %eh.lpad-body = phi { ptr, i32 } [ %69, %68 ], [ %90, %89 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit53, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp54, %.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %69, %68 ], [ %90, %89 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit55, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp56, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96948cf3dca85ca0E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %10)
-          to label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h7c92cc35a7014186E.exit" unwind label %112
+          to label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h7c92cc35a7014186E.exit" unwind label %110
 
 108:                                              ; preds = %106, %82, %61, %.noexc25, %.noexc24, %49, %.noexc22
   %.sroa.7.0.i = phi i64 [ %39, %.noexc22 ], [ %47, %.noexc24 ], [ 0, %61 ], [ %77, %82 ], [ %98, %106 ], [ undef, %.noexc25 ], [ undef, %49 ]
@@ -40466,14 +40457,14 @@ define hidden { i64, i64 } @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$9recv_many
   br label %109
 
 109:                                              ; preds = %108, %107
-  %.sroa.4.1 = phi i64 [ 0, %107 ], [ %.sroa.7.0.i, %108 ]
-  %.sroa.0.1 = phi i64 [ %.sroa.0.0, %107 ], [ %.sroa.0.0.i20, %108 ]
-  %110 = insertvalue { i64, i64 } poison, i64 %.sroa.0.1, 0
-  %111 = insertvalue { i64, i64 } %110, i64 %.sroa.4.1, 1
-  ret { i64, i64 } %111
+  %.sroa.0.0.pn = phi i64 [ %.sroa.0.0, %107 ], [ %.sroa.0.0.i20, %108 ]
+  %.pn53 = phi i64 [ 0, %107 ], [ %.sroa.7.0.i, %108 ]
+  %.pn = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.pn, 0
+  %.merged = insertvalue { i64, i64 } %.pn, i64 %.pn53, 1
+  ret { i64, i64 } %.merged
 
-112:                                              ; preds = %.body
-  %113 = landingpad { ptr, i32 }
+110:                                              ; preds = %.body
+  %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #47
   unreachable

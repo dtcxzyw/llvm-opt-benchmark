@@ -338,13 +338,11 @@ define void @_ZN6casadi16TinyXmlInterface5parseERKNSt7__cxx1112basic_stringIcSt1
 
 40:                                               ; preds = %39
   invoke void @__cxa_throw(ptr nonnull %30, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #20
-          to label %135 unwind label %54
+          to label %133 unwind label %54
 
 .thread:                                          ; preds = %29
   %41 = landingpad { ptr, i32 }
           cleanup
-  %.61870 = extractvalue { ptr, i32 } %41, 0
-  %.63671 = extractvalue { ptr, i32 } %41, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
   br label %62
 
@@ -420,14 +418,11 @@ define void @_ZN6casadi16TinyXmlInterface5parseERKNSt7__cxx1112basic_stringIcSt1
   %.pn58.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn58.pn.pn.pn.pn, %60 ], [ %43, %42 ]
   %.628 = phi i1 [ %.527, %60 ], [ true, %42 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
-  %.618 = extractvalue { ptr, i32 } %.pn58.pn.pn.pn.pn.pn, 0
-  %.636 = extractvalue { ptr, i32 } %.pn58.pn.pn.pn.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #17
   br i1 %.628, label %62, label %129
 
 62:                                               ; preds = %.thread, %61
-  %.63673 = phi i32 [ %.63671, %.thread ], [ %.636, %61 ]
-  %.61872 = phi ptr [ %.61870, %.thread ], [ %.618, %61 ]
+  %.pn58.pn.pn.pn.pn.pn.pn71 = phi { ptr, i32 } [ %41, %.thread ], [ %.pn58.pn.pn.pn.pn.pn, %61 ]
   call void @__cxa_free_exception(ptr %30) #17
   br label %129
 
@@ -460,20 +455,20 @@ define void @_ZN6casadi16TinyXmlInterface5parseERKNSt7__cxx1112basic_stringIcSt1
   %75 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  %76 = extractvalue { ptr, i32 } %75, 0
-  %77 = extractvalue { ptr, i32 } %75, 1
-  %78 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
-  %79 = icmp eq i32 %77, %78
-  br i1 %79, label %80, label %128
+  %76 = extractvalue { ptr, i32 } %75, 1
+  %77 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #17
+  %78 = icmp eq i32 %76, %77
+  br i1 %78, label %79, label %128
 
-80:                                               ; preds = %74
-  %81 = call ptr @__cxa_begin_catch(ptr %76) #17
+79:                                               ; preds = %74
+  %80 = extractvalue { ptr, i32 } %75, 0
+  %81 = call ptr @__cxa_begin_catch(ptr %80) #17
   %82 = call ptr @__cxa_allocate_exception(i64 40) #17
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #17
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %18)
-          to label %83 unwind label %.thread74
+          to label %83 unwind label %.thread72
 
-83:                                               ; preds = %80
+83:                                               ; preds = %79
   invoke void @_ZN6casadi9trim_pathERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %16, ptr noundef nonnull align 8 dereferenceable(32) %17)
           to label %84 unwind label %100
 
@@ -519,13 +514,11 @@ define void @_ZN6casadi16TinyXmlInterface5parseERKNSt7__cxx1112basic_stringIcSt1
 
 98:                                               ; preds = %97
   invoke void @__cxa_throw(ptr nonnull %82, ptr nonnull @_ZTIN6casadi15CasadiExceptionE, ptr nonnull @_ZN6casadi15CasadiExceptionD2Ev) #20
-          to label %135 unwind label %116
+          to label %133 unwind label %116
 
-.thread74:                                        ; preds = %80
+.thread72:                                        ; preds = %79
   %99 = landingpad { ptr, i32 }
           cleanup
-  %.1577 = extractvalue { ptr, i32 } %99, 0
-  %.154578 = extractvalue { ptr, i32 } %99, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #17
   br label %126
 
@@ -624,44 +617,36 @@ define void @_ZN6casadi16TinyXmlInterface5parseERKNSt7__cxx1112basic_stringIcSt1
   %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %124 ], [ %101, %100 ]
   %.8 = phi i1 [ %.7, %124 ], [ true, %100 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #17
-  %.15 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn, 0
-  %.1545 = extractvalue { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn, 1
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #17
   br i1 %.8, label %126, label %127
 
-126:                                              ; preds = %.thread74, %125
-  %.154582 = phi i32 [ %.154578, %.thread74 ], [ %.1545, %125 ]
-  %.1580 = phi ptr [ %.1577, %.thread74 ], [ %.15, %125 ]
+126:                                              ; preds = %.thread72, %125
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn76 = phi { ptr, i32 } [ %99, %.thread72 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %125 ]
   call void @__cxa_free_exception(ptr %82) #17
   br label %127
 
 127:                                              ; preds = %126, %125
-  %.154581 = phi i32 [ %.154582, %126 ], [ %.1545, %125 ]
-  %.1579 = phi ptr [ %.1580, %126 ], [ %.15, %125 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn.pn75 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn76, %126 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %125 ]
   invoke void @__cxa_end_catch()
-          to label %128 unwind label %132
+          to label %128 unwind label %130
 
 128:                                              ; preds = %127, %74
-  %.1646 = phi i32 [ %.154581, %127 ], [ %77, %74 ]
-  %.16 = phi ptr [ %.1579, %127 ], [ %76, %74 ]
+  %.merged66 = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn75, %127 ], [ %75, %74 ]
   call void @_ZN6casadi7XmlNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) #17
   br label %129
 
 129:                                              ; preds = %61, %62, %128
-  %.1747 = phi i32 [ %.63673, %62 ], [ %.636, %61 ], [ %.1646, %128 ]
-  %.17 = phi ptr [ %.61872, %62 ], [ %.618, %61 ], [ %.16, %128 ]
-  %130 = insertvalue { ptr, i32 } poison, ptr %.17, 0
-  %131 = insertvalue { ptr, i32 } %130, i32 %.1747, 1
-  resume { ptr, i32 } %131
+  %.merged = phi { ptr, i32 } [ %.pn58.pn.pn.pn.pn.pn.pn71, %62 ], [ %.pn58.pn.pn.pn.pn.pn, %61 ], [ %.merged66, %128 ]
+  resume { ptr, i32 } %.merged
 
-132:                                              ; preds = %127
-  %133 = landingpad { ptr, i32 }
+130:                                              ; preds = %127
+  %131 = landingpad { ptr, i32 }
           catch ptr null
-  %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #21
+  %132 = extractvalue { ptr, i32 } %131, 0
+  call void @__clang_call_terminate(ptr %132) #21
   unreachable
 
-135:                                              ; preds = %98, %40
+133:                                              ; preds = %98, %40
   unreachable
 }
 

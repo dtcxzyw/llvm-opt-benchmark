@@ -1198,7 +1198,7 @@ define hidden { i64, ptr } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
 4:                                                ; preds = %7, %1
   %5 = phi ptr [ %8, %7 ], [ %.promoted, %1 ]
   %6 = icmp eq ptr %3, %5
-  br i1 %6, label %.loopexit, label %7
+  br i1 %6, label %12, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds i8, ptr %5, i64 -32
@@ -1208,16 +1208,9 @@ define hidden { i64, ptr } @_ZN4core4iter6traits12double_ended19DoubleEndedItera
   %11 = icmp eq i64 %10, 57
   br i1 %11, label %4, label %12
 
-12:                                               ; preds = %7
-  %13 = extractvalue { i64, ptr } %9, 1
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %4, %12
-  %.sroa.3.0 = phi ptr [ %13, %12 ], [ undef, %4 ]
-  %.sroa.0.0 = phi i64 [ %10, %12 ], [ 57, %4 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %15
+12:                                               ; preds = %4, %7
+  %.merged = phi { i64, ptr } [ %9, %7 ], [ { i64 57, ptr undef }, %4 ]
+  ret { i64, ptr } %.merged
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -2486,18 +2479,11 @@ define hidden { i64, ptr } @"_ZN98_$LT$core..iter..adapters..rev..Rev$LT$I$GT$$u
   %9 = tail call { i64, ptr } @"_ZN70_$LT$typst_syntax..ast..Expr$u20$as$u20$typst_syntax..ast..AstNode$GT$12from_untyped17heb503576947ef746E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %8), !noalias !424
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = icmp eq i64 %10, 57
-  br i1 %11, label %4, label %12
+  br i1 %11, label %4, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h2afd4742efcf1d4aE.llvm.16628960515194932193.exit
 
-12:                                               ; preds = %7
-  %13 = extractvalue { i64, ptr } %9, 1
-  br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h2afd4742efcf1d4aE.llvm.16628960515194932193.exit
-
-_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h2afd4742efcf1d4aE.llvm.16628960515194932193.exit: ; preds = %4, %12
-  %.sroa.3.0.i = phi ptr [ %13, %12 ], [ undef, %4 ]
-  %.sroa.0.0.i = phi i64 [ %10, %12 ], [ 57, %4 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.3.0.i, 1
-  ret { i64, ptr } %15
+_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h2afd4742efcf1d4aE.llvm.16628960515194932193.exit: ; preds = %4, %7
+  %.merged.i = phi { i64, ptr } [ %9, %7 ], [ { i64 57, ptr undef }, %4 ]
+  ret { i64, ptr } %.merged.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable

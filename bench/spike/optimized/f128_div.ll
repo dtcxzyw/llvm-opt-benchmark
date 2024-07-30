@@ -25,16 +25,16 @@ define { i64, i64 } @f128_div(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 16:                                               ; preds = %4
   %17 = or i64 %10, %0
   %.not170 = icmp eq i64 %17, 0
-  br i1 %.not170, label %18, label %150
+  br i1 %.not170, label %18, label %148
 
 18:                                               ; preds = %16
   %19 = icmp eq i64 %12, 32767
-  br i1 %19, label %20, label %155
+  br i1 %19, label %20, label %151
 
 20:                                               ; preds = %18
   %21 = or i64 %13, %2
   %.not172 = icmp eq i64 %21, 0
-  br i1 %.not172, label %154, label %150
+  br i1 %.not172, label %150, label %148
 
 22:                                               ; preds = %4
   switch i64 %12, label %32 [
@@ -45,7 +45,7 @@ define { i64, i64 } @f128_div(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 23:                                               ; preds = %22
   %24 = or i64 %13, %2
   %.not169 = icmp eq i64 %24, 0
-  br i1 %.not169, label %157, label %150
+  br i1 %.not169, label %153, label %148
 
 25:                                               ; preds = %22
   %26 = or i64 %13, %2
@@ -56,11 +56,11 @@ define { i64, i64 } @f128_div(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   %28 = or i64 %10, %0
   %29 = or i64 %28, %9
   %.not163 = icmp eq i64 %29, 0
-  br i1 %.not163, label %154, label %30
+  br i1 %.not163, label %150, label %30
 
 30:                                               ; preds = %27
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 8) #3
-  br label %155
+  br label %151
 
 31:                                               ; preds = %25
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %6, i64 noundef %13, i64 noundef %2) #3
@@ -81,7 +81,7 @@ define { i64, i64 } @f128_div(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 33:                                               ; preds = %32
   %34 = or i64 %10, %0
   %.not165 = icmp eq i64 %34, 0
-  br i1 %.not165, label %157, label %35
+  br i1 %.not165, label %153, label %35
 
 35:                                               ; preds = %33
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %7, i64 noundef %10, i64 noundef %0) #3
@@ -261,35 +261,33 @@ softfloat_le128.exit.thread:                      ; preds = %117, %softfloat_le1
   %145 = zext i1 %144 to i64
   %146 = add i64 %143, %145
   %147 = call { i64, i64 } @softfloat_roundPackToF128(i1 noundef zeroext %14, i64 noundef %.0154, i64 noundef %146, i64 noundef %142, i64 noundef %130) #3
-  %148 = extractvalue { i64, i64 } %147, 0
-  %149 = extractvalue { i64, i64 } %147, 1
-  br label %158
+  br label %156
 
-150:                                              ; preds = %23, %20, %16
-  %151 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %1, i64 noundef %0, i64 noundef %3, i64 noundef %2) #3
-  %152 = extractvalue { i64, i64 } %151, 0
-  %153 = extractvalue { i64, i64 } %151, 1
-  br label %158
+148:                                              ; preds = %23, %20, %16
+  %149 = tail call { i64, i64 } @softfloat_propagateNaNF128UI(i64 noundef %1, i64 noundef %0, i64 noundef %3, i64 noundef %2) #3
+  br label %156
 
-154:                                              ; preds = %27, %20
+150:                                              ; preds = %27, %20
   tail call void @softfloat_raiseFlags(i8 noundef zeroext 16) #3
-  br label %158
+  br label %156
 
-155:                                              ; preds = %18, %30
+151:                                              ; preds = %18, %30
   %.lobit161.lobit171 = and i64 %.lobit161, -9223372036854775808
-  %156 = or disjoint i64 %.lobit161.lobit171, 9223090561878065152
-  br label %158
+  %152 = or disjoint i64 %.lobit161.lobit171, 9223090561878065152
+  br label %154
 
-157:                                              ; preds = %33, %23
+153:                                              ; preds = %33, %23
   %.lobit161.lobit = and i64 %.lobit161, -9223372036854775808
-  br label %158
+  br label %154
 
-158:                                              ; preds = %150, %154, %157, %155, %129
-  %.sroa.0152.0 = phi i64 [ %148, %129 ], [ %152, %150 ], [ 0, %154 ], [ 0, %157 ], [ 0, %155 ]
-  %.sroa.3.0 = phi i64 [ %149, %129 ], [ %153, %150 ], [ 9223231299366420480, %154 ], [ %.lobit161.lobit, %157 ], [ %156, %155 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0152.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+154:                                              ; preds = %153, %151
+  %.sroa.4.0 = phi i64 [ %152, %151 ], [ %.lobit161.lobit, %153 ]
+  %155 = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %.sroa.4.0, 1
+  br label %156
+
+156:                                              ; preds = %148, %150, %154, %129
+  %.fca.1.insert.merged = phi { i64, i64 } [ %147, %129 ], [ %149, %148 ], [ { i64 0, i64 9223231299366420480 }, %150 ], [ %155, %154 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 declare void @softfloat_raiseFlags(i8 noundef zeroext) local_unnamed_addr #1

@@ -71,16 +71,11 @@ define hidden { ptr, i64 } @_ZN10mime_guess9MimeGuess9from_path17h60df90d66dc612
 
 17:                                               ; preds = %10
   %18 = tail call { ptr, i64 } @_ZN10mime_guess9MimeGuess8from_ext17h65071f908c366eecE(ptr noalias noundef nonnull readonly align 1 %14, i64 noundef %16), !noalias !18
-  %19 = extractvalue { ptr, i64 } %18, 0
-  %20 = extractvalue { ptr, i64 } %18, 1
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf7584f8fad15bf72E.llvm.13892041527173094624.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf7584f8fad15bf72E.llvm.13892041527173094624.exit": ; preds = %1, %10, %17
-  %.sroa.33.0.i = phi i64 [ %20, %17 ], [ 0, %10 ], [ 0, %1 ]
-  %.sroa.02.0.i = phi ptr [ %19, %17 ], [ @anon.4b712bb4a53a14efd4fd687e51c22595.4.llvm.13892041527173094624, %10 ], [ @anon.4b712bb4a53a14efd4fd687e51c22595.4.llvm.13892041527173094624, %1 ]
-  %21 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0.i, 0
-  %22 = insertvalue { ptr, i64 } %21, i64 %.sroa.33.0.i, 1
-  ret { ptr, i64 } %22
+  %.merged.i = phi { ptr, i64 } [ %18, %17 ], [ { ptr @anon.4b712bb4a53a14efd4fd687e51c22595.4.llvm.13892041527173094624, i64 0 }, %10 ], [ { ptr @anon.4b712bb4a53a14efd4fd687e51c22595.4.llvm.13892041527173094624, i64 0 }, %1 ]
+  ret { ptr, i64 } %.merged.i
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -599,20 +594,20 @@ define hidden { ptr, i64 } @"_ZN4core5slice4iter13Iter$LT$T$GT$10make_slice17hbe
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN4core6option15Option$LT$T$GT$6map_or17hf7584f8fad15bf72E.llvm.13892041527173094624"(ptr noalias noundef readonly align 1 %0, i64 %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #2 personality ptr @rust_eh_personality {
   %5 = icmp eq ptr %0, null
-  br i1 %5, label %10, label %6
+  br i1 %5, label %6, label %9
 
 6:                                                ; preds = %4
-  %7 = tail call { ptr, i64 } @_ZN10mime_guess9MimeGuess8from_ext17h65071f908c366eecE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
-  %8 = extractvalue { ptr, i64 } %7, 0
-  %9 = extractvalue { ptr, i64 } %7, 1
-  br label %10
+  %7 = insertvalue { ptr, i64 } poison, ptr %2, 0
+  %8 = insertvalue { ptr, i64 } %7, i64 %3, 1
+  br label %11
 
-10:                                               ; preds = %4, %6
-  %.sroa.33.0 = phi i64 [ %9, %6 ], [ %3, %4 ]
-  %.sroa.02.0 = phi ptr [ %8, %6 ], [ %2, %4 ]
-  %11 = insertvalue { ptr, i64 } poison, ptr %.sroa.02.0, 0
-  %12 = insertvalue { ptr, i64 } %11, i64 %.sroa.33.0, 1
-  ret { ptr, i64 } %12
+9:                                                ; preds = %4
+  %10 = tail call { ptr, i64 } @_ZN10mime_guess9MimeGuess8from_ext17h65071f908c366eecE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1)
+  br label %11
+
+11:                                               ; preds = %9, %6
+  %.merged = phi { ptr, i64 } [ %8, %6 ], [ %10, %9 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

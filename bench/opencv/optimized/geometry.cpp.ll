@@ -103,32 +103,35 @@ define { i64, i64 } @cvMaxRect(ptr noundef readonly %0, ptr noundef readonly %1)
   %.sroa.0.sroa.5.0.insert.shift = shl nuw i64 %.sroa.0.sroa.5.0.insert.ext, 32
   %.sroa.0.sroa.0.0.insert.ext = zext i32 %spec.store.select to i64
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i64 %.sroa.0.sroa.5.0.insert.shift, %.sroa.0.sroa.0.0.insert.ext
-  br label %30
+  %.fca.0.insert.i.i = insertvalue { i64, i64 } poison, i64 %.sroa.0.sroa.0.0.insert.insert, 0
+  %.fca.1.insert.i.i = insertvalue { i64, i64 } %.fca.0.insert.i.i, i64 %.sroa.8.12.insert.insert, 1
+  br label %34
 
 26:                                               ; preds = %2
-  br i1 %3, label %27, label %28
+  br i1 %3, label %27, label %30
 
 27:                                               ; preds = %26
   %.sroa.0.0.copyload = load i64, ptr %0, align 4
   %.sroa.5.0..0.25.sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..0.25.sroa_idx, align 4
-  br label %30
+  %28 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload, 0
+  %29 = insertvalue { i64, i64 } %28, i64 %.sroa.5.0.copyload, 1
+  br label %34
 
-28:                                               ; preds = %26
-  br i1 %4, label %29, label %30
+30:                                               ; preds = %26
+  br i1 %4, label %31, label %34
 
-29:                                               ; preds = %28
+31:                                               ; preds = %30
   %.sroa.0.0.copyload26 = load i64, ptr %1, align 4
   %.sroa.5.0..0.17.sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.5.0.copyload27 = load i64, ptr %.sroa.5.0..0.17.sroa_idx, align 4
-  br label %30
+  %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0.copyload26, 0
+  %33 = insertvalue { i64, i64 } %32, i64 %.sroa.5.0.copyload27, 1
+  br label %34
 
-30:                                               ; preds = %28, %29, %27, %5
-  %.sroa.0.0 = phi i64 [ %.sroa.0.sroa.0.0.insert.insert, %5 ], [ %.sroa.0.0.copyload, %27 ], [ %.sroa.0.0.copyload26, %29 ], [ 0, %28 ]
-  %.sroa.5.0 = phi i64 [ %.sroa.8.12.insert.insert, %5 ], [ %.sroa.5.0.copyload, %27 ], [ %.sroa.5.0.copyload27, %29 ], [ 0, %28 ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.5.0, 1
-  ret { i64, i64 } %.fca.1.insert
+34:                                               ; preds = %30, %31, %27, %5
+  %.fca.1.insert.merged = phi { i64, i64 } [ %.fca.1.insert.i.i, %5 ], [ %29, %27 ], [ %33, %31 ], [ zeroinitializer, %30 ]
+  ret { i64, i64 } %.fca.1.insert.merged
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3104,8 +3107,8 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit.thread:      ; preds = %48
   %72 = load ptr, ptr %11, align 8
   %.not.i.i58 = icmp eq ptr %72, %57
   %73 = icmp eq ptr %72, null
-  %or.cond104 = or i1 %.not.i.i58, %73
-  br i1 %or.cond104, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit59, label %74
+  %or.cond105 = or i1 %.not.i.i58, %73
+  br i1 %or.cond105, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit59, label %74
 
 74:                                               ; preds = %71
   call void @_ZdaPv(ptr noundef nonnull %72) #20
@@ -3124,11 +3127,11 @@ _ZN2cv10AutoBufferIdLm136EED2Ev.exit:             ; preds = %66, %61, %.thread82
   br label %77
 
 77:                                               ; preds = %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, %75, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.thread, %46
-  %.sroa.026.0 = phi i64 [ %.sroa.026.0.copyload, %46 ], [ %50, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.thread ], [ %.sroa.070.0, %75 ], [ %.sroa.070.0, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit ]
-  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %46 ], [ %51, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.thread ], [ %.sroa.5.0, %75 ], [ %.sroa.5.0, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit ]
-  %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.026.0, 0
-  %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %.fca.1.insert
+  %.sroa.070.0103.pn = phi i64 [ %.sroa.026.0.copyload, %46 ], [ %50, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.thread ], [ %.sroa.070.0, %75 ], [ %.sroa.070.0, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit ]
+  %.sroa.5.0102.pn = phi i64 [ %.sroa.3.0.copyload, %46 ], [ %51, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit.thread ], [ %.sroa.5.0, %75 ], [ %.sroa.5.0, %_ZN2cv10AutoBufferIdLm136EED2Ev.exit ]
+  %.fca.0.insert.i.i62.pn = insertvalue { i64, i64 } poison, i64 %.sroa.070.0103.pn, 0
+  %.fca.1.insert.merged = insertvalue { i64, i64 } %.fca.0.insert.i.i62.pn, i64 %.sroa.5.0102.pn, 1
+  ret { i64, i64 } %.fca.1.insert.merged
 
 _ZN2cv10AutoBufferIdLm136EED2Ev.exit59:           ; preds = %74, %71, %52, %44, %26
   %.pn50 = phi { ptr, i32 } [ %53, %52 ], [ %.pn43, %26 ], [ %.pn, %44 ], [ %.pn48, %71 ], [ %.pn48, %74 ]

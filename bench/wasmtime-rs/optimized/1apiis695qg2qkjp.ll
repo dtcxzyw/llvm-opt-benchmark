@@ -378,21 +378,16 @@ define void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$
 define { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5d3b7bcbd3e83e24E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h4232b154ccce9226E"(ptr align 8 %0)
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %9, label %4
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = tail call { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h53134bed12bc38ccE"(ptr nonnull align 1 %5, ptr nonnull align 8 %2)
-  %7 = extractvalue { ptr, i64 } %6, 0
-  %8 = extractvalue { ptr, i64 } %6, 1
-  br label %9
+  br label %7
 
-9:                                                ; preds = %1, %4
-  %.sroa.3.0 = phi i64 [ %8, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %7, %4 ], [ null, %1 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+7:                                                ; preds = %1, %4
+  %.merged = phi { ptr, i64 } [ %6, %4 ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -442,21 +437,16 @@ define { i64, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20
 define { ptr, i64 } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc083345086dee803E"(ptr align 8 %0) unnamed_addr #0 {
   %2 = tail call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h317e8c565d4c505aE"(ptr align 8 %0)
   %3 = icmp eq ptr %2, null
-  br i1 %3, label %9, label %4
+  br i1 %3, label %7, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = tail call { ptr, i64 } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h510893570dd90690E"(ptr nonnull align 1 %5, ptr nonnull align 8 %2)
-  %7 = extractvalue { ptr, i64 } %6, 0
-  %8 = extractvalue { ptr, i64 } %6, 1
-  br label %9
+  br label %7
 
-9:                                                ; preds = %1, %4
-  %.sroa.3.0 = phi i64 [ %8, %4 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %7, %4 ], [ null, %1 ]
-  %10 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, i64 } %10, i64 %.sroa.3.0, 1
-  ret { ptr, i64 } %11
+7:                                                ; preds = %1, %4
+  %.merged = phi { ptr, i64 } [ %6, %4 ], [ { ptr null, i64 undef }, %1 ]
+  ret { ptr, i64 } %.merged
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

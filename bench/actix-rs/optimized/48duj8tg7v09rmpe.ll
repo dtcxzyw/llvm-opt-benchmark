@@ -788,7 +788,7 @@ define { ptr, ptr } @_ZN15actix_multipart4form4json10JsonConfig9map_error17hdb7b
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !noundef !4
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %21, label %7
+  br i1 %6, label %23, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 8
@@ -804,53 +804,54 @@ define { ptr, ptr } @_ZN15actix_multipart4form4json10JsonConfig9map_error17hdb7b
   %18 = tail call { ptr, ptr } %17(ptr noundef align 1 %15, ptr noalias noundef align 8 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %1)
   %19 = extractvalue { ptr, ptr } %18, 0
   %20 = extractvalue { ptr, ptr } %18, 1
-  br label %31
+  %21 = icmp ne ptr %19, null
+  %22 = icmp ne ptr %20, null
+  br label %35
 
-21:                                               ; preds = %3
+23:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %2, ptr %4, align 8, !noalias !159
-  %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %23 = tail call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #20
-  %24 = icmp eq ptr %23, null
-  br i1 %24, label %25, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit"
+  %24 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %25 = tail call noundef align 8 dereferenceable_or_null(8) ptr @__rust_alloc(i64 noundef 8, i64 noundef 8) #20
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit"
 
-25:                                               ; preds = %21
+27:                                               ; preds = %23
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 8) #21
-          to label %.noexc unwind label %26
+          to label %.noexc unwind label %28
 
-.noexc:                                           ; preds = %25
+.noexc:                                           ; preds = %27
   unreachable
 
-26:                                               ; preds = %25
-  %27 = landingpad { ptr, i32 }
+28:                                               ; preds = %27
+  %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr64drop_in_place$LT$actix_multipart..form..json..JsonFieldError$GT$17hff1694e12e140d5fE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #22
-          to label %30 unwind label %28
+          to label %32 unwind label %30
 
-28:                                               ; preds = %26
-  %29 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #23
   unreachable
 
-30:                                               ; preds = %26
-  resume { ptr, i32 } %27
+32:                                               ; preds = %28
+  resume { ptr, i32 } %29
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit": ; preds = %21
-  store ptr %2, ptr %23, align 8
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit": ; preds = %23
+  store ptr %2, ptr %25, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %31
+  %33 = insertvalue { ptr, ptr } poison, ptr %25, 0
+  %34 = insertvalue { ptr, ptr } %33, ptr @anon.9536fa9df9a5f210434f3342f71a6d78.40, 1
+  br label %35
 
-31:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit", %7
-  %.sroa.3.0 = phi ptr [ %20, %7 ], [ @anon.9536fa9df9a5f210434f3342f71a6d78.40, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
-  %.sroa.0.0 = phi ptr [ %19, %7 ], [ %23, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
-  %32 = icmp ne ptr %.sroa.0.0, null
-  tail call void @llvm.assume(i1 %32)
-  %33 = icmp ne ptr %.sroa.3.0, null
-  tail call void @llvm.assume(i1 %33)
-  %34 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %35 = insertvalue { ptr, ptr } %34, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %35
+35:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit", %7
+  %.sroa.3.0 = phi i1 [ %22, %7 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
+  %.sroa.0.0 = phi i1 [ %21, %7 ], [ true, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
+  %.merged = phi { ptr, ptr } [ %18, %7 ], [ %34, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h49d2beb8876ef37cE.exit" ]
+  tail call void @llvm.assume(i1 %.sroa.0.0)
+  tail call void @llvm.assume(i1 %.sroa.3.0)
+  ret { ptr, ptr } %.merged
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
