@@ -466,36 +466,31 @@ define weak_odr <4 x float> @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Matr
   %8 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %9 = load <4 x float>, ptr %5, align 16
   %10 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %7, <4 x float> %9, <4 x float> %8)
-  %bc = bitcast <4 x float> %6 to <4 x i32>
-  %11 = extractelement <4 x i32> %bc, i64 2
-  %12 = bitcast i32 %11 to float
-  %13 = insertelement <4 x float> poison, float %12, i64 0
-  %14 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> zeroinitializer
-  %15 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> %9, <4 x float> %14)
-  %16 = tail call contract noundef float @llvm.fabs.f32(float %12)
-  %17 = fcmp contract oeq float %16, 0x7FF0000000000000
-  %18 = and i32 %11, -2147483648
-  %19 = or disjoint i32 %18, 1065353216
-  %20 = bitcast i32 %19 to float
-  %21 = tail call contract noundef float @llvm.fma.f32(float %20, float 5.000000e-01, float 5.000000e-01)
-  %22 = fmul contract <4 x float> %15, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %23 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %15, <4 x float> %15, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %24 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %23, <4 x float> zeroinitializer, i8 -1)
-  %25 = fmul contract <4 x float> %24, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %26 = fneg contract <4 x float> %24
-  %27 = fmul contract <4 x float> %23, %26
-  %28 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %27, <4 x float> %24, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
-  %29 = fmul contract <4 x float> %25, %28
-  %30 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %29, <4 x float> %23, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %31 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %22, <4 x float> %30, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %32 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %31, <4 x float> zeroinitializer)
-  %33 = select i1 %17, i8 15, i8 0
-  %34 = insertelement <4 x float> poison, float %21, i64 0
-  %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> zeroinitializer
-  %36 = bitcast i8 %33 to <8 x i1>
-  %37 = shufflevector <8 x i1> %36, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %38 = select contract <4 x i1> %37, <4 x float> %35, <4 x float> %32
-  ret <4 x float> %38
+  %11 = extractelement <4 x float> %6, i64 2
+  %12 = shufflevector <4 x float> %6, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %13 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %10, <4 x float> %9, <4 x float> %12)
+  %14 = tail call contract noundef float @llvm.fabs.f32(float %11)
+  %15 = fcmp contract oeq float %14, 0x7FF0000000000000
+  %16 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %11)
+  %17 = tail call contract noundef float @llvm.fma.f32(float %16, float 5.000000e-01, float 5.000000e-01)
+  %18 = fmul contract <4 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %19 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %13, <4 x float> %13, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %20 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %19, <4 x float> zeroinitializer, i8 -1)
+  %21 = fmul contract <4 x float> %20, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %22 = fneg contract <4 x float> %20
+  %23 = fmul contract <4 x float> %19, %22
+  %24 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %23, <4 x float> %20, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %25 = fmul contract <4 x float> %21, %24
+  %26 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %25, <4 x float> %19, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
+  %27 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> %26, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %28 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %27, <4 x float> zeroinitializer)
+  %29 = select i1 %15, i8 15, i8 0
+  %30 = insertelement <4 x float> poison, float %17, i64 0
+  %31 = shufflevector <4 x float> %30, <4 x float> poison, <4 x i32> zeroinitializer
+  %32 = bitcast i8 %29 to <8 x i1>
+  %33 = shufflevector <8 x i1> %32, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %34 = select contract <4 x i1> %33, <4 x float> %31, <4 x float> %28
+  ret <4 x float> %34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -512,47 +507,42 @@ define weak_odr noundef float @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Ma
   %6 = shufflevector <4 x float> %5, <4 x float> poison, <16 x i32> zeroinitializer
   %7 = shufflevector <4 x float> %5, <4 x float> poison, <16 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %8 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %6, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %7)
-  %bc.i = bitcast <4 x float> %5 to <4 x i32>
-  %9 = extractelement <4 x i32> %bc.i, i64 2
-  %10 = bitcast i32 %9 to float
-  %11 = insertelement <16 x float> poison, float %10, i64 0
-  %12 = shufflevector <16 x float> %11, <16 x float> poison, <16 x i32> zeroinitializer
-  %13 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %8, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %12)
-  %14 = tail call contract noundef float @llvm.fabs.f32(float %10)
-  %15 = fcmp contract oeq float %14, 0x7FF0000000000000
-  %16 = and i32 %9, -2147483648
-  %17 = or disjoint i32 %16, 1065353216
-  %18 = bitcast i32 %17 to float
-  %19 = tail call contract noundef float @llvm.fma.f32(float %18, float 5.000000e-01, float 5.000000e-01)
-  %20 = fmul contract <16 x float> %13, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %21 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %13, <16 x float> %13, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %22 = tail call contract noundef <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float> %21, <16 x float> zeroinitializer, i16 -1)
-  %23 = fmul contract <16 x float> %22, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %24 = fmul contract <16 x float> %22, %21
-  %25 = fneg contract <16 x float> %22
-  %26 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %24, <16 x float> %25, <16 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
-  %27 = fmul contract <16 x float> %23, %26
-  %28 = tail call contract <16 x float> @llvm.x86.avx512.mask.fixupimm.ps.512(<16 x float> %27, <16 x float> %21, <16 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i16 -1, i32 4)
-  %29 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %20, <16 x float> %28, <16 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %30 = tail call contract noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %29, <16 x float> zeroinitializer, i32 4)
-  %.neg.i = sext i1 %15 to i16
-  %31 = insertelement <16 x float> poison, float %19, i64 0
-  %32 = shufflevector <16 x float> %31, <16 x float> poison, <16 x i32> zeroinitializer
-  %33 = bitcast i16 %.neg.i to <16 x i1>
-  %34 = select contract <16 x i1> %33, <16 x float> %32, <16 x float> %30
-  %35 = shufflevector <16 x float> %34, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %36 = shufflevector <16 x float> %34, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %37 = fadd contract <8 x float> %35, %36
-  %38 = shufflevector <8 x float> %37, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %39 = shufflevector <8 x float> %37, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %40 = fadd contract <4 x float> %38, %39
-  %41 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
-  %42 = fadd contract <4 x float> %40, %41
-  %shift = shufflevector <4 x float> %42, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %43 = fadd contract <4 x float> %42, %shift
-  %44 = extractelement <4 x float> %43, i64 0
-  %45 = fmul contract float %44, 6.250000e-02
-  ret float %45
+  %9 = extractelement <4 x float> %5, i64 2
+  %10 = shufflevector <4 x float> %5, <4 x float> poison, <16 x i32> <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %11 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %8, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %10)
+  %12 = tail call contract noundef float @llvm.fabs.f32(float %9)
+  %13 = fcmp contract oeq float %12, 0x7FF0000000000000
+  %14 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %9)
+  %15 = tail call contract noundef float @llvm.fma.f32(float %14, float 5.000000e-01, float 5.000000e-01)
+  %16 = fmul contract <16 x float> %11, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %17 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %11, <16 x float> %11, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %18 = tail call contract noundef <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float> %17, <16 x float> zeroinitializer, i16 -1)
+  %19 = fmul contract <16 x float> %18, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %20 = fmul contract <16 x float> %18, %17
+  %21 = fneg contract <16 x float> %18
+  %22 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %20, <16 x float> %21, <16 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %23 = fmul contract <16 x float> %19, %22
+  %24 = tail call contract <16 x float> @llvm.x86.avx512.mask.fixupimm.ps.512(<16 x float> %23, <16 x float> %17, <16 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i16 -1, i32 4)
+  %25 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %16, <16 x float> %24, <16 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %26 = tail call contract noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %25, <16 x float> zeroinitializer, i32 4)
+  %.neg.i = sext i1 %13 to i16
+  %27 = insertelement <16 x float> poison, float %15, i64 0
+  %28 = shufflevector <16 x float> %27, <16 x float> poison, <16 x i32> zeroinitializer
+  %29 = bitcast i16 %.neg.i to <16 x i1>
+  %30 = select contract <16 x i1> %29, <16 x float> %28, <16 x float> %26
+  %31 = shufflevector <16 x float> %30, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %32 = shufflevector <16 x float> %30, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %33 = fadd contract <8 x float> %31, %32
+  %34 = shufflevector <8 x float> %33, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %35 = shufflevector <8 x float> %33, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %36 = fadd contract <4 x float> %34, %35
+  %37 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
+  %38 = fadd contract <4 x float> %36, %37
+  %shift = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %39 = fadd contract <4 x float> %38, %shift
+  %40 = extractelement <4 x float> %39, i64 0
+  %41 = fmul contract float %40, 6.250000e-02
+  ret float %41
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -562,47 +552,42 @@ define weak_odr noundef float @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Ma
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <16 x i32> zeroinitializer
   %5 = shufflevector <4 x float> %3, <4 x float> poison, <16 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %6 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %4, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %5)
-  %bc = bitcast <4 x float> %3 to <4 x i32>
-  %7 = extractelement <4 x i32> %bc, i64 2
-  %8 = bitcast i32 %7 to float
-  %9 = insertelement <16 x float> poison, float %8, i64 0
-  %10 = shufflevector <16 x float> %9, <16 x float> poison, <16 x i32> zeroinitializer
-  %11 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %6, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %10)
-  %12 = tail call contract noundef float @llvm.fabs.f32(float %8)
-  %13 = fcmp contract oeq float %12, 0x7FF0000000000000
-  %14 = and i32 %7, -2147483648
-  %15 = or disjoint i32 %14, 1065353216
-  %16 = bitcast i32 %15 to float
-  %17 = tail call contract noundef float @llvm.fma.f32(float %16, float 5.000000e-01, float 5.000000e-01)
-  %18 = fmul contract <16 x float> %11, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %19 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %11, <16 x float> %11, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %20 = tail call contract noundef <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float> %19, <16 x float> zeroinitializer, i16 -1)
-  %21 = fmul contract <16 x float> %20, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %22 = fmul contract <16 x float> %20, %19
-  %23 = fneg contract <16 x float> %20
-  %24 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %22, <16 x float> %23, <16 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
-  %25 = fmul contract <16 x float> %21, %24
-  %26 = tail call contract <16 x float> @llvm.x86.avx512.mask.fixupimm.ps.512(<16 x float> %25, <16 x float> %19, <16 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i16 -1, i32 4)
-  %27 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %18, <16 x float> %26, <16 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %28 = tail call contract noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %27, <16 x float> zeroinitializer, i32 4)
-  %.neg = sext i1 %13 to i16
-  %29 = insertelement <16 x float> poison, float %17, i64 0
-  %30 = shufflevector <16 x float> %29, <16 x float> poison, <16 x i32> zeroinitializer
-  %31 = bitcast i16 %.neg to <16 x i1>
-  %32 = select contract <16 x i1> %31, <16 x float> %30, <16 x float> %28
-  %33 = shufflevector <16 x float> %32, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %34 = shufflevector <16 x float> %32, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %35 = fadd contract <8 x float> %33, %34
-  %36 = shufflevector <8 x float> %35, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %37 = shufflevector <8 x float> %35, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %38 = fadd contract <4 x float> %36, %37
-  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
-  %40 = fadd contract <4 x float> %38, %39
-  %shift = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %41 = fadd contract <4 x float> %40, %shift
-  %42 = extractelement <4 x float> %41, i64 0
-  %43 = fmul contract float %42, 6.250000e-02
-  ret float %43
+  %7 = extractelement <4 x float> %3, i64 2
+  %8 = shufflevector <4 x float> %3, <4 x float> poison, <16 x i32> <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %9 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %6, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %8)
+  %10 = tail call contract noundef float @llvm.fabs.f32(float %7)
+  %11 = fcmp contract oeq float %10, 0x7FF0000000000000
+  %12 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %7)
+  %13 = tail call contract noundef float @llvm.fma.f32(float %12, float 5.000000e-01, float 5.000000e-01)
+  %14 = fmul contract <16 x float> %9, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %15 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %9, <16 x float> %9, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %16 = tail call contract noundef <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float> %15, <16 x float> zeroinitializer, i16 -1)
+  %17 = fmul contract <16 x float> %16, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %18 = fmul contract <16 x float> %16, %15
+  %19 = fneg contract <16 x float> %16
+  %20 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %18, <16 x float> %19, <16 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %21 = fmul contract <16 x float> %17, %20
+  %22 = tail call contract <16 x float> @llvm.x86.avx512.mask.fixupimm.ps.512(<16 x float> %21, <16 x float> %15, <16 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i16 -1, i32 4)
+  %23 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %14, <16 x float> %22, <16 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %24 = tail call contract noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %23, <16 x float> zeroinitializer, i32 4)
+  %.neg = sext i1 %11 to i16
+  %25 = insertelement <16 x float> poison, float %13, i64 0
+  %26 = shufflevector <16 x float> %25, <16 x float> poison, <16 x i32> zeroinitializer
+  %27 = bitcast i16 %.neg to <16 x i1>
+  %28 = select contract <16 x i1> %27, <16 x float> %26, <16 x float> %24
+  %29 = shufflevector <16 x float> %28, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %30 = shufflevector <16 x float> %28, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %31 = fadd contract <8 x float> %29, %30
+  %32 = shufflevector <8 x float> %31, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %33 = shufflevector <8 x float> %31, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %34 = fadd contract <4 x float> %32, %33
+  %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
+  %36 = fadd contract <4 x float> %34, %35
+  %shift = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %37 = fadd contract <4 x float> %36, %shift
+  %38 = extractelement <4 x float> %37, i64 0
+  %39 = fmul contract float %38, 6.250000e-02
+  ret float %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -615,39 +600,34 @@ define weak_odr void @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6MatrixINS_8
   %11 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> zeroinitializer
   %12 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %13 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %11, <4 x float> %8, <4 x float> %12)
-  %bc.i = bitcast <4 x float> %10 to <4 x i32>
-  %14 = extractelement <4 x i32> %bc.i, i64 2
-  %15 = bitcast i32 %14 to float
-  %16 = insertelement <4 x float> poison, float %15, i64 0
-  %17 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> zeroinitializer
-  %18 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %13, <4 x float> %8, <4 x float> %17)
-  %19 = tail call contract noundef float @llvm.fabs.f32(float %15)
-  %20 = fcmp contract oeq float %19, 0x7FF0000000000000
-  %21 = and i32 %14, -2147483648
-  %22 = or disjoint i32 %21, 1065353216
-  %23 = bitcast i32 %22 to float
-  %24 = tail call contract noundef float @llvm.fma.f32(float %23, float 5.000000e-01, float 5.000000e-01)
-  %25 = fmul contract <4 x float> %18, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %26 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %18, <4 x float> %18, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %27 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %26, <4 x float> zeroinitializer, i8 -1)
-  %28 = fmul contract <4 x float> %27, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %29 = fneg contract <4 x float> %27
-  %30 = fmul contract <4 x float> %26, %29
-  %31 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %30, <4 x float> %27, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
-  %32 = fmul contract <4 x float> %28, %31
-  %33 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %32, <4 x float> %26, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
-  %34 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %25, <4 x float> %33, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %35 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %34, <4 x float> zeroinitializer)
-  %36 = select i1 %20, i8 15, i8 0
-  %37 = insertelement <4 x float> poison, float %24, i64 0
-  %38 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> zeroinitializer
-  %39 = bitcast i8 %36 to <8 x i1>
-  %40 = shufflevector <8 x i1> %39, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %41 = select contract <4 x i1> %40, <4 x float> %38, <4 x float> %35
-  %42 = fmul contract <4 x float> %41, <float 4.700000e+02, float 4.700000e+02, float 4.700000e+02, float 4.700000e+02>
+  %14 = extractelement <4 x float> %10, i64 2
+  %15 = shufflevector <4 x float> %10, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %16 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %13, <4 x float> %8, <4 x float> %15)
+  %17 = tail call contract noundef float @llvm.fabs.f32(float %14)
+  %18 = fcmp contract oeq float %17, 0x7FF0000000000000
+  %19 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %14)
+  %20 = tail call contract noundef float @llvm.fma.f32(float %19, float 5.000000e-01, float 5.000000e-01)
+  %21 = fmul contract <4 x float> %16, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %22 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %16, <4 x float> %16, <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %23 = tail call contract noundef <4 x float> @llvm.x86.avx512.rsqrt14.ps.128(<4 x float> %22, <4 x float> zeroinitializer, i8 -1)
+  %24 = fmul contract <4 x float> %23, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %25 = fneg contract <4 x float> %23
+  %26 = fmul contract <4 x float> %22, %25
+  %27 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %26, <4 x float> %23, <4 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %28 = fmul contract <4 x float> %24, %27
+  %29 = tail call contract <4 x float> @llvm.x86.avx512.mask.fixupimm.ps.128(<4 x float> %28, <4 x float> %22, <4 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i8 -1)
+  %30 = tail call contract noundef <4 x float> @llvm.fma.v4f32(<4 x float> %21, <4 x float> %29, <4 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %31 = tail call contract noundef <4 x float> @llvm.x86.sse.max.ps(<4 x float> %30, <4 x float> zeroinitializer)
+  %32 = select i1 %18, i8 15, i8 0
+  %33 = insertelement <4 x float> poison, float %20, i64 0
+  %34 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> zeroinitializer
+  %35 = bitcast i8 %32 to <8 x i1>
+  %36 = shufflevector <8 x i1> %35, <8 x i1> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %37 = select contract <4 x i1> %36, <4 x float> %34, <4 x float> %31
+  %38 = fmul contract <4 x float> %37, <float 4.700000e+02, float 4.700000e+02, float 4.700000e+02, float 4.700000e+02>
   store <4 x float> %8, ptr %0, align 16
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
-  store <4 x float> %42, ptr %43, align 16
+  %39 = getelementptr inbounds i8, ptr %0, i64 16
+  store <4 x float> %38, ptr %39, align 16
   ret void
 }
 
@@ -658,47 +638,42 @@ define weak_odr noundef float @_ZNK7mitsuba23SRGBReflectanceSpectrumIfN5drjit6Ma
   %4 = shufflevector <4 x float> %3, <4 x float> poison, <16 x i32> zeroinitializer
   %5 = shufflevector <4 x float> %3, <4 x float> poison, <16 x i32> <i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1>
   %6 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %4, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %5)
-  %bc = bitcast <4 x float> %3 to <4 x i32>
-  %7 = extractelement <4 x i32> %bc, i64 2
-  %8 = bitcast i32 %7 to float
-  %9 = insertelement <16 x float> poison, float %8, i64 0
-  %10 = shufflevector <16 x float> %9, <16 x float> poison, <16 x i32> zeroinitializer
-  %11 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %6, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %10)
-  %12 = tail call contract noundef float @llvm.fabs.f32(float %8)
-  %13 = fcmp contract oeq float %12, 0x7FF0000000000000
-  %14 = and i32 %7, -2147483648
-  %15 = or disjoint i32 %14, 1065353216
-  %16 = bitcast i32 %15 to float
-  %17 = tail call contract noundef float @llvm.fma.f32(float %16, float 5.000000e-01, float 5.000000e-01)
-  %18 = fmul contract <16 x float> %11, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %19 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %11, <16 x float> %11, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
-  %20 = tail call contract noundef <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float> %19, <16 x float> zeroinitializer, i16 -1)
-  %21 = fmul contract <16 x float> %20, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
-  %22 = fmul contract <16 x float> %20, %19
-  %23 = fneg contract <16 x float> %20
-  %24 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %22, <16 x float> %23, <16 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
-  %25 = fmul contract <16 x float> %21, %24
-  %26 = tail call contract <16 x float> @llvm.x86.avx512.mask.fixupimm.ps.512(<16 x float> %25, <16 x float> %19, <16 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i16 -1, i32 4)
-  %27 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %18, <16 x float> %26, <16 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
-  %28 = tail call contract noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %27, <16 x float> zeroinitializer, i32 4)
-  %.neg = sext i1 %13 to i16
-  %29 = insertelement <16 x float> poison, float %17, i64 0
-  %30 = shufflevector <16 x float> %29, <16 x float> poison, <16 x i32> zeroinitializer
-  %31 = bitcast i16 %.neg to <16 x i1>
-  %32 = select contract <16 x i1> %31, <16 x float> %30, <16 x float> %28
-  %33 = shufflevector <16 x float> %32, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
-  %34 = shufflevector <16 x float> %32, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
-  %35 = fadd contract <8 x float> %33, %34
-  %36 = shufflevector <8 x float> %35, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %37 = shufflevector <8 x float> %35, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
-  %38 = fadd contract <4 x float> %36, %37
-  %39 = shufflevector <4 x float> %38, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
-  %40 = fadd contract <4 x float> %38, %39
-  %shift = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
-  %41 = fadd contract <4 x float> %40, %shift
-  %42 = extractelement <4 x float> %41, i64 0
-  %43 = fmul contract float %42, 6.250000e-02
-  ret float %43
+  %7 = extractelement <4 x float> %3, i64 2
+  %8 = shufflevector <4 x float> %3, <4 x float> poison, <16 x i32> <i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2, i32 2>
+  %9 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %6, <16 x float> <float 3.600000e+02, float 0x4078755560000000, float 0x407A6AAAA0000000, float 4.540000e+02, float 0x407E555560000000, float 0x4080255560000000, float 5.480000e+02, float 0x40821AAAC0000000, float 0x4083155560000000, float 6.420000e+02, float 0x40850AAAC0000000, float 0x4086055560000000, float 7.360000e+02, float 0x4087FAAAC0000000, float 0x4088F55560000000, float 8.300000e+02>, <16 x float> %8)
+  %10 = tail call contract noundef float @llvm.fabs.f32(float %7)
+  %11 = fcmp contract oeq float %10, 0x7FF0000000000000
+  %12 = tail call float @llvm.copysign.f32(float 1.000000e+00, float %7)
+  %13 = tail call contract noundef float @llvm.fma.f32(float %12, float 5.000000e-01, float 5.000000e-01)
+  %14 = fmul contract <16 x float> %9, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %15 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %9, <16 x float> %9, <16 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 1.000000e+00>)
+  %16 = tail call contract noundef <16 x float> @llvm.x86.avx512.rsqrt14.ps.512(<16 x float> %15, <16 x float> zeroinitializer, i16 -1)
+  %17 = fmul contract <16 x float> %16, <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>
+  %18 = fmul contract <16 x float> %16, %15
+  %19 = fneg contract <16 x float> %16
+  %20 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %18, <16 x float> %19, <16 x float> <float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00, float 3.000000e+00>)
+  %21 = fmul contract <16 x float> %17, %20
+  %22 = tail call contract <16 x float> @llvm.x86.avx512.mask.fixupimm.ps.512(<16 x float> %21, <16 x float> %15, <16 x i32> <i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394, i32 58959394>, i32 0, i16 -1, i32 4)
+  %23 = tail call contract noundef <16 x float> @llvm.fma.v16f32(<16 x float> %14, <16 x float> %22, <16 x float> <float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01, float 5.000000e-01>)
+  %24 = tail call contract noundef <16 x float> @llvm.x86.avx512.max.ps.512(<16 x float> %23, <16 x float> zeroinitializer, i32 4)
+  %.neg = sext i1 %11 to i16
+  %25 = insertelement <16 x float> poison, float %13, i64 0
+  %26 = shufflevector <16 x float> %25, <16 x float> poison, <16 x i32> zeroinitializer
+  %27 = bitcast i16 %.neg to <16 x i1>
+  %28 = select contract <16 x i1> %27, <16 x float> %26, <16 x float> %24
+  %29 = shufflevector <16 x float> %28, <16 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7>
+  %30 = shufflevector <16 x float> %28, <16 x float> poison, <8 x i32> <i32 8, i32 9, i32 10, i32 11, i32 12, i32 13, i32 14, i32 15>
+  %31 = fadd contract <8 x float> %29, %30
+  %32 = shufflevector <8 x float> %31, <8 x float> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
+  %33 = shufflevector <8 x float> %31, <8 x float> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %34 = fadd contract <4 x float> %32, %33
+  %35 = shufflevector <4 x float> %34, <4 x float> poison, <4 x i32> <i32 1, i32 poison, i32 3, i32 poison>
+  %36 = fadd contract <4 x float> %34, %35
+  %shift = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 poison, i32 poison, i32 poison>
+  %37 = fadd contract <4 x float> %36, %shift
+  %38 = extractelement <4 x float> %37, i64 0
+  %39 = fmul contract float %38, 6.250000e-02
+  ret float %39
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3136,6 +3111,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #21
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.copysign.f32(float, float) #21
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }

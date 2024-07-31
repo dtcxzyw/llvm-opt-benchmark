@@ -586,7 +586,7 @@ define hidden noundef double @_ZN13SharedRuntime4dpowEdd(double noundef %0, doub
   br i1 %or.cond11.i, label %77, label %.thread291.i
 
 77:                                               ; preds = %74
-  %78 = tail call double @sqrt(double noundef %0) #7
+  %78 = tail call double @sqrt(double noundef %0) #8
   br label %_ZL13__ieee754_powdd.exit
 
 .thread291.i:                                     ; preds = %74, %47, %37
@@ -989,7 +989,7 @@ define internal void @__cxx_global_var_init.4() #2 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 162, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -998,7 +998,7 @@ define internal void @__cxx_global_var_init.4() #2 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #3 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #7
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #8
   ret i64 %3
 }
 
@@ -1012,7 +1012,7 @@ define internal void @__cxx_global_var_init.5() #2 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1021,7 +1021,7 @@ define internal void @__cxx_global_var_init.5() #2 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #3 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #7
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #8
   ret i64 %3
 }
 
@@ -1033,7 +1033,7 @@ define internal void @__cxx_global_var_init.6() #2 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 107, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1042,7 +1042,7 @@ define internal void @__cxx_global_var_init.6() #2 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #3 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #7
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #8
   ret i64 %3
 }
 
@@ -1054,7 +1054,7 @@ define internal void @__cxx_global_var_init.7() #2 section ".text.startup" comda
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #7
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 49, i32 noundef 80, i32 noundef 0, i32 noundef 0, i32 noundef 0) #8
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1063,7 +1063,7 @@ define internal void @__cxx_global_var_init.7() #2 section ".text.startup" comda
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE49ELS1_80ELS1_0ELS1_0ELS1_0ELS1_0EE6prefixEPcm(ptr noundef %0, i64 noundef %1) #3 comdat align 2 {
-  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #7
+  %3 = tail call noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef %0, i64 noundef %1) #8
   ret i64 %3
 }
 
@@ -1087,7 +1087,7 @@ define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noun
   %7 = and i32 %.sroa.0.4.extract.trunc.i, 2147483647
   %8 = or i32 %7, %.sroa.0.0.extract.trunc.i
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %56, label %10
+  br i1 %9, label %52, label %10
 
 10:                                               ; preds = %6
   %11 = fmul double %0, 0x4350000000000000
@@ -1102,82 +1102,75 @@ define internal fastcc noundef double @_ZL7scalbnAdi(double noundef %0, i32 noun
 
 17:                                               ; preds = %10
   %18 = fmul double %11, 1.000000e-300
-  br label %56
+  br label %52
 
 19:                                               ; preds = %2
   %20 = fadd double %0, %0
-  br label %56
+  br label %52
 
 .thread:                                          ; preds = %2, %10
-  %.01847 = phi i32 [ %.sroa.0.4.extract.trunc.i23, %10 ], [ %.sroa.0.4.extract.trunc.i, %2 ]
-  %.01946 = phi i32 [ %15, %10 ], [ %5, %2 ]
-  %.04145 = phi double [ %11, %10 ], [ %0, %2 ]
-  %21 = add nsw i32 %.01946, %1
+  %.01844 = phi i32 [ %.sroa.0.4.extract.trunc.i23, %10 ], [ %.sroa.0.4.extract.trunc.i, %2 ]
+  %.01943 = phi i32 [ %15, %10 ], [ %5, %2 ]
+  %.03842 = phi double [ %11, %10 ], [ %0, %2 ]
+  %21 = add nsw i32 %.01943, %1
   %22 = icmp sgt i32 %21, 2046
-  br i1 %22, label %23, label %28
+  br i1 %22, label %23, label %26
 
 23:                                               ; preds = %.thread
-  %24 = bitcast double %.04145 to i64
-  %25 = and i64 %24, -9223372036854775808
-  %.sroa.0.4.insert.insert.i = or disjoint i64 %25, 9094988921128908188
-  %26 = bitcast i64 %.sroa.0.4.insert.insert.i to double
-  %27 = fmul double %26, 1.000000e+300
-  br label %56
+  %24 = tail call noundef double @llvm.copysign.f64(double 1.000000e+300, double %.03842)
+  %25 = fmul double %24, 1.000000e+300
+  br label %52
 
-28:                                               ; preds = %.thread
-  %29 = icmp sgt i32 %21, 0
-  br i1 %29, label %30, label %36
+26:                                               ; preds = %.thread
+  %27 = icmp sgt i32 %21, 0
+  br i1 %27, label %28, label %34
 
-30:                                               ; preds = %28
-  %31 = and i32 %.01847, -2146435073
-  %32 = shl nuw nsw i32 %21, 20
-  %33 = or disjoint i32 %32, %31
-  %34 = bitcast double %.04145 to i64
-  %.sroa.0.4.insert.ext.i = zext i32 %33 to i64
+28:                                               ; preds = %26
+  %29 = and i32 %.01844, -2146435073
+  %30 = shl nuw nsw i32 %21, 20
+  %31 = or disjoint i32 %30, %29
+  %32 = bitcast double %.03842 to i64
+  %.sroa.0.4.insert.ext.i = zext i32 %31 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
-  %.sroa.0.4.insert.mask.i = and i64 %34, 4294967295
-  %.sroa.0.4.insert.insert.i24 = or disjoint i64 %.sroa.0.4.insert.shift.i, %.sroa.0.4.insert.mask.i
-  %35 = bitcast i64 %.sroa.0.4.insert.insert.i24 to double
-  br label %56
+  %.sroa.0.4.insert.mask.i = and i64 %32, 4294967295
+  %.sroa.0.4.insert.insert.i = or disjoint i64 %.sroa.0.4.insert.shift.i, %.sroa.0.4.insert.mask.i
+  %33 = bitcast i64 %.sroa.0.4.insert.insert.i to double
+  br label %52
 
-36:                                               ; preds = %28
-  %37 = icmp slt i32 %21, -53
-  br i1 %37, label %38, label %48
+34:                                               ; preds = %26
+  %35 = icmp slt i32 %21, -53
+  br i1 %35, label %36, label %44
+
+36:                                               ; preds = %34
+  %37 = icmp sgt i32 %1, 50000
+  br i1 %37, label %38, label %41
 
 38:                                               ; preds = %36
-  %39 = icmp sgt i32 %1, 50000
-  %40 = bitcast double %.04145 to i64
-  %41 = and i64 %40, -9223372036854775808
-  br i1 %39, label %42, label %45
+  %39 = tail call noundef double @llvm.copysign.f64(double 1.000000e+300, double %.03842)
+  %40 = fmul double %39, 1.000000e+300
+  br label %52
 
-42:                                               ; preds = %38
-  %.sroa.0.4.insert.insert.i25 = or disjoint i64 %41, 9094988921128908188
-  %43 = bitcast i64 %.sroa.0.4.insert.insert.i25 to double
-  %44 = fmul double %43, 1.000000e+300
-  br label %56
+41:                                               ; preds = %36
+  %42 = tail call noundef double @llvm.copysign.f64(double 1.000000e-300, double %.03842)
+  %43 = fmul double %42, 1.000000e-300
+  br label %52
 
-45:                                               ; preds = %38
-  %.sroa.0.4.insert.insert.i26 = or disjoint i64 %41, 118622047889322841
-  %46 = bitcast i64 %.sroa.0.4.insert.insert.i26 to double
-  %47 = fmul double %46, 1.000000e-300
-  br label %56
+44:                                               ; preds = %34
+  %45 = and i32 %.01844, -2146435073
+  %46 = shl nsw i32 %21, 20
+  %47 = add i32 %46, 56623104
+  %48 = or i32 %47, %45
+  %49 = bitcast double %.03842 to i64
+  %.sroa.0.4.insert.ext.i24 = zext i32 %48 to i64
+  %.sroa.0.4.insert.shift.i25 = shl nuw i64 %.sroa.0.4.insert.ext.i24, 32
+  %.sroa.0.4.insert.mask.i26 = and i64 %49, 4294967295
+  %.sroa.0.4.insert.insert.i27 = or disjoint i64 %.sroa.0.4.insert.shift.i25, %.sroa.0.4.insert.mask.i26
+  %50 = bitcast i64 %.sroa.0.4.insert.insert.i27 to double
+  %51 = fmul double %50, 0x3C90000000000000
+  br label %52
 
-48:                                               ; preds = %36
-  %49 = and i32 %.01847, -2146435073
-  %50 = shl nsw i32 %21, 20
-  %51 = add i32 %50, 56623104
-  %52 = or i32 %51, %49
-  %53 = bitcast double %.04145 to i64
-  %.sroa.0.4.insert.ext.i27 = zext i32 %52 to i64
-  %.sroa.0.4.insert.shift.i28 = shl nuw i64 %.sroa.0.4.insert.ext.i27, 32
-  %.sroa.0.4.insert.mask.i29 = and i64 %53, 4294967295
-  %.sroa.0.4.insert.insert.i30 = or disjoint i64 %.sroa.0.4.insert.shift.i28, %.sroa.0.4.insert.mask.i29
-  %54 = bitcast i64 %.sroa.0.4.insert.insert.i30 to double
-  %55 = fmul double %54, 0x3C90000000000000
-  br label %56
-
-56:                                               ; preds = %6, %48, %45, %42, %30, %23, %19, %17
-  %.0 = phi double [ %18, %17 ], [ %20, %19 ], [ %27, %23 ], [ %35, %30 ], [ %44, %42 ], [ %47, %45 ], [ %55, %48 ], [ %0, %6 ]
+52:                                               ; preds = %6, %44, %41, %38, %28, %23, %19, %17
+  %.0 = phi double [ %18, %17 ], [ %20, %19 ], [ %25, %23 ], [ %33, %28 ], [ %40, %38 ], [ %43, %41 ], [ %51, %44 ], [ %0, %6 ]
   ret double %.0
 }
 
@@ -1186,6 +1179,9 @@ declare double @llvm.fabs.f64(double) #6
 
 declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_unnamed_addr #4
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.copysign.f64(double, double) #7
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1193,7 +1189,8 @@ attributes #3 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal
 attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { nounwind }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
