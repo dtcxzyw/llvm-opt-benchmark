@@ -204792,43 +204792,42 @@ define internal double @js_math_round(double noundef %0) #4 {
   %4 = trunc nuw nsw i64 %3 to i32
   %5 = and i32 %4, 2047
   %6 = icmp ult i32 %5, 1023
-  br i1 %6, label %7, label %16
+  br i1 %6, label %7, label %15
 
 7:                                                ; preds = %1
   %8 = icmp eq i32 %5, 1022
   %9 = icmp ne i64 %2, -4620693217682128896
   %or.cond = and i1 %9, %8
-  %10 = and i64 %2, -9223372036854775808
-  br i1 %or.cond, label %11, label %14
+  br i1 %or.cond, label %10, label %12
 
-11:                                               ; preds = %7
-  %12 = or disjoint i64 %10, 4607182418800017408
-  %13 = bitcast i64 %12 to double
-  br label %28
+10:                                               ; preds = %7
+  %11 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
+  br label %27
 
-14:                                               ; preds = %7
-  %15 = bitcast i64 %10 to double
-  br label %28
+12:                                               ; preds = %7
+  %13 = and i64 %2, -9223372036854775808
+  %14 = bitcast i64 %13 to double
+  br label %27
 
-16:                                               ; preds = %1
-  %17 = icmp ult i32 %5, 1075
-  br i1 %17, label %18, label %28
+15:                                               ; preds = %1
+  %16 = icmp ult i32 %5, 1075
+  br i1 %16, label %17, label %27
 
-18:                                               ; preds = %16
+17:                                               ; preds = %15
   %.neg = ashr i64 %2, 63
-  %19 = sub nuw nsw i32 1075, %5
-  %20 = zext nneg i32 %19 to i64
-  %21 = shl nuw nsw i64 1, %20
-  %22 = lshr i64 %21, 1
-  %23 = add i64 %.neg, %2
-  %24 = add i64 %23, %22
-  %25 = sub nsw i64 0, %21
-  %26 = and i64 %24, %25
-  %27 = bitcast i64 %26 to double
-  br label %28
+  %18 = sub nuw nsw i32 1075, %5
+  %19 = zext nneg i32 %18 to i64
+  %20 = shl nuw nsw i64 1, %19
+  %21 = lshr i64 %20, 1
+  %22 = add i64 %.neg, %2
+  %23 = add i64 %22, %21
+  %24 = sub nsw i64 0, %20
+  %25 = and i64 %23, %24
+  %26 = bitcast i64 %25 to double
+  br label %27
 
-28:                                               ; preds = %16, %18, %11, %14
-  %.sroa.0.0 = phi double [ %13, %11 ], [ %15, %14 ], [ %27, %18 ], [ %0, %16 ]
+27:                                               ; preds = %15, %17, %10, %12
+  %.sroa.0.0 = phi double [ %11, %10 ], [ %14, %12 ], [ %26, %17 ], [ %0, %15 ]
   ret double %.sroa.0.0
 }
 
@@ -214797,6 +214796,9 @@ declare i32 @llvm.bswap.i32(i32) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.ctpop.i32(i32) #37
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.copysign.f64(double, double) #37
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #40

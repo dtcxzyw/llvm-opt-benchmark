@@ -17265,176 +17265,170 @@ define hidden void @"_ZN176_$LT$palette..oklab..Oklab$LT$T$GT$$u20$as$u20$palett
 
 31:                                               ; preds = %27
   %32 = icmp eq i32 %25, 0
-  br i1 %32, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit", label %57
+  br i1 %32, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit", label %56
 
-33:                                               ; preds = %57, %27
-  %.sink30.i.i = phi i32 [ %60, %57 ], [ %25, %27 ]
-  %.sink29.i.i = phi i32 [ 642849266, %57 ], [ 709958130, %27 ]
-  %.027.in.i.i = phi float [ %58, %57 ], [ %19, %27 ]
+33:                                               ; preds = %56, %27
+  %.sink30.i.i = phi i32 [ %59, %56 ], [ %25, %27 ]
+  %.sink29.i.i = phi i32 [ 642849266, %56 ], [ 709958130, %27 ]
+  %.027.in.i.i = phi float [ %57, %56 ], [ %19, %27 ]
   %34 = udiv i32 %.sink30.i.i, 3
   %35 = add nuw nsw i32 %34, %.sink29.i.i
-  %.027.i.i = bitcast float %.027.in.i.i to i32
-  %36 = and i32 %.027.i.i, -2147483648
-  %37 = or disjoint i32 %36, %35
-  %38 = bitcast i32 %37 to float
-  %39 = fpext float %38 to double
-  %40 = fmul double %39, %39
-  %41 = fmul double %40, %39
-  %42 = fpext float %19 to double
-  %43 = fadd double %42, %42
-  %44 = fadd double %43, %41
-  %45 = fmul double %44, %39
-  %46 = fadd double %41, %42
-  %47 = fadd double %41, %46
-  %48 = fdiv double %45, %47
-  %49 = fmul double %48, %48
-  %50 = fmul double %48, %49
-  %51 = fadd double %43, %50
-  %52 = fmul double %48, %51
-  %53 = fadd double %50, %42
-  %54 = fadd double %50, %53
-  %55 = fdiv double %52, %54
-  %56 = fptrunc double %55 to float
+  %36 = bitcast i32 %35 to float
+  %37 = tail call float @llvm.copysign.f32(float %36, float %.027.in.i.i)
+  %38 = fpext float %37 to double
+  %39 = fmul double %38, %38
+  %40 = fmul double %39, %38
+  %41 = fpext float %19 to double
+  %42 = fadd double %41, %41
+  %43 = fadd double %42, %40
+  %44 = fmul double %43, %38
+  %45 = fadd double %40, %41
+  %46 = fadd double %40, %45
+  %47 = fdiv double %44, %46
+  %48 = fmul double %47, %47
+  %49 = fmul double %47, %48
+  %50 = fadd double %42, %49
+  %51 = fmul double %47, %50
+  %52 = fadd double %49, %41
+  %53 = fadd double %49, %52
+  %54 = fdiv double %51, %53
+  %55 = fptrunc double %54 to float
   br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
 
-57:                                               ; preds = %31
-  %58 = fmul float %19, 0x4170000000000000
-  %59 = tail call float @llvm.fabs.f32(float %58)
-  %60 = bitcast float %59 to i32
+56:                                               ; preds = %31
+  %57 = fmul float %19, 0x4170000000000000
+  %58 = tail call float @llvm.fabs.f32(float %57)
+  %59 = bitcast float %58 to i32
   br label %33
 
 "_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit": ; preds = %29, %31, %33
-  %.0.i.i = phi float [ %30, %29 ], [ %56, %33 ], [ %19, %31 ]
-  %61 = tail call float @llvm.fabs.f32(float %21)
-  %62 = bitcast float %61 to i32
-  %63 = icmp ugt i32 %62, 2139095039
-  br i1 %63, label %66, label %64
+  %.0.i.i = phi float [ %30, %29 ], [ %55, %33 ], [ %19, %31 ]
+  %60 = tail call float @llvm.fabs.f32(float %21)
+  %61 = bitcast float %60 to i32
+  %62 = icmp ugt i32 %61, 2139095039
+  br i1 %62, label %65, label %63
 
-64:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
-  %65 = icmp ult i32 %62, 8388608
-  br i1 %65, label %68, label %70
+63:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
+  %64 = icmp ult i32 %61, 8388608
+  br i1 %64, label %67, label %69
 
-66:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
-  %67 = fadd float %21, %21
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit7"
+65:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
+  %66 = fadd float %21, %21
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
 
-68:                                               ; preds = %64
-  %69 = icmp eq i32 %62, 0
-  br i1 %69, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit7", label %94
+67:                                               ; preds = %63
+  %68 = icmp eq i32 %61, 0
+  br i1 %68, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6", label %92
 
-70:                                               ; preds = %94, %64
-  %.sink30.i.i2 = phi i32 [ %97, %94 ], [ %62, %64 ]
-  %.sink29.i.i3 = phi i32 [ 642849266, %94 ], [ 709958130, %64 ]
-  %.027.in.i.i4 = phi float [ %95, %94 ], [ %21, %64 ]
-  %71 = udiv i32 %.sink30.i.i2, 3
-  %72 = add nuw nsw i32 %71, %.sink29.i.i3
-  %.027.i.i5 = bitcast float %.027.in.i.i4 to i32
-  %73 = and i32 %.027.i.i5, -2147483648
-  %74 = or disjoint i32 %73, %72
-  %75 = bitcast i32 %74 to float
-  %76 = fpext float %75 to double
-  %77 = fmul double %76, %76
-  %78 = fmul double %77, %76
-  %79 = fpext float %21 to double
-  %80 = fadd double %79, %79
-  %81 = fadd double %80, %78
-  %82 = fmul double %81, %76
-  %83 = fadd double %78, %79
-  %84 = fadd double %78, %83
-  %85 = fdiv double %82, %84
-  %86 = fmul double %85, %85
-  %87 = fmul double %85, %86
-  %88 = fadd double %80, %87
-  %89 = fmul double %85, %88
-  %90 = fadd double %87, %79
-  %91 = fadd double %87, %90
-  %92 = fdiv double %89, %91
-  %93 = fptrunc double %92 to float
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit7"
+69:                                               ; preds = %92, %63
+  %.sink30.i.i2 = phi i32 [ %95, %92 ], [ %61, %63 ]
+  %.sink29.i.i3 = phi i32 [ 642849266, %92 ], [ 709958130, %63 ]
+  %.027.in.i.i4 = phi float [ %93, %92 ], [ %21, %63 ]
+  %70 = udiv i32 %.sink30.i.i2, 3
+  %71 = add nuw nsw i32 %70, %.sink29.i.i3
+  %72 = bitcast i32 %71 to float
+  %73 = tail call float @llvm.copysign.f32(float %72, float %.027.in.i.i4)
+  %74 = fpext float %73 to double
+  %75 = fmul double %74, %74
+  %76 = fmul double %75, %74
+  %77 = fpext float %21 to double
+  %78 = fadd double %77, %77
+  %79 = fadd double %78, %76
+  %80 = fmul double %79, %74
+  %81 = fadd double %76, %77
+  %82 = fadd double %76, %81
+  %83 = fdiv double %80, %82
+  %84 = fmul double %83, %83
+  %85 = fmul double %83, %84
+  %86 = fadd double %78, %85
+  %87 = fmul double %83, %86
+  %88 = fadd double %85, %77
+  %89 = fadd double %85, %88
+  %90 = fdiv double %87, %89
+  %91 = fptrunc double %90 to float
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
 
-94:                                               ; preds = %68
-  %95 = fmul float %21, 0x4170000000000000
-  %96 = tail call float @llvm.fabs.f32(float %95)
+92:                                               ; preds = %67
+  %93 = fmul float %21, 0x4170000000000000
+  %94 = tail call float @llvm.fabs.f32(float %93)
+  %95 = bitcast float %94 to i32
+  br label %69
+
+"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6": ; preds = %65, %67, %69
+  %.0.i.i5 = phi float [ %66, %65 ], [ %91, %69 ], [ %21, %67 ]
+  %96 = tail call float @llvm.fabs.f32(float %23)
   %97 = bitcast float %96 to i32
-  br label %70
+  %98 = icmp ugt i32 %97, 2139095039
+  br i1 %98, label %101, label %99
 
-"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit7": ; preds = %66, %68, %70
-  %.0.i.i6 = phi float [ %67, %66 ], [ %93, %70 ], [ %21, %68 ]
-  %98 = tail call float @llvm.fabs.f32(float %23)
-  %99 = bitcast float %98 to i32
-  %100 = icmp ugt i32 %99, 2139095039
-  br i1 %100, label %103, label %101
+99:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
+  %100 = icmp ult i32 %97, 8388608
+  br i1 %100, label %103, label %105
 
-101:                                              ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit7"
-  %102 = icmp ult i32 %99, 8388608
-  br i1 %102, label %105, label %107
+101:                                              ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
+  %102 = fadd float %23, %23
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit11"
 
-103:                                              ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit7"
-  %104 = fadd float %23, %23
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit13"
+103:                                              ; preds = %99
+  %104 = icmp eq i32 %97, 0
+  br i1 %104, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit11", label %128
 
-105:                                              ; preds = %101
-  %106 = icmp eq i32 %99, 0
-  br i1 %106, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit13", label %131
+105:                                              ; preds = %128, %99
+  %.sink30.i.i7 = phi i32 [ %131, %128 ], [ %97, %99 ]
+  %.sink29.i.i8 = phi i32 [ 642849266, %128 ], [ 709958130, %99 ]
+  %.027.in.i.i9 = phi float [ %129, %128 ], [ %23, %99 ]
+  %106 = udiv i32 %.sink30.i.i7, 3
+  %107 = add nuw nsw i32 %106, %.sink29.i.i8
+  %108 = bitcast i32 %107 to float
+  %109 = tail call float @llvm.copysign.f32(float %108, float %.027.in.i.i9)
+  %110 = fpext float %109 to double
+  %111 = fmul double %110, %110
+  %112 = fmul double %111, %110
+  %113 = fpext float %23 to double
+  %114 = fadd double %113, %113
+  %115 = fadd double %114, %112
+  %116 = fmul double %115, %110
+  %117 = fadd double %112, %113
+  %118 = fadd double %112, %117
+  %119 = fdiv double %116, %118
+  %120 = fmul double %119, %119
+  %121 = fmul double %119, %120
+  %122 = fadd double %114, %121
+  %123 = fmul double %119, %122
+  %124 = fadd double %121, %113
+  %125 = fadd double %121, %124
+  %126 = fdiv double %123, %125
+  %127 = fptrunc double %126 to float
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit11"
 
-107:                                              ; preds = %131, %101
-  %.sink30.i.i8 = phi i32 [ %134, %131 ], [ %99, %101 ]
-  %.sink29.i.i9 = phi i32 [ 642849266, %131 ], [ 709958130, %101 ]
-  %.027.in.i.i10 = phi float [ %132, %131 ], [ %23, %101 ]
-  %108 = udiv i32 %.sink30.i.i8, 3
-  %109 = add nuw nsw i32 %108, %.sink29.i.i9
-  %.027.i.i11 = bitcast float %.027.in.i.i10 to i32
-  %110 = and i32 %.027.i.i11, -2147483648
-  %111 = or disjoint i32 %110, %109
-  %112 = bitcast i32 %111 to float
-  %113 = fpext float %112 to double
-  %114 = fmul double %113, %113
-  %115 = fmul double %114, %113
-  %116 = fpext float %23 to double
-  %117 = fadd double %116, %116
-  %118 = fadd double %117, %115
-  %119 = fmul double %118, %113
-  %120 = fadd double %115, %116
-  %121 = fadd double %115, %120
-  %122 = fdiv double %119, %121
-  %123 = fmul double %122, %122
-  %124 = fmul double %122, %123
-  %125 = fadd double %117, %124
-  %126 = fmul double %122, %125
-  %127 = fadd double %124, %116
-  %128 = fadd double %124, %127
-  %129 = fdiv double %126, %128
-  %130 = fptrunc double %129 to float
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit13"
+128:                                              ; preds = %103
+  %129 = fmul float %23, 0x4170000000000000
+  %130 = tail call float @llvm.fabs.f32(float %129)
+  %131 = bitcast float %130 to i32
+  br label %105
 
-131:                                              ; preds = %105
-  %132 = fmul float %23, 0x4170000000000000
-  %133 = tail call float @llvm.fabs.f32(float %132)
-  %134 = bitcast float %133 to i32
-  br label %107
-
-"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit13": ; preds = %103, %105, %107
-  %.0.i.i12 = phi float [ %104, %103 ], [ %130, %107 ], [ %23, %105 ]
-  %135 = fmul float %.0.i.i, 0x3FCAF02A40000000
-  %136 = fmul float %.0.i.i, 0x3FFFA5E1C0000000
-  %137 = fmul float %.0.i.i, 0x3F9A869680000000
-  %138 = fmul float %.0.i.i6, 0x3FE9655120000000
-  %139 = fmul float %.0.i.i6, 0x40036DC1C0000000
-  %140 = fmul float %.0.i.i6, 0x3FE90C7760000000
-  %141 = fmul float %.0.i.i12, 0x3F70ADD9C0000000
-  %142 = fmul float %.0.i.i12, 0x3FDCD68700000000
-  %143 = fmul float %.0.i.i12, 0x3FE9E0AC00000000
-  %144 = fadd float %135, %138
-  %145 = fsub float %144, %141
-  %146 = fsub float %136, %139
-  %147 = fadd float %146, %142
-  %148 = fadd float %137, %140
-  %149 = fsub float %148, %143
-  store float %145, ptr %0, align 4
-  %150 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %147, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %149, ptr %151, align 4
+"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit11": ; preds = %101, %103, %105
+  %.0.i.i10 = phi float [ %102, %101 ], [ %127, %105 ], [ %23, %103 ]
+  %132 = fmul float %.0.i.i, 0x3FCAF02A40000000
+  %133 = fmul float %.0.i.i, 0x3FFFA5E1C0000000
+  %134 = fmul float %.0.i.i, 0x3F9A869680000000
+  %135 = fmul float %.0.i.i5, 0x3FE9655120000000
+  %136 = fmul float %.0.i.i5, 0x40036DC1C0000000
+  %137 = fmul float %.0.i.i5, 0x3FE90C7760000000
+  %138 = fmul float %.0.i.i10, 0x3F70ADD9C0000000
+  %139 = fmul float %.0.i.i10, 0x3FDCD68700000000
+  %140 = fmul float %.0.i.i10, 0x3FE9E0AC00000000
+  %141 = fadd float %132, %135
+  %142 = fsub float %141, %138
+  %143 = fsub float %133, %136
+  %144 = fadd float %143, %139
+  %145 = fadd float %134, %137
+  %146 = fsub float %145, %140
+  store float %142, ptr %0, align 4
+  %147 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %144, ptr %147, align 4
+  %148 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %146, ptr %148, align 4
   ret void
 }
 
@@ -48425,50 +48419,48 @@ define hidden noundef float @_ZN4libm4math5cbrtf5cbrtf17he393467882cbef24E.llvm.
 
 7:                                                ; preds = %1
   %8 = fadd float %0, %0
-  br label %39
+  br label %38
 
 9:                                                ; preds = %5
   %10 = icmp eq i32 %3, 0
-  br i1 %10, label %39, label %35
+  br i1 %10, label %38, label %34
 
-11:                                               ; preds = %5, %35
-  %.sink30 = phi i32 [ %38, %35 ], [ %3, %5 ]
-  %.sink29 = phi i32 [ 642849266, %35 ], [ 709958130, %5 ]
-  %.027.in = phi float [ %36, %35 ], [ %0, %5 ]
+11:                                               ; preds = %5, %34
+  %.sink30 = phi i32 [ %37, %34 ], [ %3, %5 ]
+  %.sink29 = phi i32 [ 642849266, %34 ], [ 709958130, %5 ]
+  %.027.in = phi float [ %35, %34 ], [ %0, %5 ]
   %12 = udiv i32 %.sink30, 3
   %13 = add nuw nsw i32 %12, %.sink29
-  %.027 = bitcast float %.027.in to i32
-  %14 = and i32 %.027, -2147483648
-  %15 = or disjoint i32 %14, %13
-  %16 = bitcast i32 %15 to float
-  %17 = fpext float %16 to double
-  %18 = fmul double %17, %17
-  %19 = fmul double %18, %17
-  %20 = fpext float %0 to double
-  %21 = fadd double %20, %20
-  %22 = fadd double %21, %19
-  %23 = fmul double %22, %17
-  %24 = fadd double %19, %20
-  %25 = fadd double %19, %24
-  %26 = fdiv double %23, %25
-  %27 = fmul double %26, %26
-  %28 = fmul double %26, %27
-  %29 = fadd double %21, %28
-  %30 = fmul double %26, %29
-  %31 = fadd double %28, %20
-  %32 = fadd double %28, %31
-  %33 = fdiv double %30, %32
-  %34 = fptrunc double %33 to float
-  br label %39
+  %14 = bitcast i32 %13 to float
+  %15 = tail call float @llvm.copysign.f32(float %14, float %.027.in)
+  %16 = fpext float %15 to double
+  %17 = fmul double %16, %16
+  %18 = fmul double %17, %16
+  %19 = fpext float %0 to double
+  %20 = fadd double %19, %19
+  %21 = fadd double %20, %18
+  %22 = fmul double %21, %16
+  %23 = fadd double %18, %19
+  %24 = fadd double %18, %23
+  %25 = fdiv double %22, %24
+  %26 = fmul double %25, %25
+  %27 = fmul double %25, %26
+  %28 = fadd double %20, %27
+  %29 = fmul double %25, %28
+  %30 = fadd double %27, %19
+  %31 = fadd double %27, %30
+  %32 = fdiv double %29, %31
+  %33 = fptrunc double %32 to float
+  br label %38
 
-35:                                               ; preds = %9
-  %36 = fmul float %0, 0x4170000000000000
-  %37 = tail call float @llvm.fabs.f32(float %36)
-  %38 = bitcast float %37 to i32
+34:                                               ; preds = %9
+  %35 = fmul float %0, 0x4170000000000000
+  %36 = tail call float @llvm.fabs.f32(float %35)
+  %37 = bitcast float %36 to i32
   br label %11
 
-39:                                               ; preds = %9, %11, %7
-  %.0 = phi float [ %8, %7 ], [ %34, %11 ], [ %0, %9 ]
+38:                                               ; preds = %9, %11, %7
+  %.0 = phi float [ %8, %7 ], [ %33, %11 ], [ %0, %9 ]
   ret float %.0
 }
 
@@ -54480,46 +54472,44 @@ define hidden noundef float @"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..
 
 9:                                                ; preds = %5
   %10 = icmp eq i32 %3, 0
-  br i1 %10, label %_ZN4libm4math5cbrtf5cbrtf17he393467882cbef24E.llvm.4930786928582598558.exit, label %35
+  br i1 %10, label %_ZN4libm4math5cbrtf5cbrtf17he393467882cbef24E.llvm.4930786928582598558.exit, label %34
 
-11:                                               ; preds = %35, %5
-  %.sink30.i = phi i32 [ %38, %35 ], [ %3, %5 ]
-  %.sink29.i = phi i32 [ 642849266, %35 ], [ 709958130, %5 ]
-  %.027.in.i = phi float [ %36, %35 ], [ %0, %5 ]
+11:                                               ; preds = %34, %5
+  %.sink30.i = phi i32 [ %37, %34 ], [ %3, %5 ]
+  %.sink29.i = phi i32 [ 642849266, %34 ], [ 709958130, %5 ]
+  %.027.in.i = phi float [ %35, %34 ], [ %0, %5 ]
   %12 = udiv i32 %.sink30.i, 3
   %13 = add nuw nsw i32 %12, %.sink29.i
-  %.027.i = bitcast float %.027.in.i to i32
-  %14 = and i32 %.027.i, -2147483648
-  %15 = or disjoint i32 %14, %13
-  %16 = bitcast i32 %15 to float
-  %17 = fpext float %16 to double
-  %18 = fmul double %17, %17
-  %19 = fmul double %18, %17
-  %20 = fpext float %0 to double
-  %21 = fadd double %20, %20
-  %22 = fadd double %21, %19
-  %23 = fmul double %22, %17
-  %24 = fadd double %19, %20
-  %25 = fadd double %19, %24
-  %26 = fdiv double %23, %25
-  %27 = fmul double %26, %26
-  %28 = fmul double %26, %27
-  %29 = fadd double %21, %28
-  %30 = fmul double %26, %29
-  %31 = fadd double %28, %20
-  %32 = fadd double %28, %31
-  %33 = fdiv double %30, %32
-  %34 = fptrunc double %33 to float
+  %14 = bitcast i32 %13 to float
+  %15 = tail call float @llvm.copysign.f32(float %14, float %.027.in.i)
+  %16 = fpext float %15 to double
+  %17 = fmul double %16, %16
+  %18 = fmul double %17, %16
+  %19 = fpext float %0 to double
+  %20 = fadd double %19, %19
+  %21 = fadd double %20, %18
+  %22 = fmul double %21, %16
+  %23 = fadd double %18, %19
+  %24 = fadd double %18, %23
+  %25 = fdiv double %22, %24
+  %26 = fmul double %25, %25
+  %27 = fmul double %25, %26
+  %28 = fadd double %20, %27
+  %29 = fmul double %25, %28
+  %30 = fadd double %27, %19
+  %31 = fadd double %27, %30
+  %32 = fdiv double %29, %31
+  %33 = fptrunc double %32 to float
   br label %_ZN4libm4math5cbrtf5cbrtf17he393467882cbef24E.llvm.4930786928582598558.exit
 
-35:                                               ; preds = %9
-  %36 = fmul float %0, 0x4170000000000000
-  %37 = tail call float @llvm.fabs.f32(float %36)
-  %38 = bitcast float %37 to i32
+34:                                               ; preds = %9
+  %35 = fmul float %0, 0x4170000000000000
+  %36 = tail call float @llvm.fabs.f32(float %35)
+  %37 = bitcast float %36 to i32
   br label %11
 
 _ZN4libm4math5cbrtf5cbrtf17he393467882cbef24E.llvm.4930786928582598558.exit: ; preds = %7, %9, %11
-  %.0.i = phi float [ %8, %7 ], [ %34, %11 ], [ %0, %9 ]
+  %.0.i = phi float [ %8, %7 ], [ %33, %11 ], [ %0, %9 ]
   ret float %.0.i
 }
 
@@ -54825,176 +54815,170 @@ define hidden void @_ZN7palette5oklab20linear_srgb_to_oklab17hd026ec765e39c569E.
 
 31:                                               ; preds = %27
   %32 = icmp eq i32 %25, 0
-  br i1 %32, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit", label %57
+  br i1 %32, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit", label %56
 
-33:                                               ; preds = %57, %27
-  %.sink30.i.i = phi i32 [ %60, %57 ], [ %25, %27 ]
-  %.sink29.i.i = phi i32 [ 642849266, %57 ], [ 709958130, %27 ]
-  %.027.in.i.i = phi float [ %58, %57 ], [ %11, %27 ]
+33:                                               ; preds = %56, %27
+  %.sink30.i.i = phi i32 [ %59, %56 ], [ %25, %27 ]
+  %.sink29.i.i = phi i32 [ 642849266, %56 ], [ 709958130, %27 ]
+  %.027.in.i.i = phi float [ %57, %56 ], [ %11, %27 ]
   %34 = udiv i32 %.sink30.i.i, 3
   %35 = add nuw nsw i32 %34, %.sink29.i.i
-  %.027.i.i = bitcast float %.027.in.i.i to i32
-  %36 = and i32 %.027.i.i, -2147483648
-  %37 = or disjoint i32 %36, %35
-  %38 = bitcast i32 %37 to float
-  %39 = fpext float %38 to double
-  %40 = fmul double %39, %39
-  %41 = fmul double %40, %39
-  %42 = fpext float %11 to double
-  %43 = fadd double %42, %42
-  %44 = fadd double %43, %41
-  %45 = fmul double %44, %39
-  %46 = fadd double %41, %42
-  %47 = fadd double %41, %46
-  %48 = fdiv double %45, %47
-  %49 = fmul double %48, %48
-  %50 = fmul double %48, %49
-  %51 = fadd double %43, %50
-  %52 = fmul double %48, %51
-  %53 = fadd double %50, %42
-  %54 = fadd double %50, %53
-  %55 = fdiv double %52, %54
-  %56 = fptrunc double %55 to float
+  %36 = bitcast i32 %35 to float
+  %37 = tail call float @llvm.copysign.f32(float %36, float %.027.in.i.i)
+  %38 = fpext float %37 to double
+  %39 = fmul double %38, %38
+  %40 = fmul double %39, %38
+  %41 = fpext float %11 to double
+  %42 = fadd double %41, %41
+  %43 = fadd double %42, %40
+  %44 = fmul double %43, %38
+  %45 = fadd double %40, %41
+  %46 = fadd double %40, %45
+  %47 = fdiv double %44, %46
+  %48 = fmul double %47, %47
+  %49 = fmul double %47, %48
+  %50 = fadd double %42, %49
+  %51 = fmul double %47, %50
+  %52 = fadd double %49, %41
+  %53 = fadd double %49, %52
+  %54 = fdiv double %51, %53
+  %55 = fptrunc double %54 to float
   br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
 
-57:                                               ; preds = %31
-  %58 = fmul float %11, 0x4170000000000000
-  %59 = tail call float @llvm.fabs.f32(float %58)
-  %60 = bitcast float %59 to i32
+56:                                               ; preds = %31
+  %57 = fmul float %11, 0x4170000000000000
+  %58 = tail call float @llvm.fabs.f32(float %57)
+  %59 = bitcast float %58 to i32
   br label %33
 
 "_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit": ; preds = %29, %31, %33
-  %.0.i.i = phi float [ %30, %29 ], [ %56, %33 ], [ %11, %31 ]
-  %61 = tail call float @llvm.fabs.f32(float %18)
-  %62 = bitcast float %61 to i32
-  %63 = icmp ugt i32 %62, 2139095039
-  br i1 %63, label %66, label %64
+  %.0.i.i = phi float [ %30, %29 ], [ %55, %33 ], [ %11, %31 ]
+  %60 = tail call float @llvm.fabs.f32(float %18)
+  %61 = bitcast float %60 to i32
+  %62 = icmp ugt i32 %61, 2139095039
+  br i1 %62, label %65, label %63
 
-64:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
-  %65 = icmp ult i32 %62, 8388608
-  br i1 %65, label %68, label %70
+63:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
+  %64 = icmp ult i32 %61, 8388608
+  br i1 %64, label %67, label %69
 
-66:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
-  %67 = fadd float %18, %18
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
+65:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit"
+  %66 = fadd float %18, %18
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit5"
 
-68:                                               ; preds = %64
-  %69 = icmp eq i32 %62, 0
-  br i1 %69, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6", label %94
+67:                                               ; preds = %63
+  %68 = icmp eq i32 %61, 0
+  br i1 %68, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit5", label %92
 
-70:                                               ; preds = %94, %64
-  %.sink30.i.i1 = phi i32 [ %97, %94 ], [ %62, %64 ]
-  %.sink29.i.i2 = phi i32 [ 642849266, %94 ], [ 709958130, %64 ]
-  %.027.in.i.i3 = phi float [ %95, %94 ], [ %18, %64 ]
-  %71 = udiv i32 %.sink30.i.i1, 3
-  %72 = add nuw nsw i32 %71, %.sink29.i.i2
-  %.027.i.i4 = bitcast float %.027.in.i.i3 to i32
-  %73 = and i32 %.027.i.i4, -2147483648
-  %74 = or disjoint i32 %73, %72
-  %75 = bitcast i32 %74 to float
-  %76 = fpext float %75 to double
-  %77 = fmul double %76, %76
-  %78 = fmul double %77, %76
-  %79 = fpext float %18 to double
-  %80 = fadd double %79, %79
-  %81 = fadd double %80, %78
-  %82 = fmul double %81, %76
-  %83 = fadd double %78, %79
-  %84 = fadd double %78, %83
-  %85 = fdiv double %82, %84
-  %86 = fmul double %85, %85
-  %87 = fmul double %85, %86
-  %88 = fadd double %80, %87
-  %89 = fmul double %85, %88
-  %90 = fadd double %87, %79
-  %91 = fadd double %87, %90
-  %92 = fdiv double %89, %91
-  %93 = fptrunc double %92 to float
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
+69:                                               ; preds = %92, %63
+  %.sink30.i.i1 = phi i32 [ %95, %92 ], [ %61, %63 ]
+  %.sink29.i.i2 = phi i32 [ 642849266, %92 ], [ 709958130, %63 ]
+  %.027.in.i.i3 = phi float [ %93, %92 ], [ %18, %63 ]
+  %70 = udiv i32 %.sink30.i.i1, 3
+  %71 = add nuw nsw i32 %70, %.sink29.i.i2
+  %72 = bitcast i32 %71 to float
+  %73 = tail call float @llvm.copysign.f32(float %72, float %.027.in.i.i3)
+  %74 = fpext float %73 to double
+  %75 = fmul double %74, %74
+  %76 = fmul double %75, %74
+  %77 = fpext float %18 to double
+  %78 = fadd double %77, %77
+  %79 = fadd double %78, %76
+  %80 = fmul double %79, %74
+  %81 = fadd double %76, %77
+  %82 = fadd double %76, %81
+  %83 = fdiv double %80, %82
+  %84 = fmul double %83, %83
+  %85 = fmul double %83, %84
+  %86 = fadd double %78, %85
+  %87 = fmul double %83, %86
+  %88 = fadd double %85, %77
+  %89 = fadd double %85, %88
+  %90 = fdiv double %87, %89
+  %91 = fptrunc double %90 to float
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit5"
 
-94:                                               ; preds = %68
-  %95 = fmul float %18, 0x4170000000000000
-  %96 = tail call float @llvm.fabs.f32(float %95)
+92:                                               ; preds = %67
+  %93 = fmul float %18, 0x4170000000000000
+  %94 = tail call float @llvm.fabs.f32(float %93)
+  %95 = bitcast float %94 to i32
+  br label %69
+
+"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit5": ; preds = %65, %67, %69
+  %.0.i.i4 = phi float [ %66, %65 ], [ %91, %69 ], [ %18, %67 ]
+  %96 = tail call float @llvm.fabs.f32(float %23)
   %97 = bitcast float %96 to i32
-  br label %70
+  %98 = icmp ugt i32 %97, 2139095039
+  br i1 %98, label %101, label %99
 
-"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6": ; preds = %66, %68, %70
-  %.0.i.i5 = phi float [ %67, %66 ], [ %93, %70 ], [ %18, %68 ]
-  %98 = tail call float @llvm.fabs.f32(float %23)
-  %99 = bitcast float %98 to i32
-  %100 = icmp ugt i32 %99, 2139095039
-  br i1 %100, label %103, label %101
+99:                                               ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit5"
+  %100 = icmp ult i32 %97, 8388608
+  br i1 %100, label %103, label %105
 
-101:                                              ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
-  %102 = icmp ult i32 %99, 8388608
-  br i1 %102, label %105, label %107
+101:                                              ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit5"
+  %102 = fadd float %23, %23
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit10"
 
-103:                                              ; preds = %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit6"
-  %104 = fadd float %23, %23
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit12"
+103:                                              ; preds = %99
+  %104 = icmp eq i32 %97, 0
+  br i1 %104, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit10", label %128
 
-105:                                              ; preds = %101
-  %106 = icmp eq i32 %99, 0
-  br i1 %106, label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit12", label %131
+105:                                              ; preds = %128, %99
+  %.sink30.i.i6 = phi i32 [ %131, %128 ], [ %97, %99 ]
+  %.sink29.i.i7 = phi i32 [ 642849266, %128 ], [ 709958130, %99 ]
+  %.027.in.i.i8 = phi float [ %129, %128 ], [ %23, %99 ]
+  %106 = udiv i32 %.sink30.i.i6, 3
+  %107 = add nuw nsw i32 %106, %.sink29.i.i7
+  %108 = bitcast i32 %107 to float
+  %109 = tail call float @llvm.copysign.f32(float %108, float %.027.in.i.i8)
+  %110 = fpext float %109 to double
+  %111 = fmul double %110, %110
+  %112 = fmul double %111, %110
+  %113 = fpext float %23 to double
+  %114 = fadd double %113, %113
+  %115 = fadd double %114, %112
+  %116 = fmul double %115, %110
+  %117 = fadd double %112, %113
+  %118 = fadd double %112, %117
+  %119 = fdiv double %116, %118
+  %120 = fmul double %119, %119
+  %121 = fmul double %119, %120
+  %122 = fadd double %114, %121
+  %123 = fmul double %119, %122
+  %124 = fadd double %121, %113
+  %125 = fadd double %121, %124
+  %126 = fdiv double %123, %125
+  %127 = fptrunc double %126 to float
+  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit10"
 
-107:                                              ; preds = %131, %101
-  %.sink30.i.i7 = phi i32 [ %134, %131 ], [ %99, %101 ]
-  %.sink29.i.i8 = phi i32 [ 642849266, %131 ], [ 709958130, %101 ]
-  %.027.in.i.i9 = phi float [ %132, %131 ], [ %23, %101 ]
-  %108 = udiv i32 %.sink30.i.i7, 3
-  %109 = add nuw nsw i32 %108, %.sink29.i.i8
-  %.027.i.i10 = bitcast float %.027.in.i.i9 to i32
-  %110 = and i32 %.027.i.i10, -2147483648
-  %111 = or disjoint i32 %110, %109
-  %112 = bitcast i32 %111 to float
-  %113 = fpext float %112 to double
-  %114 = fmul double %113, %113
-  %115 = fmul double %114, %113
-  %116 = fpext float %23 to double
-  %117 = fadd double %116, %116
-  %118 = fadd double %117, %115
-  %119 = fmul double %118, %113
-  %120 = fadd double %115, %116
-  %121 = fadd double %115, %120
-  %122 = fdiv double %119, %121
-  %123 = fmul double %122, %122
-  %124 = fmul double %122, %123
-  %125 = fadd double %117, %124
-  %126 = fmul double %122, %125
-  %127 = fadd double %124, %116
-  %128 = fadd double %124, %127
-  %129 = fdiv double %126, %128
-  %130 = fptrunc double %129 to float
-  br label %"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit12"
+128:                                              ; preds = %103
+  %129 = fmul float %23, 0x4170000000000000
+  %130 = tail call float @llvm.fabs.f32(float %129)
+  %131 = bitcast float %130 to i32
+  br label %105
 
-131:                                              ; preds = %105
-  %132 = fmul float %23, 0x4170000000000000
-  %133 = tail call float @llvm.fabs.f32(float %132)
-  %134 = bitcast float %133 to i32
-  br label %107
-
-"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit12": ; preds = %103, %105, %107
-  %.0.i.i11 = phi float [ %104, %103 ], [ %130, %107 ], [ %23, %105 ]
-  %135 = fmul float %.0.i.i, 0x3FCAF02A40000000
-  %136 = fmul float %.0.i.i5, 0x3FE9655120000000
-  %137 = fadd float %135, %136
-  %138 = fmul float %.0.i.i11, 0x3F70ADD9C0000000
+"_ZN7palette3num4libm52_$LT$impl$u20$palette..num..Cbrt$u20$for$u20$f32$GT$4cbrt17heccc99f238063d73E.llvm.4930786928582598558.exit10": ; preds = %101, %103, %105
+  %.0.i.i9 = phi float [ %102, %101 ], [ %127, %105 ], [ %23, %103 ]
+  %132 = fmul float %.0.i.i, 0x3FCAF02A40000000
+  %133 = fmul float %.0.i.i4, 0x3FE9655120000000
+  %134 = fadd float %132, %133
+  %135 = fmul float %.0.i.i9, 0x3F70ADD9C0000000
+  %136 = fsub float %134, %135
+  %137 = fmul float %.0.i.i, 0x3FFFA5E1C0000000
+  %138 = fmul float %.0.i.i4, 0x40036DC1C0000000
   %139 = fsub float %137, %138
-  %140 = fmul float %.0.i.i, 0x3FFFA5E1C0000000
-  %141 = fmul float %.0.i.i5, 0x40036DC1C0000000
-  %142 = fsub float %140, %141
-  %143 = fmul float %.0.i.i11, 0x3FDCD68700000000
+  %140 = fmul float %.0.i.i9, 0x3FDCD68700000000
+  %141 = fadd float %139, %140
+  %142 = fmul float %.0.i.i, 0x3F9A869680000000
+  %143 = fmul float %.0.i.i4, 0x3FE90C7760000000
   %144 = fadd float %142, %143
-  %145 = fmul float %.0.i.i, 0x3F9A869680000000
-  %146 = fmul float %.0.i.i5, 0x3FE90C7760000000
-  %147 = fadd float %145, %146
-  %148 = fmul float %.0.i.i11, 0x3FE9E0AC00000000
-  %149 = fsub float %147, %148
-  store float %139, ptr %0, align 4
-  %150 = getelementptr inbounds i8, ptr %0, i64 4
-  store float %144, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %0, i64 8
-  store float %149, ptr %151, align 4
+  %145 = fmul float %.0.i.i9, 0x3FE9E0AC00000000
+  %146 = fsub float %144, %145
+  store float %136, ptr %0, align 4
+  %147 = getelementptr inbounds i8, ptr %0, i64 4
+  store float %141, ptr %147, align 4
+  %148 = getelementptr inbounds i8, ptr %0, i64 8
+  store float %146, ptr %148, align 4
   ret void
 }
 
@@ -106044,6 +106028,9 @@ declare double @llvm.fabs.f64(double) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #76
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare float @llvm.copysign.f32(float, float) #74
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #74
