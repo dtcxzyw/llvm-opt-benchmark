@@ -7698,8 +7698,8 @@ r_bytes1.exit:                                    ; preds = %120
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @nan(ptr noundef) local_unnamed_addr #10
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare double @nan(ptr nocapture noundef) local_unnamed_addr #14
 
 declare double @ruby_strtod(ptr noundef, ptr noundef) local_unnamed_addr #1
 

@@ -17000,8 +17000,8 @@ eh.resume:                                        ; preds = %if.then.i.i.i188, %
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare float @nanf(ptr noundef) local_unnamed_addr #19
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare float @nanf(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt3setIfSt4lessIfESaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -19523,8 +19523,8 @@ _ZNSt3setIdSt4lessIdESaIdEED2Ev.exit462:          ; preds = %ehcleanup158
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @nan(ptr noundef) local_unnamed_addr #19
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare double @nan(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #20

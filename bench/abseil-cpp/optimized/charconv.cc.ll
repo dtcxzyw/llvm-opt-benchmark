@@ -231,7 +231,7 @@ if.else.i60.i:                                    ; preds = %if.then.i57.i
   br i1 %cmp.i13.i66.i, label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i68.i, label %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i67.i
 
 _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i67.i: ; preds = %if.else.i60.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i50.i, ptr nonnull align 1 %12, i64 %.sroa.speculated.i65.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i50.i, ptr nonnull align 1 %12, i64 %.sroa.speculated.i65.i, i1 false)
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i68.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i68.i:        ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i67.i, %if.else.i60.i
@@ -395,7 +395,7 @@ if.else.i158.i:                                   ; preds = %if.then.i155.i
   br i1 %cmp.i13.i164.i, label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i166.i, label %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i165.i
 
 _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i165.i: ; preds = %if.else.i158.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i148.i, ptr nonnull align 1 %21, i64 %.sroa.speculated.i163.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i148.i, ptr nonnull align 1 %21, i64 %.sroa.speculated.i163.i, i1 false)
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i166.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i166.i:       ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i165.i, %if.else.i158.i
@@ -954,7 +954,7 @@ if.else.i61.i:                                    ; preds = %if.then.i58.i
   br i1 %cmp.i13.i67.i, label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i69.i, label %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i68.i
 
 _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i68.i: ; preds = %if.else.i61.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i51.i, ptr nonnull align 1 %12, i64 %.sroa.speculated.i66.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i51.i, ptr nonnull align 1 %12, i64 %.sroa.speculated.i66.i, i1 false)
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i69.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i69.i:        ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i68.i, %if.else.i61.i
@@ -1118,7 +1118,7 @@ if.else.i159.i:                                   ; preds = %if.then.i156.i
   br i1 %cmp.i13.i165.i, label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i167.i, label %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i166.i
 
 _ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i166.i: ; preds = %if.else.i159.i
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i149.i, ptr nonnull align 1 %21, i64 %.sroa.speculated.i164.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %n_char_sequence.i149.i, ptr nonnull align 1 %21, i64 %.sroa.speculated.i164.i, i1 false)
   br label %_ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i167.i
 
 _ZSt6copy_nIPKclPcET1_T_T0_S3_.exit.i167.i:       ; preds = %_ZSt8__copy_nIPKclPcET1_T_T0_S3_St26random_access_iterator_tag.exit.i.i166.i, %if.else.i159.i
@@ -1474,16 +1474,13 @@ declare void @_ZN4absl16strings_internal10ParseFloatILi16EEENS0_11ParsedFloatEPK
 
 declare void @_ZN4absl16strings_internal10ParseFloatILi10EEENS0_11ParsedFloatEPKcS4_NS_12chars_formatE(ptr sret(%"struct.absl::strings_internal::ParsedFloat") align 8, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #4
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @nan(ptr noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare double @nan(ptr nocapture noundef) local_unnamed_addr #4
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #6
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl12_GLOBAL__N_111MustRoundUpEmiRKNS_16strings_internal11ParsedFloatE(i64 noundef %guess_mantissa, i32 noundef %guess_exponent, ptr noundef nonnull align 8 dereferenceable(48) %parsed_decimal) unnamed_addr #3 {
@@ -1604,11 +1601,11 @@ declare noundef i32 @_ZNK4absl16strings_internal11BigUnsignedILi84EE4sizeEv(ptr 
 
 declare noundef i32 @_ZNK4absl16strings_internal11BigUnsignedILi84EE7GetWordEi(ptr noundef nonnull align 4 dereferenceable(340), i32 noundef) local_unnamed_addr #0
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare float @nanf(ptr noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare float @nanf(ptr nocapture noundef) local_unnamed_addr #4
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_charconv.cc() #7 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_charconv.cc() #6 section ".text.startup" {
 entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #11
@@ -1616,10 +1613,13 @@ entry:
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #8
+declare i64 @llvm.smin.i64(i64, i64) #7
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #8
+declare i32 @llvm.smax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9
@@ -1631,11 +1631,11 @@ attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protect
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #9 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #10 = { nounwind willreturn memory(read) }
 attributes #11 = { nounwind }

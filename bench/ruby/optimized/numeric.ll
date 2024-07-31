@@ -7106,8 +7106,8 @@ num_div.exit:                                     ; preds = %.lr.ph.i.i, %21
 
 declare double @rb_big_fdiv_double(i64 noundef, i64 noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare double @nan(ptr noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
+declare double @nan(ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind sspstrong uwtable
 define hidden i64 @rb_int_fdiv(i64 noundef %0, i64 noundef %1) #2 {
@@ -8396,7 +8396,7 @@ define internal i64 @num_funcall_bit_1(i64 noundef %0, i64 noundef %1, i32 nound
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @coerce_failed(i64 noundef %0, i64 noundef %1) unnamed_addr #12 {
+define internal fastcc void @coerce_failed(i64 noundef %0, i64 noundef %1) unnamed_addr #13 {
   %3 = and i64 %1, 7
   %4 = icmp ne i64 %3, 0
   %5 = icmp eq i64 %1, 0
@@ -8786,7 +8786,7 @@ define hidden i64 @rb_int_bit_length(i64 noundef %0) local_unnamed_addr #2 {
 declare i64 @rb_big_bit_length(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(none) uwtable
-define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #13 {
+define hidden i64 @rb_ulong_isqrt(i64 noundef %0) local_unnamed_addr #14 {
   %2 = icmp ult i64 %0, 9007199254740992
   br i1 %2, label %22, label %3
 
@@ -9258,7 +9258,7 @@ declare i64 @rb_define_class(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare extern_weak void @rb_define_method(i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal noundef i64 @num_sadded(i64 noundef %0, i64 noundef %1) #12 {
+define internal noundef i64 @num_sadded(i64 noundef %0, i64 noundef %1) #13 {
   %3 = tail call i64 @rb_to_id(i64 noundef %1) #23
   %4 = tail call i64 @rb_singleton_class(i64 noundef %0) #23
   tail call void @rb_remove_method_id(i64 noundef %4, i64 noundef %3) #23
@@ -14396,7 +14396,7 @@ declare void @rb_load_with_builtin_functions(ptr noundef, ptr noundef) local_unn
 declare i64 @rb_intern2(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #15
 
 declare i32 @rb_method_basic_definition_p(i64 noundef, i64 noundef) local_unnamed_addr #3
 
@@ -14422,12 +14422,12 @@ declare i64 @rb_uint2big(i64 noundef) local_unnamed_addr #3
 declare i32 @ruby_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #15
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #12
 
 declare i64 @rb_big2ulong(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @rb_out_of_short(i64 noundef %0) unnamed_addr #12 {
+define internal fastcc void @rb_out_of_short(i64 noundef %0) unnamed_addr #13 {
   %2 = load i64, ptr @rb_eRangeError, align 8
   %3 = icmp slt i64 %0, 0
   %4 = select i1 %3, ptr @.str.9, ptr @.str.10
@@ -14456,7 +14456,7 @@ define internal i64 @num_funcall_op_1(i64 noundef %0, i64 noundef %1, i32 nounde
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define internal fastcc void @num_funcall_op_1_recursion(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #12 {
+define internal fastcc void @num_funcall_op_1_recursion(i64 noundef %0, i64 noundef %1, i64 noundef %2) unnamed_addr #13 {
   %4 = tail call ptr @rb_id2name(i64 noundef %1) #23
   %5 = load i8, ptr %4, align 1
   %6 = sext i8 %5 to i32
@@ -16130,7 +16130,7 @@ declare ptr @ruby_dtoa(double noundef, i32 noundef, i32 noundef, ptr noundef, pt
 declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #15
 
 declare i64 @rb_str_cat(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
@@ -16294,10 +16294,10 @@ attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-p
 attributes #9 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { noreturn nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #15 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #16 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #18 = { mustprogress nofree nounwind sspstrong willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
